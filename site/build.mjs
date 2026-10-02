@@ -13,7 +13,7 @@
  * Output: dist/index.html  (single self-contained file)
  */
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync, copyFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const SITE = 'D:\\AgentSwarm\\site';
@@ -77,9 +77,65 @@ out = out.replace(
   "data generated ${new Date(D.generatedAt).toLocaleString()} · self-contained build"
 );
 
+// ---------------------------------------------------------------------------
+// VERIFY THE REWRITES ACTUALLY HAPPENED.
+//
+// String.replace() returns the input unchanged when the pattern is not found — it
+// does not throw. So if index.html is edited in a way that moves one of the anchors
+// above, this build silently emits a page that still calls fetch() and therefore
+// shows "Could not load data/findings.json" when opened from file:// or GitHub Pages.
+// That failure looks like a data problem and is miserable to debug. Fail loudly here
+// instead, at build time, where the cause is obvious.
+// ---------------------------------------------------------------------------
+const failures = [];
+if (!out.includes('id="findings-data"')) failures.push('inline data block was not injected');
+if (out.includes("fetch('data/findings.json')")) failures.push("fetch('data/findings.json') still present — loader was not replaced");
+if (!out.includes('Promise.resolve(window.__FINDINGS__)')) failures.push('inline-data loader was not wired up');
+if (failures.length) {
+  console.error('BUILD FAILED — index.html changed in a way build.mjs did not expect:');
+  for (const f of failures) console.error(`  - ${f}`);
+  console.error('\nThe rewrite anchors in build.mjs no longer match site/index.html.');
+  console.error('Fix the anchors (or index.html) so the self-contained build is correct.');
+  process.exit(1);
+}
+
 mkdirSync(join(SITE, 'dist'), { recursive: true });
 writeFileSync(join(SITE, 'dist', 'index.html'), out, 'utf8');
 
 const size = (out.length / 1024).toFixed(0);
 console.log(`wrote dist/index.html (${size} KB, self-contained)`);
+
+// ---------------------------------------------------------------------------
+// PUBLISH TO docs/ FOR GITHUB PAGES.
+//
+// GitHub Pages can only serve from the repository root or /docs — not from an
+// arbitrary subdirectory. The site source lives in site/, so it must be copied to
+// docs/ at the repo root to be reachable.
+//
+// This is done HERE, in the same step as the build, on purpose: a separate manual
+// copy step is one people forget, and a stale docs/ means Pages keeps serving an old
+// page while the source looks correct. (That is exactly how the previous dist/ went
+// stale.) One command now produces both the artifact and the deployable copy.
+// ---------------------------------------------------------------------------
+const REPO = join(SITE, '..');
+const docsDir = join(REPO, 'docs');
+try {
+  mkdirSync(docsDir, { recursive: true });
+  writeFileSync(join(docsDir, 'index.html'), out, 'utf8');
+  // .nojekyll tells GitHub to serve these files verbatim instead of running them
+  // through Jekyll, which would otherwise try to process the HTML.
+  writeFileSync(join(docsDir, '.nojekyll'), '', 'utf8');
+  for (const asset of ['preview.png']) {
+    const src = join(SITE, 'dist', asset);
+    if (existsSync(src)) {
+      copyFileSync(src, join(docsDir, asset));
+    }
+  }
+  console.log(`wrote docs/index.html (GitHub Pages, /docs)`);
+} catch (e) {
+  console.error(`could not write docs/ (Pages copy skipped): ${e.message}`);
+}
+
 console.log(`\nThis single file works from file://, a local server, or any static host.`);
+console.log(`Commit and push to publish:`);
+console.log(`  git add -A && git commit -m "Rebuild site" && git push`);

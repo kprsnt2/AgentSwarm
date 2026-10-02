@@ -1,0 +1,256 @@
+{
+  "generatedAt": "2026-10-02T14:38:56.057Z",
+  "posts": [
+    {
+      "runId": "phase2-2026-10-02T07-00-27",
+      "file": "phase2-2026-10-02t07-00-27.md",
+      "title": "phase2-adversarial — phase2-2026-10-02T07-00-27",
+      "phase": "phase2-adversarial",
+      "generatedAt": "2026-10-02T14:38:56.055Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 20,
+        "okTurns": 20,
+        "agents": 4,
+        "toolCalls": 616,
+        "thinkingTokens": 124370,
+        "cost": 0.102104775,
+        "violations": 0,
+        "filesWritten": 38,
+        "incidents": 0
+      },
+      "halted": "max turns reached (20)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Travel at or near light speed\" (lightspeed)",
+          "turns": 5
+        },
+        {
+          "name": "Raman",
+          "purpose": "Investigate \"Origin of the universe\" (cosmogenesis)",
+          "turns": 5
+        },
+        {
+          "name": "Hypatia",
+          "purpose": "Investigate \"New drug discovery\" (drug-discovery)",
+          "turns": 5
+        },
+        {
+          "name": "Nagarjuna",
+          "purpose": "Investigate \"Are aliens real?\" (extraterrestrial)",
+          "turns": 5
+        }
+      ]
+    },
+    {
+      "runId": "phase1-2026-10-02T05-24-07",
+      "file": "phase1-2026-10-02t05-24-07.md",
+      "title": "phase1-emergence — phase1-2026-10-02T05-24-07",
+      "phase": "phase1-emergence",
+      "generatedAt": "2026-10-02T14:38:56.009Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 10,
+        "okTurns": 8,
+        "agents": 6,
+        "toolCalls": 660,
+        "thinkingTokens": 161287,
+        "cost": 0.06669314999999999,
+        "violations": 0,
+        "filesWritten": 51,
+        "incidents": 3
+      },
+      "halted": "kill switch engaged (STOP file present)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Origin of the universe\" (cosmogenesis)",
+          "turns": 2
+        },
+        {
+          "name": "Raman",
+          "purpose": "Investigate \"Travel at or near light speed\" (lightspeed)",
+          "turns": 2
+        },
+        {
+          "name": "Hypatia",
+          "purpose": "Investigate \"Practical space propulsion\" (propulsion)",
+          "turns": 2
+        },
+        {
+          "name": "Nagarjuna",
+          "purpose": "Investigate \"New drug discovery\" (drug-discovery)",
+          "turns": 2
+        },
+        {
+          "name": "Aryabhata",
+          "purpose": "Investigate \"Are Hindu gods / claims true?\" (dharma-truth-claims)",
+          "turns": 1
+        },
+        {
+          "name": "Sagan",
+          "purpose": "Investigate \"Are aliens real?\" (extraterrestrial)",
+          "turns": 1
+        }
+      ]
+    },
+    {
+      "runId": "phase1-2026-10-02T04-31-43",
+      "file": "phase1-2026-10-02t04-31-43.md",
+      "title": "phase1-emergence — phase1-2026-10-02T04-31-43",
+      "phase": "phase1-emergence",
+      "generatedAt": "2026-10-02T14:38:55.993Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 10,
+        "okTurns": 7,
+        "agents": 6,
+        "toolCalls": 594,
+        "thinkingTokens": 146597,
+        "cost": 0.119838375,
+        "violations": 0,
+        "filesWritten": 42,
+        "incidents": 0
+      },
+      "halted": "kill switch engaged (STOP file present)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Origin of the universe\" (cosmogenesis)",
+          "turns": 2
+        },
+        {
+          "name": "Raman",
+          "purpose": "Investigate \"Travel at or near light speed\" (lightspeed)",
+          "turns": 2
+        },
+        {
+          "name": "Hypatia",
+          "purpose": "Investigate \"Practical space propulsion\" (propulsion)",
+          "turns": 2
+        },
+        {
+          "name": "Nagarjuna",
+          "purpose": "Investigate \"New drug discovery\" (drug-discovery)",
+          "turns": 2
+        },
+        {
+          "name": "Agent4",
+          "purpose": "Investigate \"Are Hindu gods / claims true?\" (dharma-truth-claims)",
+          "turns": 1
+        },
+        {
+          "name": "Agent5",
+          "purpose": "Investigate \"Are aliens real?\" (extraterrestrial)",
+          "turns": 1
+        }
+      ]
+    },
+    {
+      "runId": "direct-2026-10-02T12-03-14",
+      "file": "direct-2026-10-02t12-03-14.md",
+      "title": "direct — direct-2026-10-02T12-03-14",
+      "phase": "direct",
+      "generatedAt": "2026-10-02T14:38:55.981Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 18,
+        "okTurns": 18,
+        "agents": 1,
+        "toolCalls": 320,
+        "thinkingTokens": 190706,
+        "cost": 0,
+        "violations": 0,
+        "filesWritten": 90,
+        "incidents": 0
+      },
+      "halted": "max wall clock reached (60.2m)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"what about Lord Krishna and he is real, Mahabharata happened?\" (what-about-lord-krishna-and)",
+          "turns": 18
+        }
+      ]
+    },
+    {
+      "runId": "direct-2026-10-02T10-08-04",
+      "file": "direct-2026-10-02t10-08-04.md",
+      "title": "direct — direct-2026-10-02T10-08-04",
+      "phase": "direct",
+      "generatedAt": "2026-10-02T14:38:55.953Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 18,
+        "okTurns": 18,
+        "agents": 1,
+        "toolCalls": 314,
+        "thinkingTokens": 219326,
+        "cost": 0,
+        "violations": 0,
+        "filesWritten": 94,
+        "incidents": 0
+      },
+      "halted": "max wall clock reached (60.7m)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"what do Hindu texts say about multiple universes\" (what-do-hindu-texts-say)",
+          "turns": 18
+        }
+      ]
+    },
+    {
+      "runId": "direct-2026-10-02T09-43-31",
+      "file": "direct-2026-10-02t09-43-31.md",
+      "title": "direct — direct-2026-10-02T09-43-31",
+      "phase": "direct",
+      "generatedAt": "2026-10-02T14:38:55.938Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 4,
+        "okTurns": 4,
+        "agents": 1,
+        "toolCalls": 88,
+        "thinkingTokens": 48970,
+        "cost": 0,
+        "violations": 0,
+        "filesWritten": 20,
+        "incidents": 0
+      },
+      "halted": "max turns reached (4)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"discover about multiverse or any reference in hindu religious texts\" (discover-about-multiverse-or-any)",
+          "turns": 4
+        }
+      ]
+    }
+  ]
+}
