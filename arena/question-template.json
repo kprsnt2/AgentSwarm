@@ -1,0 +1,24 @@
+{
+  "name": "my-experiment",
+  "turns": 24,
+  "minutes": 75,
+  "maxCostUsd": 3,
+  "agents": 4,
+  "populationCap": 8,
+  "substrates": [
+    "agy",
+    "omp"
+  ],
+  "questions": [
+    {
+      "id": "my-question",
+      "title": "The question in one line",
+      "class": "engineering",
+      "brief": "What you want the agents to actually do. Be specific about the angle you care about.",
+      "groundTruth": [
+        "A fact they must not contradict (optional but recommended)"
+      ],
+      "deliverable": "The concrete artifact you want back (a table, a proof, a design, a list)."
+    }
+  ]
+}

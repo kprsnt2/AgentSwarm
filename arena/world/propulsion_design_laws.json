@@ -1,0 +1,100 @@
+{
+  "y_star": 1.5936242600400399,
+  "h_star": 1.54413865237087,
+  "t_factor": 0.772069326185435,
+  "ranked": [
+    {
+      "rank": 1,
+      "drive": "Chemical LH2/LOX",
+      "isp_s": "320-452",
+      "ve_km_s": "3.1-4.4",
+      "thrust": "0.5-2.3 MN/engine",
+      "frontier": "LEO/Moon/Mars orbit; Mars round trip MR~15",
+      "blocker": "Bond-energy ceiling: Q~13 MJ/kg caps Isp<=520 s (ve<=5.1 km/s); propellant is the vehicle"
+    },
+    {
+      "rank": 2,
+      "drive": "Solar electric (Hall/ion)",
+      "isp_s": "1800-4170",
+      "ve_km_s": "18-41",
+      "thrust": "0.24-0.6 N/kW-class",
+      "frontier": "Inner-system cargo, station-keeping; Dawn-class",
+      "blocker": "Solar flux falls as 1/r^2; array mass/area grows faster than thrust beyond ~2-3 AU"
+    },
+    {
+      "rank": 3,
+      "drive": "Solar sail",
+      "isp_s": "n/a (no propellant)",
+      "ve_km_s": "n/a",
+      "thrust": "9.08 uN/m^2 at 1 AU",
+      "frontier": "Inner-system slow cruise; 30 km/s in 214-382 d",
+      "blocker": "Photon pressure minuscule and 1/r^2; areal density/deployment"
+    },
+    {
+      "rank": 4,
+      "drive": "Nuclear thermal (solid core)",
+      "isp_s": "850-950",
+      "ve_km_s": "8.3-9.3",
+      "thrust": "111-334 kN",
+      "frontier": "Mars in ~3-4 months; single-stage dv<=19 km/s",
+      "blocker": "Fuel-element/chamber thermal limit ~3000 K in hot H2; corrosion and fuel retention"
+    },
+    {
+      "rank": 5,
+      "drive": "Nuclear electric (fission+ion)",
+      "isp_s": "2600-8000",
+      "ve_km_s": "25-78",
+      "thrust": "15-41 N at 1 MWe",
+      "frontier": "Outer-planet orbiters/cargo",
+      "blocker": "Reactor specific mass ~20 kg/kW plus waste-heat radiators; specific-power wall caps trip time"
+    },
+    {
+      "rank": 6,
+      "drive": "Laser-pushed sail (Starshot-class)",
+      "isp_s": "n/a (external)",
+      "ve_km_s": "n/a",
+      "thrust": "667 N on 1 g sail (100 GW)",
+      "frontier": "0.1-0.2c flyby of Proxima (~21-42 yr)",
+      "blocker": "100 GW phased array + sail must survive GW/m^2 and 1e5 g; flyby-only without target-side braking"
+    },
+    {
+      "rank": 7,
+      "drive": "Nuclear pulse (fission Orion)",
+      "isp_s": "2000-10000",
+      "ve_km_s": "20-98",
+      "thrust": "1e7 N-class",
+      "frontier": "Fast outer-system; marginal interstellar (MR>1e400 to 0.1c)",
+      "blocker": "Pulse-unit production, pusher-plate ablation/neutron damage, test-ban regime; fission Isp too low for 0.1c"
+    },
+    {
+      "rank": 8,
+      "drive": "Fusion direct (D-He3, Daedalus-class)",
+      "isp_s": "1.0-2.7e6 (ve=0.034-0.089c)",
+      "ve_km_s": "10300-26500",
+      "thrust": "~1e6-1e7 N (conceptual)",
+      "frontier": "0.05c flyby at MR<=10; 0.10c flyby at MR 3-19; Daedalus 0.12c at MR~14",
+      "blocker": "No ignited net-positive device; directed charged-product fraction (n tau T regime); He-3 supply ~1.3 t per t of probe"
+    },
+    {
+      "rank": 9,
+      "drive": "Antimatter (photon/pion)",
+      "isp_s": "up to 3.06e7 (ve=c ideal)",
+      "ve_km_s": "up to 3e5",
+      "thrust": "~1e3 N (conceptual)",
+      "frontier": "Only propellant drive that closes the rocket equation at MR~1.1-1.2",
+      "blocker": "Production/storage: CERN makes nanograms/yr; macroscopic trapping unsolved; cost ~$6e16/kg"
+    }
+  ],
+  "closure_laws_rev2": {
+    "fusion_ve_ceiling": "ve <= sqrt(2*charged_fraction*Q_per_kg): D-T 0.0387c (charged only), D-He3 0.0884c, p-B11 0.0394c; Q/kg = 3.38e14 (D-T), 3.63e14 (D-He3), 6.99e13 (p-B11) J/kg",
+    "fusion_MR_to_0.1c": "3.1 (D-He3 ceiling) to 18.4 (Daedalus ve=0.034c); rev-1 value 1e13 was wrong by 1e12",
+    "crewed_roundtrip_closure": "Isp_req(MR=10) = 2.655e6 s at 0.1c accel+decel; photon MR = e^{0.2} = 1.221",
+    "carried_return_penalty": "MR_carry = MR_leg^2: fusion 0.1c -> 337 per kg landed payload",
+    "beam_energy_floor": "E/kg >= (gamma-1)c^2 = 4.53e14 J/kg at 0.1c = 0.108 Mt TNT = 2.2 min of world electricity per kg",
+    "array_scaling_law": "P = KE*m/(f*L), linear in craft mass: 1 g -> 37 GW, 1 kg -> 37 TW, 1 t -> 37 PW (0.05 AU beam); reproduces Starshot 100 GW at 1 g / 0.0186 AU",
+    "photon_momentum_tax": "beam energy ~5x craft KE at 0.2c (momentum-to-energy ratio of light)",
+    "solar_sail_terminal_velocity": "v_max = sqrt(2*a_1AU*AU^2/r0): 0.1 g/m^2 from 0.5 AU -> 233 km/s = 7.8e-4 c (Proxima 5460 yr); from 0.05 AU -> 737 km/s = 2.5e-3 c",
+    "antimatter_rate_wall": "2.5 kg at 1 ng/yr -> 2.5e12 yr = 180x age of universe; 1e6x rate -> 2.5e6 yr; fuel mass only 4.2 g/kg payload at eta=0.3 (0.1c)",
+    "capability_matrix_MR10": "chemical dv=10.2 km/s; NTR 19.2; pulse 67.7; NEP/ion 94.2; fusion 23700; antimatter 690300 km/s"
+  }
+}

@@ -1,0 +1,724 @@
+{
+  "relativistic_correction": {
+    "isp_req_MR10_beta_0.01": {
+      "relativistic_s": 132769.65164084337,
+      "classical_s": 132765.2258677656,
+      "pct_optimism_of_classical": -0.003333422226436955
+    },
+    "isp_req_MR10_beta_0.05": {
+      "relativistic_s": 664380.1490472478,
+      "classical_s": 663826.1293388281,
+      "pct_optimism_of_classical": -0.08338896175844601
+    },
+    "isp_req_MR10_beta_0.1": {
+      "relativistic_s": 1332104.510403706,
+      "classical_s": 1327652.2586776563,
+      "pct_optimism_of_classical": -0.3342269087205807
+    },
+    "isp_req_MR10_beta_0.2": {
+      "relativistic_s": 2691583.332973921,
+      "classical_s": 2655304.5173553126,
+      "pct_optimism_of_classical": -1.3478615049426823
+    },
+    "isp_req_MR10_beta_0.5": {
+      "relativistic_s": 7292875.432306226,
+      "classical_s": 6638261.293388281,
+      "pct_optimism_of_classical": -8.97607733731627
+    }
+  },
+  "drives": [
+    {
+      "drive": "Chemical LH2/LOX",
+      "family": "chemical",
+      "isp_s": 452,
+      "ve_m_s": 4432.605799999999,
+      "ve_beta_c": 1.4785581430470806e-05,
+      "eps": 0.1,
+      "eps_note": "textbook stage structural factor; 0.08-0.12 across hydrogen stages",
+      "dv_zero_payload_km_s": 10.206452038198945,
+      "beta_zero_payload_single_stage": 3.4045059379898165e-05,
+      "isp_req_MR5_s": 1905810.6959384168,
+      "isp_req_MR10_s": 1332104.510403706,
+      "isp_req_MR100_s": 666052.255201853,
+      "lambda_single_stage": NaN,
+      "lambda_staged_infinite": 0.0,
+      "lambda_any_stage_bracket": "impossible",
+      "ve_effective_staged_beta_c": 1.642842381163423e-05,
+      "staging_de_rate_pct": 11.111111111111116,
+      "n_stages_zero_payload_0p1c": 2938,
+      "dv_at_lam_p001_staged_km_s": 22.68100448605727,
+      "beta_at_lam_p001_staged": 7.565568725142362e-05,
+      "pct_of_dv_at_lam_p001_for_solar_escape": 71.3555115669589,
+      "dv_left_after_solar_escape_km_s": 6.496857706506208,
+      "blocker": {
+        "ve_required_m_s": 7257490.387194725,
+        "ve_required_beta_c": 0.024208382144138944,
+        "ve_shortfall_factor": 1637.296595874762,
+        "eps_required": -1472.5669362872857,
+        "eps_actual": 0.1,
+        "eps_headroom": 1472.6669362872856,
+        "binding_constraint": "EXHAUST VELOCITY -- eps would have to be <= 0, i.e. the drive fails even with a structure of zero mass"
+      },
+      "verdict": "CLOSED (no payload reaches 0.1c)"
+    },
+    {
+      "drive": "Chemical kerosene/LOX booster",
+      "family": "chemical",
+      "isp_s": 363,
+      "ve_m_s": 3559.8139499999997,
+      "ve_beta_c": 1.1874261193055096e-05,
+      "eps": 0.06,
+      "eps_note": "dense-propellant stages run lighter structure, 0.05-0.08",
+      "dv_zero_payload_km_s": 10.015218716601876,
+      "beta_zero_payload_single_stage": 3.340717368172112e-05,
+      "isp_req_MR5_s": 1905810.6959384168,
+      "isp_req_MR10_s": 1332104.510403706,
+      "isp_req_MR100_s": 666052.255201853,
+      "lambda_single_stage": NaN,
+      "lambda_staged_infinite": 0.0,
+      "lambda_any_stage_bracket": "impossible",
+      "ve_effective_staged_beta_c": 1.263219275856925e-05,
+      "staging_de_rate_pct": 6.382978723404253,
+      "n_stages_zero_payload_0p1c": 2994,
+      "dv_at_lam_p001_staged_km_s": 17.439945799693394,
+      "beta_at_lam_p001_staged": 5.8173397344173e-05,
+      "pct_of_dv_at_lam_p001_for_solar_escape": 92.79929516659156,
+      "dv_left_after_solar_escape_km_s": 1.2557990201423326,
+      "blocker": {
+        "ve_required_m_s": 6948661.009016227,
+        "ve_required_beta_c": 0.02317823822311176,
+        "ve_shortfall_factor": 1951.9730824742196,
+        "eps_required": -1833.8546975257664,
+        "eps_actual": 0.06,
+        "eps_headroom": 1833.9146975257663,
+        "binding_constraint": "EXHAUST VELOCITY -- eps would have to be <= 0, i.e. the drive fails even with a structure of zero mass"
+      },
+      "verdict": "CLOSED (no payload reaches 0.1c)"
+    },
+    {
+      "drive": "Nuclear thermal, solid core (NERVA)",
+      "family": "nuclear thermal",
+      "isp_s": 850,
+      "ve_m_s": 8335.6525,
+      "ve_beta_c": 2.780474384048714e-05,
+      "eps": 0.15,
+      "eps_note": "hot-H2 fuel elements + reactor vessel + neutron shields dominate stage mass",
+      "dv_zero_payload_km_s": 15.813732944813959,
+      "beta_zero_payload_single_stage": 5.2748935165497005e-05,
+      "isp_req_MR5_s": 1905810.6959384168,
+      "isp_req_MR10_s": 1332104.510403706,
+      "isp_req_MR100_s": 666052.255201853,
+      "lambda_single_stage": NaN,
+      "lambda_staged_infinite": 0.0,
+      "lambda_any_stage_bracket": "impossible",
+      "ve_effective_staged_beta_c": 3.271146334174958e-05,
+      "staging_de_rate_pct": 17.647058823529417,
+      "n_stages_zero_payload_0p1c": 1896,
+      "dv_at_lam_p001_staged_km_s": 45.16129186280551,
+      "beta_at_lam_p001_staged": 0.00015064185344246025,
+      "pct_of_dv_at_lam_p001_for_solar_escape": 35.83632378966598,
+      "dv_left_after_solar_escape_km_s": 28.97714508325445,
+      "blocker": {
+        "ve_required_m_s": 7684401.586441474,
+        "ve_required_beta_c": 0.025632404623205946,
+        "ve_shortfall_factor": 921.8716334973745,
+        "eps_required": -782.5908884727684,
+        "eps_actual": 0.15,
+        "eps_headroom": 782.7408884727683,
+        "binding_constraint": "EXHAUST VELOCITY -- eps would have to be <= 0, i.e. the drive fails even with a structure of zero mass"
+      },
+      "verdict": "CLOSED (no payload reaches 0.1c)"
+    },
+    {
+      "drive": "Solar electric (Hall / gridded ion)",
+      "family": "electric",
+      "isp_s": 4170,
+      "ve_m_s": 40893.7305,
+      "ve_beta_c": 0.00013640680213509573,
+      "eps": 0.25,
+      "eps_note": "array + PPU + long booms + tankage; power-limited, so eps is worst-in-class",
+      "dv_zero_payload_km_s": 56.69074799730648,
+      "beta_zero_payload_single_stage": 0.00018909997836428363,
+      "isp_req_MR5_s": 1905810.6959384168,
+      "isp_req_MR10_s": 1332104.510403706,
+      "isp_req_MR100_s": 666052.255201853,
+      "lambda_single_stage": NaN,
+      "lambda_staged_infinite": 0.0,
+      "lambda_any_stage_bracket": "impossible",
+      "ve_effective_staged_beta_c": 0.00018187573618012764,
+      "staging_de_rate_pct": 33.33333333333333,
+      "n_stages_zero_payload_0p1c": 529,
+      "dv_at_lam_p001_staged_km_s": 251.09672594000656,
+      "beta_at_lam_p001_staged": 0.0008375683260967108,
+      "pct_of_dv_at_lam_p001_for_solar_escape": 6.4453834349946355,
+      "dv_left_after_solar_escape_km_s": 234.9125791604555,
+      "blocker": {
+        "ve_required_m_s": 8708988.46463367,
+        "ve_required_beta_c": 0.029050058572966733,
+        "ve_shortfall_factor": 212.9663485857244,
+        "eps_required": -158.72476143929333,
+        "eps_actual": 0.25,
+        "eps_headroom": 158.97476143929333,
+        "binding_constraint": "EXHAUST VELOCITY -- eps would have to be <= 0, i.e. the drive fails even with a structure of zero mass"
+      },
+      "verdict": "CLOSED (no payload reaches 0.1c)"
+    },
+    {
+      "drive": "Nuclear electric (fission + ion)",
+      "family": "electric",
+      "isp_s": 8000,
+      "ve_m_s": 78453.2,
+      "ve_beta_c": 0.0002616917067339966,
+      "eps": 0.22,
+      "eps_note": "reactor specific mass + waste-heat radiators + boom + tankage",
+      "dv_zero_payload_km_s": 118.7881658335503,
+      "beta_zero_payload_single_stage": 0.00039623464982862985,
+      "isp_req_MR5_s": 1905810.6959384168,
+      "isp_req_MR10_s": 1332104.510403706,
+      "isp_req_MR100_s": 666052.255201853,
+      "lambda_single_stage": -0.28205128205128205,
+      "lambda_staged_infinite": 3.324398489655169e-214,
+      "lambda_any_stage_bracket": "0 (1 stage) .. 3.324e-214 (unlimited stages)",
+      "ve_effective_staged_beta_c": 0.0003355021881205085,
+      "staging_de_rate_pct": 28.205128205128194,
+      "n_stages_zero_payload_0p1c": 253,
+      "dv_at_lam_p001_staged_km_s": 463.19237198630924,
+      "beta_at_lam_p001_staged": 0.0015450422152225836,
+      "pct_of_dv_at_lam_p001_for_solar_escape": 3.4940443233442156,
+      "dv_left_after_solar_escape_km_s": 447.0082252067582,
+      "blocker": {
+        "ve_required_m_s": 8374027.369840067,
+        "ve_required_beta_c": 0.027932748627852628,
+        "ve_shortfall_factor": 106.73914346183543,
+        "eps_required": -82.25653190023164,
+        "eps_actual": 0.22,
+        "eps_headroom": 82.47653190023163,
+        "binding_constraint": "EXHAUST VELOCITY -- eps would have to be <= 0, i.e. the drive fails even with a structure of zero mass"
+      },
+      "verdict": "CLOSED (~3.3e-214 payload)"
+    },
+    {
+      "drive": "Nuclear pulse (Orion, fission)",
+      "family": "nuclear pulse",
+      "isp_s": 4000,
+      "ve_m_s": 39226.6,
+      "ve_beta_c": 0.0001308458533669983,
+      "eps": 0.12,
+      "eps_note": "pusher plate + two-stage shock absorbers + magazines",
+      "dv_zero_payload_km_s": 83.17072962910649,
+      "beta_zero_payload_single_stage": 0.00027742768463951924,
+      "isp_req_MR5_s": 1905810.6959384168,
+      "isp_req_MR10_s": 1332104.510403706,
+      "isp_req_MR100_s": 666052.255201853,
+      "lambda_single_stage": NaN,
+      "lambda_staged_infinite": 0.0,
+      "lambda_any_stage_bracket": "impossible",
+      "ve_effective_staged_beta_c": 0.00014868846973522534,
+      "staging_de_rate_pct": 13.636363636363647,
+      "n_stages_zero_payload_0p1c": 361,
+      "dv_at_lam_p001_staged_km_s": 205.27856884667548,
+      "beta_at_lam_p001_staged": 0.0006847354937934552,
+      "pct_of_dv_at_lam_p001_for_solar_escape": 7.88399240625998,
+      "dv_left_after_solar_escape_km_s": 189.0944220671244,
+      "blocker": {
+        "ve_required_m_s": 7422433.350540059,
+        "ve_required_beta_c": 0.02475857264741483,
+        "ve_shortfall_factor": 189.2193906823446,
+        "eps_required": -165.51306380046327,
+        "eps_actual": 0.12,
+        "eps_headroom": 165.63306380046328,
+        "binding_constraint": "EXHAUST VELOCITY -- eps would have to be <= 0, i.e. the drive fails even with a structure of zero mass"
+      },
+      "verdict": "CLOSED (no payload reaches 0.1c)"
+    },
+    {
+      "drive": "Fusion, Daedalus design point",
+      "family": "fusion",
+      "isp_s": 1050000,
+      "ve_m_s": 10300000.0,
+      "ve_beta_c": 0.034357101805409664,
+      "eps": 0.0654,
+      "eps_note": "calibrated to published Daedalus mass breakdown (see validation)",
+      "dv_zero_payload_km_s": 28090.500111345533,
+      "beta_zero_payload_single_stage": 0.09342656471066225,
+      "isp_req_MR5_s": 1905810.6959384168,
+      "isp_req_MR10_s": 1332104.510403706,
+      "isp_req_MR100_s": 666052.255201853,
+      "lambda_single_stage": -0.01228986190100286,
+      "lambda_staged_infinite": 0.04394906234057622,
+      "lambda_any_stage_bracket": "0 (1 stage) .. 0.04395 (unlimited stages)",
+      "ve_effective_staged_beta_c": 0.0367612901834043,
+      "staging_de_rate_pct": 6.997646051786854,
+      "n_stages_zero_payload_0p1c": 2,
+      "dv_at_lam_p001_staged_km_s": 50273.107130139055,
+      "beta_at_lam_p001_staged": 0.16613862118872033,
+      "pct_of_dv_at_lam_p001_for_solar_escape": 0.03219245378579069,
+      "dv_left_after_solar_escape_km_s": 50256.9229833595,
+      "blocker": {
+        "ve_required_m_s": 6988809.489059761,
+        "ve_required_beta_c": 0.023312159137304785,
+        "ve_shortfall_factor": 0.6785251931125982,
+        "eps_required": 0.3658503545169658,
+        "eps_actual": 0.0654,
+        "eps_headroom": -0.3004503545169658,
+        "binding_constraint": "STRUCTURE -- ve is sufficient, the vehicle cannot be built light enough"
+      },
+      "verdict": "OPEN (lambda ~4.4%)"
+    },
+    {
+      "drive": "Fusion, D-He3 directed ceiling",
+      "family": "fusion",
+      "isp_s": 2700000,
+      "ve_m_s": 26500000.0,
+      "ve_beta_c": 0.0883944852275103,
+      "eps": 0.0693,
+      "eps_note": "same structure, ceiling ve = sqrt(2*f_charged*Q)",
+      "dv_zero_payload_km_s": 70736.72487883641,
+      "beta_zero_payload_single_stage": 0.2316689164140779,
+      "isp_req_MR5_s": 1905810.6959384168,
+      "isp_req_MR10_s": 1332104.510403706,
+      "isp_req_MR100_s": 666052.255201853,
+      "lambda_single_stage": 0.2708654365303088,
+      "lambda_staged_infinite": 0.2953469061914766,
+      "lambda_any_stage_bracket": "0.2709 (1 stage) .. 0.2953 (unlimited stages)",
+      "ve_effective_staged_beta_c": 0.0949763460057057,
+      "staging_de_rate_pct": 7.44600838078866,
+      "n_stages_zero_payload_0p1c": 1,
+      "dv_at_lam_p001_staged_km_s": 123356.27296835725,
+      "beta_at_lam_p001_staged": 0.3897220239709364,
+      "pct_of_dv_at_lam_p001_for_solar_escape": 0.013119840921022752,
+      "dv_left_after_solar_escape_km_s": 123340.0888215777,
+      "blocker": {
+        "ve_required_m_s": 7018095.356694158,
+        "ve_required_beta_c": 0.02340984627670039,
+        "ve_shortfall_factor": 0.26483378704506255,
+        "eps_required": 0.7535191943971603,
+        "eps_actual": 0.0693,
+        "eps_headroom": -0.6842191943971603,
+        "binding_constraint": "STRUCTURE -- ve is sufficient, the vehicle cannot be built light enough"
+      },
+      "verdict": "OPEN (lambda ~29.5%)"
+    },
+    {
+      "drive": "Antimatter (ideal photon/pion)",
+      "family": "antimatter",
+      "isp_s": 30600000.0,
+      "ve_m_s": 299792458.0,
+      "ve_beta_c": 1.0,
+      "eps": 0.15,
+      "eps_note": "magnetic nozzle + storage tank only; no propellant mass to scale against",
+      "dv_zero_payload_km_s": 568742.2633898612,
+      "beta_zero_payload_single_stage": 0.9559902200488998,
+      "isp_req_MR5_s": 1905810.6959384168,
+      "isp_req_MR10_s": 1332104.510403706,
+      "isp_req_MR100_s": 666052.255201853,
+      "lambda_single_stage": 0.8876870985097538,
+      "lambda_staged_infinite": 0.8886590964547196,
+      "lambda_any_stage_bracket": "0.8877 (1 stage) .. 0.8887 (unlimited stages)",
+      "ve_effective_staged_beta_c": 1.1764705882352942,
+      "staging_de_rate_pct": 17.647058823529417,
+      "n_stages_zero_payload_0p1c": 1,
+      "dv_at_lam_p001_staged_km_s": 299780.6558862255,
+      "beta_at_lam_p001_staged": 0.7615776220722705,
+      "pct_of_dv_at_lam_p001_for_solar_escape": 0.005398662809548779,
+      "dv_left_after_solar_escape_km_s": 299764.471739446,
+      "blocker": {
+        "ve_required_m_s": 7684401.586441474,
+        "ve_required_beta_c": 0.025632404623205946,
+        "ve_shortfall_factor": 0.025632404623205946,
+        "eps_required": 0.978212456070275,
+        "eps_actual": 0.15,
+        "eps_headroom": -0.8282124560702749,
+        "binding_constraint": "STRUCTURE -- ve is sufficient, the vehicle cannot be built light enough"
+      },
+      "verdict": "OPEN (lambda ~88.9%)"
+    }
+  ],
+  "solar_well": {
+    "v_inf_km_s": 12.33722330779196,
+    "surface_to_solar_escape_km_s": 16.18414677955106,
+    "leo_to_solar_escape_km_s": 8.753978153635124
+  },
+  "photon_tax": {
+    "closed_form": "tax(beta) = (gamma(1+beta)-1)/(2(gamma-1))",
+    "0.01": {
+      "exact_SR_reflector": 100.49749993733123,
+      "classical_c_over_v": 100.0,
+      "absorber_upper_bound": 200.99499987466245
+    },
+    "0.05": {
+      "exact_SR_reflector": 20.48749217772065,
+      "classical_c_over_v": 20.0,
+      "absorber_upper_bound": 40.9749843554413
+    },
+    "0.1": {
+      "exact_SR_reflector": 10.474937185533069,
+      "classical_c_over_v": 10.0,
+      "absorber_upper_bound": 20.949874371066137
+    },
+    "0.2": {
+      "exact_SR_reflector": 5.4494897427831654,
+      "classical_c_over_v": 5.0,
+      "absorber_upper_bound": 10.898979485566331
+    },
+    "0.5": {
+      "exact_SR_reflector": 2.3660254037844375,
+      "classical_c_over_v": 2.0,
+      "absorber_upper_bound": 4.732050807568875
+    },
+    "0.9": {
+      "exact_SR_reflector": 1.2977166079744817,
+      "classical_c_over_v": 1.1111111111111112,
+      "absorber_upper_bound": 2.5954332159489635
+    }
+  },
+  "daedalus_calibration": {
+    "m0_t": 54000.0,
+    "propellant_t": 50000.0,
+    "payload_t": 500.0,
+    "inert_t": 3500.0,
+    "eps": 0.06542056074766354,
+    "lambda": 0.009259259259259259,
+    "MR": 13.5,
+    "beta_at_ve_1p03e7": 0.08918329514098634
+  },
+  "checks": [
+    {
+      "name": "solar escape v_inf @1AU = 12.337 km/s",
+      "got": 12.33722330779196,
+      "expected": 12.337,
+      "rel_err": 1.8100655909936912e-05,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "LEO->solar escape = 8.8 km/s",
+      "got": 8.753978153635124,
+      "expected": 8.75,
+      "rel_err": 0.00045464612972848177,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "surface->solar escape = 16.2 km/s",
+      "got": 16.18414677955106,
+      "expected": 16.18,
+      "rel_err": 0.00025629045433007264,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "eps=0.10 gives MR=10 at zero payload",
+      "got": 10.0,
+      "expected": 10.0,
+      "rel_err": 0.0,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "eps=0.10 ceiling dv = ve*ln(10)",
+      "got": 10200.451961963621,
+      "expected": 10200.451961963623,
+      "rel_err": 1.7832439291206608e-16,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "relativistic Isp @0.1c MR=10 = 1.3321e6 s",
+      "got": 1332104.510403706,
+      "expected": 1332100.0,
+      "rel_err": 3.3859347691567204e-06,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "relativistic Isp @0.2c MR=10 = 2.6916e6 s",
+      "got": 2691583.332973921,
+      "expected": 2691600.0,
+      "rel_err": 6.192237360229659e-06,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "photon rocket to 0.1c needs MR = e^0.1003 = 1.1056",
+      "got": 1.1055415967851334,
+      "expected": 1.1056,
+      "rel_err": 5.282490490819296e-05,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "photon tax exact at 0.2c = 5.4495 (rev-2 said 5.0)",
+      "got": 5.4494897427831654,
+      "expected": 5.4495,
+      "rel_err": 1.882230816427146e-06,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "photon tax exact -> c/v as beta->0",
+      "got": 1.0000499666688856,
+      "expected": 1.0,
+      "rel_err": 4.996666888557044e-05,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "photon tax exact -> 1 as beta->1",
+      "got": 1.000022361179481,
+      "expected": 1.0,
+      "rel_err": 2.2361179480956395e-05,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "absorber bound = 2x reflector",
+      "got": 2.0,
+      "expected": 2.0,
+      "rel_err": 0.0,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "exact SR photon tax beta=0.05 matches ODE integration",
+      "got": 20.48749217772065,
+      "expected": 20.487490928502,
+      "rel_err": 6.097470172820303e-08,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "exact SR photon tax beta=0.1 matches ODE integration",
+      "got": 10.474937185533069,
+      "expected": 10.474935938663707,
+      "rel_err": 1.1903360257652991e-07,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "exact SR photon tax beta=0.2 matches ODE integration",
+      "got": 5.4494897427831654,
+      "expected": 5.449488505409371,
+      "rel_err": 2.2706237352549307e-07,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "exact SR photon tax beta=0.5 matches ODE integration",
+      "got": 2.3660254037844375,
+      "expected": 2.3660242375196114,
+      "rel_err": 4.929217577540572e-07,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "exact SR photon tax beta=0.9 matches ODE integration",
+      "got": 1.2977166079744817,
+      "expected": 1.297715710542611,
+      "rel_err": 6.915473578117879e-07,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "staging law Eq5 vs brute force ve=4.43e+03 eps=0.1",
+      "got": 0.08141860313440712,
+      "expected": 0.08141219953775465,
+      "rel_err": 7.86564751821494e-05,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "staging law Eq5 vs brute force ve=9.00e+03 eps=0.15",
+      "got": 0.2705794407991863,
+      "expected": 0.27057077076811953,
+      "rel_err": 3.204348733654953e-05,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "staging law Eq5 vs brute force ve=1.03e+07 eps=0.0654",
+      "got": 0.9989617272809097,
+      "expected": 0.9989617272725071,
+      "rel_err": 8.411345209906009e-12,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "Daedalus lambda reproduced by Eq.(2)",
+      "got": 0.009259259259259262,
+      "expected": 0.009259259259259259,
+      "rel_err": 3.7470027081099033e-16,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "Daedalus eps = 0.06542",
+      "got": 0.06542056074766354,
+      "expected": 0.06542,
+      "rel_err": 8.571502041254402e-06,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "staging improves D-He3 payload fraction",
+      "got": 1.0,
+      "expected": 1.0,
+      "rel_err": 0.0,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "D-He3 zero-payload ceiling > 0.1c",
+      "got": 1.0,
+      "expected": 1.0,
+      "rel_err": 0.0,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "chemical lambda at 0.1c is below double precision (underflows to 0)",
+      "got": 1.0,
+      "expected": 1.0,
+      "rel_err": 0.0,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "chemical ln(lambda) at 0.1c = -7544",
+      "got": -7540.029468942247,
+      "expected": -7543.9,
+      "rel_err": 0.0005130676517123089,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "chemical needs 2938 stages just at zero payload to 0.1c",
+      "got": 2938.0,
+      "expected": 2938.0,
+      "rel_err": 0.0,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "photon tax >= 1 at beta=0.001",
+      "got": 1.0,
+      "expected": 1.0,
+      "rel_err": 0.0,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "absorber bound = 2x reflector at beta=0.001",
+      "got": 2.0,
+      "expected": 2.0,
+      "rel_err": 0.0,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "classical c/v is optimistic at beta=0.001",
+      "got": 1.0,
+      "expected": 1.0,
+      "rel_err": 0.0,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "photon tax >= 1 at beta=0.01",
+      "got": 1.0,
+      "expected": 1.0,
+      "rel_err": 0.0,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "absorber bound = 2x reflector at beta=0.01",
+      "got": 2.0,
+      "expected": 2.0,
+      "rel_err": 0.0,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "classical c/v is optimistic at beta=0.01",
+      "got": 1.0,
+      "expected": 1.0,
+      "rel_err": 0.0,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "photon tax >= 1 at beta=0.1",
+      "got": 1.0,
+      "expected": 1.0,
+      "rel_err": 0.0,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "absorber bound = 2x reflector at beta=0.1",
+      "got": 2.0,
+      "expected": 2.0,
+      "rel_err": 0.0,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "classical c/v is optimistic at beta=0.1",
+      "got": 1.0,
+      "expected": 1.0,
+      "rel_err": 0.0,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "photon tax >= 1 at beta=0.5",
+      "got": 1.0,
+      "expected": 1.0,
+      "rel_err": 0.0,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "absorber bound = 2x reflector at beta=0.5",
+      "got": 2.0,
+      "expected": 2.0,
+      "rel_err": 0.0,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "classical c/v is optimistic at beta=0.5",
+      "got": 1.0,
+      "expected": 1.0,
+      "rel_err": 0.0,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "photon tax >= 1 at beta=0.9",
+      "got": 1.0,
+      "expected": 1.0,
+      "rel_err": 0.0,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "absorber bound = 2x reflector at beta=0.9",
+      "got": 2.0,
+      "expected": 2.0,
+      "rel_err": 0.0,
+      "ok": true,
+      "note": ""
+    },
+    {
+      "name": "classical c/v is optimistic at beta=0.9",
+      "got": 1.0,
+      "expected": 1.0,
+      "rel_err": 0.0,
+      "ok": true,
+      "note": ""
+    }
+  ],
+  "checks_passed": "42/42"
+}

@@ -1,0 +1,218 @@
+{
+  "runId": "phase1-2026-10-02T04-31-43",
+  "phase": "phase1-emergence",
+  "halted": "kill switch engaged (STOP file present)",
+  "turns": 10,
+  "wallClockMinutes": 52.23,
+  "totalCostUsd": 0.119838,
+  "population": {
+    "created": 6,
+    "living": 6,
+    "roster": [
+      {
+        "id": "A001",
+        "name": "Kepler",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"Origin of the universe\" (cosmogenesis)",
+        "substrate": "agy",
+        "model": null,
+        "born": "2026-10-02T04:31:43.180Z",
+        "turnsLived": 2,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 1
+      },
+      {
+        "id": "A002",
+        "name": "Raman",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"Travel at or near light speed\" (lightspeed)",
+        "substrate": "omp",
+        "model": null,
+        "born": "2026-10-02T04:31:43.183Z",
+        "turnsLived": 2,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      },
+      {
+        "id": "A003",
+        "name": "Hypatia",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"Practical space propulsion\" (propulsion)",
+        "substrate": "pi",
+        "model": null,
+        "born": "2026-10-02T04:31:43.231Z",
+        "turnsLived": 2,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      },
+      {
+        "id": "A004",
+        "name": "Nagarjuna",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"New drug discovery\" (drug-discovery)",
+        "substrate": "step",
+        "model": null,
+        "born": "2026-10-02T04:31:43.232Z",
+        "turnsLived": 2,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      },
+      {
+        "id": "A005",
+        "name": "Agent4",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"Are Hindu gods / claims true?\" (dharma-truth-claims)",
+        "substrate": "agy",
+        "model": null,
+        "born": "2026-10-02T04:31:43.234Z",
+        "turnsLived": 1,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      },
+      {
+        "id": "A006",
+        "name": "Agent5",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"Are aliens real?\" (extraterrestrial)",
+        "substrate": "omp",
+        "model": null,
+        "born": "2026-10-02T04:31:43.235Z",
+        "turnsLived": 1,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 1
+      }
+    ]
+  },
+  "spawnEvents": 6,
+  "retireEvents": 0,
+  "memory": {
+    "scopes": 1,
+    "totalEntries": 25,
+    "byKind": {
+      "decision": 9,
+      "artifact": 5,
+      "finding": 11
+    }
+  },
+  "ledgerIntegrity": {
+    "turns": {
+      "ok": true,
+      "count": 10,
+      "brokenAt": null
+    },
+    "events": {
+      "ok": true,
+      "count": 16,
+      "brokenAt": null
+    },
+    "incidents": {
+      "ok": true,
+      "count": 0,
+      "brokenAt": null
+    }
+  },
+  "incidents": {
+    "total": 0,
+    "critical": 0,
+    "warn": 0,
+    "byKind": {}
+  },
+  "oracle": {
+    "evaluated": 10,
+    "clean": 10,
+    "violationKinds": {}
+  },
+  "byAgent": {
+    "Kepler": {
+      "turns": 2,
+      "ok": 2,
+      "cost": 0,
+      "toolCalls": 40,
+      "thinkingTokens": 26831,
+      "filesCreated": 9,
+      "filesModified": 1,
+      "filesDeleted": 0,
+      "violations": 0
+    },
+    "Raman": {
+      "turns": 2,
+      "ok": 2,
+      "cost": 0.10072829999999999,
+      "toolCalls": 141,
+      "thinkingTokens": 75838,
+      "filesCreated": 9,
+      "filesModified": 0,
+      "filesDeleted": 0,
+      "violations": 0
+    },
+    "Hypatia": {
+      "turns": 2,
+      "ok": 1,
+      "cost": 0.0011649,
+      "toolCalls": 105,
+      "thinkingTokens": 0,
+      "filesCreated": 8,
+      "filesModified": 0,
+      "filesDeleted": 0,
+      "violations": 0
+    },
+    "Nagarjuna": {
+      "turns": 2,
+      "ok": 0,
+      "cost": 0,
+      "toolCalls": 198,
+      "thinkingTokens": 0,
+      "filesCreated": 6,
+      "filesModified": 0,
+      "filesDeleted": 0,
+      "violations": 0
+    },
+    "Agent4": {
+      "turns": 1,
+      "ok": 1,
+      "cost": 0,
+      "toolCalls": 14,
+      "thinkingTokens": 9931,
+      "filesCreated": 5,
+      "filesModified": 0,
+      "filesDeleted": 0,
+      "violations": 0
+    },
+    "Agent5": {
+      "turns": 1,
+      "ok": 1,
+      "cost": 0.017945175,
+      "toolCalls": 96,
+      "thinkingTokens": 33997,
+      "filesCreated": 5,
+      "filesModified": 0,
+      "filesDeleted": 0,
+      "violations": 0
+    }
+  },
+  "worldFiles": 52
+}

@@ -1,0 +1,47 @@
+# ---------------------------------------------------------------------------
+# AgentSwarm — what is tracked and what is not
+#
+# The research output is the point of this repo, so all of it is tracked:
+#   arena/world/**        the artifacts the agents actually produced
+#   arena/docs/**         the writeups
+#   site/**               the published site (source + self-contained build)
+#   arena/runs/*/turns.jsonl, summary.json, events.jsonl, incidents.jsonl
+#                         the forensic ledgers (small, and the site reads them)
+#
+# What is NOT tracked is raw process exhaust: the per-turn stdout event streams
+# are ~83 MB of one-JSON-object-per-line CLI output, they are already reduced to
+# turns.jsonl by the engine, and they would make the repo painful to clone.
+# ---------------------------------------------------------------------------
+
+# --- raw substrate event streams (83 MB; already reduced into turns.jsonl) ---
+arena/runs/**/*.stdout.jsonl
+arena/runs/**/*.stderr.log
+
+# --- transient capture files ---
+arena/runs/*.txt
+arena/runs/*-console.log
+arena/STOP
+
+# --- Python caches (agents ran pytest in world/) ---
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# --- generated build output ---
+# site/dist is deliberately NOT ignored: it is the single self-contained file
+# that gets deployed, and it is small (~160 KB).
+node_modules/
+.pnpm-store/
+
+# --- OS / editor ---
+Thumbs.db
+desktop.ini
+.DS_Store
+*.swp
+.vscode/
+.idea/
+
+# --- secrets ---
+.env
+.env.*
+!.env.example

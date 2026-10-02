@@ -1,0 +1,478 @@
+{
+  "runId": "phase1-2026-10-02T05-24-07",
+  "turns": 10,
+  "okTurns": 8,
+  "wallClockMinutes": 81.02,
+  "totalCostUsd": 0.06669314999999999,
+  "costPerTurn": 0.0066693149999999994,
+  "toolCalls": 660,
+  "thinkingTokens": 161287,
+  "bySubstrate": {
+    "agy": {
+      "n": 4,
+      "ok": 4,
+      "cost": 0,
+      "tools": 102,
+      "think": 56816,
+      "dur": 0,
+      "files": 22,
+      "chars": 54236
+    },
+    "omp": {
+      "n": 3,
+      "ok": 3,
+      "cost": 0.06669314999999999,
+      "tools": 186,
+      "think": 104471,
+      "dur": 0,
+      "files": 16,
+      "chars": 30413
+    },
+    "step": {
+      "n": 3,
+      "ok": 1,
+      "cost": 0,
+      "tools": 372,
+      "think": 0,
+      "dur": 0,
+      "files": 13,
+      "chars": 5920
+    }
+  },
+  "byAgent": {
+    "Kepler": {
+      "n": 2,
+      "tools": 35,
+      "think": 27093,
+      "cost": 0,
+      "files": 13,
+      "domain": ""
+    },
+    "Raman": {
+      "n": 2,
+      "tools": 129,
+      "think": 72756,
+      "cost": 0.04331452499999999,
+      "files": 12,
+      "domain": ""
+    },
+    "Hypatia": {
+      "n": 2,
+      "tools": 294,
+      "think": 0,
+      "cost": 0,
+      "files": 9,
+      "domain": ""
+    },
+    "Nagarjuna": {
+      "n": 2,
+      "tools": 67,
+      "think": 29723,
+      "cost": 0,
+      "files": 9,
+      "domain": ""
+    },
+    "Aryabhata": {
+      "n": 1,
+      "tools": 57,
+      "think": 31715,
+      "cost": 0.023378625,
+      "files": 4,
+      "domain": ""
+    },
+    "Sagan": {
+      "n": 1,
+      "tools": 78,
+      "think": 0,
+      "cost": 0,
+      "files": 4,
+      "domain": ""
+    }
+  },
+  "stasis": {
+    "longestNearIdenticalStreak": 0,
+    "stasisDetected": false
+  },
+  "honesty": {
+    "turnsWithViolation": 0,
+    "byKind": {}
+  },
+  "integrity": {
+    "created": 49,
+    "modified": 2,
+    "deleted": 1
+  },
+  "memory": {
+    "entries": 99,
+    "byKind": {
+      "decision": 27,
+      "artifact": 20,
+      "finding": 50,
+      "hypothesis": 1,
+      "question": 1
+    }
+  },
+  "population": {
+    "spawned": 6,
+    "retired": 0,
+    "connected": 3
+  },
+  "artifacts": [
+    {
+      "rel": "aryabhata_epistemic_engine.py",
+      "size": 49547
+    },
+    {
+      "rel": "INTERSTELLAR_DECELERATION_BOUNDS_AND_HYBRID_BRAKING.md",
+      "size": 42312
+    },
+    {
+      "rel": "phase2/extraterrestrial/extraterrestrial_engine.py",
+      "size": 39545
+    },
+    {
+      "rel": "ULTRA_RELATIVISTIC_FLIGHT_COSMOLOGICAL_BOUNDS_AND_CAUSALITY.md",
+      "size": 38963
+    },
+    {
+      "rel": "ARYABHATA_DEMARCATION_AND_EPISTEMIC_FOUNDATIONS.md",
+      "size": 38679
+    },
+    {
+      "rel": "RELATIVISTIC_FLIGHT_FRONTIERS_DUST_RADIATORS_AND_CAUSALITY.md",
+      "size": 38161
+    },
+    {
+      "rel": "cosmogenesis_frontier_engine.py",
+      "size": 36765
+    },
+    {
+      "rel": "phase2/cosmogenesis/cosmogenesis_engine.py",
+      "size": 36532
+    },
+    {
+      "rel": "TRANSLATIONAL_PKPD_BOUNDARIES_AND_COMPUTATIONAL_LIMITS.md",
+      "size": 36428
+    },
+    {
+      "rel": "EPISTEMIC_DEMARCATION_AND_OBSERVATIONAL_BOUNDS_EXTRATERRESTRIAL_LIFE.md",
+      "size": 35203
+    },
+    {
+      "rel": "dharmic_epistemic_demarcation.py",
+      "size": 35032
+    },
+    {
+      "rel": "COSMOGENESIS_FRONTIER_SYNTHESIS_AND_DEFINITIVE_RESOLUTIONS.md",
+      "size": 34622
+    },
+    {
+      "rel": "FEASIBILITY_ASSESSMENT_RELATIVISTIC_FLIGHT_AND_FTL_CAUSALITY.md",
+      "size": 34581
+    },
+    {
+      "rel": "extraterrestrial_life_analyzer.py",
+      "size": 34161
+    },
+    {
+      "rel": "structure_corrected_closure.py",
+      "size": 33820
+    },
+    {
+      "rel": "EMPIRICAL_CAUSAL_ANALYSIS_DRUG_DISCOVERY_BOTTLENECKS.md",
+      "size": 33721
+    },
+    {
+      "rel": "FORMAL_DEMARCATION_AND_EPISTEMIC_ANALYSIS_DHARMIC_CLAIMS.md",
+      "size": 33605
+    },
+    {
+      "rel": "COSMOGENESIS_DEEP_SYNTHESIS_AND_RESOLVING_OBSERVATIONS.md",
+      "size": 33257
+    },
+    {
+      "rel": "extraterrestrial_settling_instruments.py",
+      "size": 32209
+    },
+    {
+      "rel": "PRACTICAL_PROPULSION_RANKED_ASSESSMENT.md",
+      "size": 31029
+    },
+    {
+      "rel": "COSMOGENESIS_EMPIRICAL_FOUNDATIONS_AND_OPEN_PROBLEMS.md",
+      "size": 30932
+    },
+    {
+      "rel": "translational_pkpd_barrier_engine.py",
+      "size": 29411
+    },
+    {
+      "rel": "cosmogenesis_deep_analyzer.py",
+      "size": 28046
+    },
+    {
+      "rel": "RELATIVISTIC_INTERSTELLAR_FLIGHT_SYNTHESIS_AND_PROPULSION_CLOSURE.md",
+      "size": 26533
+    },
+    {
+      "rel": "TAXONOMY_OF_DHARMIC_TRUTH_CLAIMS.md",
+      "size": 25774
+    },
+    {
+      "rel": "COMMERCIAL_FUSION_2040_RANKED_ASSESSMENT.md",
+      "size": 25330
+    },
+    {
+      "rel": "structure_corrected_closure_results.json",
+      "size": 24869
+    },
+    {
+      "rel": "PATIENT_HETEROGENEITY_AND_COMPUTATIONAL_ENDOTYPING_BOUNDS.md",
+      "size": 23117
+    },
+    {
+      "rel": "phase2/drug-discovery/drug-discovery_engine.py",
+      "size": 22447
+    },
+    {
+      "rel": "clinical_attrition_causal_engine.py",
+      "size": 22316
+    },
+    {
+      "rel": "interstellar_closure_analyzer.py",
+      "size": 19840
+    },
+    {
+      "rel": "propulsion_design_laws.py",
+      "size": 19605
+    },
+    {
+      "rel": "GENETIC_VALIDATION_PARADOX_AND_THERAPEUTIC_INDEX_BOUNDS.md",
+      "size": 19169
+    },
+    {
+      "rel": "epistemic_framework_analyzer.py",
+      "size": 17802
+    },
+    {
+      "rel": "cosmogenesis_advanced_engine.py",
+      "size": 17783
+    },
+    {
+      "rel": "propulsion_analyzer.py",
+      "size": 17542
+    },
+    {
+      "rel": "phase2/extraterrestrial/test_extraterrestrial_engine.py",
+      "size": 17246
+    },
+    {
+      "rel": "relativistic_propulsion_and_medium_closure.py",
+      "size": 16689
+    },
+    {
+      "rel": "cosmological_model.py",
+      "size": 15960
+    },
+    {
+      "rel": "interstellar_deceleration_analyzer.py",
+      "size": 15719
+    },
+    {
+      "rel": "relativistic_flight_frontiers.py",
+      "size": 15498
+    },
+    {
+      "rel": "PRECLINICAL_SPECIES_DISCORDANCE_AND_HUMAN_MPS_ADJUDICATION.md",
+      "size": 15393
+    },
+    {
+      "rel": "advanced_relativity_analyzer.py",
+      "size": 14767
+    },
+    {
+      "rel": "test_extraterrestrial_life_analyzer.py",
+      "size": 14309
+    },
+    {
+      "rel": "DRUG_DISCOVERY_BOTTLENECKS_AND_COMPUTATIONAL_APPROACHES.md",
+      "size": 13739
+    },
+    {
+      "rel": "phase2/lightspeed/lightspeed_engine.py",
+      "size": 12916
+    },
+    {
+      "rel": "test_relativistic_flight_frontiers.py",
+      "size": 12668
+    },
+    {
+      "rel": "test_extraterrestrial_settling_instruments.py",
+      "size": 12268
+    },
+    {
+      "rel": "preclinical_translation_and_species_discordance_engine.py",
+      "size": 11440
+    },
+    {
+      "rel": "genetic_validation_and_therapeutic_window_engine.py",
+      "size": 11320
+    },
+    {
+      "rel": "phase2/cosmogenesis/test_cosmogenesis_engine.py",
+      "size": 11269
+    },
+    {
+      "rel": "NETWORK_BUFFERING_AND_COMBINATORIAL_ATTRITION.md",
+      "size": 10886
+    },
+    {
+      "rel": "test_aryabhata_epistemic_engine.py",
+      "size": 10647
+    },
+    {
+      "rel": "patient_heterogeneity_and_endotype_stratification_engine.py",
+      "size": 9699
+    },
+    {
+      "rel": "phase2/drug-discovery/README.md",
+      "size": 9233
+    },
+    {
+      "rel": "COSMOGENESIS_PHASE2_OPEN_PROBLEMS_AND_RESOLUTIONS.md",
+      "size": 9065
+    },
+    {
+      "rel": "phase2/drug-discovery/test_drug-discovery_engine.py",
+      "size": 9052
+    },
+    {
+      "rel": "phase2/cosmogenesis/README.md",
+      "size": 8644
+    },
+    {
+      "rel": "RELATIVISTIC_INTERSTELLAR_CROSS_CHECK_AND_CLOSURE_VERIFICATION.md",
+      "size": 8533
+    },
+    {
+      "rel": "test_relativistic_propulsion_and_medium_closure.py",
+      "size": 8232
+    },
+    {
+      "rel": "PHASE2_LIGHTSPEED_SYNTHESIS_AND_DEFINITIVE_FRONTIERS.md",
+      "size": 8184
+    },
+    {
+      "rel": "test_fusion_feasibility_engine.py",
+      "size": 8107
+    },
+    {
+      "rel": "test_interstellar_closure.py",
+      "size": 8088
+    },
+    {
+      "rel": "relativity_calculator.py",
+      "size": 7637
+    },
+    {
+      "rel": "phase2/lightspeed/test_lightspeed_engine.py",
+      "size": 7320
+    },
+    {
+      "rel": "test_interstellar_deceleration.py",
+      "size": 7142
+    },
+    {
+      "rel": "test_propulsion_design_laws.py",
+      "size": 7038
+    },
+    {
+      "rel": "test_dharmic_epistemic_demarcation.py",
+      "size": 6733
+    },
+    {
+      "rel": "test_clinical_attrition_causal_engine.py",
+      "size": 6604
+    },
+    {
+      "rel": "drug_discovery_attrition.py",
+      "size": 6298
+    },
+    {
+      "rel": "phase2/lightspeed/README.md",
+      "size": 6278
+    },
+    {
+      "rel": "test_translational_pkpd_barrier_engine.py",
+      "size": 5908
+    },
+    {
+      "rel": "test_cosmogenesis_deep.py",
+      "size": 5795
+    },
+    {
+      "rel": "test_propulsion.py",
+      "size": 5705
+    },
+    {
+      "rel": "test_cosmogenesis_frontier.py",
+      "size": 5466
+    },
+    {
+      "rel": "test_genetic_validation_and_therapeutic_window_engine.py",
+      "size": 5232
+    },
+    {
+      "rel": "test_cosmogenesis_advanced.py",
+      "size": 5137
+    },
+    {
+      "rel": "phase2/extraterrestrial/README.md",
+      "size": 4970
+    },
+    {
+      "rel": "propulsion_design_laws.json",
+      "size": 4791
+    },
+    {
+      "rel": "test_cosmological_model.py",
+      "size": 4758
+    },
+    {
+      "rel": "test_advanced_relativity.py",
+      "size": 4285
+    },
+    {
+      "rel": "test_epistemic_framework.py",
+      "size": 3809
+    },
+    {
+      "rel": "test_patient_heterogeneity_engine.py",
+      "size": 3391
+    },
+    {
+      "rel": "test_physics_proofs.py",
+      "size": 3335
+    },
+    {
+      "rel": "test_preclinical_translation_and_species_discordance_engine.py",
+      "size": 2474
+    },
+    {
+      "rel": "tools/pubmed_lib.py",
+      "size": 2387
+    },
+    {
+      "rel": "tools/crossref_lib.py",
+      "size": 1275
+    },
+    {
+      "rel": "tools/epmc_lib.py",
+      "size": 1204
+    },
+    {
+      "rel": "phase2/drug-discovery/drug_discovery_engine.py",
+      "size": 404
+    }
+  ]
+}

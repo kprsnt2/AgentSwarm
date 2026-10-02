@@ -1,0 +1,25 @@
+{
+  "runId": "direct-2026-10-02T12-03-14",
+  "ts": "2026-10-02T13:03:28.371Z",
+  "populationCap": 8,
+  "population": [
+    {
+      "id": "A001",
+      "name": "Kepler",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"what about Lord Krishna and he is real, Mahabharata happened?\" (what-about-lord-krishna-and)",
+      "substrate": "agy",
+      "model": null,
+      "born": "2026-10-02T12:03:14.649Z",
+      "turnsLived": 18,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    }
+  ],
+  "living": 1,
+  "total": 1
+}

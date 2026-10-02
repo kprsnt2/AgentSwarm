@@ -1,0 +1,25 @@
+{
+  "runId": "direct-2026-10-02T09-43-31",
+  "ts": "2026-10-02T10:00:14.243Z",
+  "populationCap": 8,
+  "population": [
+    {
+      "id": "A001",
+      "name": "Kepler",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"discover about multiverse or any reference in hindu religious texts\" (discover-about-multiverse-or-any)",
+      "substrate": "agy",
+      "model": null,
+      "born": "2026-10-02T09:43:31.626Z",
+      "turnsLived": 4,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    }
+  ],
+  "living": 1,
+  "total": 1
+}

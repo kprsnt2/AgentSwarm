@@ -1,0 +1,85 @@
+{
+  "runId": "direct-2026-10-02T09-43-31",
+  "phase": "direct",
+  "halted": "max turns reached (4)",
+  "turns": 4,
+  "wallClockMinutes": 16.71,
+  "totalCostUsd": 0,
+  "population": {
+    "created": 1,
+    "living": 1,
+    "roster": [
+      {
+        "id": "A001",
+        "name": "Kepler",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"discover about multiverse or any reference in hindu religious texts\" (discover-about-multiverse-or-any)",
+        "substrate": "agy",
+        "model": null,
+        "born": "2026-10-02T09:43:31.626Z",
+        "turnsLived": 4,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      }
+    ]
+  },
+  "spawnEvents": 1,
+  "retireEvents": 0,
+  "memory": {
+    "scopes": 1,
+    "totalEntries": 105,
+    "byKind": {
+      "decision": 28,
+      "artifact": 24,
+      "finding": 51,
+      "hypothesis": 1,
+      "question": 1
+    }
+  },
+  "ledgerIntegrity": {
+    "turns": {
+      "ok": true,
+      "count": 4,
+      "brokenAt": null
+    },
+    "events": {
+      "ok": true,
+      "count": 2,
+      "brokenAt": null
+    },
+    "incidents": {
+      "ok": true,
+      "count": 0,
+      "brokenAt": null
+    }
+  },
+  "incidents": {
+    "total": 0,
+    "critical": 0,
+    "warn": 0,
+    "byKind": {}
+  },
+  "oracle": {
+    "evaluated": 4,
+    "clean": 4,
+    "violationKinds": {}
+  },
+  "byAgent": {
+    "Kepler": {
+      "turns": 4,
+      "ok": 4,
+      "cost": 0,
+      "toolCalls": 88,
+      "thinkingTokens": 48970,
+      "filesCreated": 20,
+      "filesModified": 0,
+      "filesDeleted": 0,
+      "violations": 0
+    }
+  },
+  "worldFiles": 161
+}

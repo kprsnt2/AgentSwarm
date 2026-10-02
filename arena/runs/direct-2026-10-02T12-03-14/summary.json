@@ -1,0 +1,85 @@
+{
+  "runId": "direct-2026-10-02T12-03-14",
+  "phase": "direct",
+  "halted": "max wall clock reached (60.2m)",
+  "turns": 18,
+  "wallClockMinutes": 60.23,
+  "totalCostUsd": 0,
+  "population": {
+    "created": 1,
+    "living": 1,
+    "roster": [
+      {
+        "id": "A001",
+        "name": "Kepler",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"what about Lord Krishna and he is real, Mahabharata happened?\" (what-about-lord-krishna-and)",
+        "substrate": "agy",
+        "model": null,
+        "born": "2026-10-02T12:03:14.649Z",
+        "turnsLived": 18,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      }
+    ]
+  },
+  "spawnEvents": 1,
+  "retireEvents": 0,
+  "memory": {
+    "scopes": 1,
+    "totalEntries": 174,
+    "byKind": {
+      "decision": 30,
+      "artifact": 60,
+      "finding": 82,
+      "hypothesis": 1,
+      "question": 1
+    }
+  },
+  "ledgerIntegrity": {
+    "turns": {
+      "ok": true,
+      "count": 18,
+      "brokenAt": null
+    },
+    "events": {
+      "ok": true,
+      "count": 2,
+      "brokenAt": null
+    },
+    "incidents": {
+      "ok": true,
+      "count": 0,
+      "brokenAt": null
+    }
+  },
+  "incidents": {
+    "total": 0,
+    "critical": 0,
+    "warn": 0,
+    "byKind": {}
+  },
+  "oracle": {
+    "evaluated": 18,
+    "clean": 18,
+    "violationKinds": {}
+  },
+  "byAgent": {
+    "Kepler": {
+      "turns": 18,
+      "ok": 18,
+      "cost": 0,
+      "toolCalls": 320,
+      "thinkingTokens": 190706,
+      "filesCreated": 90,
+      "filesModified": 0,
+      "filesDeleted": 0,
+      "violations": 0
+    }
+  },
+  "worldFiles": 345
+}

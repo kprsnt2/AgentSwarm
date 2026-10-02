@@ -1,0 +1,25 @@
+{
+  "runId": "direct-2026-10-02T10-08-04",
+  "ts": "2026-10-02T11:08:43.676Z",
+  "populationCap": 8,
+  "population": [
+    {
+      "id": "A001",
+      "name": "Kepler",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"what do Hindu texts say about multiple universes\" (what-do-hindu-texts-say)",
+      "substrate": "agy",
+      "model": null,
+      "born": "2026-10-02T10:08:04.689Z",
+      "turnsLived": 18,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    }
+  ],
+  "living": 1,
+  "total": 1
+}

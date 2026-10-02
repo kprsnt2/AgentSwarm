@@ -1,0 +1,73 @@
+{
+  "runId": "phase2-2026-10-02T07-00-27",
+  "ts": "2026-10-02T07:56:52.421Z",
+  "populationCap": 8,
+  "population": [
+    {
+      "id": "A001",
+      "name": "Kepler",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"Travel at or near light speed\" (lightspeed)",
+      "substrate": "agy",
+      "model": null,
+      "born": "2026-10-02T07:00:27.648Z",
+      "turnsLived": 5,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 1
+    },
+    {
+      "id": "A002",
+      "name": "Raman",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"Origin of the universe\" (cosmogenesis)",
+      "substrate": "omp",
+      "model": null,
+      "born": "2026-10-02T07:00:27.650Z",
+      "turnsLived": 5,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    },
+    {
+      "id": "A003",
+      "name": "Hypatia",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"New drug discovery\" (drug-discovery)",
+      "substrate": "agy",
+      "model": null,
+      "born": "2026-10-02T07:00:27.691Z",
+      "turnsLived": 5,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    },
+    {
+      "id": "A004",
+      "name": "Nagarjuna",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"Are aliens real?\" (extraterrestrial)",
+      "substrate": "step",
+      "model": null,
+      "born": "2026-10-02T07:00:27.692Z",
+      "turnsLived": 5,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    }
+  ],
+  "living": 4,
+  "total": 4
+}
