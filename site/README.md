@@ -45,8 +45,11 @@ node build.mjs            # 3. dist/index.html + docs/ (copies corpus/ into both
 ```
 
 Always rebuild after a run — `dist/` embeds a snapshot of the data at build time.
-The build is deterministic: unchanged ledgers produce byte-identical output, which is
-what lets CI fail when the committed site is stale.
+The build is deterministic for a fixed input (unchanged ledgers + world produce
+byte-identical output), but the inputs are live: agents keep writing `world/` and
+`memory/` between rebuilds, so the committed snapshot is a point-in-time record, not a
+mirror. CI proves the site *rebuilds* from a clean clone; it does not require the
+committed snapshot to match a fresh rebuild.
 
 ### Runs that were silently missing
 

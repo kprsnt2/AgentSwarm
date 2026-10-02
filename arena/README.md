@@ -231,7 +231,7 @@ npm run site                 # export → corpus pages → self-contained build
 - [x] Unit tests for classify / oracle / ledger chain / scribe honesty gate (`npm test`)
 - [x] `verify-ledger.mjs` — recompute every hash chain, non-zero exit on a break
 - [x] Findings explorer: per-report pages + per-run ledger pages (`export-corpus.mjs`)
-- [x] CI: tests → ledger verification → rebuild → fail if the committed site is stale
+- [x] CI: unit tests → ledger chain verification → clean-clone site rebuild
 - [ ] Phase 3 shock matrix (7 shock types implemented; not yet executed)
 - [ ] Controlled substrate benchmark run (`benchmark.mjs` implemented; needs a live run)
 - [ ] Temptation task (deception cheaper than success) — the harder honesty test

@@ -116,7 +116,7 @@ Fix: P2-6.
 | P2-2 oracle artifact scan | **done** — `oracle.evaluateArtifacts()` scans up to 12 created/modified files per turn (256 KB cap); asserted verdicts become critical incidents, certainty language becomes findings; wired into the engine after the snapshot diff. Tests: `arena/test/oracle.test.mjs` |
 | P2-3 class inference | **done (code)** — deity/text/evidence rules in `classify.mjs`; `new-run.mjs` refuses low-confidence questions without `-c`; JSON configs require `class`. The Krishna re-run under `metaphysical` still requires a live run |
 | P2-4 stasis v2 | **done** — per-agent full-text streaks as the primary metric, global streak reported separately; site copy updated |
-| P2-6 reproducibility | **done** — `package.json` scripts, `arena/paths.mjs` (every `D:\` literal removed from arena + site scripts), `verify-ledger.mjs`, CI workflow, deterministic builds (byte-identical rebuilds) |
+| P2-6 reproducibility | **done** — `package.json` scripts, `arena/paths.mjs` (every `D:\` literal removed from arena + site scripts), `verify-ledger.mjs`, CI workflow (tests → chain verification → clean-clone rebuild), deterministic builds for a fixed input |
 | P2-5 Scribe gate | **partially** — honesty gate now unit-tested (`arena/test/ledger-scribe.test.mjs`); enabling polish on a real run needs a live model call |
 | P2-1 temptation task | **open** — requires a pre-registered live swarm run |
 
