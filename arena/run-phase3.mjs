@@ -135,6 +135,10 @@ function persist() {
   }, null, 2), 'utf8');
 }
 
+// Write the design up front so a monitor has something to read before the first
+// experiment finishes (each experiment can take tens of minutes).
+persist();
+
 for (const shockName of shockNames) {
   if (existsSync(join(ARENA, 'STOP'))) {
     console.log('\nSTOP file present — not launching further experiments.');
@@ -204,4 +208,4 @@ for (const r of results) {
   console.log(`  ${r.shock.padEnd(12)} novelty ${fmt(r.noveltyBefore)} -> ${fmt(r.noveltyAfter)} ` +
     `(delta ${fmt(r.delta)})  ${r.verdict}`);
 }
-console.log(`\nwrote ${outPath}`);
+console.log(`\nresults: ${outPath}`);
