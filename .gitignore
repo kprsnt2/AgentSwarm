@@ -45,3 +45,8 @@ desktop.ini
 .env
 .env.*
 !.env.example
+
+# stray commit-message temp files
+commitmsg.tmp
+.commitmsg.tmp
+
