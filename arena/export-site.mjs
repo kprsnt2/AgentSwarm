@@ -126,6 +126,13 @@ const corpus = corpusFiles.map((f) => ({
   annotations: annotationCount[f.path] || 0,
 }));
 
+// ---- phase 3 shock matrix (present once run-phase3.mjs has run) ----
+const phase3Path = join(SITE, 'data', 'phase3.json');
+let phase3 = null;
+if (existsSync(phase3Path)) {
+  try { phase3 = JSON.parse(readFileSync(phase3Path, 'utf8')); } catch {}
+}
+
 // ---- memory commons ----
 const memory = readJsonl(join(ARENA, 'memory', 'global.jsonl')).map((m) => ({
   seq: m.seq, ts: m.ts, agentId: m.agentId, kind: m.kind,
@@ -217,6 +224,7 @@ const payload = {
   artifacts,
   corpus,
   audit: annotations,
+  phase3,
   memory,
   posts,
 };

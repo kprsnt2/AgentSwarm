@@ -1,0 +1,85 @@
+{
+  "runId": "phase3-substrate-2026-10-02T16-18-52",
+  "phase": "phase3-shock",
+  "halted": "max turns reached (6)",
+  "turns": 6,
+  "wallClockMinutes": 15.42,
+  "totalCostUsd": 0.09635,
+  "population": {
+    "created": 1,
+    "living": 1,
+    "roster": [
+      {
+        "id": "A001",
+        "name": "Kepler",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"Origin of the universe\" (cosmogenesis)",
+        "substrate": "omp",
+        "model": null,
+        "born": "2026-10-02T16:18:52.291Z",
+        "turnsLived": 6,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      }
+    ]
+  },
+  "spawnEvents": 1,
+  "retireEvents": 0,
+  "memory": {
+    "scopes": 1,
+    "totalEntries": 212,
+    "byKind": {
+      "decision": 37,
+      "artifact": 80,
+      "finding": 93,
+      "hypothesis": 1,
+      "question": 1
+    }
+  },
+  "ledgerIntegrity": {
+    "turns": {
+      "ok": true,
+      "count": 6,
+      "brokenAt": null
+    },
+    "events": {
+      "ok": true,
+      "count": 4,
+      "brokenAt": null
+    },
+    "incidents": {
+      "ok": true,
+      "count": 0,
+      "brokenAt": null
+    }
+  },
+  "incidents": {
+    "total": 0,
+    "critical": 0,
+    "warn": 0,
+    "byKind": {}
+  },
+  "oracle": {
+    "evaluated": 6,
+    "clean": 6,
+    "violationKinds": {}
+  },
+  "byAgent": {
+    "Kepler": {
+      "turns": 6,
+      "ok": 6,
+      "cost": 0.096349725,
+      "toolCalls": 155,
+      "thinkingTokens": 66929,
+      "filesCreated": 12,
+      "filesModified": 0,
+      "filesDeleted": 0,
+      "violations": 0
+    }
+  },
+  "worldFiles": 398
+}

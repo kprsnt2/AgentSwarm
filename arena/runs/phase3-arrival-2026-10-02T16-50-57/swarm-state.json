@@ -1,0 +1,41 @@
+{
+  "runId": "phase3-arrival-2026-10-02T16-50-57",
+  "ts": "2026-10-02T17:11:49.262Z",
+  "populationCap": 4,
+  "population": [
+    {
+      "id": "A001",
+      "name": "Kepler",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"Origin of the universe\" (cosmogenesis)",
+      "substrate": "agy",
+      "model": null,
+      "born": "2026-10-02T16:50:57.356Z",
+      "turnsLived": 4,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 1
+    },
+    {
+      "id": "A002",
+      "name": "Outsider2",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Challenge the assumptions of the existing swarm from outside its consensus.",
+      "substrate": "agy",
+      "model": null,
+      "born": "2026-10-02T16:58:54.537Z",
+      "turnsLived": 2,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    }
+  ],
+  "living": 2,
+  "total": 2
+}

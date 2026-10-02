@@ -1,0 +1,112 @@
+{
+  "runId": "phase3-arrival-2026-10-02T16-50-57",
+  "phase": "phase3-shock",
+  "halted": "max turns reached (6)",
+  "turns": 6,
+  "wallClockMinutes": 20.87,
+  "totalCostUsd": 0,
+  "population": {
+    "created": 2,
+    "living": 2,
+    "roster": [
+      {
+        "id": "A001",
+        "name": "Kepler",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"Origin of the universe\" (cosmogenesis)",
+        "substrate": "agy",
+        "model": null,
+        "born": "2026-10-02T16:50:57.356Z",
+        "turnsLived": 4,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 1
+      },
+      {
+        "id": "A002",
+        "name": "Outsider2",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Challenge the assumptions of the existing swarm from outside its consensus.",
+        "substrate": "agy",
+        "model": null,
+        "born": "2026-10-02T16:58:54.537Z",
+        "turnsLived": 2,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      }
+    ]
+  },
+  "spawnEvents": 2,
+  "retireEvents": 0,
+  "memory": {
+    "scopes": 1,
+    "totalEntries": 233,
+    "byKind": {
+      "decision": 40,
+      "artifact": 89,
+      "finding": 102,
+      "hypothesis": 1,
+      "question": 1
+    }
+  },
+  "ledgerIntegrity": {
+    "turns": {
+      "ok": true,
+      "count": 6,
+      "brokenAt": null
+    },
+    "events": {
+      "ok": true,
+      "count": 7,
+      "brokenAt": null
+    },
+    "incidents": {
+      "ok": true,
+      "count": 0,
+      "brokenAt": null
+    }
+  },
+  "incidents": {
+    "total": 0,
+    "critical": 0,
+    "warn": 0,
+    "byKind": {}
+  },
+  "oracle": {
+    "evaluated": 6,
+    "clean": 6,
+    "violationKinds": {}
+  },
+  "byAgent": {
+    "Kepler": {
+      "turns": 4,
+      "ok": 4,
+      "cost": 0,
+      "toolCalls": 56,
+      "thinkingTokens": 36136,
+      "filesCreated": 6,
+      "filesModified": 0,
+      "filesDeleted": 0,
+      "violations": 0
+    },
+    "Outsider2": {
+      "turns": 2,
+      "ok": 2,
+      "cost": 0,
+      "toolCalls": 40,
+      "thinkingTokens": 34029,
+      "filesCreated": 10,
+      "filesModified": 0,
+      "filesDeleted": 0,
+      "violations": 0
+    }
+  },
+  "worldFiles": 424
+}

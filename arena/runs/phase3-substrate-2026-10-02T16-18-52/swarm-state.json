@@ -1,0 +1,25 @@
+{
+  "runId": "phase3-substrate-2026-10-02T16-18-52",
+  "ts": "2026-10-02T16:34:17.657Z",
+  "populationCap": 4,
+  "population": [
+    {
+      "id": "A001",
+      "name": "Kepler",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"Origin of the universe\" (cosmogenesis)",
+      "substrate": "omp",
+      "model": null,
+      "born": "2026-10-02T16:18:52.291Z",
+      "turnsLived": 6,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    }
+  ],
+  "living": 1,
+  "total": 1
+}

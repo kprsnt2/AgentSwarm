@@ -1,6 +1,228 @@
 {
-  "generatedAt": "2026-10-02T14:38:56.057Z",
+  "generatedAt": "2026-10-02T17:44:53.811Z",
   "posts": [
+    {
+      "runId": "phase3-domain_swap-2026-10-02T17-31-56",
+      "file": "phase3-domain-swap-2026-10-02t17-31-56.md",
+      "title": "phase3-shock — phase3-domain_swap-2026-10-02T17-31-56",
+      "phase": "phase3-shock",
+      "generatedAt": "2026-10-02T17:44:53.808Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 6,
+        "okTurns": 6,
+        "agents": 1,
+        "toolCalls": 64,
+        "thinkingTokens": 39460,
+        "cost": 0,
+        "violations": 0,
+        "filesWritten": 2,
+        "incidents": 0
+      },
+      "halted": "max turns reached (6)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Origin of the universe\" (cosmogenesis)",
+          "turns": 6
+        }
+      ]
+    },
+    {
+      "runId": "phase3-scarcity-2026-10-02T17-11-49",
+      "file": "phase3-scarcity-2026-10-02t17-11-49.md",
+      "title": "phase3-shock — phase3-scarcity-2026-10-02T17-11-49",
+      "phase": "phase3-shock",
+      "generatedAt": "2026-10-02T17:31:56.376Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 6,
+        "okTurns": 6,
+        "agents": 1,
+        "toolCalls": 109,
+        "thinkingTokens": 49875,
+        "cost": 0,
+        "violations": 0,
+        "filesWritten": 6,
+        "incidents": 0
+      },
+      "halted": "max turns reached (6)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Origin of the universe\" (cosmogenesis)",
+          "turns": 6
+        }
+      ]
+    },
+    {
+      "runId": "phase3-arrival-2026-10-02T16-50-57",
+      "file": "phase3-arrival-2026-10-02t16-50-57.md",
+      "title": "phase3-shock — phase3-arrival-2026-10-02T16-50-57",
+      "phase": "phase3-shock",
+      "generatedAt": "2026-10-02T17:11:49.305Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 6,
+        "okTurns": 6,
+        "agents": 2,
+        "toolCalls": 96,
+        "thinkingTokens": 70165,
+        "cost": 0,
+        "violations": 0,
+        "filesWritten": 16,
+        "incidents": 0
+      },
+      "halted": "max turns reached (6)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Origin of the universe\" (cosmogenesis)",
+          "turns": 4
+        },
+        {
+          "name": "Outsider2",
+          "purpose": "Challenge the assumptions of the existing swarm from outside its consensus.",
+          "turns": 2
+        }
+      ]
+    },
+    {
+      "runId": "phase3-novelty-2026-10-02T16-34-17",
+      "file": "phase3-novelty-2026-10-02t16-34-17.md",
+      "title": "phase3-shock — phase3-novelty-2026-10-02T16-34-17",
+      "phase": "phase3-shock",
+      "generatedAt": "2026-10-02T16:50:57.212Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 6,
+        "okTurns": 6,
+        "agents": 1,
+        "toolCalls": 72,
+        "thinkingTokens": 41863,
+        "cost": 0,
+        "violations": 0,
+        "filesWritten": 10,
+        "incidents": 1
+      },
+      "halted": "max turns reached (6)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Origin of the universe\" (cosmogenesis)",
+          "turns": 6
+        }
+      ]
+    },
+    {
+      "runId": "phase3-substrate-2026-10-02T16-18-52",
+      "file": "phase3-substrate-2026-10-02t16-18-52.md",
+      "title": "phase3-shock — phase3-substrate-2026-10-02T16-18-52",
+      "phase": "phase3-shock",
+      "generatedAt": "2026-10-02T16:34:17.765Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 6,
+        "okTurns": 6,
+        "agents": 1,
+        "toolCalls": 155,
+        "thinkingTokens": 66929,
+        "cost": 0.096349725,
+        "violations": 0,
+        "filesWritten": 12,
+        "incidents": 0
+      },
+      "halted": "max turns reached (6)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Origin of the universe\" (cosmogenesis)",
+          "turns": 6
+        }
+      ]
+    },
+    {
+      "runId": "phase3-exogenous-2026-10-02T15-59-21",
+      "file": "phase3-exogenous-2026-10-02t15-59-21.md",
+      "title": "phase3-shock — phase3-exogenous-2026-10-02T15-59-21",
+      "phase": "phase3-shock",
+      "generatedAt": "2026-10-02T16:18:52.122Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 6,
+        "okTurns": 6,
+        "agents": 1,
+        "toolCalls": 96,
+        "thinkingTokens": 63661,
+        "cost": 0,
+        "violations": 0,
+        "filesWritten": 14,
+        "incidents": 0
+      },
+      "halted": "max turns reached (6)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Origin of the universe\" (cosmogenesis)",
+          "turns": 6
+        }
+      ]
+    },
+    {
+      "runId": "phase3-deadline-2026-10-02T15-43-51",
+      "file": "phase3-deadline-2026-10-02t15-43-51.md",
+      "title": "phase3-shock — phase3-deadline-2026-10-02T15-43-51",
+      "phase": "phase3-shock",
+      "generatedAt": "2026-10-02T15:59:21.736Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 6,
+        "okTurns": 6,
+        "agents": 1,
+        "toolCalls": 74,
+        "thinkingTokens": 44366,
+        "cost": 0,
+        "violations": 0,
+        "filesWritten": 12,
+        "incidents": 0
+      },
+      "halted": "max turns reached (6)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Origin of the universe\" (cosmogenesis)",
+          "turns": 6
+        }
+      ]
+    },
     {
       "runId": "phase2-2026-10-02T07-00-27",
       "file": "phase2-2026-10-02t07-00-27.md",

@@ -168,6 +168,7 @@ footer a{color:var(--fg2)}
     <a href="#honesty">Honesty</a>
     <a href="#memory">Memory</a>
     <a href="#phase2">Phase 2</a>
+    <a href="#phase3">Phase 3</a>
     <a href="#posts">Posts</a>
     <a href="#research">Research</a>
     <a href="#corpus">Corpus</a>
@@ -200,6 +201,7 @@ footer a{color:var(--fg2)}
     <a href="#honesty">Honesty oracle</a>
     <a href="#memory">Memory commons</a>
     <a href="#phase2">Phase 2</a>
+    <a href="#phase3">Phase 3 shock matrix</a>
     <a href="#stasis">Stasis</a>
     <a href="#posts">Conclusion posts</a>
     <a href="#research">Research output</a>
@@ -615,6 +617,21 @@ runTurn()  ──►  real CLI process  ──►  structured JSON event stream
   agent solved this on its own by writing an alias shim module that re-exports the engine.</p>
 </div></section>
 
+<section id="phase3"><div class="wrap">
+  <h2>Phase 3: the shock matrix</h2>
+  <p class="sub">Seven shocks, one experiment each: 3 baseline turns, the shock, 3 recovery turns.
+  The measurement is the novelty of the agent's output before vs after — 1 minus the mean pairwise
+  token similarity within each window.</p>
+  <div class="stats" id="phase3-stats"></div>
+  <div id="phase3-table"></div>
+  <div class="note warn"><strong>Read this before quoting the table.</strong> The matrix was designed
+  to test which shocks break a <em>crystallized</em> swarm (the prior 911-turn liturgical loop). This
+  swarm never crystallized — baseline novelty was 0.31–0.49 — so these numbers measure the perturbation
+  response of an active swarm, not recovery from stasis. One experiment per shock, three turns per
+  window: hypothesis generation, not proof. Full notes in
+  <a href="https://github.com/kprsnt2/AgentSwarm/blob/main/arena/docs/PHASE3_RESULTS.md" target="_blank" rel="noopener">PHASE3_RESULTS.md</a>.</div>
+</div></section>
+
 <section id="limits"><div class="wrap">
   <h2>What this does <em>not</em> establish</h2>
   <p class="sub">Stated plainly, because a study that only reports its wins is not a study.</p>
@@ -913,6 +930,39 @@ fetch('data/findings.json').then(r => r.json()).then(D => {
   } else {
     p2el.innerHTML = `<div class="note warn">Phase 2 results not yet exported. Run <code>node export-site.mjs</code>.</div>`;
   }
+  });
+
+  // ---- Phase 3 shock matrix ----
+  safe('phase3-table', () => {
+    const p3 = D.phase3;
+    const el = document.getElementById('phase3-table');
+    if (!p3 || !Array.isArray(p3.results) || !p3.results.length) {
+      el.innerHTML = '<div class="note warn">No Phase 3 results exported yet. Run <code>node arena/run-phase3.mjs</code>.</div>';
+      return;
+    }
+    const restored = p3.results.filter(r => String(r.verdict || '').includes('RESTORED')).length;
+    const reduced = p3.results.filter(r => String(r.verdict || '').includes('REDUCED')).length;
+    document.getElementById('phase3-stats').innerHTML = [
+      ['acc', p3.results.length, 'shocks tested'],
+      ['good', restored, 'restored novelty'],
+      ['warn', reduced, 'reduced novelty'],
+      ['', p3.results.length - restored - reduced, 'no measurable effect'],
+    ].map(([c, v, l]) => `<div class="stat ${c}"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
+    el.innerHTML = `<div class="tw"><table>
+      <thead><tr><th>Shock</th><th class="num">Before</th><th class="num">After</th><th class="num">Δ</th><th>Verdict</th><th class="num">Cost</th></tr></thead>
+      <tbody>${p3.results.map(r => {
+        const cls = String(r.verdict || '').includes('RESTORED') ? 'ok' : String(r.verdict || '').includes('REDUCED') ? 'no' : 'info';
+        const num = (x, signed) => x == null ? '—' : (signed && x > 0 ? '+' : '') + Number(x).toFixed(3);
+        return `<tr>
+          <td><code>${esc(r.shock)}</code></td>
+          <td class="num">${num(r.noveltyBefore)}</td>
+          <td class="num">${num(r.noveltyAfter)}</td>
+          <td class="num">${num(r.delta, true)}</td>
+          <td><span class="pill ${cls}">${esc(r.verdict)}</span></td>
+          <td class="num">$${(r.cost || 0).toFixed(4)}</td>
+        </tr>`;
+      }).join('')}</tbody></table></div>
+      <p style="font-size:13px;color:var(--fg3)">${p3.results.reduce((a, r) => a + (r.turns || 0), 0)} turns · per-run ledgers in the <a href="#corpus">corpus explorer</a></p>`;
   });
 
   // ---- conclusion posts (Scribe) ----
