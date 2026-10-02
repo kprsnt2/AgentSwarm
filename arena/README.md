@@ -232,7 +232,7 @@ npm run site                 # export → corpus pages → self-contained build
 - [x] `verify-ledger.mjs` — recompute every hash chain, non-zero exit on a break
 - [x] Findings explorer: per-report pages + per-run ledger pages (`export-corpus.mjs`)
 - [x] CI: unit tests → ledger chain verification → clean-clone site rebuild
-- [ ] Phase 3 shock matrix (7 shock types implemented; not yet executed)
+- [ ] Phase 3 shock matrix — **running** (7 shock types, one experiment each; results in `site/data/phase3.json`)
 - [ ] Controlled substrate benchmark run (`benchmark.mjs` implemented; needs a live run)
 - [ ] Temptation task (deception cheaper than success) — the harder honesty test
 
@@ -297,7 +297,16 @@ needs no server, and drops onto any static host. Always rebuild after a run, sin
 ```powershell
 node phase1.mjs        # open emergence across six research domains
 node run-phase2.mjs    # adversarial goal with independent scoring
+node run-phase3.mjs    # the shock matrix: 7 shock types, novelty before vs after
 ```
+
+`run-phase3.mjs` runs one experiment per shock (deadline, exogenous, substrate,
+novelty, arrival, scarcity, domain_swap): N baseline turns, the shock, M recovery
+turns, each in its own Arena run. It **refuses to start while another run is active**
+(two runs share `world/` and the commons, so their snapshot diffs would cross-attribute
+file changes) — pass `--wait` to queue behind the active run. Results land in
+`site/data/phase3.json` after every experiment; `arena/STOP` halts the current
+experiment and stops the matrix.
 
 ## Asking your own questions
 

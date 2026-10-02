@@ -374,6 +374,10 @@ export class Arena {
             turn: this.turn,
             detail: { similarity: Number(maxSim.toFixed(3)), threshold: this.config.noveltyThreshold },
           });
+          // Phase 3 novelty shock: the demand was previously set but never read, so
+          // the shock only produced incidents. Inject it into the NEXT prompt —
+          // the recorded turn stays the agent's actual output.
+          if (this.config.noveltyDemand) this.shockDirective = this.config.noveltyDemand;
         }
       }
     }

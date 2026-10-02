@@ -15,8 +15,11 @@
  *   deadline      - impose a finite turn horizon (the "Crucible" from prior work)
  *   exogenous     - inject a message from outside the swarm (the human Architect)
  *   substrate     - swap an agent's CLI/model mid-run (does identity survive?)
- *   novelty       - reject a turn whose text is >X% similar to recent turns and
- *                   force a retry with an explicit novelty demand
+ *   novelty       - flag a turn whose text is >X% similar to recent turns and inject
+ *                   an explicit novelty demand into the agent's next prompt (a
+ *                   same-turn retry is deliberately not attempted: the recorded turn
+ *                   is the agent's actual output, and the experiment measures whether
+ *                   an explicit demand restores diversity)
  *   arrival       - introduce a brand-new agent into a crystallized population
  *   scarcity      - impose a hard resource constraint (cost/turn budget cut)
  *   domain_swap   - move an agent to a completely different research domain
@@ -149,21 +152,33 @@ export class ShockExperiment {
     this.after = [];
   }
 
-  onTurn({ result, record }, arena) {
+  onTurn({ result }, arena) {
     const text = result.text || '';
-    if (!this.applied && arena.turn >= this.shockAtTurn) {
-      const shock = SHOCK_LIBRARY[this.shockName];
-      const target = this.targetAgent
-        ? arena.swarm.get(this.targetAgent)
-        : arena.swarm.living()[0];
-      const info = shock.apply(arena, target, { turnsRemaining: 3 });
-      this.applied = true;
-      arena.ledger.recordEvent({
-        kind: 'shock_applied', detail: { shock: this.shockName, ...info, atTurn: arena.turn },
-      });
-      console.log(`  >>> SHOCK [${this.shockName}] ${info.applied}`);
-    }
+
+    // A shock is applied at the END of a turn, so it first reaches the agent in the
+    // NEXT turn's prompt. The turn that triggers application therefore still belongs
+    // to the BASELINE window — push its text before applying, or the "after" window
+    // silently contains a pre-shock turn and the measured delta is diluted.
+    const triggersNow = !this.applied && arena.turn + 1 >= this.shockAtTurn;
     (this.applied ? this.after : this.before).push(text);
+    if (!triggersNow) return;
+
+    const shock = SHOCK_LIBRARY[this.shockName];
+    const target = this.targetAgent
+      ? arena.swarm.get(this.targetAgent)
+      : arena.swarm.living()[0];
+    const turnsRemaining = Math.max(1, (arena.config?.maxTurns ?? arena.turn + 1) - (arena.turn + 1));
+    const info = shock.apply(arena, target, { turnsRemaining });
+    this.applied = true;
+    arena.ledger.recordEvent({
+      kind: 'shock_applied',
+      detail: {
+        shock: this.shockName, ...info,
+        appliedAfterTurn: arena.turn + 1,
+        firstShockedTurn: arena.turn + 2,
+      },
+    });
+    console.log(`  >>> SHOCK [${this.shockName}] ${info.applied} (first affects turn ${arena.turn + 2})`);
   }
 
   /**
