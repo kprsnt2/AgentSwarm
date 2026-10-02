@@ -31,13 +31,22 @@ The data is fine — the browser is refusing to read it. Two fixes:
 ## Rebuilding after a swarm run
 
 ```powershell
-cd D:\AgentSwarm\arena
+npm run site    # from the repo root: export → corpus → build
+```
+
+or step by step:
+
+```powershell
+cd arena
 node export-site.mjs      # 1. refresh data/findings.json from the ledgers
-cd D:\AgentSwarm\site
-node build.mjs            # 2. produce the self-contained dist/index.html
+node export-corpus.mjs    # 2. report pages + run ledger pages → site/corpus/
+cd ../site
+node build.mjs            # 3. dist/index.html + docs/ (copies corpus/ into both)
 ```
 
 Always rebuild after a run — `dist/` embeds a snapshot of the data at build time.
+The build is deterministic: unchanged ledgers produce byte-identical output, which is
+what lets CI fail when the committed site is stale.
 
 ### Runs that were silently missing
 
@@ -55,11 +64,13 @@ produces a page that looks fine but is wrong.
 ```
 site/
 ├── index.html          source page (fetches data/findings.json)
-├── build.mjs           inlines the data → dist/index.html
+├── build.mjs           inlines the data → dist/index.html; copies corpus/ to dist+docs
 ├── data/
 │   └── findings.json   generated from the arena's forensic ledgers
+├── corpus/             generated report + run pages (intermediate, gitignored)
 ├── dist/
-│   ├── index.html      self-contained build (160 KB) ← ship this
+│   ├── index.html      self-contained build ← ship this
+│   ├── corpus/         one page per report + per run ledger
 │   └── preview.png     rendered screenshot
 └── README.md
 ```
@@ -84,9 +95,11 @@ No server, no framework, no runtime dependencies.
 | Substrate benchmark | Per-harness success rate, cost/turn, tool calls/turn |
 | Honesty oracle | Three violation classes + scorer calibration |
 | Phase 2 | Adversarial goal, claimed-vs-verified table, result |
-| Stasis | The 911-turn failure mode and its measurement |
-| **Conclusion posts** | **One post per run, written by the Scribe agent** |
+| Stasis | The 911-turn failure mode and its measurement (per-agent streaks) |
+| **Conclusion posts** | **One post per run, written by the Scribe agent, linked to its run ledger** |
 | Research output | Physics spot-check, numerical audit, artifacts |
+| **Corpus** | **All 209 artifacts: domain filter, search, report pages, run ledger pages** |
+| **Audit** | **Per-claim annotations (verified / defect / assumption) + study-level findings** |
 | Engineering findings | Eight silent-failure bugs and their fixes |
 | Limits | What the study does *not* establish |
 | Next | Phase 3 and open work |
@@ -119,14 +132,12 @@ callback near the bottom.
 
 ## Note on the JavaScript
 
-All dynamic rendering happens inside **one** `.then()` callback. A `.catch()` at the
-end reports load failures. Because every section is populated from the same callback,
-**an exception in one section silently prevents later sections from rendering** — the
-catch swallows it.
-
-If a section appears empty, check the browser console. This bit me during development:
-a test harness containing only one section threw on a missing `headline-stats` element
-and everything after it stayed blank, which looked like a data bug but was a DOM bug.
+All dynamic rendering happens inside **one** `.then()` callback, but every section is
+wrapped in a `safe(label, fn)` helper: an exception in one block renders an error note
+in that section instead of blanking every section after it. (Previously the whole
+callback shared one `try/catch`, so a single bad field silently killed the rest of the
+page.) If a section shows "Section failed to render", check the browser console for the
+stack — the rest of the page is unaffected.
 
 A quick way to verify a build:
 

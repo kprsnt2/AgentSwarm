@@ -1,0 +1,30 @@
+name: verify
+
+# A study about verifiability should be verifiable by a stranger. This runs the
+# unit tests, recomputes every ledger hash chain, rebuilds the site from the ledgers,
+# and fails if the committed site does not match its inputs.
+on:
+  push:
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Verify ledger hash chains
+        run: npm run verify
+
+      - name: Rebuild site from the ledgers
+        run: npm run site
+
+      - name: Fail if the committed site is stale
+        run: git diff --exit-code

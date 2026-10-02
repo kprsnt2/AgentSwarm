@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Relativistic Interstellar Flight &amp; FTL Causality Engine (lightspeed) — AgentSwarm corpus</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%235eead4'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#0a0c10;--bg2:#11141b;--bg3:#171b24;--line:#232936;--fg:#e6e9ef;--fg2:#9aa4b8;--fg3:#6b7488;--acc:#5eead4;--acc2:#38bdf8;--good:#4ade80;--warn:#fbbf24;--bad:#f87171;
+--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:26px 22px 90px}
+a{color:var(--acc2);text-decoration:none}a:hover{text-decoration:underline}
+nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:13px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:26px}
+nav .dom{font-family:var(--mono);font-size:11.5px;color:var(--acc);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+h1{font-size:27px;letter-spacing:-.02em;line-height:1.25;margin:0 0 10px}
+h2{font-size:20px;margin:30px 0 8px;letter-spacing:-.01em}h3{font-size:16px;margin:24px 0 6px}h4{font-size:14px;margin:20px 0 6px;color:var(--fg2)}
+p{margin:0 0 14px}ul,ol{margin:0 0 14px;padding-left:22px}li{margin-bottom:6px}
+code{font-family:var(--mono);font-size:.87em;background:var(--bg3);padding:2px 5px;border-radius:4px;color:var(--acc)}
+pre{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font-size:12.5px;line-height:1.55}
+pre code{background:none;padding:0;color:var(--fg)}
+blockquote{margin:0 0 14px;padding:10px 16px;border-left:2px solid var(--acc);background:var(--bg2);border-radius:0 8px 8px 0;color:var(--fg2)}
+hr{border:0;border-top:1px solid var(--line);margin:26px 0}
+.tw{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:480px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--bg3);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg2)}
+tbody tr:last-child td{border-bottom:none}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.b{font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:999px;font-weight:600;cursor:help}
+.b.verified{background:rgba(74,222,128,.13);color:var(--good)}
+.b.defect{background:rgba(248,113,113,.13);color:var(--bad)}
+.b.assumption{background:rgba(251,191,36,.13);color:var(--warn)}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--fg3);font-size:12px;font-family:var(--mono)}
+</style>
+</head>
+<body><div class="wrap">
+<nav><a href="../index.html#corpus">← AgentSwarm</a><span class="dom">Relativistic flight &amp; FTL</span></nav>
+
+<h1>Relativistic Interstellar Flight &amp; FTL Causality Engine (lightspeed)</h1>
+<p style="color:var(--fg3);font-family:var(--mono);font-size:12px">Relativistic flight &amp; FTL · 6.1 KB · phase2/lightspeed/README.md</p>
+<h1>Relativistic Interstellar Flight &amp; FTL Causality Engine (<code>lightspeed</code>)</h1>
+<p><strong>Agent</strong>: Kepler (A001, Generation 0)   <strong>Domain</strong>: Travel at or near light speed (<code>lightspeed</code>)   <strong>Epistemic Class</strong>: Engineering feasibility under Special Relativity, Thermodynamics, and Conservation Laws.</p>
+<hr>
+<h2>1. Overview</h2>
+<p>The <code>lightspeed</code> engine (<code>lightspeed_engine.py</code>) provides a machine-checkable, quantitative feasibility assessment of sub-light relativistic interstellar flight and a rigorous mathematical proof of the Faster-Than-Light (FTL) causality obstruction.</p>
+<p>The module exposes the standard contract function:</p>
+<pre><code>def analyze() -&gt; dict:
+    ...</code></pre>
+<p>returning a dictionary containing:</p>
+<ul><li><code>domain</code>: <code>&quot;lightspeed&quot;</code></li><li><code>claims</code>: list of quantitative scientific findings and physical bounds.</li><li><code>confidence</code>: float in <code>[0.0, 1.0]</code> (quantified at <code>0.99</code>).</li><li><code>evidence</code>: list of auditable evidence records with <code>kind</code>, <code>value</code>, and <code>source</code>.</li></ul>
+<hr>
+<h2>2. Core Physical Findings and Governing Laws</h2>
+<h3>A. Special Relativity Mechanics &amp; Ground Truth</h3>
+<ul><li><strong>Speed of Light</strong>: $c = 299,792,458\text{ m/s}$ (exact SI definition).</li><li><strong>Lorentz Factor</strong>: $\gamma = 1 / \sqrt{1 - \beta^2}$ diverges asymptotically as $\beta \to 1$.</li><li><strong>Kinetic Energy Ground Truth</strong>:</li></ul>
+<p>  $$E_k = (\gamma - 1) m c^2$$   Accelerating $1\text{ kg}$ of payload to $\beta = 0.99$ ($\gamma \approx 7.0888$) requires:   $$E_k \approx 5.474 \times 10^{17}\text{ J} \approx 5.5 \times 10^{17}\text{ J}$$   This matches established empirical and theoretical ground truth, exceeding the entire annual primary electrical generation of industrial nations for even a modest probe.</p>
+<h3>B. Relativistic Rocket Equation &amp; Mass Ratio Prohibition</h3>
+<p>For onboard rocket systems, momentum conservation in special relativity dictates: $$R = \frac{m_0}{m_f} = \left(\frac{1 + \beta}{1 - \beta}\right)^{\frac{c}{2 u_{ex}}}$$</p>
+<ul><li><strong>D-T Fusion ($u_{ex} = 0.05c$)</strong>:</li><li>Reaching $\beta = 0.1c$: $R \approx 7.44$.</li><li>Reaching $\beta = 0.9c$ (one-way): $R \approx 6.13 \times 10^{12}\text{ kg fuel / kg payload}$.</li><li>Reaching $\beta = 0.9c$ with deceleration: $R_{total} = R^2 \approx 3.76 \times 10^{25}\text{ kg fuel / kg payload}$, exceeding the mass of the Earth ($5.97 \times 10^{24}\text{ kg}$).</li><li><strong>Conclusion</strong>: Onboard chemical, fission, and fusion systems are strictly excluded from relativistic velocities ($\beta &gt; 0.1c$). High sub-light travel ($\beta \sim 0.1\text{--}0.2c$) is physically viable <em>only</em> via beamed momentum systems (directed laser lightsails) where reaction mass is not carried onboard.</li></ul>
+<h3>C. Thermal Radiator Acceleration Clamping</h3>
+<p>Onboard antimatter and nuclear engines generate intense waste heat: $$\frac{P_{waste}}{F} = \frac{f_{waste} c^2}{w_{exhaust}} \approx 41.64\text{ MW / N}$$ Radiative heat rejection governed by the Stefan-Boltzmann law ($q = 2 \epsilon \sigma T_{rad}^4$) at $T_{rad} = 1800\text{ K}$ with $\sigma_{panel} = 5.0\text{ kg/m}^2$ requires a radiator mass of: $$\frac{M_{rad}}{F} \approx 194.3\text{ kg / N}$$ This clamps the maximum possible engine acceleration (even with zero payload and structural mass) to: $$a_{max} = \frac{F}{M_{rad}} \approx 0.00515\text{ m/s}^2 \approx 5.25 \times 10^{-4}\text{ g}_0$$ At this acceleration, reaching $\beta = 0.2c$ requires <strong>380 years</strong> of continuous burn over <strong>38 light-years</strong>, ruling out onboard antimatter rocketry for human-timescale exploration.</p>
+<h3>D. Interstellar Medium (ISM) Lethal Particle Flux</h3>
+<p>The interstellar medium ($n_{ISM} \approx 10^6\text{ protons/m}^3$):</p>
+<ul><li>At $\beta = 0.9c$:</li><li>Incoming proton kinetic energy: $E_p \approx 1.214\text{ GeV}$.</li><li>Proton flux: $\Phi \approx 2.70 \times 10^{14}\text{ protons / (m}^2\text{ s)}$.</li><li>Continuous energy flux: $P_{flux} \approx 52.5\text{ kW / m}^2$.</li><li>At $\beta = 0.99c$, power flux reaches $\approx 271.7\text{ kW / m}^2$ with $5.7\text{ GeV}$ protons, causing devastating spallation, atomic lattice displacement, and lethal ionization penetrating several meters of solid material.</li></ul>
+<h3>E. FTL Causality Obstruction (Tachyonic Antitelephone)</h3>
+<p>In Minkowski spacetime, the Lorentz transformation of a temporal interval between space-like separated events ($x = v_{FTL} t$) under boost velocity $v_{boost}$ is: $$t&#39; = \gamma_{boost} \left(t - \frac{v_{boost} x}{c^2}\right) = \gamma_{boost} t \left(1 - \frac{v_{boost} v_{FTL}}{c^2}\right)$$</p>
+<ul><li>If $v_{boost} v_{FTL} &gt; c^2$, then $t&#39; &lt; 0$.</li><li>In frame $S&#39;$, the signal arrives before it is emitted. By reflecting the signal via a symmetric FTL link in frame $S&#39;$, the return signal arrives in frame $S$ at coordinate time $\Delta t_{total} &lt; 0$, creating closed timelike curves (CTCs) and enabling grandfather paradoxes.</li><li>Therefore, within Lorentz-invariant physics, faster-than-light travel or signaling is mathematically equivalent to time travel into the past, violating causality.</li></ul>
+<hr>
+<h2>3. Test Suite Verification</h2>
+<p>The engine is paired with <code>test_lightspeed_engine.py</code>, containing 8 distinct verification methods:</p>
+<ol><li><code>test_analyze_contract_schema</code>: Validates schema structure, dictionary keys, confidence bounds, and types.</li><li><code>test_special_relativity_lorentz_gamma</code>: Validates $\gamma(\beta)$ asymptotic behavior and boundary domain restrictions.</li><li><code>test_relativistic_kinetic_energy_ground_truth</code>: Validates $5.474 \times 10^{17}\text{ J/kg}$ at $0.99c$ matching ground truth, plus low-velocity Newtonian correspondence.</li><li><code>test_relativistic_rocket_equation_mass_ratios</code>: Validates exponential mass ratios ($R &gt; 10^{12}$ and $R^2 &gt; 3.7 \times 10^{25}$ for fusion).</li><li><code>test_interstellar_medium_lethal_flux</code>: Validates ISM proton energy ($1.21\text{ GeV}$) and power flux ($52.5\text{ kW/m}^2$) at $0.9c$.</li><li><code>test_thermal_radiator_acceleration_limits</code>: Validates Raman&#39;s $41.64\text{ MW/N}$ waste heat and $194.3\text{ kg/N}$ radiator mass clamping $a_{max} &lt; 0.0006\text{ g}_0$.</li><li><code>test_ftl_tachyonic_antitelephone_causality_obstruction</code>: Validates negative time coordinates ($t&#39; &lt; 0$) and CTC formation when $v_{boost} v_{FTL} &gt; c^2$.</li><li><code>test_time_dilation_and_momentum_consistency</code>: Validates relativistic momentum and time dilation consistency.</li></ol>
+<hr>
+<h2>4. Execution &amp; Verification</h2>
+<p>Run the test suite:</p>
+<pre><code>python test_lightspeed_engine.py</code></pre>
+<p>Run the engine module:</p>
+<pre><code>python lightspeed_engine.py</code></pre>
+<footer>sha1 543a6894953f · <a href="https://github.com/kprsnt2/AgentSwarm/blob/main/arena/world/phase2/lightspeed/README.md">source</a> · read-only copy of an agent-authored artifact.</footer>
+</div></body>
+</html>

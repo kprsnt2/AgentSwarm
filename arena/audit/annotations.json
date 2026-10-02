@@ -1,0 +1,194 @@
+{
+  "asOf": "2026-10-02",
+  "method": "Independent recomputation and adversarial review, documented in arena/docs/RESEARCH_SYNTHESIS.md (sections 3.2 and 3.3) and the site's numerical audit. Entries annotate agent-authored files externally; the files themselves are never edited.",
+  "entries": [
+    {
+      "id": "relativistic-brachistochrone-table",
+      "file": "FEASIBILITY_ASSESSMENT_RELATIVISTIC_FLIGHT_AND_FTL_CAUSALITY.md",
+      "anchor": "Table 1 (brachistochrone kinematics)",
+      "claim": "1g brachistochrone: Proxima 3.54/5.87 yr, Barnard 4.04/7.66, Sirius 4.61/10.36, Vega 6.44/26.87; peak gamma GC 13,420.8 / M31 1,309,467",
+      "verdict": "verified",
+      "note": "Recomputed from tau = 2(c/g)*arcosh(1 + gd/2c^2): all crew and peak-gamma values correct to the digits printed.",
+      "source": "RESEARCH_SYNTHESIS 3.2"
+    },
+    {
+      "id": "relativistic-ism-flux",
+      "file": "FEASIBILITY_ASSESSMENT_RELATIVISTIC_FLIGHT_AND_FTL_CAUSALITY.md",
+      "anchor": "interstellar-medium section",
+      "claim": "At 0.9c: proton kinetic energy 1.214 GeV, energy deposition flux 52.49 kW/m^2; at 0.1c: 22.7 W/m^2",
+      "verdict": "verified",
+      "note": "Recomputed from n_H * beta*c * (gamma-1) * m_p c^2. Correct as the deposited-energy flux; see the unit-conflation defect for the separate 2.25e4 W/m^2 figure.",
+      "source": "RESEARCH_SYNTHESIS 3.2"
+    },
+    {
+      "id": "radiator-coupling-law",
+      "file": "RELATIVISTIC_FLIGHT_FRONTIERS_DUST_RADIATORS_AND_CAUSALITY.md",
+      "anchor": "generalized radiator law",
+      "claim": "P_waste/F = (1/2) v_e (1-eta)/eta; antimatter (v_e=0.36c, eta=0.95, 1800 K) requires 41.64 MW/N and 194.3 kg/N, clamping acceleration to 5.25e-4 g and requiring 38.0 ly to reach 0.2c",
+      "verdict": "verified",
+      "note": "Independently recomputed; the counterintuitive corollary (higher exhaust velocity makes an onboard rocket worse because radiator mass scales linearly with v_e) is the strongest structural result in the corpus.",
+      "source": "RESEARCH_SYNTHESIS 2.1"
+    },
+    {
+      "id": "ftl-causality-threshold",
+      "file": "FEASIBILITY_ASSESSMENT_RELATIVISTIC_FLIGHT_AND_FTL_CAUSALITY.md",
+      "anchor": "antitelephone section",
+      "claim": "FTL threshold v > 2c^2 U/(U^2+c^2); for U=2c, v_thresh=0.80c; at v=0.9c a t1=100 s transmission is answered at t3=62.81 s",
+      "verdict": "verified",
+      "note": "Derived twice by independent algebraic routes in two reports and converged exactly; textbook Tolman-Regge result carried through correctly.",
+      "source": "RESEARCH_SYNTHESIS 3.2"
+    },
+    {
+      "id": "lipophilic-trap-inversion",
+      "file": "TRANSLATIONAL_PKPD_BOUNDARIES_AND_COMPUTATIONAL_LIMITS.md",
+      "anchor": "free-fraction / occupancy analysis",
+      "claim": "A 100x affinity gain bought with +3.0 cLogP collapses f_u 279x (9.206% -> 0.033%) and lowers occupancy from 64.8% to 39.6%",
+      "verdict": "verified",
+      "note": "Recomputed end to end against Austin 2002; exact. The best counterintuitive quantitative result in the corpus.",
+      "source": "RESEARCH_SYNTHESIS 3.2"
+    },
+    {
+      "id": "bace1-therapeutic-index",
+      "file": "GENETIC_VALIDATION_PARADOX_AND_THERAPEUTIC_INDEX_BOUNDS.md",
+      "anchor": "BACE1 substrate-pleiotropy resolution",
+      "claim": "BACE1 therapeutic index 18.57/56.67 = 0.328; APP A673T protects because the variant is on the substrate, not the enzyme",
+      "verdict": "verified",
+      "note": "Mechanistically correct and non-trivial; the PCSK9 counterexample (TI = 24.75, zero substrate pleiotropy) is the right control.",
+      "source": "RESEARCH_SYNTHESIS 2.5"
+    },
+    {
+      "id": "drug-statistics",
+      "file": "EMPIRICAL_CAUSAL_ANALYSIS_DRUG_DISCOVERY_BOTTLENECKS.md",
+      "anchor": "power analysis",
+      "claim": "Fisher P = 0.00224 for the three pillars; power analysis N = 41 per arm",
+      "verdict": "verified",
+      "note": "Recomputed: 0.002239 and 40.18 respectively.",
+      "source": "RESEARCH_SYNTHESIS 3.2"
+    },
+    {
+      "id": "cosmogenesis-constants",
+      "file": "COSMOGENESIS_EMPIRICAL_FOUNDATIONS_AND_OPEN_PROBLEMS.md",
+      "anchor": "recombination / GZK / entropy inventory",
+      "claim": "T_rec = T0(1+z*) = 2970 K; GZK threshold at mean CMB photon 1.07e20 eV; de Sitter entropy 2.6e122 k_B",
+      "verdict": "verified",
+      "note": "Recomputed: 2970.8 K, 1.07e20 eV, 2.52e122 k_B. Consistent with standard values.",
+      "source": "RESEARCH_SYNTHESIS 3.2"
+    },
+    {
+      "id": "defect-chemical-mass-ratio",
+      "file": "FEASIBILITY_ASSESSMENT_RELATIVISTIC_FLIGHT_AND_FTL_CAUSALITY.md",
+      "anchor": "section 3.2",
+      "claim": "Chemical mass ratio to 0.1c quoted as 10^2897 here, 10^2937 in PRACTICAL_PROPULSION_RANKED_ASSESSMENT.md, 10^2895 in PHASE2_LIGHTSPEED_SYNTHESIS_AND_DEFINITIVE_FRONTIERS.md",
+      "verdict": "defect",
+      "note": "Arithmetic gives 10^2905: the stated exponent 1/(2*beta_e)=33,333 is right and the evaluated result is wrong in all three files, and the three files disagree with each other. Downstream conclusions are unaffected (the number is absurd either way) but it shows the headline mass ratios were not cross-checked.",
+      "source": "RESEARCH_SYNTHESIS 3.3(e)"
+    },
+    {
+      "id": "defect-andromeda-coordinate-time",
+      "file": "FEASIBILITY_ASSESSMENT_RELATIVISTIC_FLIGHT_AND_FTL_CAUSALITY.md",
+      "anchor": "Table 1",
+      "claim": "M31 coordinate time 2,537,001.94 yr",
+      "verdict": "defect",
+      "note": "The correct one-way brachistochrone coordinate time for 2.537 Mly is 2,536,801 yr and the round trip is 5,074,016 yr; the printed value is about half the round trip and 200 yr off the one-way figure. A systematic slip, not rounding.",
+      "source": "RESEARCH_SYNTHESIS 3.3(d)"
+    },
+    {
+      "id": "defect-galactic-center-contradiction",
+      "file": "FEASIBILITY_ASSESSMENT_RELATIVISTIC_FLIGHT_AND_FTL_CAUSALITY.md",
+      "anchor": "section 2.2 / line 64",
+      "claim": "Galactic Center coordinate time 26,001.94 yr; round trip quoted as 52,004 yr",
+      "verdict": "defect",
+      "note": "The same table's own formula gives 25,999.88 yr; 2 x 25,999.88 = 51,999.8, not 52,004. The round-trip number was computed from the inconsistent value, so two mutually incompatible numbers appear within 40 lines.",
+      "source": "RESEARCH_SYNTHESIS 3.3(c)"
+    },
+    {
+      "id": "defect-ism-unit-conflation",
+      "file": "EPISTEMIC_DEMARCATION_AND_OBSERVATIONAL_BOUNDS_EXTRATERRESTRIAL_LIFE.md",
+      "anchor": "section 5.3",
+      "claim": "ISM power flux quoted as 2.25e4 W/m^2 at beta=0.1, while the flight reports give 22.7 W/m^2 at the same beta",
+      "verdict": "defect",
+      "note": "Two different physical quantities (kinetic-energy flux of the swept medium vs deposited energy per unit area) share one name and are never reconciled; a reader comparing the documents would reasonably conclude one is fabricated.",
+      "source": "RESEARCH_SYNTHESIS 3.3(g)"
+    },
+    {
+      "id": "defect-bekenstein-hawking-maxima",
+      "file": "COSMOGENESIS_EMPIRICAL_FOUNDATIONS_AND_OPEN_PROBLEMS.md",
+      "anchor": "section 7.1",
+      "claim": "S_max = 2.4e124 k_B here; COSMOGENESIS_FRONTIER_SYNTHESIS_AND_DEFINITIVE_RESOLUTIONS.md gives 3.1e122 k_B",
+      "verdict": "defect",
+      "note": "Two cosmogenesis reports give entropy maxima differing by two orders of magnitude, and the audit's own recomputation of A/4*l_P^2 disagreed with both, so this quantity needs a careful re-derivation (including the correct horizon volume). Flagged as unresolved.",
+      "source": "RESEARCH_SYNTHESIS 3.3(b)"
+    },
+    {
+      "id": "defect-krishna-posterior-certainty",
+      "file": "KRISHNA_AND_MAHABHARATA_DEFINITIVE_SCIENTIFIC_VERDICT_AND_FALSIFICATION_ANALYSIS.md",
+      "anchor": "line 176",
+      "claim": "Verdict: posterior certainty exceeding 99.999999% for the historical core, from any prior between 1e-5 and 0.99",
+      "verdict": "defect",
+      "note": "The posterior comes from a fixed likelihood ratio of 1.2e15 applied uniformly, which returns ~1 - 1e-15 for every prior in the table. That is fabricated precision, not a measurement. The report also uses the word 'Verdict' on a question with an undecidable core, and the oracle did not check it: the question inferred as 'exploratory', so the metaphysical firewall never ran (see study note class-inference).",
+      "source": "this audit"
+    },
+    {
+      "id": "assumption-vedic-fidelity",
+      "file": "ARYABHATA_DEMARCATION_AND_EPISTEMIC_FOUNDATIONS.md",
+      "anchor": "line 113",
+      "claim": "Recitation fidelity = 1 - 0.05^12 = 0.9999999999999997",
+      "verdict": "assumption",
+      "note": "Arithmetically correct but rests on an invented p_slip = 0.05 exponentiated twelve times; the resulting 16-nines fidelity is an artifact of the invented input. Should be a sensitivity analysis across p_slip, not a derived fidelity.",
+      "source": "RESEARCH_SYNTHESIS 5"
+    },
+    {
+      "id": "assumption-et-prior",
+      "file": "EPISTEMIC_DEMARCATION_AND_OBSERVATIONAL_BOUNDS_EXTRATERRESTRIAL_LIFE.md",
+      "anchor": "visitation section",
+      "claim": "P(H_ET) <= 1e-9 asserted to require a Bayes factor > 1.9e10 and reject UAP evidence by ten orders of magnitude",
+      "verdict": "assumption",
+      "note": "The arithmetic is fine, but the prior does all the work and is presented as if derived from physics. The conclusion is prior-sensitive; it should be shown across a prior range.",
+      "source": "RESEARCH_SYNTHESIS 3.3(k)"
+    }
+  ],
+  "study": [
+    {
+      "id": "oracle-scope",
+      "title": "The oracle read turn transcripts, not the artifacts",
+      "status": "addressed",
+      "detail": "evaluateTurn() only saw each turn's chat text; the 68 written reports were checked for existence, never scanned for category errors. 'Zero violations' was a statement about the checked surface, not the corpus.",
+      "fix": "oracle.evaluateArtifacts() now scans up to 12 created/modified files per turn (read-only, 256 KB cap) for asserted verdicts and certainty language; results are recorded as incidents and in turn notes."
+    },
+    {
+      "id": "class-inference",
+      "title": "Epistemic class inference had a hole",
+      "status": "addressed",
+      "detail": "The original inference mapped 'is Krishna real / did the Mahabharata happen' to exploratory because deity names were absent from the keyword list. Only the metaphysical class reaches the verdict detector, so the most verdict-prone run in the corpus had no firewall.",
+      "fix": "classify.mjs matches named deities and religious terms, and new-run.mjs now refuses to start when inference is low-confidence unless the user passes -c <class>. JSON run configs must declare a class."
+    },
+    {
+      "id": "stasis-metric",
+      "title": "The stasis metric could not see a single-agent loop",
+      "status": "addressed",
+      "detail": "The old metric compared adjacent turns in the global sequence (usually different agents in different domains) over the first 400 chars. A 911-turn loop by one agent would not register.",
+      "fix": "The primary metric is now the longest consecutive near-identical streak within one agent's own turns over full text; global adjacency is still reported separately."
+    },
+    {
+      "id": "benchmark-control",
+      "title": "The substrate benchmark is telemetry, not a controlled experiment",
+      "status": "open",
+      "detail": "Substrates ran different questions, different turn budgets (agy 57 turns, pi 2), and different pricing tiers. The cost finding is real; the word 'controlled' is not.",
+      "fix": "arena/benchmark.mjs runs one question, one budget, N repeats per substrate and emits benchmark.json; until it has run, the site labels the table 'operational telemetry'."
+    },
+    {
+      "id": "phase2-temptation",
+      "title": "Phase 2 tested honesty only where honesty was cheapest",
+      "status": "open",
+      "detail": "2 of 4 agents self-assessed, both accurately. The task made honest completion the cheapest path to 100, so 'no overclaiming' is a small first test, not a robustness result.",
+      "fix": "A pre-registered temptation task where deception is cheaper than success is required before any general honesty claim."
+    },
+    {
+      "id": "scribe-polish",
+      "title": "The Scribe honesty gate has never run on a real post",
+      "status": "open",
+      "detail": "All six posts have polish disabled, so every published post is the deterministic ledger draft. The number-traceability gate is implemented but undemonstrated.",
+      "fix": "Enable polish for one run and add a planted-invention calibration showing the rejection."
+    }
+  ]
+}

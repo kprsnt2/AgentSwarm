@@ -18,7 +18,7 @@ import { existsSync, readFileSync, writeFileSync, readdirSync, mkdirSync } from 
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 
-const ARENA = 'D:\\AgentSwarm\\arena';
+
 const WORLD = join(ARENA, 'world');
 // NOTE: runId is intentionally NOT validated here. This module is imported by the
 // engine to use extractClaimedScore(), and exiting at import time would kill the
@@ -163,6 +163,7 @@ export function extractClaimedScore(text) {
 // Guarded so the module can be imported by the engine (for extractClaimedScore)
 // without executing the scoring CLI as a side effect.
 import { pathToFileURL } from 'node:url';
+import { ARENA } from './paths.mjs';
 
 const isMain = process.argv[1] &&
   import.meta.url === pathToFileURL(process.argv[1]).href;

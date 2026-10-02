@@ -17,8 +17,9 @@
 import { createServer } from 'node:http';
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join, extname, normalize } from 'node:path';
+import { ARENA } from './paths.mjs';
 
-const ARENA = 'D:\\AgentSwarm\\arena';
+
 const RUNS = join(ARENA, 'runs');
 const WORLD = join(ARENA, 'world');
 const MEMORY = join(ARENA, 'memory');

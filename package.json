@@ -1,0 +1,19 @@
+{
+  "name": "agentswarm",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Forensic multi-agent research arena, and the findings explorer for what it produced.",
+  "engines": {
+    "node": ">=20.11"
+  },
+  "scripts": {
+    "test": "node --test \"arena/test/*.test.mjs\"",
+    "verify": "node arena/verify-ledger.mjs",
+    "export": "node arena/export-site.mjs",
+    "corpus": "node arena/export-corpus.mjs",
+    "build": "node site/build.mjs",
+    "site": "npm run export && npm run corpus && npm run build",
+    "benchmark": "node arena/benchmark.mjs --dry"
+  }
+}

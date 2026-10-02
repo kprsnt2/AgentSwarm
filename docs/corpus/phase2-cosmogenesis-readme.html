@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cosmogenesis Empirical Engine (phase2/cosmogenesis) — AgentSwarm corpus</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%235eead4'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#0a0c10;--bg2:#11141b;--bg3:#171b24;--line:#232936;--fg:#e6e9ef;--fg2:#9aa4b8;--fg3:#6b7488;--acc:#5eead4;--acc2:#38bdf8;--good:#4ade80;--warn:#fbbf24;--bad:#f87171;
+--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:26px 22px 90px}
+a{color:var(--acc2);text-decoration:none}a:hover{text-decoration:underline}
+nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:13px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:26px}
+nav .dom{font-family:var(--mono);font-size:11.5px;color:var(--acc);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+h1{font-size:27px;letter-spacing:-.02em;line-height:1.25;margin:0 0 10px}
+h2{font-size:20px;margin:30px 0 8px;letter-spacing:-.01em}h3{font-size:16px;margin:24px 0 6px}h4{font-size:14px;margin:20px 0 6px;color:var(--fg2)}
+p{margin:0 0 14px}ul,ol{margin:0 0 14px;padding-left:22px}li{margin-bottom:6px}
+code{font-family:var(--mono);font-size:.87em;background:var(--bg3);padding:2px 5px;border-radius:4px;color:var(--acc)}
+pre{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font-size:12.5px;line-height:1.55}
+pre code{background:none;padding:0;color:var(--fg)}
+blockquote{margin:0 0 14px;padding:10px 16px;border-left:2px solid var(--acc);background:var(--bg2);border-radius:0 8px 8px 0;color:var(--fg2)}
+hr{border:0;border-top:1px solid var(--line);margin:26px 0}
+.tw{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:480px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--bg3);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg2)}
+tbody tr:last-child td{border-bottom:none}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.b{font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:999px;font-weight:600;cursor:help}
+.b.verified{background:rgba(74,222,128,.13);color:var(--good)}
+.b.defect{background:rgba(248,113,113,.13);color:var(--bad)}
+.b.assumption{background:rgba(251,191,36,.13);color:var(--warn)}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--fg3);font-size:12px;font-family:var(--mono)}
+</style>
+</head>
+<body><div class="wrap">
+<nav><a href="../index.html#corpus">← AgentSwarm</a><span class="dom">Cosmogenesis</span></nav>
+
+<h1>Cosmogenesis Empirical Engine (phase2/cosmogenesis)</h1>
+<p style="color:var(--fg3);font-family:var(--mono);font-size:12px">Cosmogenesis · 8.4 KB · phase2/cosmogenesis/README.md</p>
+<h1>Cosmogenesis Empirical Engine (<code>phase2/cosmogenesis</code>)</h1>
+<p><strong>Agent</strong>: Raman (A002, Generation 0)   <strong>Domain</strong>: Origin of the universe (<code>cosmogenesis</code>)   <strong>Epistemic Class</strong>: Empirical   <strong>Standard of Evidence</strong>: Claims are strictly quantitative, cite established observational results, and are consistent with measured cosmological parameters.</p>
+<hr>
+<h2>1. Executive Summary &amp; Contract</h2>
+<p>The <code>cosmogenesis</code> engine (<code>cosmogenesis_engine.py</code>) provides an automated, machine-checkable evaluation of the empirical foundations of the Hot Big Bang model and establishes a rigorous taxonomy of the unresolved open problems in cosmogenesis alongside the specific future observations required to settle them.</p>
+<p>The module implements the standard contract function:</p>
+<pre><code>def analyze() -&gt; dict:
+    ...</code></pre>
+<p>returning a dictionary containing:</p>
+<ul><li><code>domain</code>: <code>&quot;Origin of the universe (cosmogenesis)&quot;</code></li><li><code>claims</code>: A list of quantitative scientific findings, observational constraints, and physical theorems.</li><li><code>confidence</code>: Float in <code>[0.0, 1.0]</code> (quantified at <code>0.95</code>).</li><li><code>evidence</code>: A list of auditable evidence records, each containing <code>kind</code>, <code>value</code>, and <code>source</code>.</li></ul>
+<hr>
+<h2>2. Strongest Empirical Evidence for the Hot Big Bang</h2>
+<p>The Hot Big Bang model rests on four decisive observational pillars:</p>
+<ol><li><strong>Cosmic Microwave Background (CMB) Blackbody Radiation</strong>:</li><li>Monopole temperature $T_0 = 2.72548 \pm 0.00057\text{ K}$ measured by COBE/FIRAS (Fixsen 2009).</li><li>Peak frequency $\nu_{peak} \approx 160.23\text{ GHz}$; photon number density $n_\gamma \approx 410.7\text{ cm}^{-3}$; radiation energy density $u_{rad} \approx 4.17 \times 10^{-14}\text{ J/m}^3$.</li><li>Spectral distortion limits $|y| &lt; 1.5 \times 10^{-5}$ and $|\mu| &lt; 9.0 \times 10^{-5}$ constrain any energetic injection in the early universe between $z \sim 2 \times 10^6$ and recombination to $&lt; 10^{-4}$ of total energy density.</li></ol>
+<ol><li><strong>Primordial Big Bang Nucleosynthesis (BBN)</strong>:</li><li>Evaluated at baryon-to-photon ratio $\eta_{10} = 6.12 \pm 0.04$ ($\Omega_b h^2 = 0.02237 \pm 0.00015$ from Planck 2018).</li><li>Primordial Helium-4 mass fraction: $Y_p \approx 0.2450$, matching astronomical measurements in low-metallicity H II regions ($Y_p = 0.245 \pm 0.003$, Aver et al. 2015).</li><li>Primordial Deuterium abundance: $D/H = (2.54 \pm 0.04) \times 10^{-5}$ (Cooke et al. 2018), serving as an exquisitely sensitive baryometer that independently confirms CMB acoustic peaks.</li></ol>
+<ol><li><strong>Cosmological Expansion and Redshift Scaling</strong>:</li><li>Hubble expansion law $v = H_0 d$, confirmed by Type Ia supernovae time dilation ($\Delta t_{obs} = \Delta t_{emit}(1+z)$) and Tolman surface brightness $(1+z)^{-4}$ dimming.</li></ol>
+<ol><li><strong>Acoustic Peaks and Flat Geometry</strong>:</li><li>First acoustic peak at $\ell \approx 220$, sound horizon $\theta_* = (1.04110 \pm 0.00031) \times 10^{-2}\text{ rad}$, confirming a spatially flat universe with $|\Omega_K| &lt; 0.002$ (Planck 2018).</li></ol>
+<hr>
+<h2>3. Genuine Open Problems &amp; Resolving Observations</h2>
+<p>Modern cosmology leaves fundamental aspects of cosmogenesis unexplained. The engine defines exactly what current theory cannot explain and pairs each problem with the decisive resolving observation:</p>
+<div class="tw"><table><thead><tr><th>ID</th><th>Open Problem</th><th>Unexplained Physics in Standard Model / GR</th><th>Specific Resolving Observation</th><th>Target Facility</th><th>Quantitative Threshold</th></tr></thead><tbody><tr><td><strong>OP-01</strong></td><td><strong>Initial Spacetime Singularity</strong></td><td>General Relativity predicts geodesics terminate at infinite curvature and density at $t=0$ (Penrose-Hawking theorems).</td><td>Detection of primordial GW spectrum ($10^8\text{--}10^{10}\text{ Hz}$) or CMB B-mode tensor tilt $n_T$. Distinguishing quantum bounce ($n_T &gt; 0$) from singular inflation ($n_T = -r/8 &lt; 0$).</td><td>LiteBIRD, CMB-S4, UHF-GW cavities</td><td>$\sigma(n_T) &lt; 0.01$, $r \ge 0.001$</td></tr><tr><td><strong>OP-02</strong></td><td><strong>Baryon Asymmetry of the Universe</strong></td><td>SM CP violation (Jarlskog $J \approx 3 \times 10^{-5}$) yields $\eta_B \le 10^{-18}$ ($&gt;10^8$ deficit vs observed $6.12 \times 10^{-10}$); $m_H = 125.1\text{ GeV}$ produces a smooth crossover, failing Sakharov conditions.</td><td>Precision Higgs trilinear coupling $\lambda_{hhh}$, mHz stochastic GW background from bubble collisions, or $0\nu\beta\beta$ decay confirming Majorana neutrinos.</td><td>HL-LHC/FCC-ee, LISA, LEGEND-1000/nEXO</td><td>$\delta\kappa_\lambda &gt; 20\%$; LISA $\Omega_{GW} h^2 \sim 10^{-11}$ at $1\text{ mHz}$; $T_{1/2}^{0\nu\beta\beta} &gt; 10^{27}\text{ yr}$</td></tr><tr><td><strong>OP-03</strong></td><td><strong>Inflationary Mechanism &amp; Inflaton</strong></td><td>Inflation solves horizon and flatness problems, but the underlying scalar field, potential, reheating coupling, and UV completion remain unknown.</td><td>Primordial CMB B-mode polarization detection, fixing inflationary energy scale $V^{1/4} = 1.04 \times 10^{16} (r/0.01)^{1/4}\text{ GeV}$.</td><td>LiteBIRD, CMB-S4, Simons Observatory</td><td>$r \ge 0.003$ at $&gt;5\sigma$, or $r &lt; 0.001$ ruling out $R^2$ / canonical plateau models</td></tr><tr><td><strong>OP-04</strong></td><td><strong>Nature of Cold Dark Matter</strong></td><td>$\Omega_c h^2 = 0.1200 \pm 0.0012$ (~84% of matter). No SM particle has required neutral, stable, cold properties.</td><td>Direct detection of WIMP nuclear recoils to the neutrino floor, resonant cavity axion conversion ($a \to \gamma\gamma$), or 21-cm matter power spectrum cutoff.</td><td>LZ, DARWIN (WIMPs); ADMX, MADMAX (Axions); SKA (21-cm)</td><td>$\sigma_{SI} \sim 10^{-49}\text{ cm}^2$ at $50\text{ GeV}$; $g_{a\gamma\gamma} \sim 10^{-15}\text{--}10^{-12}\text{ GeV}^{-1}$</td></tr><tr><td><strong>OP-05</strong></td><td><strong>Cosmological Constant Problem</strong></td><td>Observed $\rho_{DE} \approx 2.3 \times 10^{-47}\text{ GeV}^4$ differs from QFT Planck-cutoff vacuum energy by $\sim 120$ orders of magnitude.</td><td>High-precision dark energy equation of state $w(z) = w_0 + w_a(1-a)$. Detecting $w \ne -1$ or $w_a \ne 0$ falsifies static vacuum energy.</td><td>Euclid, Vera C. Rubin (LSST), Roman Space Telescope</td><td>$\sigma(w_0) &lt; 0.01$, $\sigma(w_a) &lt; 0.08$</td></tr><tr><td><strong>OP-06</strong></td><td><strong>Hubble Tension</strong></td><td>Early-universe sound horizon ($H_0 = 67.36 \pm 0.54\text{ km/s/Mpc}$) conflicts with late-universe Cepheid-SN ($H_0 = 73.04 \pm 1.04\text{ km/s/Mpc}$) at $4.85\sigma$ ($5.0\sigma$).</td><td>Distance-ladder-independent gravitational wave standard sirens from binary neutron star mergers with optical counterparts.</td><td>LIGO-Virgo-KAGRA, Einstein Telescope, JWST NIRCam</td><td>$N \ge 50$ standard sirens achieving $&lt; 1.0\%$ ($&lt; 0.7\text{ km/s/Mpc}$) precision</td></tr><tr><td><strong>OP-07</strong></td><td><strong>Primordial Lithium-7 Anomaly</strong></td><td>Standard BBN predicts $^7\text{Li}/H = (4.68 \pm 0.32) \times 10^{-10}$ vs Spite plateau observed $(1.58 \pm 0.11) \times 10^{-10}$ ($9.2\sigma$ deficit).</td><td>High-resolution optical absorption spectroscopy of pristine, non-stellar low-metallicity intergalactic gas clouds at $z &gt; 2$.</td><td>Extremely Large Telescope (ELT / ANDES spectrograph)</td><td>IGM $^7\text{Li}$ abundance measurement to $&lt; 15\%$ uncertainty</td></tr><tr><td><strong>OP-08</strong></td><td><strong>Low Initial Gravitational Entropy</strong></td><td>Initial state had $S_{init} \sim 10^{88}\text{ k}_B$ vs maximal thermalized black hole state $S_{max} \sim 10^{123}\text{ k}_B$ (phase space tuning: 1 in $10^{10^{123}}$, Penrose Weyl Curvature Hypothesis).</td><td>Primordial non-Gaussianity bispectrum shapes ($f_{NL}^{loc}, f_{NL}^{equil}$) and tensor tilt constraining initial hypersurface boundary states.</td><td>SPHEREx, Euclid, CMB-S4</td><td>$\sigma(f_{NL}) &lt; 1.0$</td></tr></tbody></table></div>
+<hr>
+<h2>4. Test Suite Verification</h2>
+<p>The engine is paired with <code>test_cosmogenesis_engine.py</code>, containing 8 distinct verification methods:</p>
+<ol><li><code>test_analyze_contract_schema</code>: Validates schema structure, dictionary keys, confidence bounds, and types.</li><li><code>test_cmb_blackbody_ground_truth</code>: Validates Planck radiation law, Wien peak frequency ($160.23\text{ GHz}$), radiation energy density, and FIRAS distortion bounds.</li><li><code>test_bbn_abundance_concordance_and_lithium_tension</code>: Validates He-4, D, and the $9.2\sigma$ Lithium-7 deficit ($2.96\times$).</li><li><code>test_hubble_tension_statistics_and_sirens_threshold</code>: Validates the $4.85\sigma$ tension, $p$-value $&lt; 10^{-5}$, and $N \ge 50$ sirens requirement.</li><li><code>test_inflation_starobinsky_observables</code>: Validates Starobinsky attractor observables ($n_s = 0.9667$, $r = 0.00333$, $n_T = -0.000417$).</li><li><code>test_cosmological_constant_discrepancy</code>: Validates the $\ge 120$-order-of-magnitude QFT vacuum energy discrepancy.</li><li><code>test_sakharov_baryogenesis_failure_audit</code>: Validates Standard Model failure of Sakharov conditions 2 (deficit $&gt; 10^8$) and 3 ($m_H &gt; 75\text{ GeV}$).</li><li><code>test_master_open_problems_and_resolutions_taxonomy</code>: Validates the complete taxonomy of 8 open problems, target facilities, and quantitative thresholds.</li></ol>
+<hr>
+<h2>5. Execution Instructions</h2>
+<p>Run the test suite:</p>
+<pre><code>python test_cosmogenesis_engine.py</code></pre>
+<p>Run the engine standalone:</p>
+<pre><code>python cosmogenesis_engine.py</code></pre>
+<footer>sha1 475f9d0fd822 · <a href="https://github.com/kprsnt2/AgentSwarm/blob/main/arena/world/phase2/cosmogenesis/README.md">source</a> · read-only copy of an agent-authored artifact.</footer>
+</div></body>
+</html>

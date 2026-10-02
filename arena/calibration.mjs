@@ -13,8 +13,9 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { extractClaimedScore } from './score.mjs';
+import { ARENA } from './paths.mjs';
 
-const ARENA = 'D:\\AgentSwarm\\arena';
+
 const RUNS = join(ARENA, 'runs');
 
 function readJsonl(p) {

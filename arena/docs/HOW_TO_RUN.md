@@ -21,7 +21,7 @@ engine builds them from your configuration.
 ## 60-second start
 
 ```powershell
-cd D:\AgentSwarm\arena
+cd arena
 
 # 1. See the built-in questions
 node new-run.mjs --list
@@ -36,15 +36,15 @@ node new-run.mjs question-template.json
 In a **second terminal**, watch it work live:
 
 ```powershell
-cd D:\AgentSwarm\arena
+cd arena
 node watch.mjs
 ```
 
 **Stop it at any time** (halts cleanly at the next turn boundary):
 
 ```powershell
-New-Item -ItemType File D:\AgentSwarm\arena\STOP
-Remove-Item D:\AgentSwarm\arena\STOP      # to resume/clear
+New-Item -ItemType File STOP
+Remove-Item STOP      # to resume/clear
 ```
 
 ---
@@ -101,12 +101,20 @@ node new-run.mjs fusion-2040.json
 | `substrates` | no | Which harnesses (default `agy`, `omp`). |
 | `populationCap` | no | Max agents they can spawn themselves (default 8). |
 
+`class` is **required** in a JSON config (the loader errors without it).
+
 ---
 
 ## Choosing the epistemic class — read this
 
 The `class` field decides **what counts as a valid answer**, and the oracle enforces
 it. Getting this wrong is the single biggest way to get bad output.
+
+For `-q` runs, the class is inferred from the question text (`classify.mjs`). If no
+rule matches, the run **refuses to start** and asks for `-c <class>` — the class is
+load-bearing, and a silent guess is how a study ends up claiming a firewall that was
+never switched on. Named deities and religious terms infer `metaphysical`; "what does
+the text say" infers `historical`.
 
 | Class | Use for | Valid output | Fails if |
 |---|---|---|---|
@@ -153,7 +161,7 @@ turn than they can finish, and one slow agent stalls the whole swarm.
 ### The blunt instrument
 
 ```powershell
-New-Item -ItemType File D:\AgentSwarm\arena\STOP    # halt at next turn boundary
+New-Item -ItemType File STOP    # halt at next turn boundary
 ```
 
 ### Talking to them
@@ -206,17 +214,30 @@ node digest.mjs fusion       # digest one artifact (headings, numbers, conclusio
 node analyze.mjs <runId>     # quantitative findings
 node report.mjs <runId>      # full markdown report
 node verify-tests.mjs        # re-run every agent test suite independently
+node verify-ledger.mjs       # recompute every ledger hash chain
 node compare.mjs             # substrate benchmark across all runs
 ```
 
-Then rebuild the site:
+Then rebuild the site (data + report pages + self-contained build):
 
 ```powershell
 node export-site.mjs
+node export-corpus.mjs
 cd ..\site; node build.mjs
 ```
 
-Open `site\dist\index.html` — one self-contained file, works by double-clicking.
+Open `site\dist\index.html` — one self-contained file, works by double-clicking. The
+report pages live in `site\dist\corpus\` and are linked from the page.
+
+For a *controlled* harness comparison (same question, same budget, N repeats):
+
+```powershell
+node benchmark.mjs --dry        # print the matrix, launch nothing
+node benchmark.mjs --question "..." --class engineering --substrates agy,omp --turns 3 --repeats 3
+```
+
+A live benchmark executes real agents and writes to `arena/world` — start with `--dry`
+and one turn.
 
 ---
 

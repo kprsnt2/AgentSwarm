@@ -31,8 +31,9 @@ import { existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 import { writePost, readPosts, POSTS_DIR } from './scribe.mjs';
+import { ARENA } from './paths.mjs';
 
-const ARENA = 'D:\\AgentSwarm\\arena';
+
 
 const argv = process.argv.slice(2);
 

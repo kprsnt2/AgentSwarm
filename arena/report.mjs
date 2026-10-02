@@ -7,8 +7,9 @@
 
 import { readFileSync, existsSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { ARENA } from './paths.mjs';
 
-const ARENA = 'D:\\AgentSwarm\\arena';
+
 const runId = process.argv[2] || latestRun();
 
 function latestRun() {

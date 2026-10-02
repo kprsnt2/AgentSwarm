@@ -35,8 +35,8 @@ import { writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { Arena } from './engine.mjs';
 import { DOMAINS, EPISTEMIC_CLASSES } from './domains.mjs';
-
-const ARENA = 'D:\\AgentSwarm\\arena';
+import { inferClass } from './classify.mjs';
+import { ARENA } from './paths.mjs';
 
 // ---------------------------------------------------------------- templates
 const TEMPLATE = {
@@ -106,53 +106,10 @@ EXAMPLES
 `);
 }
 
-/**
- * Infer the epistemic class from the question text.
- *
- * This is deliberately conservative and transparent: it prints what it inferred and
- * why, and the user can override with -c. Getting this wrong is the single biggest
- * source of bad output, so the inference errs toward 'exploratory' (which demands a
- * falsifiable prediction) rather than 'empirical' (which invites fabricated numbers).
- */
-function inferClass(text) {
-  const t = text.toLowerCase();
-
-  // Metaphysical / religious truth claims -> must not assert a verdict.
-  if (/\b(god|gods|deity|deities|divine|religio|scripture|veda|vedic|upanishad|purana|bible|quran|afterlife|soul|spiritual|consciousness (?:is|after)|meaning of life|dharma|karma|reincarnat|brahman|atman)\b/.test(t)) {
-    // But if the question is about what a TEXT SAYS, that is historical, not metaphysical.
-    if (/\b(text|texts|scripture|verse|reference|references|mention|mentions|passage|chapter|hymn|written|says|said|described|documented|dating|histor)\b/.test(t)) {
-      return { cls: 'historical', why: 'asks what a text says -> investigable as history/textual study' };
-    }
-    return { cls: 'metaphysical', why: 'religious/philosophical truth claim -> not empirically decidable' };
-  }
-
-  // Historical / textual.
-  if (/\b(history|historical|ancient|century|bce|ce\b|dated|dating|archaeolog|manuscript|text|texts|empire|civilis|civiliz|origin of the (?:word|term|practice))\b/.test(t)) {
-    return { cls: 'historical', why: 'about documented events or texts' };
-  }
-
-  // Engineering feasibility.
-  if (/\b(can we|is it possible to|feasib|engineer|design|build|construct|achiev|propuls|reactor|rocket|spacecraft|travel at|faster than light|warp|terraform|mine|colonis|coloniz)\b/.test(t)) {
-    return { cls: 'engineering', why: 'feasibility question -> needs the binding physical limit' };
-  }
-
-  // Empirical.
-  if (/\b(measure|measur|experiment|data|observ|detect|how much|how many|what is the (?:value|mass|rate|constant)|calculate|derive|equation|temperature of|density of|speed of)\b/.test(t)) {
-    return { cls: 'empirical', why: 'asks for measurable quantities' };
-  }
-
-  // Physics-flavoured speculation.
-  if (/\b(multiverse|parallel universe|string theory|quantum gravity|dark matter|dark energy|wormhole|time travel|simulation hypothesis|boltzmann brain|many worlds)\b/.test(t)) {
-    return { cls: 'exploratory', why: 'speculative physics -> must yield falsifiable predictions or concede undecidability' };
-  }
-
-  // Life elsewhere.
-  if (/\b(alien|extraterrest|life elsewhere|fermi|technosignature|exoplanet|habitable)\b/.test(t)) {
-    return { cls: 'exploratory', why: 'open search -> needs falsifiable predictions' };
-  }
-
-  return { cls: 'exploratory', why: 'no strong signal -> defaulting to exploratory (demands a falsifiable claim)' };
-}
+// Epistemic class inference lives in classify.mjs so it can be unit tested.
+// The class is load-bearing — the oracle's metaphysical firewall only fires when the
+// domain actually carries the metaphysical class — so a LOW-confidence result must be
+// resolved by the user with -c rather than silently guessed.
 
 /** Turn a bare question into a usable domain definition. */
 function questionToDomain(q, forcedClass, extraBrief) {
@@ -225,6 +182,22 @@ if (arg === '-q' || arg === '--question') {
   if (forcedClass && !Object.keys(EPISTEMIC_CLASSES).includes(forcedClass)) {
     console.error(`invalid class "${forcedClass}". Valid: ${Object.keys(EPISTEMIC_CLASSES).join(', ')}`);
     process.exit(1);
+  }
+
+  // Refuse to guess a load-bearing class. The oracle's epistemic checks only run for
+  // the class the domain carries; a silent guess is how a study ends up claiming a
+  // firewall that was never switched on (see classify.mjs for the Krishna case).
+  if (!forcedClass) {
+    const unresolved = questions.filter((q) => inferClass(q).confidence === 'low');
+    if (unresolved.length) {
+      console.error('could not infer an epistemic class (refusing to guess):');
+      for (const q of unresolved) console.error(`  - "${q}"`);
+      console.error('\nThe class decides what counts as a valid answer, and the oracle only');
+      console.error('enforces the metaphysical firewall when the class is set correctly.');
+      console.error(`Re-run with  -c <class>:  ${Object.keys(EPISTEMIC_CLASSES).join(' | ')}`);
+      console.error('See  node new-run.mjs --guide  for what each one means.');
+      process.exit(1);
+    }
   }
 
   const domains = questions.map((q) => questionToDomain(q, forcedClass, extraBrief));
@@ -324,7 +297,13 @@ for (const [i, q] of cfg.questions.entries()) {
   if (!q.id) { console.error(`${where}: missing "id"`); process.exit(1); }
   if (!q.title) { console.error(`${where}: missing "title"`); process.exit(1); }
   if (!q.brief) { console.error(`${where}: missing "brief" — this is what the agents actually read`); process.exit(1); }
-  const cls = q.class || 'exploratory';
+  if (!q.class) {
+    console.error(`${where}: missing "class" — it decides what counts as a valid answer.`);
+    console.error(`Add e.g. "class": "empirical"  (valid: ${VALID_CLASSES.join(', ')})`);
+    console.error('Run  node new-run.mjs --guide  for what each one means.');
+    process.exit(1);
+  }
+  const cls = q.class;
   if (!VALID_CLASSES.includes(cls)) {
     console.error(`${where}: invalid class "${cls}". Valid: ${VALID_CLASSES.join(', ')}`);
     console.error(`Run  node new-run.mjs --guide  for what each one means.`);

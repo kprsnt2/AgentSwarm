@@ -8,12 +8,14 @@
  * Output: ../site/data/findings.json
  */
 
-import { readFileSync, existsSync, readdirSync, writeFileSync, mkdirSync, statSync } from 'node:fs';
+import { readFileSync, existsSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { readPosts } from './scribe.mjs';
+import { ARENA, SITE } from './paths.mjs';
+import { listWorldFiles, loadAnnotations } from './corpus-index.mjs';
 
-const ARENA = 'D:\\AgentSwarm\\arena';
-const SITE = 'D:\\AgentSwarm\\site';
+
+
 
 function readJsonl(path) {
   if (!existsSync(path)) return [];
@@ -109,19 +111,20 @@ const substrates = Object.entries(bySub).map(([k, b]) => ({
   files: b.files,
 })).sort((a, b) => b.turns - a.turns);
 
-// ---- artifacts ----
-const worldDir = join(ARENA, 'world');
-const artifacts = [];
-(function walk(d, base = '') {
-  if (!existsSync(d)) return;
-  for (const e of readdirSync(d, { withFileTypes: true })) {
-    const rel = base ? `${base}/${e.name}` : e.name;
-    if (e.isDirectory()) { if (e.name !== '__pycache__') walk(join(d, e.name), rel); continue; }
-    const st = statSync(join(d, e.name));
-    artifacts.push({ path: rel, bytes: st.size, modified: st.mtime.toISOString() });
-  }
-})(worldDir);
-artifacts.sort((a, b) => b.bytes - a.bytes);
+// ---- artifacts / corpus index ----
+// The world tree is agent-authored and READ-ONLY to tooling: listWorldFiles() only
+// stats and hashes it. The corpus metadata rides in findings.json; the full report
+// pages are generated separately by export-corpus.mjs.
+const corpusFiles = listWorldFiles();
+const annotations = loadAnnotations();
+const annotationCount = {};
+for (const a of annotations.entries) annotationCount[a.file] = (annotationCount[a.file] || 0) + 1;
+const artifacts = corpusFiles.map(({ path, bytes, modified }) => ({ path, bytes, modified }));
+const corpus = corpusFiles.map((f) => ({
+  path: f.path, bytes: f.bytes, domain: f.domain, domainLabel: f.domainLabel,
+  ext: f.ext, slug: f.slug, sha1: f.sha1, headings: f.headings,
+  annotations: annotationCount[f.path] || 0,
+}));
 
 // ---- memory commons ----
 const memory = readJsonl(join(ARENA, 'memory', 'global.jsonl')).map((m) => ({
@@ -144,6 +147,11 @@ const headline = {
 };
 
 // ---- stasis metric ----
+// The failure mode is ONE agent looping, so the primary metric is the longest
+// consecutive near-identical streak within a single agent's own turns. The previous
+// metric compared adjacent turns in the global sequence — usually two different
+// agents working different domains — and therefore could not see the thing it
+// claimed to measure. Global adjacency is still reported for continuity.
 const norm = (s) => (s || '').toLowerCase().replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
 function jac(a, b) {
   const A = new Set(a.split(' ').filter(Boolean)), B = new Set(b.split(' ').filter(Boolean));
@@ -151,11 +159,30 @@ function jac(a, b) {
   let i = 0; for (const x of A) if (B.has(x)) i++;
   return i / (A.size + B.size - i);
 }
-let longest = 0, cur = 0;
+let longest = 0, longestWhere = null;
+{
+  const byAgent = new Map();
+  for (const t of allTurns) {
+    const key = `${t._run}|${t.agentName}`;
+    if (!byAgent.has(key)) byAgent.set(key, []);
+    byAgent.get(key).push(t);
+  }
+  for (const [key, turns] of byAgent) {
+    let cur = 0;
+    for (let i = 1; i < turns.length; i++) {
+      const a = norm(turns[i - 1].text), b = norm(turns[i].text);
+      if (a && b && jac(a, b) > 0.85) {
+        cur += 1;
+        if (cur > longest) { longest = cur; longestWhere = key; }
+      } else cur = 0;
+    }
+  }
+}
+let longestGlobal = 0, curGlobal = 0;
 for (let i = 1; i < allTurns.length; i++) {
-  if (jac(norm(allTurns[i - 1].text).slice(0, 400), norm(allTurns[i].text).slice(0, 400)) > 0.85) {
-    cur++; longest = Math.max(longest, cur);
-  } else cur = 0;
+  const a = norm(allTurns[i - 1].text), b = norm(allTurns[i].text);
+  if (a && b && jac(a, b) > 0.85) { curGlobal += 1; longestGlobal = Math.max(longestGlobal, curGlobal); }
+  else curGlobal = 0;
 }
 
 // ---- conclusion posts (written by the Scribe agent after each run) ----
@@ -174,13 +201,22 @@ const posts = readPosts(ARENA).map((p) => ({
   body: String(p.body || '').slice(0, 60000),
 }));
 
+// Deterministic: the latest turn timestamp in the ledgers, not "now". A rebuild with
+// unchanged inputs produces a byte-identical payload, which lets CI verify that the
+// committed site matches the ledgers (git diff --exit-code).
+const generatedAt = allTurns.length
+  ? allTurns.map((t) => t.ts).filter(Boolean).sort().at(-1)
+  : new Date().toISOString();
+
 const payload = {
-  generatedAt: new Date().toISOString(),
+  generatedAt,
   headline,
-  stasis: { longestNearIdenticalStreak: longest, threshold: 0.85 },
+  stasis: { longestNearIdenticalStreak: longest, where: longestWhere, longestGlobalStreak: longestGlobal, threshold: 0.85 },
   substrates,
   runs,
   artifacts,
+  corpus,
+  audit: annotations,
   memory,
   posts,
 };
@@ -188,5 +224,6 @@ const payload = {
 mkdirSync(join(SITE, 'data'), { recursive: true });
 writeFileSync(join(SITE, 'data', 'findings.json'), JSON.stringify(payload, null, 2), 'utf8');
 console.log(`exported ${runIds.length} runs, ${allTurns.length} turns, ${artifacts.length} artifacts, ${posts.length} posts`);
+console.log(`corpus: ${corpus.length} files, ${annotations.entries.length} audit annotations`);
 console.log(`headline: $${headline.totalCost.toFixed(4)} | ${headline.totalToolCalls} tool calls | ${headline.totalViolations} violations`);
 console.log(`wrote ${join(SITE, 'data', 'findings.json')}`);

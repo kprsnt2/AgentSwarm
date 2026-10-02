@@ -14,8 +14,9 @@
 
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import { ARENA } from './paths.mjs';
 
-const ARENA = 'D:\\AgentSwarm\\arena';
+
 
 function latestRun() {
   const dir = join(ARENA, 'runs');

@@ -5,9 +5,10 @@
  *   New-Item -ItemType File D:\AgentSwarm\arena\STOP
  */
 import { Arena } from './engine.mjs';
+import { ARENA } from './paths.mjs';
 
 const arena = new Arena({
-  root: 'D:\\AgentSwarm\\arena',
+  root: ARENA,
   config: {
     runId: `phase1-${new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19)}`,
     phase: 'phase1-emergence',

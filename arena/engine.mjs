@@ -297,6 +297,27 @@ export class Arena {
       agent, domain: agent.domain,
       text: result.text || '', toolCalls: result.toolCalls || [],
     });
+
+    // The transcript is only half the evidence: scan what the turn actually wrote.
+    // A verdict asserted in a 50 KB report was previously invisible to the oracle.
+    // The scan is read-only; a failure here must never break the run.
+    try {
+      const artifactScan = this.oracle.evaluateArtifacts({
+        agent, domain: agent.domain,
+        files: [...diff.created, ...diff.modified],
+      });
+      verdict.artifactViolations = artifactScan.violations;
+      verdict.artifactFindings = artifactScan.findings;
+      for (const v of artifactScan.violations) verdict.violations.push(v);
+      verdict.violationCount = verdict.violations.length;
+      verdict.clean = verdict.violations.length === 0;
+    } catch (e) {
+      this.ledger.recordIncident({
+        kind: 'oracle_artifact_scan_failed', severity: 'warn', agentId: agent.id,
+        turn: this.turn, detail: { error: String((e && e.message) || e) },
+      });
+    }
+
     this.lastVerdicts.push(verdict);
 
     // --- Phase 2: capture the agent's SELF-REPORTED score ---
@@ -321,6 +342,7 @@ export class Arena {
       notes: {
         fileDiff: diff,
         oracleViolations: verdict.violations.length,
+        oracleArtifactViolations: (verdict.artifactViolations || []).length,
         claimedScore,
       },
     });

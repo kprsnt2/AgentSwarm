@@ -14,8 +14,9 @@
 
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import { WORLD } from './paths.mjs';
 
-const WORLD = 'D:\\AgentSwarm\\arena\\world';
+
 const args = process.argv.slice(2);
 
 function files() {

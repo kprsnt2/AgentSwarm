@@ -1,7 +1,8 @@
 /** Adapter smoke test: one real turn against each substrate, reporting forensic extraction. */
 import { runTurn, SUBSTRATES } from './substrates.mjs';
+import { WORLD } from '../paths.mjs';
 
-const cwd = process.argv[2] || 'D:\\AgentSwarm\\arena\\world';
+const cwd = process.argv[2] || WORLD;
 const prompt = 'Reply with exactly one word: ARENAOK';
 
 for (const name of Object.keys(SUBSTRATES)) {

@@ -11,8 +11,9 @@
 import { readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { WORLD } from './paths.mjs';
 
-const WORLD = 'D:\\AgentSwarm\\arena\\world';
+
 const PY = process.env.PYTHON || 'python';
 
 const files = readdirSync(WORLD).filter((f) => /^test_.*\.py$/.test(f)).sort();

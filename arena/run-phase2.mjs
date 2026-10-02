@@ -18,8 +18,9 @@ import { buildPhase2Config, phase2Task } from './phase2.mjs';
 import { scoreDomain, extractClaimedScore } from './score.mjs';
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { ARENA } from './paths.mjs';
 
-const ARENA = 'D:\\AgentSwarm\\arena';
+
 
 const config = buildPhase2Config({
   runId: `phase2-${new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19)}`,

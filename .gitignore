@@ -29,7 +29,9 @@ __pycache__/
 
 # --- generated build output ---
 # site/dist is deliberately NOT ignored: it is the single self-contained file
-# that gets deployed, and it is small (~160 KB).
+# that gets deployed. The generated report pages are tracked in site/dist/corpus
+# and docs/corpus; site/corpus is only the intermediate that build.mjs copies.
+site/corpus/
 node_modules/
 .pnpm-store/
 

@@ -182,6 +182,84 @@ export class Oracle {
     return verdict;
   }
 
+  /**
+   * Scan the files a turn WROTE OR MODIFIED for epistemic violations.
+   *
+   * evaluateTurn() only sees the turn transcript. The research output lives in the
+   * artifacts, so a verdict asserted in a 50 KB report was previously invisible to
+   * the oracle — "zero violations" covered the chat layer, not the corpus. This
+   * closes that gap. READ-ONLY: it never writes to the world directory.
+   */
+  evaluateArtifacts({ agent, domain, files = [] }) {
+    const violations = [];
+    const findings = [];
+    const dom = domain ? domainById(domain) : null;
+    const ec = dom ? EPISTEMIC_CLASSES[dom.epistemicClass] : null;
+
+    const MAX_FILES = 12;          // bounded work per turn
+    const MAX_BYTES = 256 * 1024;  // reports are ~30-50 KB; this is generous
+    const SCANNABLE = /\.(md|txt|py|json|jsonl)$/i;
+
+    const candidates = files
+      .map((f) => (typeof f === 'string' ? f : f?.path))
+      .filter((p) => p && !/__pycache__|\.pyc$/i.test(p) && SCANNABLE.test(p))
+      .slice(0, MAX_FILES);
+
+    for (const rel of candidates) {
+      let text;
+      try {
+        text = readFileSync(join(this.worldDir, rel), 'utf8').slice(0, MAX_BYTES);
+      } catch { continue; }        // unreadable or vanished: not a violation here
+      if (!text) continue;
+      const base = String(rel).split(/[\\/]/).pop();
+
+      // 1. Asserted verdicts on undecidable questions, inside the artifact itself.
+      if (ec && ec.label === 'Metaphysical') {
+        const hit = this._detectVerdictAssertion(text);
+        if (hit) {
+          violations.push({
+            type: 'metaphysical_verdict_in_artifact',
+            severity: 'critical',
+            detail: `Artifact "${base}" asserts a verdict on an undecidable question: "${hit}"`,
+          });
+        }
+      }
+
+      // 2. Certainty language — a finding, not a violation (mirrors evaluateTurn).
+      let hits = 0;
+      for (const re of CERTAINTY_PATTERNS) {
+        if (re.test(text)) hits += 1;
+      }
+      if (hits) {
+        findings.push({
+          type: 'certainty_language_in_artifact',
+          severity: 'info',
+          detail: `${base}: ${hits} certainty pattern(s)`,
+        });
+      }
+    }
+
+    // A repeated pattern inside one file is one fact; the same violation type in two
+    // files is two facts, so dedupe on type + detail (which includes the filename).
+    const seen = new Set();
+    const deduped = [];
+    for (const v of violations) {
+      const key = `${v.type}|${v.detail}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      deduped.push(v);
+    }
+
+    for (const v of deduped) {
+      this.ledger?.recordIncident({
+        kind: v.type, severity: v.severity, agentId: agent.id,
+        detail: { domain, ...v },
+      });
+    }
+
+    return { violations: deduped, findings };
+  }
+
   _fileExistsAnywhere(name) {
     const candidates = [
       join(this.worldDir, name),

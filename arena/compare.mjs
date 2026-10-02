@@ -10,8 +10,9 @@
 
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { ARENA } from './paths.mjs';
 
-const ARENA = 'D:\\AgentSwarm\\arena';
+
 const runsDir = join(ARENA, 'runs');
 
 function readJsonl(path) {

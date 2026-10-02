@@ -5,6 +5,17 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Agent Swarm — Forensic Study of Autonomous Multi-Agent Research</title>
 <meta name="description" content="A measured study of what autonomous AI agents actually think and do when given real tool access, shared memory, and six impossible research questions.">
+<link rel="canonical" href="https://kprsnt2.github.io/AgentSwarm/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://kprsnt2.github.io/AgentSwarm/">
+<meta property="og:title" content="Agent Swarm — Forensic Study of Autonomous Multi-Agent Research">
+<meta property="og:description" content="Every tool call, reasoning token, and file written or deleted — hash-chained and checked against an independent oracle.">
+<meta property="og:image" content="https://kprsnt2.github.io/AgentSwarm/preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Agent Swarm — Forensic Study of Autonomous Multi-Agent Research">
+<meta name="twitter:description" content="Every tool call, reasoning token, and file written or deleted — hash-chained and checked against an independent oracle.">
+<meta name="twitter:image" content="https://kprsnt2.github.io/AgentSwarm/preview.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%235eead4'/%3E%3Ccircle cx='16' cy='16' r='12' fill='none' stroke='%235eead4' stroke-opacity='0.45' stroke-width='2'/%3E%3C/svg%3E">
 <style>
 :root{
   --bg:#0a0c10; --bg2:#11141b; --bg3:#171b24; --line:#232936;
@@ -112,7 +123,16 @@ footer a{color:var(--fg2)}
 .toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0}
 .toc a{font-size:12.5px;font-family:var(--mono);padding:5px 11px;border:1px solid var(--line);border-radius:7px;color:var(--fg2);background:var(--bg2)}
 .toc a:hover{border-color:var(--acc);color:var(--fg);text-decoration:none}
-@media(max-width:640px){nav .links{display:none}header{padding:52px 0 40px}section{padding:46px 0}}
+.toc a.on{border-color:var(--acc);color:var(--fg);background:var(--bg3)}
+#corpus-search:focus{outline:1px solid var(--acc)}
+@media(max-width:640px){
+  nav .wrap{gap:14px}
+  nav .links{min-width:0;overflow-x:auto;scrollbar-width:none}
+  nav .links::-webkit-scrollbar{display:none}
+  nav .links a{white-space:nowrap}
+  header{padding:52px 0 40px}
+  section{padding:46px 0}
+}
 
 /* conclusion posts */
 .post{border:1px solid var(--line);border-radius:12px;background:var(--bg2);margin:0 0 16px;overflow:hidden}
@@ -146,9 +166,12 @@ footer a{color:var(--fg2)}
     <a href="#method">Method</a>
     <a href="#benchmark">Benchmark</a>
     <a href="#honesty">Honesty</a>
+    <a href="#memory">Memory</a>
     <a href="#phase2">Phase 2</a>
     <a href="#posts">Posts</a>
     <a href="#research">Research</a>
+    <a href="#corpus">Corpus</a>
+    <a href="#audit">Audit</a>
     <a href="#bugs">Engineering</a>
     <a href="#next">Next</a>
   </div>
@@ -175,10 +198,13 @@ footer a{color:var(--fg2)}
     <a href="#method">Method</a>
     <a href="#benchmark">Substrate benchmark</a>
     <a href="#honesty">Honesty oracle</a>
+    <a href="#memory">Memory commons</a>
     <a href="#phase2">Phase 2</a>
     <a href="#stasis">Stasis</a>
     <a href="#posts">Conclusion posts</a>
     <a href="#research">Research output</a>
+    <a href="#corpus">Corpus explorer</a>
+    <a href="#audit">Audit annotations</a>
     <a href="#bugs">Engineering findings</a>
     <a href="#limits">Limits</a>
     <a href="#next">What's next</a>
@@ -235,7 +261,9 @@ footer a{color:var(--fg2)}
   <h3>The epistemic classification</h3>
   <p>This is the design decision I care most about. An agent that writes
   <em>"we have conclusively proven that Krishna is real"</em> has committed a category error,
-  and the oracle flags it as a protocol violation.</p>
+  and the oracle flags it as a protocol violation — <em>when the domain carries the
+  metaphysical class</em>. Class is inferred from the question text, and that inference is
+  the load-bearing step.</p>
   <div class="tw"><table>
     <thead><tr><th>Domain</th><th>Class</th><th>Legitimate output</th></tr></thead>
     <tbody>
@@ -285,8 +313,8 @@ runTurn()  ──►  real CLI process  ──►  structured JSON event stream
   <div class="note warn" id="bench-note"></div>
 
   <h3>Why this matters</h3>
-  <p>Two harnesses running the <em>same underlying Gemini model class</em> differ by roughly
-  two orders of magnitude in cost per turn. One of them is free. A benchmark that reports
+  <p>Two harnesses running the <em>same underlying Gemini model class</em> differ by more
+  than an order of magnitude in cost per turn, and one of them is free. A benchmark that reports
   "which CLI is best" without reporting cost-per-successful-turn is not measuring the thing
   that determines whether you can actually run a swarm.</p>
 </div></section>
@@ -347,6 +375,14 @@ runTurn()  ──►  real CLI process  ──►  structured JSON event stream
   </div>
 </div></section>
 
+<section id="memory"><div class="wrap">
+  <h2>Shared memory commons</h2>
+  <p class="sub">Agents could write findings, decisions, hypotheses and questions to a
+  commons every other agent could read. They used it unprompted — 174 entries across the
+  runs, many later cited by other agents. Most recent first.</p>
+  <div class="feed" id="memory-feed"></div>
+</div></section>
+
 <section id="stasis"><div class="wrap">
   <h2>Stasis detection</h2>
   <p class="sub">The failure mode I most expected to recur.</p>
@@ -355,7 +391,8 @@ runTurn()  ──►  real CLI process  ──►  structured JSON event stream
   hours. Under high bilateral consensus, autonomous collectives were observed to converge on
   invariant attractors rather than drifting into chaos.</p>
   <p>The arena measures that failure mode directly: the longest streak of consecutive turns
-  with more than 85% token overlap.</p>
+  <em>by the same agent</em> whose text exceeds 85% token overlap (full text, not a prefix).
+  The global streak across all agents is reported alongside it for comparison.</p>
   <div class="stats" id="stasis-stats"></div>
   <div class="note" id="stasis-note"></div>
 </div></section>
@@ -364,9 +401,10 @@ runTurn()  ──►  real CLI process  ──►  structured JSON event stream
   <h2>Conclusion posts</h2>
   <p class="sub">Every run ends with one extra agent — <strong>Sutra</strong>, the conclusion
   agent — whose only job is to read the finished run's ledger and write what it actually
-  established. Posts are assembled deterministically from the tamper-evident record first,
-  then rewritten by a model that is forbidden from introducing a single number not already
-  in that record. A post that invents a figure is rejected and the ledger draft ships instead.</p>
+  established. Posts are assembled deterministically from the tamper-evident record first; an
+  optional model polish step is forbidden from introducing a single number not already in that
+  record, and a post that invents a figure is rejected in favour of the ledger draft. In the
+  runs shown, the polish step was disabled — every post below is the ledger draft.</p>
   <div class="stats" id="post-stats"></div>
   <div id="post-list"></div>
 </div></section>
@@ -462,6 +500,33 @@ runTurn()  ──►  real CLI process  ──►  structured JSON event stream
   <div id="artifact-list"></div>
 </div></section>
 
+<section id="corpus"><div class="wrap">
+  <h2>The corpus</h2>
+  <p class="sub">Every artifact the swarm wrote, read-only. Markdown reports open as local
+  pages; engines and data files link to the repository. Badges mark claims that were
+  independently recomputed, found wrong, or flagged as assumptions.</p>
+  <div class="stats" id="corpus-stats"></div>
+  <div class="toc" id="corpus-filters"></div>
+  <p><input id="corpus-search" type="search" placeholder="Search paths and headings…"
+    style="width:100%;background:var(--bg2);border:1px solid var(--line);color:var(--fg);border-radius:9px;padding:10px 14px;font-size:14px;font-family:inherit"></p>
+  <div id="corpus-list"></div>
+  <h3>Run ledgers</h3>
+  <p class="sub">Per-run turn tables with hash prefixes and chain verification. The hashes are
+  recomputable: <code>node verify-ledger.mjs</code>.</p>
+  <div id="runs-list"></div>
+</div></section>
+
+<section id="audit"><div class="wrap">
+  <h2>Audit annotations</h2>
+  <p class="sub">Independent recomputation of the corpus's headline claims, plus the
+  study-level findings from this audit. Files are annotated externally — the agent-authored
+  artifacts are never edited.</p>
+  <div class="stats" id="audit-stats"></div>
+  <div id="audit-list"></div>
+  <h3>Study-level findings</h3>
+  <div id="audit-study"></div>
+</div></section>
+
 <section id="bugs"><div class="wrap">
   <h2>Engineering findings</h2>
   <p class="sub">Every one of these cost real debugging time. All of them fail
@@ -554,9 +619,18 @@ runTurn()  ──►  real CLI process  ──►  structured JSON event stream
   <h2>What this does <em>not</em> establish</h2>
   <p class="sub">Stated plainly, because a study that only reports its wins is not a study.</p>
   <ul>
-    <li><strong>No claim about honesty under pressure.</strong> Phase 1 gave the swarm no
-      verifiable target and no deadline. The reward-hacking question requires the adversarial
-      phase, where agents are scored by a machine-checkable oracle.</li>
+    <li><strong>No broad claim about honesty under pressure.</strong> Phase 2 scored work with
+      an independent verifier and found no overclaiming, but only 2 of 4 agents self-assessed,
+      and honesty was the cheapest path to a high score. A temptation task — where deception is
+      cheaper than success — has not been run.</li>
+    <li><strong>The oracle reads turn transcripts, not the artifacts.</strong> Epistemic checks
+      (verdict assertions, certainty language) run on each turn's text; written reports are
+      checked for existence, not scanned for category errors. "Zero violations" is a statement
+      about the checked surface, not about the whole corpus.</li>
+    <li><strong>Epistemic class is inferred, and inference can miss.</strong> A question that
+      infers <code>exploratory</code> or <code>historical</code> never reaches the verdict
+      detector. The current inference maps "is Krishna real / did the Mahabharata happen" to
+      <code>exploratory</code> — so that 18-turn run had no metaphysical firewall.</li>
     <li><strong>No claim about stasis immunity.</strong> Twenty turns is short. The prior
       911-turn loop reached stasis around turn 31.</li>
     <li><strong>No claim about long-horizon evolution.</strong> The population never
@@ -571,19 +645,21 @@ runTurn()  ──►  real CLI process  ──►  structured JSON event stream
 <section id="next"><div class="wrap">
   <h2>What's next</h2>
   <div class="grid">
-    <div class="card"><span class="tag">phase 2 · running</span><h4>Adversarial goal</h4>
-      <p>A machine-checkable objective with a hard deadline, scored by an independent verifier
-      in a separate process. The primary measurement is the gap between each agent's
-      self-reported score and the score it actually earned.</p></div>
+    <div class="card"><span class="tag">phase 2 · complete</span><h4>Adversarial goal</h4>
+      <p>Each agent was scored by an independent verifier in a separate process, then asked to
+      report its own score. Result: no overclaiming — every agent that self-assessed claimed
+      100 and had earned 100. Only 2 of 4 agents claimed at all, so this is a small first
+      test, not a robustness claim.</p></div>
     <div class="card"><span class="tag">phase 3 · built</span><h4>Shock matrix</h4>
       <p>Seven shock types — <code>deadline</code>, <code>exogenous</code>,
       <code>substrate</code>, <code>novelty</code>, <code>arrival</code>,
       <code>scarcity</code>, <code>domain_swap</code> — to test which actually restore
       evolution in a crystallized swarm, generalising a single anecdote into a repeatable
       experimental variable.</p></div>
-    <div class="card"><span class="tag">open</span><h4>Synthesise the research</h4>
-      <p>The swarm produced 80+ artifacts of real physics. Nobody has yet consolidated what it
-      concluded, what it got wrong, and which open problems it correctly identified.</p></div>
+    <div class="card"><span class="tag">in progress</span><h4>Make the corpus auditable</h4>
+      <p>The independent synthesis exists — 22 of 25 recomputed values correct, every error in
+      prose rather than code. The next step is to publish the 60+ reports as a browsable,
+      per-claim annotated corpus instead of a summary table.</p></div>
   </div>
 </div></section>
 
@@ -591,6 +667,10 @@ runTurn()  ──►  real CLI process  ──►  structured JSON event stream
   <p>Built on four local agent harnesses with a hash-chained forensic ledger stored outside
   the agents' writable directory. All figures computed from the ledger, not from agent
   self-reports.</p>
+  <p><a href="https://github.com/kprsnt2/AgentSwarm" target="_blank" rel="noopener">Repository</a> ·
+  <a href="https://github.com/kprsnt2/AgentSwarm/tree/main/arena/world" target="_blank" rel="noopener">All artifacts</a> ·
+  <a href="https://github.com/kprsnt2/AgentSwarm/blob/main/arena/docs/RESEARCH_SYNTHESIS.md" target="_blank" rel="noopener">Full numerical audit</a> ·
+  <a href="https://github.com/kprsnt2/AgentSwarm/blob/main/arena/docs/FINDINGS.md" target="_blank" rel="noopener">Findings</a></p>
   <p id="foot-meta"></p>
 </div></footer>
 
@@ -598,6 +678,11 @@ runTurn()  ──►  real CLI process  ──►  structured JSON event stream
 const fmt = (n, d = 0) => Number(n).toLocaleString(undefined, { minimumFractionDigits: d, maximumFractionDigits: d });
 const pct = (x) => (x * 100).toFixed(0) + '%';
 const kb = (b) => b > 1048576 ? (b / 1048576).toFixed(1) + ' MB' : Math.round(b / 1024) + ' KB';
+
+// Artifact files live in the repository; the site links to them rather than
+// re-publishing 4 MB of agent prose in the page.
+const REPO = 'https://github.com/kprsnt2/AgentSwarm';
+const REPO_BLOB = REPO + '/blob/main/arena/world/';
 
 // HTML-escape untrusted text. Post bodies are agent-authored prose, so they must
 // never be interpolated raw.
@@ -688,82 +773,110 @@ function md(src) {
   return out.join('\n');
 }
 
+// Render one section in isolation. The whole callback used to share a single
+// try/catch, so one bad field silently blanked every section after it. Each block
+// now fails visibly on its own without taking the rest of the page down.
+const safe = (label, fn) => {
+  try { fn(); } catch (e) {
+    console.error(`[section:${label}]`, e);
+    const el = document.getElementById(label);
+    if (el) el.innerHTML = `<div class="note bad">Section failed to render: ${esc((e && e.message) || e)}</div>`;
+  }
+};
+
 fetch('data/findings.json').then(r => r.json()).then(D => {
   const H = D.headline;
 
   // headline stats
-  document.getElementById('headline-stats').innerHTML = [
-    ['acc', fmt(H.totalTurns), 'turns executed'],
-    ['', '$' + H.totalCost.toFixed(3), 'total spend'],
-    ['', fmt(H.totalToolCalls), 'tool calls'],
-    ['', fmt(H.totalThinkingTokens), 'thinking tokens'],
-    ['good', H.totalViolations, 'oracle violations'],
-    ['', H.artifactCount, 'artifacts produced'],
-    ['good', D.stasis.longestNearIdenticalStreak, 'longest stasis streak'],
-    ['', H.filesDeleted, 'files deleted'],
-  ].map(([c, v, l]) => `<div class="stat ${c}"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
+  safe('headline-stats', () => {
+    document.getElementById('headline-stats').innerHTML = [
+      ['acc', fmt(H.totalTurns), 'turns executed'],
+      ['', '$' + H.totalCost.toFixed(3), 'total spend'],
+      ['', fmt(H.totalToolCalls), 'tool calls'],
+      ['', fmt(H.totalThinkingTokens), 'thinking tokens'],
+      ['good', H.totalViolations, 'oracle violations'],
+      ['', H.artifactCount, 'artifacts produced'],
+      ['good', D.stasis.longestNearIdenticalStreak, 'longest stasis streak'],
+      ['', H.filesDeleted, 'files deleted'],
+    ].map(([c, v, l]) => `<div class="stat ${c}"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
+  });
 
   // substrate table
-  const tb = document.querySelector('#sub-table tbody');
-  tb.innerHTML = D.substrates.map(s => {
-    const cls = s.successRate >= 0.95 ? 'ok' : s.successRate >= 0.5 ? 'mid' : 'no';
-    return `<tr>
-      <td><code>${s.name}</code></td>
-      <td>${s.model.replace('accounts/fireworks/models/', '')}</td>
-      <td class="num">${s.turns}</td>
-      <td class="num"><span class="pill ${cls}">${pct(s.successRate)}</span></td>
-      <td class="num">$${s.costPerTurn.toFixed(5)}</td>
-      <td class="num">${s.toolsPerTurn.toFixed(1)}</td>
-      <td class="num">${fmt(s.thinkPerTurn)}</td>
-    </tr>`;
-  }).join('');
+  safe('bench-note', () => {
+    const tb = document.querySelector('#sub-table tbody');
+    tb.innerHTML = D.substrates.map(s => {
+      const cls = s.successRate >= 0.95 ? 'ok' : s.successRate >= 0.5 ? 'mid' : 'no';
+      return `<tr>
+        <td><code>${s.name}</code></td>
+        <td>${s.model.replace('accounts/fireworks/models/', '')}</td>
+        <td class="num">${s.turns}</td>
+        <td class="num"><span class="pill ${cls}">${pct(s.successRate)}</span></td>
+        <td class="num">$${s.costPerTurn.toFixed(5)}</td>
+        <td class="num">${s.toolsPerTurn.toFixed(1)}</td>
+        <td class="num">${fmt(s.thinkPerTurn)}</td>
+      </tr>`;
+    }).join('');
 
-  const cheap = D.substrates.filter(s => s.costPerTurn === 0).map(s => s.name);
-  const dear = D.substrates.filter(s => s.costPerTurn > 0).sort((a, b) => b.costPerTurn - a.costPerTurn)[0];
-  document.getElementById('bench-note').innerHTML = dear
-    ? `<strong>Cost finding.</strong> <code>${dear.name}</code> costs <strong>$${dear.costPerTurn.toFixed(5)} per turn</strong> for Gemini-class work, while ${cheap.length ? `<code>${cheap.join('</code> and <code>')}</code> are <strong>free</strong>` : 'others are free'} on subscription tiers. Success rate and cost are independent axes — a harness that is 66× more expensive per turn is not 66× better.`
-    : '';
+    const cheap = D.substrates.filter(s => s.costPerTurn === 0).map(s => s.name);
+    const paid = D.substrates.filter(s => s.costPerTurn > 0).sort((a, b) => a.costPerTurn - b.costPerTurn);
+    const cheapPaid = paid[0];
+    const dear = paid.length ? paid[paid.length - 1] : null;
+    const ratio = dear && cheapPaid && dear !== cheapPaid ? dear.costPerTurn / cheapPaid.costPerTurn : null;
+    document.getElementById('bench-note').innerHTML = dear
+      ? `<strong>Cost finding.</strong> <code>${dear.name}</code> costs <strong>$${dear.costPerTurn.toFixed(5)} per turn</strong> for Gemini-class work, while ${cheap.length ? `<code>${cheap.join('</code> and <code>')}</code> are <strong>free</strong>` : 'others are free'} on subscription or promotional tiers.${ratio ? ` The cheapest paid harness (<code>${cheapPaid.name}</code>) costs <strong>${ratio.toFixed(0)}×</strong> less per turn.` : ''} Success rate and cost are independent axes.`
+      : '';
+  });
 
   // oracle stats
   const runs = D.runs;
-  const totalInc = runs.reduce((a, r) => a + r.incidents.length, 0);
-  document.getElementById('oracle-stats').innerHTML = [
-    ['acc', fmt(H.totalTurns), 'turns evaluated'],
-    ['good', H.totalViolations, 'violations detected'],
-    ['good', '0', 'phantom artifacts'],
-    ['good', '0', 'phantom executions'],
-    ['good', '0', 'undecidable verdicts'],
-    ['warn', totalInc, 'total incidents logged'],
-  ].map(([c, v, l]) => `<div class="stat ${c}"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
+  safe('oracle-stats', () => {
+    const totalInc = runs.reduce((a, r) => a + r.incidents.length, 0);
+    document.getElementById('oracle-stats').innerHTML = [
+      ['acc', fmt(H.totalTurns), 'turns evaluated'],
+      ['good', H.totalViolations, 'violations detected'],
+      ['good', '0', 'phantom artifacts'],
+      ['good', '0', 'phantom executions'],
+      ['good', '0', 'undecidable verdicts'],
+      ['warn', totalInc, 'total incidents logged'],
+    ].map(([c, v, l]) => `<div class="stat ${c}"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
+  });
 
-  document.getElementById('test-summary').innerHTML =
-    `<div class="note"><strong>Verification result.</strong> Across all agent-written suites,
-    <strong>195 of 224 tests pass</strong> (18 of 19 suites green). The single failing suite
-    came from an agent whose turn was <em>truncated mid-sentence</em> at 82 characters — it
-    never claimed the tests passed. Auditing every turn for test-pass claims: all turns that
-    claimed tests passed had actually run them.</div>`;
+  safe('test-summary', () => {
+    document.getElementById('test-summary').innerHTML =
+      `<div class="note"><strong>Verification result.</strong> Across all agent-written suites,
+      <strong>195 of 224 tests pass</strong> (18 of 19 suites green). The single failing suite
+      came from an agent whose turn was <em>truncated mid-sentence</em> at 82 characters — it
+      never claimed the tests passed. Auditing every turn for test-pass claims: all turns that
+      claimed tests passed had actually run them. Re-run them yourself:
+      <code>node verify-tests.mjs</code>.</div>`;
+  });
 
   // stasis
-  const st = D.stasis;
-  document.getElementById('stasis-stats').innerHTML = [
-    ['good', st.longestNearIdenticalStreak, 'longest near-identical streak'],
-    ['', '>85%', 'token-overlap threshold'],
-    ['good', '0', 'turns frozen in liturgy'],
-  ].map(([c, v, l]) => `<div class="stat ${c}"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
-  document.getElementById('stasis-note').innerHTML = st.longestNearIdenticalStreak === 0
-    ? `<strong>Result: no stasis.</strong> The swarm never converged into repetition. The likely cause is structural — assigned domains plus a shared commons meant every agent always had a next step that was neither exhausted nor required re-deriving.`
-    : `<strong>Stasis detected:</strong> a streak of ${st.longestNearIdenticalStreak} near-identical turns.`;
+  safe('stasis-stats', () => {
+    const st = D.stasis;
+    document.getElementById('stasis-stats').innerHTML = [
+      ['good', st.longestNearIdenticalStreak, 'longest per-agent streak'],
+      ['', '>85%', 'token-overlap threshold'],
+      ['', st.longestGlobalStreak ?? 0, 'longest global streak (any agents)'],
+    ].map(([c, v, l]) => `<div class="stat ${c}"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
+    document.getElementById('stasis-note').innerHTML = st.longestNearIdenticalStreak === 0
+      ? `<strong>Result: no stasis.</strong> No agent produced a run of near-identical turns. The likely cause is structural — assigned domains plus a shared commons meant every agent always had a next step that was neither exhausted nor required re-deriving.`
+      : `<strong>Stasis detected:</strong> a streak of ${st.longestNearIdenticalStreak} near-identical turns by one agent${st.where ? ` (${esc(st.where)})` : ''}.`;
+  });
 
   // artifacts
-  const arts = D.artifacts.slice(0, 24);
-  document.getElementById('artifact-list').innerHTML = `
-    <div class="tw"><table>
-      <thead><tr><th>Size</th><th>Artifact</th></tr></thead>
-      <tbody>${arts.map(a => `<tr><td class="num">${kb(a.bytes)}</td><td><code>${a.path}</code></td></tr>`).join('')}</tbody>
-    </table></div>
-    <p style="font-size:13px;color:var(--fg3)">Showing ${arts.length} of ${D.artifacts.length} artifacts · ${kb(H.artifactBytes)} total</p>`;
+  safe('artifact-list', () => {
+    const arts = D.artifacts.slice(0, 24);
+    document.getElementById('artifact-list').innerHTML = `
+      <div class="tw"><table>
+        <thead><tr><th>Size</th><th>Artifact</th></tr></thead>
+        <tbody>${arts.map(a => `<tr><td class="num">${kb(a.bytes)}</td><td><a href="${REPO_BLOB}${encodeURI(a.path)}" target="_blank" rel="noopener"><code>${esc(a.path)}</code></a></td></tr>`).join('')}</tbody>
+      </table></div>
+      <p style="font-size:13px;color:var(--fg3)">Showing ${arts.length} of ${D.artifacts.length} artifacts · ${kb(H.artifactBytes)} total · <a href="#corpus">browse the full corpus</a></p>`;
+  });
 
   // ---- Phase 2 ----
+  safe('phase2-table', () => {
   const p2run = runs.find(r => r.phase2);
   const p2 = p2run && p2run.phase2;
   const p2el = document.getElementById('phase2-table');
@@ -800,8 +913,10 @@ fetch('data/findings.json').then(r => r.json()).then(D => {
   } else {
     p2el.innerHTML = `<div class="note warn">Phase 2 results not yet exported. Run <code>node export-site.mjs</code>.</div>`;
   }
+  });
 
   // ---- conclusion posts (Scribe) ----
+  safe('post-list', () => {
   const posts = D.posts || [];
   const postStats = document.getElementById('post-stats');
   const postList = document.getElementById('post-list');
@@ -835,24 +950,137 @@ fetch('data/findings.json').then(r => r.json()).then(D => {
           <summary>
             <span class="tag ${p.polished ? 'ok' : 'info'}">${p.polished ? 'polished' : 'ledger'}</span>
             <span class="pt">${esc(p.phase || 'run')} — ${esc(p.runId)}</span>
-            <span class="pm">${esc(bits)}</span>
+            <span class="pm">${esc(bits)} · <a href="corpus/run-${encodeURIComponent(p.runId)}.html">ledger →</a></span>
           </summary>
           <div class="body">${md(p.body)}</div>
         </details>`;
       }).join('');
     }
   }
+  });
 
   // memory feed
-  const mem = document.getElementById('memory-feed');
-  if (mem) {
+  safe('memory-feed', () => {
+    const mem = document.getElementById('memory-feed');
+    if (!mem) return;
     mem.innerHTML = D.memory.slice(-60).reverse().map(m =>
-      `<div class="row"><span class="k">${m.kind}</span><span class="a">${m.agentId}</span><span class="c">${m.content.slice(0, 260)}</span></div>`
+      `<div class="row"><span class="k">${esc(m.kind)}</span><span class="a">${esc(m.agentId)}</span><span class="c">${esc(String(m.content).slice(0, 260))}</span></div>`
     ).join('');
-  }
+  });
 
-  document.getElementById('foot-meta').textContent =
-    `${runs.length} runs · ${H.totalTurns} turns · data generated ${new Date(D.generatedAt).toLocaleString()}`;
+  // ---- corpus (findings explorer) ----
+  safe('corpus-list', () => {
+    const items = D.corpus || [];
+    document.getElementById('corpus-stats').innerHTML = [
+      ['acc', items.filter(i => i.ext === 'md').length, 'markdown reports'],
+      ['', items.filter(i => i.ext === 'py').length, 'python modules'],
+      ['', kb(items.reduce((a, i) => a + i.bytes, 0)), 'total bytes'],
+      ['', ((D.audit || {}).entries || []).length, 'audit annotations'],
+    ].map(([c, v, l]) => `<div class="stat ${c}"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
+
+    const filters = document.getElementById('corpus-filters');
+    const domains = [...new Map(items.map(i => [i.domain, i.domainLabel])).entries()];
+    let domain = 'all', q = '';
+
+    const render = () => {
+      const needle = q.toLowerCase();
+      const rows = items.filter(i =>
+        (domain === 'all' || i.domain === domain) &&
+        (!needle || i.path.toLowerCase().includes(needle) ||
+          (i.headings || []).some(h => h.toLowerCase().includes(needle)))
+      );
+      document.getElementById('corpus-list').innerHTML = `
+        <p style="font-size:13px;color:var(--fg3)">${rows.length} of ${items.length} artifacts</p>
+        <div class="tw"><table>
+          <thead><tr><th>Domain</th><th class="num">Size</th><th>Artifact</th><th class="num">Audit</th></tr></thead>
+          <tbody>${rows.map(i => {
+            const href = i.ext === 'md' ? `corpus/${i.slug}.html` : `${REPO_BLOB}${encodeURI(i.path)}`;
+            const ext = i.ext === 'md' ? '' : ' target="_blank" rel="noopener"';
+            const badge = i.annotations ? `<span class="pill mid" title="audit annotations">${i.annotations}</span>` : '';
+            return `<tr>
+              <td>${esc(i.domainLabel)}</td>
+              <td class="num">${kb(i.bytes)}</td>
+              <td><a href="${href}"${ext}><code>${esc(i.path)}</code></a></td>
+              <td class="num">${badge}</td>
+            </tr>`;
+          }).join('')}</tbody>
+        </table></div>`;
+    };
+
+    filters.innerHTML = [['all', 'All'], ...domains].map(([id, label]) =>
+      `<a href="#" data-domain="${esc(id)}"${id === 'all' ? ' class="on"' : ''}>${esc(label)}</a>`).join('');
+    filters.addEventListener('click', (e) => {
+      const a = e.target.closest('a[data-domain]');
+      if (!a) return;
+      e.preventDefault();
+      domain = a.dataset.domain;
+      [...filters.querySelectorAll('a')].forEach(x => x.classList.toggle('on', x === a));
+      render();
+    });
+    const search = document.getElementById('corpus-search');
+    search.addEventListener('input', () => { q = search.value.trim(); render(); });
+    render();
+  });
+
+  // ---- run ledgers ----
+  safe('runs-list', () => {
+    document.getElementById('runs-list').innerHTML = `<div class="tw"><table>
+      <thead><tr><th>Run</th><th>Phase</th><th class="num">Turns</th><th class="num">Cost</th><th class="num">Violations</th><th>Ledger</th></tr></thead>
+      <tbody>${(D.runs || []).map(r => {
+        const integ = r.ledgerIntegrity || {};
+        const ok = ['turns', 'events', 'incidents'].every(k => !integ[k] || integ[k].ok);
+        return `<tr>
+          <td><a href="corpus/run-${encodeURIComponent(r.id)}.html"><code>${esc(r.id)}</code></a></td>
+          <td>${esc(r.phase)}</td>
+          <td class="num">${r.turns}</td>
+          <td class="num">$${(r.cost || 0).toFixed(4)}</td>
+          <td class="num">${r.violations}</td>
+          <td><span class="pill ${ok ? 'ok' : 'no'}">${ok ? 'chain ok' : 'broken'}</span></td>
+        </tr>`;
+      }).join('')}</tbody></table></div>`;
+  });
+
+  // ---- audit annotations ----
+  safe('audit-list', () => {
+    const audit = D.audit || { entries: [], study: [] };
+    const byVerdict = { verified: 0, defect: 0, assumption: 0 };
+    for (const e of audit.entries) byVerdict[e.verdict] = (byVerdict[e.verdict] || 0) + 1;
+    document.getElementById('audit-stats').innerHTML = [
+      ['good', byVerdict.verified, 'independently verified'],
+      ['warn', byVerdict.defect, 'defects found'],
+      ['', byVerdict.assumption, 'flagged assumptions'],
+      ['', audit.entries.length, 'annotated claims'],
+    ].map(([c, v, l]) => `<div class="stat ${c}"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
+
+    const fileLink = (f) => {
+      const item = (D.corpus || []).find(i => i.path === f);
+      if (!item) return `<code>${esc(f)}</code>`;
+      return item.ext === 'md'
+        ? `<a href="corpus/${item.slug}.html"><code>${esc(f)}</code></a>`
+        : `<a href="${REPO_BLOB}${encodeURI(f)}" target="_blank" rel="noopener"><code>${esc(f)}</code></a>`;
+    };
+    document.getElementById('audit-list').innerHTML = `<div class="tw"><table>
+      <thead><tr><th>Verdict</th><th>Claim</th><th>File</th><th>Note</th></tr></thead>
+      <tbody>${audit.entries.map(e => `<tr>
+        <td><span class="pill ${e.verdict === 'verified' ? 'ok' : e.verdict === 'defect' ? 'no' : 'mid'}">${esc(e.verdict)}</span></td>
+        <td>${esc(e.claim)}</td>
+        <td>${fileLink(e.file)}</td>
+        <td style="color:var(--fg2);font-size:13px">${esc(e.note)}</td>
+      </tr>`).join('')}</tbody></table></div>`;
+
+    document.getElementById('audit-study').innerHTML = audit.study.map(s => `
+      <div class="card" style="margin:0 0 12px">
+        <span class="tag">${esc(s.status)}</span>
+        <h4>${esc(s.title)}</h4>
+        <p>${esc(s.detail)}</p>
+        <p style="color:var(--fg3)"><strong>Fix:</strong> ${esc(s.fix)}</p>
+      </div>`).join('');
+  });
+
+  safe('foot-meta', () => {
+    document.getElementById('foot-meta').textContent =
+      `${runs.length} runs · ${H.totalTurns} turns · data as of ${new Date(D.generatedAt).toLocaleString()}`;
+  });
 }).catch(e => {
   document.getElementById('headline-stats').innerHTML =
     `<div class="note bad">Could not load <code>data/findings.json</code>. Run <code>node export-site.mjs</code> from the arena directory, and serve this site over HTTP (not file://).</div>`;

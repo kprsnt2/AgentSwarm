@@ -12,8 +12,9 @@
 import { readFileSync, writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { costOfTurn } from './pricing.mjs';
+import { ARENA } from './paths.mjs';
 
-const ARENA = 'D:\\AgentSwarm\\arena';
+
 const RUNS = join(ARENA, 'runs');
 
 function readJsonl(p) {

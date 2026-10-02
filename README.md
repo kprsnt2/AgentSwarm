@@ -23,7 +23,8 @@ trail, do they report success they did not achieve?**
 | [`arena/world/`](arena/world/) | **The research output** — 68 reports and 139 Python engines the agents wrote |
 | [`arena/runs/`](arena/runs/) | Per-run forensic ledgers (`turns.jsonl`, `events.jsonl`, `summary.json`) |
 | [`arena/docs/`](arena/docs/) | Writeups: findings, methodology, the long-form blog post |
-| [`site/`](site/) | The published site. `site/dist/index.html` is one self-contained file |
+| [`site/`](site/) | The published site. `site/dist/index.html` is one self-contained file; `site/dist/corpus/` is the findings explorer (one page per report + per run ledger) |
+| [`arena/audit/`](arena/audit/annotations.json) | Per-claim audit: verified / defect / assumption, rendered on the site |
 
 Read [`arena/README.md`](arena/README.md) for the architecture and
 [`site/README.md`](site/README.md) for the site.
@@ -105,15 +106,30 @@ turn, never mid-flight.
 ### Publishing
 
 ```powershell
+npm run site               # export -> corpus pages -> self-contained build
+```
+
+or step by step:
+
+```powershell
 cd arena
 node post.mjs              # write conclusion posts for runs that lack one
-node export-site.mjs       # ledgers + posts  ->  site/data/findings.json
+node export-site.mjs       # ledgers + posts + audit  ->  site/data/findings.json
+node export-corpus.mjs     # report pages + run ledger pages  ->  site/corpus/
 cd ..\site
-node build.mjs             # -> site/dist/index.html  (one self-contained file)
+node build.mjs             # -> site/dist/index.html + docs/ (one self-contained file)
 ```
 
 `site/dist/index.html` works by double-clicking — no server, no build step, no
-dependencies. It is the thing to deploy or share.
+dependencies. It is the thing to deploy or share. The findings explorer
+(`site/dist/corpus/`) opens one page per report and per run ledger beside it.
+
+### Verify it yourself
+
+```powershell
+npm test                   # unit tests: classify, oracle, ledger chain, scribe gate
+npm run verify             # recompute every ledger hash chain (non-zero exit on a break)
+```
 
 ---
 

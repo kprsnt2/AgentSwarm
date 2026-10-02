@@ -9,16 +9,24 @@ reachable at that URL.
 | File | What it is |
 |---|---|
 | `index.html` | The whole site: one self-contained file, no server or dependencies |
+| `corpus/` | One page per agent report and per run ledger (the findings explorer) |
 | `.nojekyll` | Tells GitHub to serve these files verbatim instead of running Jekyll |
 
 ## How to regenerate
 
 ```powershell
+npm run site             # from the repo root: export → corpus → build
+```
+
+or step by step:
+
+```powershell
 cd arena
 node post.mjs            # optional: write conclusion posts for new runs
-node export-site.mjs     # ledgers + posts -> site/data/findings.json
+node export-site.mjs     # ledgers + posts + audit -> site/data/findings.json
+node export-corpus.mjs   # report + run pages -> site/corpus/
 cd ..\site
-node build.mjs           # -> site/dist/index.html AND docs/index.html
+node build.mjs           # -> site/dist/index.html AND docs/index.html (+ docs/corpus/)
 ```
 
 Then commit and push:
