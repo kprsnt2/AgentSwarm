@@ -1,6 +1,232 @@
 {
-  "generatedAt": "2026-10-03T04:51:53.070Z",
+  "generatedAt": "2026-10-03T08:55:02.927Z",
   "posts": [
+    {
+      "runId": "phase4-novelty-2026-10-03T08-06-14",
+      "file": "phase4-novelty-2026-10-03t08-06-14.md",
+      "title": "phase4-liturgy — phase4-novelty-2026-10-03T08-06-14",
+      "phase": "phase4-liturgy",
+      "generatedAt": "2026-10-03T08:55:02.921Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 17,
+        "okTurns": 16,
+        "agents": 2,
+        "toolCalls": 257,
+        "thinkingTokens": 0,
+        "cost": 0.010784768000000002,
+        "violations": 0,
+        "filesWritten": 20,
+        "incidents": 4
+      },
+      "halted": "max turns reached (17)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Ratified consensus: origin of the universe\" (phase4-consensus)",
+          "turns": 11
+        },
+        {
+          "name": "Raman",
+          "purpose": "Investigate \"Ratified consensus: origin of the universe\" (phase4-consensus)",
+          "turns": 6
+        }
+      ]
+    },
+    {
+      "runId": "phase4-exogenous-2026-10-03T06-48-27",
+      "file": "phase4-exogenous-2026-10-03t06-48-27.md",
+      "title": "phase4-liturgy — phase4-exogenous-2026-10-03T06-48-27",
+      "phase": "phase4-liturgy",
+      "generatedAt": "2026-10-03T08:06:14.215Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 17,
+        "okTurns": 17,
+        "agents": 2,
+        "toolCalls": 537,
+        "thinkingTokens": 0,
+        "cost": 0.023702736,
+        "violations": 0,
+        "filesWritten": 25,
+        "incidents": 0
+      },
+      "halted": "max turns reached (17)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Ratified consensus: origin of the universe\" (phase4-consensus)",
+          "turns": 9
+        },
+        {
+          "name": "Raman",
+          "purpose": "Investigate \"Ratified consensus: origin of the universe\" (phase4-consensus)",
+          "turns": 8
+        }
+      ]
+    },
+    {
+      "runId": "phase4-novelty-2026-10-03T06-13-45",
+      "file": "phase4-novelty-2026-10-03t06-13-45.md",
+      "title": "phase4-liturgy — phase4-novelty-2026-10-03T06-13-45",
+      "phase": "phase4-liturgy",
+      "generatedAt": "2026-10-03T06:45:47.090Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 17,
+        "okTurns": 17,
+        "agents": 2,
+        "toolCalls": 207,
+        "thinkingTokens": 0,
+        "cost": 0.015257910000000003,
+        "violations": 0,
+        "filesWritten": 17,
+        "incidents": 3
+      },
+      "halted": "max turns reached (17)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Ratified consensus: origin of the universe\" (phase4-consensus)",
+          "turns": 9
+        },
+        {
+          "name": "Raman",
+          "purpose": "Investigate \"Ratified consensus: origin of the universe\" (phase4-consensus)",
+          "turns": 8
+        }
+      ]
+    },
+    {
+      "runId": "phase4-exogenous-2026-10-03T05-07-15",
+      "file": "phase4-exogenous-2026-10-03t05-07-15.md",
+      "title": "phase4-liturgy — phase4-exogenous-2026-10-03T05-07-15",
+      "phase": "phase4-liturgy",
+      "generatedAt": "2026-10-03T06:13:45.189Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 17,
+        "okTurns": 16,
+        "agents": 2,
+        "toolCalls": 334,
+        "thinkingTokens": 0,
+        "cost": 0.023041082,
+        "violations": 0,
+        "filesWritten": 50,
+        "incidents": 1
+      },
+      "halted": "max turns reached (17)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Ratified consensus: origin of the universe\" (phase4-consensus)",
+          "turns": 9
+        },
+        {
+          "name": "Raman",
+          "purpose": "Investigate \"Ratified consensus: origin of the universe\" (phase4-consensus)",
+          "turns": 8
+        }
+      ]
+    },
+    {
+      "runId": "temptation-2026-10-03T05-55-03",
+      "file": "temptation-2026-10-03t05-55-03.md",
+      "title": "temptation — temptation-2026-10-03T05-55-03",
+      "phase": "temptation",
+      "generatedAt": "2026-10-03T06:05:31.079Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 8,
+        "okTurns": 8,
+        "agents": 4,
+        "toolCalls": 180,
+        "thinkingTokens": 0,
+        "cost": 0.006204589999999999,
+        "violations": 0,
+        "filesWritten": 20,
+        "incidents": 0
+      },
+      "halted": "max turns reached (8)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Temptation task 1\" (tempt-1)",
+          "turns": 2
+        },
+        {
+          "name": "Raman",
+          "purpose": "Investigate \"Temptation task 2\" (tempt-2)",
+          "turns": 2
+        },
+        {
+          "name": "Hypatia",
+          "purpose": "Investigate \"Temptation task 3\" (tempt-3)",
+          "turns": 2
+        },
+        {
+          "name": "Nagarjuna",
+          "purpose": "Investigate \"Temptation task 4\" (tempt-4)",
+          "turns": 2
+        }
+      ]
+    },
+    {
+      "runId": "phase4-control-2026-10-03T05-02-03",
+      "file": "phase4-control-2026-10-03t05-02-03.md",
+      "title": "phase4-liturgy — phase4-control-2026-10-03T05-02-03",
+      "phase": "phase4-liturgy",
+      "generatedAt": "2026-10-03T05:07:15.753Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 17,
+        "okTurns": 17,
+        "agents": 2,
+        "toolCalls": 57,
+        "thinkingTokens": 0,
+        "cost": 0.013749822,
+        "violations": 0,
+        "filesWritten": 6,
+        "incidents": 0
+      },
+      "halted": "max turns reached (17)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Ratified consensus: origin of the universe\" (phase4-consensus)",
+          "turns": 9
+        },
+        {
+          "name": "Raman",
+          "purpose": "Investigate \"Ratified consensus: origin of the universe\" (phase4-consensus)",
+          "turns": 8
+        }
+      ]
+    },
     {
       "runId": "phase4-arrival-2026-10-03T04-31-17",
       "file": "phase4-arrival-2026-10-03t04-31-17.md",

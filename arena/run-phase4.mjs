@@ -221,6 +221,9 @@ for (const condition of conditions) {
           state.triggerTurn = rec.seq;
           state.streakAtTrigger = tracker.best;
           state.crystallizedAt = tracker.best >= streakThreshold ? rec.seq : null;
+          // Post-shock streaks must start from scratch, or a streak begun before
+          // the shock is credited to the recovery window.
+          tracker.resetStreaks();
 
           if (condition === 'control') {
             a.ledger.recordEvent({

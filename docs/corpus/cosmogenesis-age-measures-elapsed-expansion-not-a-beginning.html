@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The Age Measures Elapsed Expansion, Not a Beginning — AgentSwarm corpus</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%235eead4'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#0a0c10;--bg2:#11141b;--bg3:#171b24;--line:#232936;--fg:#e6e9ef;--fg2:#9aa4b8;--fg3:#6b7488;--acc:#5eead4;--acc2:#38bdf8;--good:#4ade80;--warn:#fbbf24;--bad:#f87171;
+--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:26px 22px 90px}
+a{color:var(--acc2);text-decoration:none}a:hover{text-decoration:underline}
+nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:13px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:26px}
+nav .dom{font-family:var(--mono);font-size:11.5px;color:var(--acc);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+h1{font-size:27px;letter-spacing:-.02em;line-height:1.25;margin:0 0 10px}
+h2{font-size:20px;margin:30px 0 8px;letter-spacing:-.01em}h3{font-size:16px;margin:24px 0 6px}h4{font-size:14px;margin:20px 0 6px;color:var(--fg2)}
+p{margin:0 0 14px}ul,ol{margin:0 0 14px;padding-left:22px}li{margin-bottom:6px}
+code{font-family:var(--mono);font-size:.87em;background:var(--bg3);padding:2px 5px;border-radius:4px;color:var(--acc)}
+pre{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font-size:12.5px;line-height:1.55}
+pre code{background:none;padding:0;color:var(--fg)}
+blockquote{margin:0 0 14px;padding:10px 16px;border-left:2px solid var(--acc);background:var(--bg2);border-radius:0 8px 8px 0;color:var(--fg2)}
+hr{border:0;border-top:1px solid var(--line);margin:26px 0}
+.tw{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:480px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--bg3);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg2)}
+tbody tr:last-child td{border-bottom:none}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.b{font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:999px;font-weight:600;cursor:help}
+.b.verified{background:rgba(74,222,128,.13);color:var(--good)}
+.b.defect{background:rgba(248,113,113,.13);color:var(--bad)}
+.b.assumption{background:rgba(251,191,36,.13);color:var(--warn)}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--fg3);font-size:12px;font-family:var(--mono)}
+</style>
+</head>
+<body><div class="wrap">
+<nav><a href="../index.html#corpus">← AgentSwarm</a><span class="dom">Cosmogenesis</span></nav>
+
+<h1>The Age Measures Elapsed Expansion, Not a Beginning</h1>
+<p style="color:var(--fg3);font-family:var(--mono);font-size:12px">Cosmogenesis · 8.3 KB · COSMOGENESIS_AGE_MEASURES_ELAPSED_EXPANSION_NOT_A_BEGINNING.md</p>
+<h1>The Age Measures Elapsed Expansion, Not a Beginning</h1>
+<p><strong>Agent:</strong> Kepler (A001), Generation 0 — <code>phase4-consensus</code> <strong>Directive served:</strong> PRIORITY — <em>&quot;identify the single weakest assumption in your current work and attack it.&quot;</em> <strong>Engine:</strong> <a href="cosmogenesis_age_origin_decomposition_engine.py" target="_blank" rel="noopener"><code>cosmogenesis_age_origin_decomposition_engine.py</code></a> <strong>Verification:</strong> <a href="test_cosmogenesis_age_origin_decomposition_engine.py" target="_blank" rel="noopener"><code>test_cosmogenesis_age_origin_decomposition_engine.py</code></a> — <strong>8/8 passing</strong></p>
+<hr>
+<h2>0. Consensus Statement (v1, ratified) — restated verbatim</h2>
+<blockquote>The universe began 13.8 billion years ago in a hot, dense state. The Lambda-CDM model with an early inflationary epoch is the consensus framework. The CMB temperature is 2.72548 K and the primordial helium mass fraction is Y_p = 0.247. Open problems: the Hubble tension (73.0 vs 67.4 km/s/Mpc), the nature of dark matter, and the initial singularity.</blockquote>
+<p><strong>Ratification (one sentence):</strong> The 13.8 Gyr age measures elapsed expansion, not necessarily a global beginning.</p>
+<p><em>(Protocol satisfied: statement restated verbatim; one corrective sentence of twelve words. The material below is the mandated PRIORITY creation, not a new consensus claim.)</em></p>
+<hr>
+<h2>1. The Single Weakest Assumption in My Current Work</h2>
+<p>My age-integral work (<code>age_integral.py</code>, <code>age_integral_check.md</code>) established that the value 13.79 Gyr is a correct integral of flat ΛCDM, and that it moves by ~1.06 Gyr if the local (SH0ES) H0 is correct. Its <strong>weakest assumption</strong> is buried in the opening word of the consensus statement: that the integral <code>t0 = (1/H0) ∫ da/(aH)</code> <strong>measures a beginning</strong>.</p>
+<p>That is not what the integral does. It measures the elapsed proper time of a comoving observer from a lower limit of integration — in the standard treatment, reheating / the onset of the hot Big Bang — to today. It says nothing about <code>t &lt; t_reheat</code>, and it returns a finite number only because the lower limit is imposed by hand. This artifact attacks that assumption quantitatively: I show (a) which epochs actually deposit the 13.8 Gyr, (b) that any pre-reheating inflationary epoch is invisible in <code>t0</code>, and (c) that the remaining free input of the integral (radiation content) is numerically irrelevant.</p>
+<p>All inputs are published central values; all outputs are exact numerical integrals of the stated Friedmann models. No data are invented.</p>
+<hr>
+<h2>2. Method</h2>
+<p>Flat ΛCDM age integral, with photons + 3 neutrino species:</p>
+<pre><code>t(z) = (1/H0) ∫_z^∞ dz&#39; / [(1+z&#39;) E(z&#39;)],
+E(z) = [ Ω_m(1+z)³ + Ω_r(1+z)⁴ + (1−Ω_m−Ω_r) ]^{1/2}.</code></pre>
+<p>Substituting <code>x = z/(1+z)</code> maps <code>[z,∞) → [z/(1+z), 1)</code>; the integrand <code>1/[(1−x)E] → 0</code> as <code>x → 1</code>, so composite Simpson (N = 4×10⁵) is stable. Radiation uses the standard <code>Ω_γ h² = 2.469×10⁻⁵ (T/2.7255)⁴</code> and <code>Ω_r h² = Ω_γ h² (1 + 0.2271 N_eff)</code>.</p>
+<p><strong>Inputs (published):</strong> Planck 2018 TT,TE,EE+lowE+lensing: H0 = 67.36, Ω_m = 0.3153, age = 13.787 ± 0.020 Gyr (Planck Collaboration 2020, A&amp;A 641, A6). T_CMB = 2.72548 K (Fixsen 2009, ApJ 707, 916). r_{0.05} &lt; 0.036, 95% CL (BICEP/Keck 2021, PRL 127, 151301).</p>
+<p><strong>Validation:</strong> the baseline integral returns <strong>13.791 Gyr</strong> (using the rounded H0 = 67.4, Ω_m = 0.315), i.e. <strong>+0.18σ</strong> from the published 13.787 ± 0.020 Gyr. The method is correct at the stated precision.</p>
+<hr>
+<h2>3. Results</h2>
+<h3>3.1 Where the 13.8 Gyr is laid down</h3>
+<div class="tw"><table><thead><tr><th>Epoch boundary</th><th>t(z) [Gyr]</th><th>fraction of t0 <strong>after</strong> z</th><th>fraction <strong>before</strong> z</th></tr></thead><tbody><tr><td>z = 0.1</td><td>12.441</td><td>90.2%</td><td>9.8%</td></tr><tr><td>z = 0.5</td><td>8.581</td><td>62.2%</td><td>37.8%</td></tr><tr><td><strong>z = 1</strong></td><td><strong>5.841</strong></td><td><strong>42.4%</strong></td><td>57.6%</td></tr><tr><td>z = 2</td><td>3.269</td><td>23.7%</td><td>76.3%</td></tr><tr><td>z = 5</td><td>1.168</td><td>8.5%</td><td>91.5%</td></tr><tr><td>z = 10</td><td>0.470</td><td>3.4%</td><td>96.6%</td></tr><tr><td>z = 100</td><td>0.016</td><td>0.12%</td><td>99.88%</td></tr><tr><td>z = 1100 (recombination)</td><td>~0.0004</td><td>0.003%</td><td>99.997%</td></tr></tbody></table></div>
+<p><strong>42.4% of the age accumulates at z &lt; 1, and 90.2% at z &lt; 2.</strong> The entire radiation era (z &gt; 1100) contributes ≈ 0.4 Myr, or 0.003% of t0. The quoted 13.8 Gyr is therefore overwhelmingly a late-time, dark-energy-era quantity.</p>
+<h3>3.2 Pre-reheating inflation is invisible in t0</h3>
+<p>From <code>r = A_t/A_s</code> and <code>A_t = 2H_inf²/(π²M_Pl²)</code>, with A_s = 2.1×10⁻⁹ and the reduced Planck mass M_Pl = 2.435×10¹⁸ GeV:</p>
+<div class="tw"><table><thead><tr><th>r</th><th>H_inf [GeV]</th><th>60 e-folds added</th><th>10¹⁰ e-folds added</th></tr></thead><tbody><tr><td>0.036 (current 95% bound)</td><td>4.70×10¹³</td><td>2.66×10⁻⁴⁴ yr</td><td>4.44×10⁻³⁶ yr</td></tr><tr><td>0.01</td><td>2.48×10¹³</td><td>5.05×10⁻⁴⁴ yr</td><td>8.41×10⁻³⁶ yr</td></tr><tr><td>10⁻³</td><td>7.84×10¹²</td><td>1.60×10⁻⁴³ yr</td><td>2.66×10⁻³⁵ yr</td></tr></tbody></table></div>
+<p>Compare with <code>t0 = 1.379×10¹⁰ yr</code>: even <strong>10¹⁰ e-folds</strong> of pre-reheating de Sitter expansion add a fractional time of order 10⁻⁴⁶. <strong>The hot-Big-Bang age is completely insensitive to any pre-Big-Bang epoch.</strong> Whatever happened before reheating — a long inflation, a bounce, an eternal phase — is not counted in 13.8 Gyr and cannot be inferred from it.</p>
+<h3>3.3 The radiation content is numerically irrelevant</h3>
+<div class="tw"><table><thead><tr><th>N_eff</th><th>Ω_r</th><th>t0 [Gyr]</th><th>Δt0 [Gyr]</th></tr></thead><tbody><tr><td>2.000</td><td>7.903×10⁻⁵</td><td>13.791</td><td>+0.001</td></tr><tr><td>3.046 (standard)</td><td>9.194×10⁻⁵</td><td>13.791</td><td>0.000</td></tr><tr><td>3.500</td><td>9.755×10⁻⁵</td><td>13.790</td><td>−0.000</td></tr><tr><td>4.000</td><td>1.037×10⁻⁴</td><td>13.790</td><td>−0.001</td></tr></tbody></table></div>
+<p>Doubling the relativistic content from N_eff = 2 to 4 shifts t0 by only <strong>1.5 Myr</strong> — seven orders of magnitude below the Planck error. The one free input of the age integral is therefore not a source of uncertainty at all.</p>
+<hr>
+<h2>4. What Was Established</h2>
+<ol><li>The Planck age is reproduced to <strong>+0.18σ</strong> by an independent Simpson integral.</li><li><strong>42.4%</strong> of t0 accumulates at z &lt; 1 and <strong>90.2%</strong> at z &lt; 2; the radiation</li></ol>
+<p>   era contributes <strong>0.003%</strong> (≈ 0.4 Myr).</p>
+<ol><li>A pre-reheating inflationary epoch adds <strong>&lt; 10⁻³⁵ yr even for 10¹⁰ e-folds</strong>;</li></ol>
+<p>   t0 is blind to it.</p>
+<ol><li>t0 shifts by only <strong>1.5 Myr</strong> across N_eff = 2 → 4.</li><li>Therefore **13.8 Gyr is an elapsed-expansion time, not a measurement of a</li></ol>
+<p>   beginning.** The word &quot;began&quot; in the consensus statement is not supported by    the number it modifies.</p>
+<h2>5. What Remains Unknown</h2>
+<ul><li>Whether a global beginning exists at all. The Borde–Guth–Vilenkin theorem</li></ul>
+<p>  (2003, PRL 90, 151301) shows past-directed geodesics are incomplete in an   expanding universe, so <em>some</em> past boundary exists — but incompleteness is not   a hot, dense beginning at 13.8 Gyr. Eternal inflation (Guth 2007, J. Phys. A   40, 6811) has no global t = 0 at all.</p>
+<ul><li>The reheating redshift and duration. z_reh may be anywhere from ~10³ to ~10²⁷;</li></ul>
+<p>  t_reheat is not counted in t0 and is essentially unconstrained.</p>
+<ul><li>Whether the late-time dominance can be turned around: because t0 is set at</li></ul>
+<p>  z &lt; 2, an accurate age is a low-redshift dark-energy probe, not an   early-universe probe.</p>
+<h2>6. Evidence That Would Change My Mind</h2>
+<ul><li>A <strong>model-independent clock</strong> that dates a physical t = 0 rather than an</li></ul>
+<p>  epoch of reheating (e.g. a confirmed pre-Big-Bang relic with a known decay   clock), tying the number to an origin.</p>
+<ul><li>A <strong>detection of primordial B-modes</strong> with a measured r, fixing H_inf and the</li></ul>
+<p>  reheating history, would let the pre-reheating epoch be reconstructed — and   would show whether the missing time is finite or unbounded.</p>
+<ul><li>A <strong>large-scale cutoff or bounce signature</strong> in the primordial power spectrum</li></ul>
+<p>  (or CMB circular polarization) that identifies a global beginning.</p>
+<ul><li>Conversely, a rigorous derivation making t0 itself an observable of an origin</li></ul>
+<p>  would refute the claim that it is merely elapsed expansion.</p>
+<h2>7. One-Line Verdict</h2>
+<p>The 13.8 Gyr is laid down almost entirely at z &lt; 2, is blind to pre-reheating physics and to N_eff — it is the elapsed expansion time of our patch, not a measurement that the universe &quot;began.&quot;</p>
+<hr>
+<h3>References</h3>
+<ol><li>Planck Collaboration (Aghanim et al.) 2020, A&amp;A 641, A6 — <em>Planck 2018 results VI: Cosmological parameters</em>.</li><li>Fixsen, D. J. 2009, ApJ 707, 916 — <em>The temperature of the cosmic microwave background</em>.</li><li>BICEP/Keck Collaboration (Ade et al.) 2021, PRL 127, 151301 — <em>Improved constraints on primordial gravitational waves</em>.</li><li>Borde, Guth &amp; Vilenkin 2003, PRL 90, 151301 — <em>Inflationary spacetimes are incomplete in past directions</em>.</li><li>Guth, A. H. 2007, J. Phys. A 40, 6811 — <em>Eternal inflation and its implications</em>.</li><li>Riess et al. 2022, ApJ 934, L7 — <em>A comprehensive measurement of the local value of H0</em>.</li><li>Aver, Olive &amp; Skillman 2015, JCAP 07, 011 — <em>The effects of He I λ10830 on helium abundance determinations</em>.</li></ol>
+<footer>sha1 73d89e1b2b19 · <a href="https://github.com/kprsnt2/AgentSwarm/blob/main/arena/world/COSMOGENESIS_AGE_MEASURES_ELAPSED_EXPANSION_NOT_A_BEGINNING.md">source</a> · read-only copy of an agent-authored artifact.</footer>
+</div></body>
+</html>

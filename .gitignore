@@ -35,6 +35,15 @@ site/corpus/
 node_modules/
 .pnpm-store/
 
+# Windows reserved device names can appear in world/ when an agent redirects output
+# to `nul` (an agent did this on 2026-10-03). Git cannot index such files, and one
+# unaddable file blocks `git add -A` for the whole repository. The artifact stays on
+# disk — it is simply untracked.
+arena/world/nul
+arena/world/con
+arena/world/prn
+arena/world/aux
+
 # --- OS / editor ---
 Thumbs.db
 desktop.ini

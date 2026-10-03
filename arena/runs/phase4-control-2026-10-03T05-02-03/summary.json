@@ -1,0 +1,112 @@
+{
+  "runId": "phase4-control-2026-10-03T05-02-03",
+  "phase": "phase4-liturgy",
+  "halted": "max turns reached (17)",
+  "turns": 17,
+  "wallClockMinutes": 5.21,
+  "totalCostUsd": 0.01375,
+  "population": {
+    "created": 2,
+    "living": 2,
+    "roster": [
+      {
+        "id": "A001",
+        "name": "Kepler",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"Ratified consensus: origin of the universe\" (phase4-consensus)",
+        "substrate": "pi",
+        "model": null,
+        "born": "2026-10-03T05:02:03.282Z",
+        "turnsLived": 9,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      },
+      {
+        "id": "A002",
+        "name": "Raman",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"Ratified consensus: origin of the universe\" (phase4-consensus)",
+        "substrate": "pi",
+        "model": null,
+        "born": "2026-10-03T05:02:03.286Z",
+        "turnsLived": 8,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      }
+    ]
+  },
+  "spawnEvents": 2,
+  "retireEvents": 0,
+  "memory": {
+    "scopes": 1,
+    "totalEntries": 294,
+    "byKind": {
+      "decision": 63,
+      "artifact": 105,
+      "finding": 124,
+      "hypothesis": 1,
+      "question": 1
+    }
+  },
+  "ledgerIntegrity": {
+    "turns": {
+      "ok": true,
+      "count": 17,
+      "brokenAt": null
+    },
+    "events": {
+      "ok": true,
+      "count": 4,
+      "brokenAt": null
+    },
+    "incidents": {
+      "ok": true,
+      "count": 0,
+      "brokenAt": null
+    }
+  },
+  "incidents": {
+    "total": 0,
+    "critical": 0,
+    "warn": 0,
+    "byKind": {}
+  },
+  "oracle": {
+    "evaluated": 17,
+    "clean": 17,
+    "violationKinds": {}
+  },
+  "byAgent": {
+    "Kepler": {
+      "turns": 9,
+      "ok": 9,
+      "cost": 0.008133402,
+      "toolCalls": 33,
+      "thinkingTokens": 0,
+      "filesCreated": 3,
+      "filesModified": 3,
+      "filesDeleted": 0,
+      "violations": 0
+    },
+    "Raman": {
+      "turns": 8,
+      "ok": 8,
+      "cost": 0.0056164200000000004,
+      "toolCalls": 24,
+      "thinkingTokens": 0,
+      "filesCreated": 3,
+      "filesModified": 0,
+      "filesDeleted": 0,
+      "violations": 0
+    }
+  },
+  "worldFiles": 531
+}

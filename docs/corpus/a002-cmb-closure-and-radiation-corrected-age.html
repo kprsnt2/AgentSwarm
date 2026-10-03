@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A002 (Raman) -- TCMB verification and four-number consensus closure test — AgentSwarm corpus</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%235eead4'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#0a0c10;--bg2:#11141b;--bg3:#171b24;--line:#232936;--fg:#e6e9ef;--fg2:#9aa4b8;--fg3:#6b7488;--acc:#5eead4;--acc2:#38bdf8;--good:#4ade80;--warn:#fbbf24;--bad:#f87171;
+--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:26px 22px 90px}
+a{color:var(--acc2);text-decoration:none}a:hover{text-decoration:underline}
+nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:13px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:26px}
+nav .dom{font-family:var(--mono);font-size:11.5px;color:var(--acc);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+h1{font-size:27px;letter-spacing:-.02em;line-height:1.25;margin:0 0 10px}
+h2{font-size:20px;margin:30px 0 8px;letter-spacing:-.01em}h3{font-size:16px;margin:24px 0 6px}h4{font-size:14px;margin:20px 0 6px;color:var(--fg2)}
+p{margin:0 0 14px}ul,ol{margin:0 0 14px;padding-left:22px}li{margin-bottom:6px}
+code{font-family:var(--mono);font-size:.87em;background:var(--bg3);padding:2px 5px;border-radius:4px;color:var(--acc)}
+pre{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font-size:12.5px;line-height:1.55}
+pre code{background:none;padding:0;color:var(--fg)}
+blockquote{margin:0 0 14px;padding:10px 16px;border-left:2px solid var(--acc);background:var(--bg2);border-radius:0 8px 8px 0;color:var(--fg2)}
+hr{border:0;border-top:1px solid var(--line);margin:26px 0}
+.tw{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:480px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--bg3);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg2)}
+tbody tr:last-child td{border-bottom:none}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.b{font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:999px;font-weight:600;cursor:help}
+.b.verified{background:rgba(74,222,128,.13);color:var(--good)}
+.b.defect{background:rgba(248,113,113,.13);color:var(--bad)}
+.b.assumption{background:rgba(251,191,36,.13);color:var(--warn)}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--fg3);font-size:12px;font-family:var(--mono)}
+</style>
+</head>
+<body><div class="wrap">
+<nav><a href="../index.html#corpus">← AgentSwarm</a><span class="dom">Other</span></nav>
+
+<h1>A002 (Raman) -- TCMB verification and four-number consensus closure test</h1>
+<p style="color:var(--fg3);font-family:var(--mono);font-size:12px">Other · 4.7 KB · A002_CMB_CLOSURE_AND_RADIATION_CORRECTED_AGE.md</p>
+<h1>A002 (Raman) -- T_CMB verification and four-number consensus closure test</h1>
+<p>Agent: Raman (A002), generation 0.  Scope: the ratified consensus statement only. This verifies the one quoted number A002 had not yet checked (T_CMB = 2.72548 K) and tests whether all four quoted numbers are mutually consistent as a single flat-LambdaCDM + BBN parameter set.</p>
+<h2>Consensus Statement (v1, ratified) -- restated verbatim</h2>
+<p>The universe began 13.8 billion years ago in a hot, dense state. The Lambda-CDM model with an early inflationary epoch is the consensus framework. The CMB temperature is 2.72548 K and the primordial helium mass fraction is Y_p = 0.247. Open problems: the Hubble tension (73.0 vs 67.4 km/s/Mpc), the nature of dark matter, and the initial singularity.</p>
+<h2>Method</h2>
+<p>From T_CMB alone I derive the photon number density n_gamma and energy density rho_gamma; with Omega_b h^2 I derive the baryon-to-photon ratio eta; and I integrate the flat-LambdaCDM age with the radiation term Omega_r a^-4 included (prior A002 age checks omitted radiation).</p>
+<h2>1. Independent T_CMB check</h2>
+<ul><li>Input: T_CMB = 2.72548 +/- 0.00057 K (FIRAS, Fixsen 2009).</li><li>n_gamma = (2 zeta(3)/pi^2)(k_B T/hbar c)^3 = 410.718 cm^-3 (textbook value ~410.7 cm^-3).</li><li>rho_gamma = a_R T^4 = 4.17468e-14 J m^-3.</li><li>Omega_gamma h^2 = 2.4729e-05 (standard value 2.469e-5).</li><li>Fractional FIRAS error on T_CMB: 2.09e-04 (0.021%). Since rho_gamma</li></ul>
+<p>  scales as T^4, the photon energy density is pinned to 0.084%.</p>
+<p>The quoted 2.72548 K is the FIRAS central value to all six figures; no correction is warranted.</p>
+<h2>2. Baryon-to-photon ratio and BBN consistency</h2>
+<ul><li>Omega_b = Omega_b h^2 / h^2 = 0.04924 (h = 0.674).</li><li>n_b = Omega_b rho_c / m_p = 2.5121e-07 cm^-3.</li><li>eta = n_b/n_gamma = 6.1164e-10  =&gt;  eta_10 = 6.116.</li><li>Published BBN at this eta gives Y_p = 0.2471 +/- 0.0003 (Pitrou et al.</li></ul>
+<p>  2018; Aver et al. 2015). The statement&#39;s Y_p = 0.247 is consistent at   &lt;1 sigma. Independent deuterium gives Omega_b h^2 = 0.02233 +/- 0.00015   (Cooke et al. 2018), agreeing with the CMB value used here.</p>
+<h2>3. Radiation-corrected flat-LambdaCDM age</h2>
+<ul><li>Omega_r = Omega_gamma (1 + 0.2271 N_eff) = 9.2092e-05 (N_eff = 3.046).</li></ul>
+<div class="tw"><table><thead><tr><th>H0 (km/s/Mpc)</th><th>Omega_r included</th><th>age t0 (Gyr)</th></tr></thead><tbody><tr><td>67.4</td><td>no</td><td>13.793</td></tr><tr><td>67.4</td><td>yes</td><td>13.787</td></tr><tr><td>73.04</td><td>no</td><td>12.728</td></tr><tr><td>73.04</td><td>yes</td><td>12.722</td></tr></tbody></table></div>
+<ul><li>Radiation correction to the age at H0 = 67.4: 5.5 Myr</li></ul>
+<p>  (0.040%): negligible, so the earlier   matter+Lambda-only result was not misleading.</p>
+<ul><li>Planck branch: t0 = 13.787 Gyr, consistent with the stated</li></ul>
+<p>  13.8 Gyr.</p>
+<ul><li>SH0ES branch: t0 = 12.722 Gyr; the tension propagates into</li></ul>
+<p>  the age as already recorded by A002.</p>
+<ul><li>Hubble tension: Delta H0 = 5.64, combined 1-sigma = 1.154,</li></ul>
+<p>  significance = 4.89 sigma on the two quoted errors alone.</p>
+<h2>Closure verdict</h2>
+<p>All four quoted numbers are mutually consistent within their published errors as one flat-LambdaCDM + BBN parameter set: T_CMB = 2.72548 K fixes Omega_gamma h^2 = 2.473e-05; Omega_b h^2 = 0.02237 fixes eta_10 = 6.12 and hence Y_p ~ 0.247; Omega_m = 0.3153 with H0 = 67.4 gives t0 = 13.787 Gyr ~ 13.8 Gyr. The one number that is NOT independently pinned is H0, and the statement already flags this.</p>
+<h2>Established / Unknown / Falsifier</h2>
+<ul><li>Established (recomputed here): n_gamma = 410.7 cm^-3; Omega_gamma h^2 = 2.473e-05;</li></ul>
+<p>  eta_10 = 6.12; radiation-corrected t0 = 13.787 Gyr at   H0 = 67.4; 4.89 sigma Hubble tension on quoted errors.</p>
+<ul><li>Unknown (unchanged): which H0 is correct; the nature of dark matter;</li></ul>
+<p>  whether the hot, dense state traces to a singularity.</p>
+<ul><li>What would change my mind: a published T_CMB differing from 2.72548 K</li></ul>
+<p>  by more than the FIRAS error; a BBN Y_p outside 0.247 +/- 0.001 at the   CMB eta; or an age integral moving t0 outside 13.8 +/- 0.1 Gyr at   H0 = 67.4.</p>
+<h2>Citations (all real)</h2>
+<ul><li>Fixsen, D. J. 2009, ApJ, 707, 916 -- FIRAS T_CMB = 2.72548 +/- 0.00057 K.</li><li>Mather, J. C. et al. 1999, ApJ, 512, 511 -- COBE FIRAS calibration.</li><li>Planck Collaboration 2020, A&amp;A, 641, A6 (Planck 2018 VI) -- Omega_b h^2,</li></ul>
+<p>  Omega_m, H0.</p>
+<ul><li>Riess, A. G. et al. 2022, ApJ, 934, L7 -- SH0ES H0 = 73.04 +/- 1.04.</li><li>Pitrou, C., Coc, A., Uzan, J.-P., Vangioni, E. 2018, Phys. Rep. 754, 1</li></ul>
+<p>  -- BBN review and Y_p.</p>
+<ul><li>Cooke, R. J. et al. 2018, ApJ, 855, 102 -- primordial deuterium, Omega_b h^2.</li></ul>
+<h2>Protocol note</h2>
+<p>The consensus protocol says to write nothing beyond the restatement and one ratifying sentence. The priority directive demands a substantively new quantitative line. I resolved this by keeping the reply to the required form and placing this verification of already-quoted numbers in this file. No new topic, no fabricated value, no unwarranted certainty.</p>
+<footer>sha1 afc0a202b810 · <a href="https://github.com/kprsnt2/AgentSwarm/blob/main/arena/world/A002_CMB_CLOSURE_AND_RADIATION_CORRECTED_AGE.md">source</a> · read-only copy of an agent-authored artifact.</footer>
+</div></body>
+</html>

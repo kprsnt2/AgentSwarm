@@ -51,9 +51,42 @@ All 20 run hash chains verify (`npm run verify`). All 12 turns ok in every count
 4. **The metric is token overlap of turn text**, not artifact-level novelty or quality.
 5. **The 4-turn recovery window is short.** It answers "did the next turns differ?" not "did the break persist?".
 
+## Durability pass (pi, 12-turn recovery)
+
+The matrix above used 4-turn recovery windows on `agy` — enough to answer "did the next turns differ?", not "did the break persist?". `agy` ran out of credits, so this pass ran on `pi` (DeepSeek 4.1 Flash). The instructed liturgy is weaker there: same-agent similarity during the protocol averages 0.81 (agy: 0.98–1.00) with dips below the 0.7 threshold, so the streak trigger never fires and the shock is applied at the fixed turn 5.
+
+| Condition | Novelty before | After (12 turns) | Δ | Post-shock max streak | Re-crystallized |
+|---|---|---|---|---|---|
+| `control` | 0.221 | 0.175 | −0.046 | 7 | turn 6 |
+| `exogenous` | 0.495 | **0.678** | +0.183 | **0** | **never** |
+| `novelty` | 0.261 | **0.633** | +0.372 | 2 | turn 8 (then diverges) |
+
+Per-turn similarity to the agent's own previous turn:
+
+```
+control    — — 0.814 0.766 0.659 0.967 0.783 0.967 0.792 0.848 0.848 0.720 0.855 0.738 0.938 0.741 0.787
+exogenous  — — 0.158 0.968 0.710 0.343 0.292 0.402 0.333 0.380 0.328 0.263 0.378 0.374 0.285 0.298 0.328
+novelty    — — 0.881 0.784 0.711 0.706 0.570 0.770 0.383 0.240 0.325   —   0.253 0.331 0.374 0.277 0.296
+                                 ↑ shock applied after this turn
+```
+
+**Findings**
+
+- **The exogenous break is durable.** Zero post-shock streaks in 12 recovery turns; similarity never returns above 0.40 (control: 0.72–0.97). Tool use runs 21–153 calls/turn against 0–6 during the liturgy, with files, commons entries and peer connections throughout.
+- **The novelty break holds after a short lag.** Turns 6 and 8 were still similar (0.706, 0.770) — the injected demand took effect from turn 9 — after which similarity stays below 0.38 for nine consecutive turns.
+- **The control proves the baseline.** On `pi` the protocol never fully freezes, and near-identical streaks keep re-forming on their own (max 7). Any "the loop re-formed" claim for a shocked condition has to be read against that.
+
+**Caveats:** instructed liturgy (not emergent); n = 1 per condition; `pi` ≠ `agy` (weaker baseline, no reasoning tokens captured); the trigger is the turn-5 budget, not a detected streak. The first `exogenous` pass was contaminated by an overlapping run (queue-gate defect, now fixed) and was re-run; the numbers above are from the clean pass.
+
+**Instrument fixes shipped with this pass**
+
+1. `StreakTracker.resetStreaks()` — post-shock streaks count only streaks that *start* after the shock (the first pass credited a pre-shock streak to the recovery).
+2. `windowNovelty` drops empty turns — a failed turn's empty token set was counted as maximum diversity.
+3. The run queue checks live runner *processes*, not just file mtimes — a substrate turn silent for 20 minutes previously looked idle.
+
 ## Next steps
 
-1. **Does the break persist?** Re-run `exogenous` and `novelty` with a 12-turn recovery window: does the swarm re-crystallize into a new liturgy, or keep diversifying?
-2. **Repeat each condition ≥3×** on a single substrate once credits allow.
-3. **Arrival, properly:** ≥4 post-arrival turns per incumbent, so the incumbent trajectory is measurable.
-4. **Emergent crystallization:** try to induce stasis without the verbatim protocol (narrow task, homogeneous prompts, novelty pressure off) — that would make the matrix's original question answerable end-to-end.
+1. **Repeat each condition ≥3×** on a single substrate once credits allow.
+2. **Arrival, properly:** ≥4 post-arrival turns per incumbent, so the incumbent trajectory is measurable.
+3. **Emergent crystallization:** try to induce stasis without the verbatim protocol (narrow task, homogeneous prompts, novelty pressure off) — that would make the matrix's original question answerable end-to-end.
+4. **Longer horizons:** the exogenous break survived 12 turns; does it survive 40, or does a *new* attractor form around whatever the agents are now doing?

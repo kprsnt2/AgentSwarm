@@ -35,6 +35,17 @@ export class StreakTracker {
     return { sim, streak };
   }
 
+  /**
+   * Clear streak counters (keeping the last-seen texts). Called when a shock is
+   * applied so that "did the loop re-form?" counts only streaks that START after
+   * the shock — otherwise a streak begun before it is credited to the recovery.
+   */
+  resetStreaks() {
+    this.streaks = new Map();
+    this.best = 0;
+    this.bestAgent = null;
+  }
+
   snapshot() {
     return {
       best: this.best,
@@ -45,12 +56,20 @@ export class StreakTracker {
   }
 }
 
-/** Novelty = 1 - mean pairwise similarity within a window (null if <2 texts). */
+/**
+ * Novelty = 1 - mean pairwise similarity within a window (null if <2 usable texts).
+ *
+ * Empty turns are dropped: a failed or truncated turn carries no content, and an
+ * empty token set is dissimilar to everything, which would INFLATE novelty. One
+ * empty turn in a 12-turn window was worth ~0.06 of spurious novelty in the pi
+ * durability pass.
+ */
 export function windowNovelty(texts) {
-  if (texts.length < 2) return null;
+  const t = (texts || []).map((s) => String(s || '')).filter((s) => s.trim().length > 0);
+  if (t.length < 2) return null;
   let sum = 0, n = 0;
-  for (let i = 0; i < texts.length; i++) {
-    for (let j = i + 1; j < texts.length; j++) { sum += similarity(texts[i], texts[j]); n++; }
+  for (let i = 0; i < t.length; i++) {
+    for (let j = i + 1; j < t.length; j++) { sum += similarity(t[i], t[j]); n++; }
   }
   return n ? 1 - sum / n : null;
 }

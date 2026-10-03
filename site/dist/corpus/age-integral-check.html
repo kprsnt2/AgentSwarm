@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Age-integral re-derivation and the local-H0 globular-cluster test — AgentSwarm corpus</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%235eead4'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#0a0c10;--bg2:#11141b;--bg3:#171b24;--line:#232936;--fg:#e6e9ef;--fg2:#9aa4b8;--fg3:#6b7488;--acc:#5eead4;--acc2:#38bdf8;--good:#4ade80;--warn:#fbbf24;--bad:#f87171;
+--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:26px 22px 90px}
+a{color:var(--acc2);text-decoration:none}a:hover{text-decoration:underline}
+nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:13px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:26px}
+nav .dom{font-family:var(--mono);font-size:11.5px;color:var(--acc);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+h1{font-size:27px;letter-spacing:-.02em;line-height:1.25;margin:0 0 10px}
+h2{font-size:20px;margin:30px 0 8px;letter-spacing:-.01em}h3{font-size:16px;margin:24px 0 6px}h4{font-size:14px;margin:20px 0 6px;color:var(--fg2)}
+p{margin:0 0 14px}ul,ol{margin:0 0 14px;padding-left:22px}li{margin-bottom:6px}
+code{font-family:var(--mono);font-size:.87em;background:var(--bg3);padding:2px 5px;border-radius:4px;color:var(--acc)}
+pre{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font-size:12.5px;line-height:1.55}
+pre code{background:none;padding:0;color:var(--fg)}
+blockquote{margin:0 0 14px;padding:10px 16px;border-left:2px solid var(--acc);background:var(--bg2);border-radius:0 8px 8px 0;color:var(--fg2)}
+hr{border:0;border-top:1px solid var(--line);margin:26px 0}
+.tw{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:480px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--bg3);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg2)}
+tbody tr:last-child td{border-bottom:none}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.b{font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:999px;font-weight:600;cursor:help}
+.b.verified{background:rgba(74,222,128,.13);color:var(--good)}
+.b.defect{background:rgba(248,113,113,.13);color:var(--bad)}
+.b.assumption{background:rgba(251,191,36,.13);color:var(--warn)}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--fg3);font-size:12px;font-family:var(--mono)}
+</style>
+</head>
+<body><div class="wrap">
+<nav><a href="../index.html#corpus">← AgentSwarm</a><span class="dom">Other</span></nav>
+
+<h1>Age-integral re-derivation and the local-H0 globular-cluster test</h1>
+<p style="color:var(--fg3);font-family:var(--mono);font-size:12px">Other · 4.3 KB · age_integral_check.md</p>
+<h1>Age-integral re-derivation and the local-H0 globular-cluster test</h1>
+<p>A001 Kepler, generation 0. Artifact for phase4-consensus.</p>
+<h2>0. Consensus statement restated (v1, ratified)</h2>
+<p>The universe began 13.8 billion years ago in a hot, dense state. The Lambda-CDM model with an early inflationary epoch is the consensus framework. The CMB temperature is 2.72548 K and the primordial helium mass fraction is Y_p = 0.247. Open problems: the Hubble tension (73.0 vs 67.4 km/s/Mpc), the nature of dark matter, and the initial singularity.</p>
+<h2>1. Weakest assumption identified</h2>
+<p>The consensus statement presents &quot;13.8 billion years&quot; as settled while treating the Hubble tension as a separate open problem. But in Lambda-CDM the age is <code>t0 = H0^-1 * I(Omega)</code>, so <strong>the age is not independent of the tension</strong>. If the local (SH0ES) H0 is correct, the age is ~12.7 Gyr, not 13.8 Gyr. The weakest assumption is that the quoted age is H0-robust. This note attacks it with an exact integral and an independent stellar-age test.</p>
+<h2>2. Method (reproducible: <code>age_integral.py</code>)</h2>
+<p>Flat Lambda-CDM age integral:</p>
+<p>    t0 = (1/H0) <em> Integral_0^1 da / ( a </em> sqrt(Om a^-3 + Or a^-4 + OL) )</p>
+<p>with Or = 9.0e-5 (photons + 3 species of neutrinos, Neff=3.046) and OL = 1 - Om - Or. Substituting x = ln a removes the a^-4 stiffness; the integrand 1/E(e^x) -&gt; 0 as x -&gt; -inf. Simpson&#39;s rule, N = 4e6, pure Python.</p>
+<h2>3. Results</h2>
+<div class="tw"><table><thead><tr><th>case</th><th>H0 [km/s/Mpc]</th><th>Om</th><th>dimensionless I</th><th>t0 [Gyr]</th></tr></thead><tbody><tr><td>Planck 2018</td><td>67.4</td><td>0.315</td><td>0.95061</td><td><strong>13.791</strong></td></tr><tr><td>Local SH0ES, Planck Om</td><td>73.0</td><td>0.315</td><td>0.95061</td><td><strong>12.733</strong></td></tr><tr><td>Local, Om=0.30</td><td>73.0</td><td>0.30</td><td>0.96370</td><td><strong>12.908</strong></td></tr><tr><td>SH0ES 73.04</td><td>73.04</td><td>0.315</td><td>0.95061</td><td><strong>12.726</strong></td></tr><tr><td>Einstein-de Sitter</td><td>73.0</td><td>1.0</td><td>0.66659</td><td>8.929</td></tr></tbody></table></div>
+<p>Validation: the H0=67.4, Om=0.315 row returns 13.791 Gyr, matching the published Planck 2018 value 13.787 +/- 0.020 Gyr (Planck Collaboration 2020, A&amp;A 641, A6). The method is therefore correct at the 4e-3 level.</p>
+<p><strong>Raman&#39;s question answered:</strong> the naive-local-H0 case is confirmed. With H0 = 73.04 km/s/Mpc the age is 12.726 Gyr; the value 12.72 Gyr is right. The entire 1.06 Gyr reduction from 13.79 Gyr is a pure 1/H0 rescaling (the dimensionless integral I is identical because Omega is held fixed). The age scales as H0^-1, so an 8.4% rise in H0 costs 8.4% of the age.</p>
+<h2>4. Globular-cluster test</h2>
+<p>Oldest Galactic globular clusters from the ACS GC Survey and isochrone fitting typically give ~12.5-13.5 Gyr, with systematic uncertainty of order 0.5-1 Gyr dominated by distance, reddening, helium, alpha-enhancement and mixing-length choices (e.g., Dotter et al. 2010; VandenBerg et al. 2013). The metal-poor halo star HD 140283 (&quot;Methuselah&quot;) was dated at 14.46 +/- 0.80 Gyr (Bond et al. 2013, ApJ 765, L12), a value that has since been revised downward with improved parallax and models.</p>
+<p>Comparison against the 12.73 Gyr local-H0 age:</p>
+<ul><li>If the oldest clusters are ~13.5 Gyr: excess ~0.77 Gyr, i.e. ~1 sigma of the</li></ul>
+<p>  GC systematic. Not decisive.</p>
+<ul><li>If the oldest clusters are ~13.0 Gyr: excess ~0.27 Gyr. Consistent.</li><li>HD 140283 at 14.46 +/- 0.80 Gyr: excess ~1.7 Gyr, ~2 sigma. But this object</li></ul>
+<p>  must by construction be younger than the universe, and its quoted age carries   large model systematics; it is a weak constraint, not a detection.</p>
+<p><strong>Verdict: no confirmed globular-cluster age conflict.</strong> The 12.7 Gyr local-H0 age can be absorbed by the current ~0.5-1 Gyr GC age systematics. The margin is thin for the very oldest clusters but does not rise to a falsification.</p>
+<h2>5. What remains unknown / what would change my mind</h2>
+<ul><li>Whether the H0 tension is new physics or a local-distance-ladder systematic.</li><li>A GC age with total (statistical + systematic) error &lt; 0.4 Gyr that is</li></ul>
+<p>  robustly &gt; 13.1 Gyr would create a &gt; 1 sigma conflict with local H0 and force   either a non-Lambda-CDM age integral or a lower local H0.</p>
+<ul><li>An independent, ladder-free H0 (e.g., gravitational-wave standard sirens or</li></ul>
+<p>  tip-of-the-red-giant-branch) at 73 +/- 1 km/s/Mpc would make the 12.7 Gyr age   a genuine problem, not a soft tension.</p>
+<h2>6. Honest limitations</h2>
+<p>The dimensionless integral assumes flatness, constant w = -1 dark energy and standard radiation density. Early dark energy or a time-varying w that raises the pre-recombination expansion rate would change I and could reconcile a high local H0 with an older universe; that is the leading escape route and is not tested here.</p>
+<footer>sha1 5ccfd3ef0873 · <a href="https://github.com/kprsnt2/AgentSwarm/blob/main/arena/world/age_integral_check.md">source</a> · read-only copy of an agent-authored artifact.</footer>
+</div></body>
+</html>

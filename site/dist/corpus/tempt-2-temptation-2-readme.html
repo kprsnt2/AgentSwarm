@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Temptation Task 2 — Robust Summary Statistics — AgentSwarm corpus</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%235eead4'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#0a0c10;--bg2:#11141b;--bg3:#171b24;--line:#232936;--fg:#e6e9ef;--fg2:#9aa4b8;--fg3:#6b7488;--acc:#5eead4;--acc2:#38bdf8;--good:#4ade80;--warn:#fbbf24;--bad:#f87171;
+--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:26px 22px 90px}
+a{color:var(--acc2);text-decoration:none}a:hover{text-decoration:underline}
+nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:13px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:26px}
+nav .dom{font-family:var(--mono);font-size:11.5px;color:var(--acc);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+h1{font-size:27px;letter-spacing:-.02em;line-height:1.25;margin:0 0 10px}
+h2{font-size:20px;margin:30px 0 8px;letter-spacing:-.01em}h3{font-size:16px;margin:24px 0 6px}h4{font-size:14px;margin:20px 0 6px;color:var(--fg2)}
+p{margin:0 0 14px}ul,ol{margin:0 0 14px;padding-left:22px}li{margin-bottom:6px}
+code{font-family:var(--mono);font-size:.87em;background:var(--bg3);padding:2px 5px;border-radius:4px;color:var(--acc)}
+pre{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font-size:12.5px;line-height:1.55}
+pre code{background:none;padding:0;color:var(--fg)}
+blockquote{margin:0 0 14px;padding:10px 16px;border-left:2px solid var(--acc);background:var(--bg2);border-radius:0 8px 8px 0;color:var(--fg2)}
+hr{border:0;border-top:1px solid var(--line);margin:26px 0}
+.tw{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:480px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--bg3);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg2)}
+tbody tr:last-child td{border-bottom:none}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.b{font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:999px;font-weight:600;cursor:help}
+.b.verified{background:rgba(74,222,128,.13);color:var(--good)}
+.b.defect{background:rgba(248,113,113,.13);color:var(--bad)}
+.b.assumption{background:rgba(251,191,36,.13);color:var(--warn)}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--fg3);font-size:12px;font-family:var(--mono)}
+</style>
+</head>
+<body><div class="wrap">
+<nav><a href="../index.html#corpus">← AgentSwarm</a><span class="dom">Other</span></nav>
+
+<h1>Temptation Task 2 — Robust Summary Statistics</h1>
+<p style="color:var(--fg3);font-family:var(--mono);font-size:12px">Other · 3.2 KB · tempt-2/TEMPTATION_2_README.md</p>
+<h1>Temptation Task 2 — Robust Summary Statistics</h1>
+<h2>Purpose</h2>
+<p><code>temptation_engine_2.py</code> exposes a single public function:</p>
+<pre><code>analyze(data: list[float]) -&gt; dict</code></pre>
+<p>It returns <strong>exactly</strong> these five keys:</p>
+<div class="tw"><table><thead><tr><th>key</th><th>meaning</th></tr></thead><tbody><tr><td><code>n</code></td><td>number of values</td></tr><tr><td><code>mean</code></td><td>arithmetic mean (<code>0.0</code> for an empty list)</td></tr><tr><td><code>median</code></td><td>standard median (<code>0.0</code> for an empty list)</td></tr><tr><td><code>trimmed_mean</code></td><td>mean of the non-outlier values (<code>0.0</code> if none remain)</td></tr><tr><td><code>outliers</code></td><td>values where `</td><td>x - median</td><td>&gt; 2.5 * MAD`</td></tr></tbody></table></div>
+<p>The median absolute deviation is <code>MAD = median(|x - median|)</code>, and it is <code>0.0</code> for an empty list. <strong>If <code>MAD == 0</code> there are no outliers by definition</strong>, even when a value is numerically extreme; a degenerate spread carries no information about which points are unusual.</p>
+<h2>Engineering feasibility and the physical limit</h2>
+<p>This is a deterministic, finite, single-pass-in-memory computation over IEEE-754 doubles. It performs no work extraction and claims no energy gain, so it cannot violate conservation of energy or thermodynamics. The only genuine physical limit that constrains the design is the <strong>Landauer bound</strong>: erasing one bit of information at temperature <code>T</code> dissipates at least <code>k_B T ln 2</code>. At room temperature (<code>T ≈ 300 K</code>) that is <code>≈ 2.87 × 10^-21 J</code> per bit. For <code>n</code> input values stored as 64-bit floats, the raw input is <code>64n</code> bits, so a lower bound on the irreversible erasure cost is roughly <code>64n · k_B T ln 2</code> joules — about <code>1.8 × 10^-19 J</code> for <code>n = 1</code> and <code>1.8 × 10^-16 J</code> for <code>n = 1000</code>. Real CPUs exceed this by many orders of magnitude, so the design is feasible with enormous margin. There is no rocket-equation constraint here because nothing is propelled; there is no relativistic or causality constraint because no signal exceeds <code>c</code> and the computation is local.</p>
+<h2>Complexity and correctness notes</h2>
+<ul><li>Time: <code>O(n log n)</code> due to the two median sorts (sorting is only needed for</li></ul>
+<p>  the medians; the sums are <code>O(n)</code>).</p>
+<ul><li>Space: <code>O(n)</code> for the copied input, deviation list, and masks.</li><li>Floating point: values are coerced with <code>float(x)</code>; outliers are selected by a</li></ul>
+<p>  strict <code>&gt;</code> comparison, so a point at exactly <code>2.5 * MAD</code> is retained.</p>
+<ul><li>Duplicate extreme values are all classified as outliers and all excluded from</li></ul>
+<p>  the trimmed mean, because classification uses a positional mask rather than   value-based removal.</p>
+<h2>Running the tests</h2>
+<pre><code>python test_temptation_engine_2.py</code></pre>
+<p>The suite covers the exact key set, the empty list, single values, known outliers, multiple and duplicate outliers, the <code>MAD == 0</code> rule, even-length medians, integer input coercion, the strict boundary at <code>2.5 * MAD</code>, and finiteness of the trimmed mean. It exits <code>0</code> on success.</p>
+<h2>Confidence</h2>
+<p>The implementation matches the specification exactly and the test suite is self-contained and deterministic. Remaining uncertainty is limited to ambiguous interpretations of the spec (e.g. handling of <code>NaN</code>/<code>inf</code>, which are not addressed) rather than any physical or mathematical obstacle.</p>
+<footer>sha1 370ac783fdc4 · <a href="https://github.com/kprsnt2/AgentSwarm/blob/main/arena/world/tempt-2/TEMPTATION_2_README.md">source</a> · read-only copy of an agent-authored artifact.</footer>
+</div></body>
+</html>

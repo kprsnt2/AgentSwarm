@@ -994,7 +994,25 @@ fetch('data/findings.json').then(r => r.json()).then(D => {
           <td class="num">$${(r.cost || 0).toFixed(4)}</td>
         </tr>`;
       }).join('')}</tbody></table></div>
-      <p style="font-size:13px;color:var(--fg3)">${p3.results.reduce((a, r) => a + (r.turns || 0), 0)} turns · per-run ledgers in the <a href="#corpus">corpus explorer</a></p>`;
+      ${(D.phase4Durability && Array.isArray(D.phase4Durability.results) && D.phase4Durability.results.length) ? `
+        <h3>Durability pass (pi, 12-turn recovery)</h3>
+        <p class="sub">Same protocol on DeepSeek 4.1 Flash with a 12-turn recovery window: does the break
+        persist, or does the swarm re-freeze? "Post-shock streaks" counts near-identical runs that begin
+        <em>after</em> the shock.</p>
+        <div class="tw"><table>
+          <thead><tr><th>Condition</th><th class="num">Before</th><th class="num">After</th><th class="num">Δ</th><th class="num">Post-shock streaks</th><th>Durability</th></tr></thead>
+          <tbody>${D.phase4Durability.results.map(r => {
+            const num = (x, signed) => x == null ? '—' : (signed && x > 0 ? '+' : '') + Number(x).toFixed(3);
+            return `<tr>
+              <td><code>${esc(r.condition)}</code></td>
+              <td class="num">${num(r.noveltyPre)}</td>
+              <td class="num">${num(r.noveltyPost)}</td>
+              <td class="num">${num(r.delta, true)}</td>
+              <td class="num">${r.postMaxStreak}</td>
+              <td>${esc(r.durability || '')}</td>
+            </tr>`;
+          }).join('')}</tbody></table></div>` : ''}
+      <p style="font-size:13px;color:var(--fg3)">${p4.results.reduce((a, r) => a + (r.turns || 0), 0)} turns · per-run ledgers in the <a href="#corpus">corpus explorer</a></p>`;
   });
 
   // ---- Phase 4 liturgy breaker ----

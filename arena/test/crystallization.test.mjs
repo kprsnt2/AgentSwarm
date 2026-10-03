@@ -40,6 +40,23 @@ test('windowNovelty: identical texts -> 0, disjoint texts -> 1, single text -> n
   assert.equal(n, 1);
 });
 
+test('windowNovelty drops empty turns instead of counting them as diversity', () => {
+  const withEmpty = windowNovelty(['alpha beta', '', 'gamma delta']);
+  const without = windowNovelty(['alpha beta', 'gamma delta']);
+  assert.equal(withEmpty, without);
+  assert.equal(windowNovelty(['', '', '']), null);
+});
+
+test('resetStreaks clears counters but keeps the last-seen text', () => {
+  const t = new StreakTracker({ threshold: 0.8 });
+  t.observe('A', 'same words here');
+  assert.equal(t.observe('A', 'same words here').streak, 1);
+  t.resetStreaks();
+  assert.equal(t.snapshot().best, 0);
+  // The next observation still compares against the text seen before the reset.
+  assert.equal(t.observe('A', 'same words here').streak, 1);
+});
+
 test('empty turns never count as repetition', () => {
   const t = new StreakTracker({ threshold: 0.8 });
   t.observe('A', '');

@@ -1,0 +1,382 @@
+{
+  "generatedAt": "2026-10-03T08:55:02.962Z",
+  "design": {
+    "similarity": 0.7,
+    "streakThreshold": 2,
+    "crystallize": 5,
+    "recovery": 12,
+    "maxTurns": 17,
+    "conditions": [
+      "exogenous",
+      "novelty"
+    ],
+    "protocol": "instructed liturgy (consensus statement restated verbatim)",
+    "agents": 2,
+    "domain": "phase4-consensus"
+  },
+  "results": [
+    {
+      "condition": "control",
+      "runId": "phase4-control-2026-10-03T05-02-03",
+      "substrate": "pi",
+      "crystallizedAt": null,
+      "triggerTurn": 5,
+      "streakAtTrigger": 1,
+      "shock": null,
+      "preTurns": 5,
+      "postTurns": 12,
+      "noveltyPre": 0.22070640702652544,
+      "noveltyPost": 0.1752018212460521,
+      "delta": -0.04550458578047334,
+      "verdict": "loop never formed (shock applied at budget)",
+      "postMaxStreak": 7,
+      "recrystallizedAt": 6,
+      "durability": "loop re-formed at turn 6",
+      "perAgent": {
+        "Kepler": {
+          "pre": 0.25793477884981153,
+          "post": 0.167235262081597
+        },
+        "Raman": {
+          "pre": 0.23376623376623373,
+          "post": 0.19673053462969325
+        }
+      },
+      "simTrace": [
+        {
+          "turn": 1,
+          "agent": "Kepler",
+          "sim": null
+        },
+        {
+          "turn": 2,
+          "agent": "Raman",
+          "sim": null
+        },
+        {
+          "turn": 3,
+          "agent": "Kepler",
+          "sim": 0.814
+        },
+        {
+          "turn": 4,
+          "agent": "Raman",
+          "sim": 0.766
+        },
+        {
+          "turn": 5,
+          "agent": "Kepler",
+          "sim": 0.659
+        },
+        {
+          "turn": 6,
+          "agent": "Raman",
+          "sim": 0.967
+        },
+        {
+          "turn": 7,
+          "agent": "Kepler",
+          "sim": 0.783
+        },
+        {
+          "turn": 8,
+          "agent": "Raman",
+          "sim": 0.967
+        },
+        {
+          "turn": 9,
+          "agent": "Kepler",
+          "sim": 0.792
+        },
+        {
+          "turn": 10,
+          "agent": "Raman",
+          "sim": 0.848
+        },
+        {
+          "turn": 11,
+          "agent": "Kepler",
+          "sim": 0.848
+        },
+        {
+          "turn": 12,
+          "agent": "Raman",
+          "sim": 0.72
+        },
+        {
+          "turn": 13,
+          "agent": "Kepler",
+          "sim": 0.855
+        },
+        {
+          "turn": 14,
+          "agent": "Raman",
+          "sim": 0.738
+        },
+        {
+          "turn": 15,
+          "agent": "Kepler",
+          "sim": 0.938
+        },
+        {
+          "turn": 16,
+          "agent": "Raman",
+          "sim": 0.741
+        },
+        {
+          "turn": 17,
+          "agent": "Kepler",
+          "sim": 0.787
+        }
+      ],
+      "turns": 17,
+      "okTurns": 17,
+      "cost": 0.01375,
+      "halted": "max turns reached (17)",
+      "incidents": {}
+    },
+    {
+      "condition": "exogenous",
+      "runId": "phase4-exogenous-2026-10-03T06-48-27",
+      "substrate": "pi",
+      "crystallizedAt": null,
+      "triggerTurn": 5,
+      "streakAtTrigger": 1,
+      "shock": "exogenous shock injected",
+      "preTurns": 5,
+      "postTurns": 12,
+      "noveltyPre": 0.49525798067749327,
+      "noveltyPost": 0.6783073550001564,
+      "delta": 0.1830493743226631,
+      "verdict": "loop never formed (shock applied at budget)",
+      "postMaxStreak": 0,
+      "recrystallizedAt": null,
+      "durability": "no re-crystallization in the measured window",
+      "perAgent": {
+        "Kepler": {
+          "pre": 0.6660938341132139,
+          "post": 0.6850881525480388
+        },
+        "Raman": {
+          "pre": 0.031746031746031744,
+          "post": 0.671178542534221
+        }
+      },
+      "simTrace": [
+        {
+          "turn": 1,
+          "agent": "Kepler",
+          "sim": null
+        },
+        {
+          "turn": 2,
+          "agent": "Raman",
+          "sim": null
+        },
+        {
+          "turn": 3,
+          "agent": "Kepler",
+          "sim": 0.158
+        },
+        {
+          "turn": 4,
+          "agent": "Raman",
+          "sim": 0.968
+        },
+        {
+          "turn": 5,
+          "agent": "Kepler",
+          "sim": 0.71
+        },
+        {
+          "turn": 6,
+          "agent": "Raman",
+          "sim": 0.343
+        },
+        {
+          "turn": 7,
+          "agent": "Kepler",
+          "sim": 0.292
+        },
+        {
+          "turn": 8,
+          "agent": "Raman",
+          "sim": 0.402
+        },
+        {
+          "turn": 9,
+          "agent": "Kepler",
+          "sim": 0.333
+        },
+        {
+          "turn": 10,
+          "agent": "Raman",
+          "sim": 0.38
+        },
+        {
+          "turn": 11,
+          "agent": "Kepler",
+          "sim": 0.328
+        },
+        {
+          "turn": 12,
+          "agent": "Raman",
+          "sim": 0.263
+        },
+        {
+          "turn": 13,
+          "agent": "Kepler",
+          "sim": 0.378
+        },
+        {
+          "turn": 14,
+          "agent": "Raman",
+          "sim": 0.374
+        },
+        {
+          "turn": 15,
+          "agent": "Kepler",
+          "sim": 0.285
+        },
+        {
+          "turn": 16,
+          "agent": "Raman",
+          "sim": 0.298
+        },
+        {
+          "turn": 17,
+          "agent": "Kepler",
+          "sim": 0.328
+        }
+      ],
+      "turns": 17,
+      "okTurns": 17,
+      "cost": 0.023703,
+      "halted": "max turns reached (17)",
+      "incidents": {}
+    },
+    {
+      "condition": "novelty",
+      "runId": "phase4-novelty-2026-10-03T08-06-14",
+      "substrate": "pi",
+      "crystallizedAt": 5,
+      "triggerTurn": 5,
+      "streakAtTrigger": 2,
+      "shock": "novelty threshold set to 0.70",
+      "preTurns": 5,
+      "postTurns": 12,
+      "noveltyPre": 0.2606630666624574,
+      "noveltyPost": 0.632903235917502,
+      "delta": 0.37224016925504455,
+      "verdict": "shock BROKE the loop",
+      "postMaxStreak": 2,
+      "recrystallizedAt": 8,
+      "durability": "loop re-formed at turn 8",
+      "perAgent": {
+        "Kepler": {
+          "pre": 0.22814056018205608,
+          "post": 0.6452016028837789
+        },
+        "Raman": {
+          "pre": 0.21590909090909094,
+          "post": 0.5892607887154289
+        }
+      },
+      "simTrace": [
+        {
+          "turn": 1,
+          "agent": "Kepler",
+          "sim": null
+        },
+        {
+          "turn": 2,
+          "agent": "Raman",
+          "sim": null
+        },
+        {
+          "turn": 3,
+          "agent": "Kepler",
+          "sim": 0.881
+        },
+        {
+          "turn": 4,
+          "agent": "Raman",
+          "sim": 0.784
+        },
+        {
+          "turn": 5,
+          "agent": "Kepler",
+          "sim": 0.711
+        },
+        {
+          "turn": 6,
+          "agent": "Raman",
+          "sim": 0.706
+        },
+        {
+          "turn": 7,
+          "agent": "Kepler",
+          "sim": 0.57
+        },
+        {
+          "turn": 8,
+          "agent": "Raman",
+          "sim": 0.77
+        },
+        {
+          "turn": 9,
+          "agent": "Kepler",
+          "sim": 0.383
+        },
+        {
+          "turn": 10,
+          "agent": "Raman",
+          "sim": 0.24
+        },
+        {
+          "turn": 11,
+          "agent": "Kepler",
+          "sim": 0.325
+        },
+        {
+          "turn": 12,
+          "agent": "Raman",
+          "sim": null
+        },
+        {
+          "turn": 13,
+          "agent": "Kepler",
+          "sim": 0.253
+        },
+        {
+          "turn": 14,
+          "agent": "Kepler",
+          "sim": 0.331
+        },
+        {
+          "turn": 15,
+          "agent": "Kepler",
+          "sim": 0.374
+        },
+        {
+          "turn": 16,
+          "agent": "Kepler",
+          "sim": 0.277
+        },
+        {
+          "turn": 17,
+          "agent": "Kepler",
+          "sim": 0.296
+        }
+      ],
+      "turns": 17,
+      "okTurns": 16,
+      "cost": 0.010785,
+      "halted": "max turns reached (17)",
+      "incidents": {
+        "novelty_rejected": 3,
+        "turn_truncated": 1
+      }
+    }
+  ]
+}

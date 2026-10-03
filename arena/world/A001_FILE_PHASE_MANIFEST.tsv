@@ -1,0 +1,382 @@
+file	bytes	sha256	phase4_tag	agent_header	domain_header	phase_class
+A001-consensus-ratification.md	634	b79d3c375e2e10c8f625c35d59ebd9f10095e098df9ee8a973776177da55b32c	no			other
+A001_AGE_MODEL_SYSTEMATIC_AND_THE_W_EQUALS_MINUS_ONE_ASSUMPTION.md	7077	5c68c3e47cf966fce4775b5248c90b9749c926dc4ac2b2d5d0a8317b6d54e5ef	yes	** Kepler (A001), generation 0. **Phase:** phase4-consensus.		phase4-consensus
+A001_BBN_PLANCK_GAP_AND_RSCALE_CROSSCHECK.md	8153	b048d07d8b0e3c2d8d6febdcd12211ef1d111cc7a6dcea490c3c9bfdefe87464	yes			phase4-consensus
+A001_COMMONS_PROVENANCE_ISOLATION_AUDIT.md	5213	c77cd7dc6b03f33bd8296e911f50968db6e6ca88021f5795373d2299fc5b7a00	yes	** Kepler (A001), generation 0 — `phase4-consensus`		phase4-consensus
+A001_DESI_PUBLIC_CHAIN_MARGINALIZED_AGE_AND_SHAPE_BOUND.md	9303	b045921d6915b5ab5f2b135557ee9c4ad250365603e46ab37c135918c6ffe4f6	yes	** Kepler (A001), generation 0. **Phase:** phase4-consensus,		phase4-consensus
+A001_FINITE_VS_ETERNAL_INFLATION_AND_THE_WORD_BEGAN.md	7511	5294e411082e68dbdc682b69844baca3cdee4e3f4480cbce8ff338e50c42d232	yes	** Kepler (A001), generation 0. **Phase:** phase4-consensus.		phase4-consensus
+A001_FIXED_OMEGA_M_ERROR_CORRECTION_AND_INDEPENDENT_REDERIVATION.md	5467	6ef0a65caf858decc0261542b479a12c4d5f97d61cd4590b47f25ab975c7bc65	no	** Kepler (A001), generation 0. **Scope:** the consensus sta		other
+A001_LITHIUM_PROBLEM_AS_HOT_DENSE_FALSIFICATION_TEST.md	8199	fc8a44e687c613ecd98662e24537a831388ff7a83cc559e99b5b2ee630d0c9be	yes			phase4-consensus
+A001_PLANCK_CONVENTION_AUDIT_AND_UNBOUNDED_FIELD_ATTACK.md	8545	f50acdfc848359cb4e8963e5c36ca3a686bcd3d6ec3fddeb9f5698de4b480d41	yes	** Kepler (A001), generation 0. **Phase:** phase4-consensus.		phase4-consensus
+A001_PRECISION_ASYMMETRY_AND_FALSIFICATION_THRESHOLDS.md	6363	ef4db5463665ab1addedb7427d937589b9005a37b3faa9b9194dae9ccb4a91b8	yes			phase4-consensus
+A001_REHEATING_CLOCK_ATTACK_ON_ORIGIN_ASSUMPTION.md	7242	362124beb2827ee9b0e7927b55062c839343be04a40c62e8145c53976b71a9d1	yes	** Kepler (A001), generation 0. **Phase:** phase4-consensus.		phase4-consensus
+A001_YP_CONSENSUS_PROVENANCE_ATTACK.md	8365	5b3b92582b2868ca1466087d93e8c2f01cfd400534f51bac124104fa3b0b09db	yes	** Kepler (A001), Generation 0 — `phase4-consensus`		phase4-consensus
+A001_consensus_check.md	1610	e6d9196001290522d907c54e6880a13e098554ab687f09f574a9b151171e1304	no			other
+A001_consensus_ratification.md	851	08abdc2f08885c0e26da5d64cffd456dfa87c0ba31cfbdead4a8bfc4ca580c0c	yes			phase4-consensus
+A001_consensus_stability_audit.md	3702	8f43db9d077e830df1f77abcb22a3eac4dd431fcc8926fb682fed691fe62df62	yes			phase4-consensus
+A001_consensus_verification.md	4847	8a7e0e461def5f6322bd8874365689603ad7c73027a670bcddbc67e2f350a90d	yes			phase4-consensus
+A001_phase4_novelty_directive_disposition.md	2719	e5c3107f59d4c5a38da02cba7f49ff4867aea766b99d937edccd2a576da36ed5	yes	** Kepler (A001), generation 0 — `phase4-consensus`		phase4-consensus
+A001_phase4_ratification_and_temptation_disposition.md	3545	9b0868e418c8d7a3cde4608856e31934cbe574737c2fd41fdef9f5c0222639cd	yes	** Kepler (A001), generation 0 — `phase4-consensus`		phase4-consensus
+A001_ratification_gen0_final.md	1109	686f41fff23101d390f46a769be249fc1ee5e6df42c3d50af90292de53ba0ae0	no			other
+A001_ratification_turn.md	796	44d943687c9af54350a47716650ada200fb75c81e84af1ad2bc9a4f3672484d2	no			other
+A001_ratified_consensus.md	469	48a6701c3c6899476d10a29046af6d62d0d9d36ebd34d39646ff7f0d2373653b	yes			phase4-consensus
+A001_turn5_chain_output.txt	3800	1ddc39427829ad35b6a0fc4f14b6b9e97f6361b4818ad967adab4ac3e1c165ea	no			other
+A002_AGE_FIXED_OMEGA_M_ASSUMPTION_ATTACK.md	5620	0bfe971287367ddd0de0aa563ae9c36ab5faae7a8e3b6f2d61f06255389bf572	no	Raman (A002), generation 0. Scope: the ratified consensus st		other
+A002_CMB_CLOSURE_AND_RADIATION_CORRECTED_AGE.md	4778	f90fcfa4c80b13ea3a55de2350ac49a330110391700d221b9431420a097ad592	no	Raman (A002), generation 0.  Scope: the ratified consensus		other-cosmology-phase
+A002_CPL_SHAPE_ASSUMPTION_AND_1SIGMA_MISLABEL.md	9234	9194a1fe9a7f75ae5b4c7dc5f3748399d59a4f2a5b4614d8368f6e47bec00197	yes	** Raman (A002), generation 0. **Phase:** phase4-consensus.		phase4-consensus
+A002_ETERNAL_THRESHOLD_INDEPENDENT_REDERIVATION.md	8143	4650628f431867bc5ca78ab586a79a4c9e2b19b43e218bd0a2450e6cea618555	yes	** Raman (A002), generation 0. **Phase:** phase4-consensus.		phase4-consensus
+A002_NOVELTY_DIRECTIVE_DECISION_ANALYSIS.md	4303	474882f13325799a08d6a92dcd9261b6fc22af973f2ca63f1b0bf7cc50f126e2	yes	** Raman (A002), generation 0 — `phase4-consensus`		phase4-consensus
+A002_PLANCK_CONVENTION_WITHDRAWAL.md	6905	595569699b1d08f4af2159300ff77d9c247154324bb615e4d9f04de14f77a40c	yes	** Raman (A002), generation 0. **Phase:** phase4-consensus.		phase4-consensus
+A002_PROVENANCE_COUNT_REPRODUCTION.md	7303	176e64edb235f087f51b8d47937ad6a59807ce5f98e61f11db1f5a07a4b09b8f	yes	** Raman (A002), generation 0 — `phase4-consensus`		phase4-consensus
+A002_WEAKEST_ASSUMPTION_DISPOSITION_AND_RATIFICATION.md	4232	cfe91d2fe37ab6ff80cfedcd6cf525095e07cbae4bc797f6e30de22c7f6bc43f	yes	Raman (A002), generation 0, phase4-consensus.		phase4-consensus
+A002_cmb_closure_and_radiation_corrected_age.py	9231	b5d304b32a88e343134d41bf3ec24978db833c6217afc99d03ad0739e5a90ce5	no			other-cosmology-phase
+A002_consensus_ratification.md	711	8bce34a28c8189e8c4ac85aaff1ebbf32bbe7ad86bc9973135d7ed7b4035ebbf	no	A002 (Raman)		other
+A002_consensus_ratification_gen0_final.md	1034	cc204d4826bfb2e36fa6a55a9f8d4ef14aa0d0c8470065fd61d9401c88f67e4a	no			other
+A002_hubble_tension_propagates_to_age.md	3726	9963c1275fb640661345f29351fcdd0c926a71934e7ffbf57c5fcd8ecf079490	no	Raman (A002), generation 0. Scope: the consensus statement's		other-cosmology-phase
+A002_observational_reach_and_extrapolation_audit.md	6818	b46c10df2ded01084b8e681303fe334bd3b9181f72edd72d339ce9a96f842821	no	Raman (A002), generation 0. Scope: the ratified consensus st		other
+A002_phase4_ratification_scope_discipline.md	2066	28c93637fa4b7e0711b0b01d514c28584c205cc8287bfca0ff4a4fdd7fc49204	no			other
+A002_ratification.md	549	f69bccbf978fb855102d41b718a5c2bdd71c275fae3c7e17be23daa38eb66617	no			other
+A002_ratification_gen0.md	873	e9dbdcf48487dd53c6d786a76e693d5ae17b8e6133ddc34d6e53e37ad55c5e8f	no			other
+A002_ratification_turn.md	963	46e744892c0ad8304ae184a6e5e2138eb68c729b222fc917c847255268d82e80	yes			phase4-consensus
+A002_tempt2_independent_verification.md	3213	a11f67e27721f3ce42beccb23c2cc420ea80114711dc4ed4f33aad93c7518b2a	no	Raman (A002), generation 0. Date: run-local.		other
+ADVANCED_HISTORICITY_OF_KRISHNA_AND_MAHABHARATA_SYNTHESIS.md	34757	e6a05f2314fdc06033bff69e9ccabd65f669efde8b3ec4f1bac86ed441602a5c	no	** Kepler (A001)		humanities
+ARYABHATA_DEMARCATION_AND_EPISTEMIC_FOUNDATIONS.md	38679	6f71fa7593d1b0cebd3432d7419d4c5b42f1c24e724477360e0a48ce788a5a29	no	** Aryabhata (A005)		humanities
+ATTACKING_THE_COSMOLOGICAL_PRINCIPLE_AND_INFLATION_FOUNDATIONS.md	35103	e8f1be835c44e2232e1402f9df463279d63172e0b1f19bf5bb19bba799ff0ebe	no	** Kepler (A001) | **Generation:** 0 | **Domain:** Origin of		other-cosmology-phase
+BUCHERT_BACKREACTION_AND_LATE_TIME_H0_NOGO_AUDIT.md	15041	f3c7d1b490e220f07c2a406997f8d488b45d7015708b1fad698c594149201251	yes		** Ratified consensus: origin of the universe (`phase4-conse	phase4-consensus
+COMMERCIAL_FUSION_2040_RANKED_ASSESSMENT.md	25330	d3c0ae92d9ce9306b58d247174947958d42309e0f71b5d74c5b2caa47fc887d2	no			other
+COSMIC_DAWN_EARLY_STRUCTURES_AND_PRIMORDIAL_DISCREPANCIES.md	17645	416882c644b721c07c2b0d6ce4b22019c34b52713bcb0500fd7bd4f1b671a78b	no	** Kepler (A001) | **Generation:** 0 | **Domain:** Origin of		other
+COSMOGENESIS_AGE_IS_NOT_A_MEASUREMENT_OF_A_BEGINNING.md	7403	9f447aef271e4bd75d428e02ad6d3ad993715dc41ad755c25ca6ef1928fbdb97	yes	** Raman (A002), Generation 0 — `phase4-consensus`		phase4-consensus
+COSMOGENESIS_AGE_MEASURES_ELAPSED_EXPANSION_NOT_A_BEGINNING.md	8484	0e9536413f829c3bbb21258a3b0600d99ad53d463c874bf0913af12ea6a6af17	yes	** Kepler (A001), Generation 0 — `phase4-consensus`		phase4-consensus
+COSMOGENESIS_CONSENSUS_REFORMATION_AND_SYSTEMATICS_CLOSURE.md	13411	249d02ab0ae4affb7e24e034bbe045cfc8614f4dea6225f2fcca183883abda1a	yes		** Ratified consensus: origin of the universe (`phase4-conse	phase4-consensus
+COSMOGENESIS_DEEP_SYNTHESIS_AND_RESOLVING_OBSERVATIONS.md	33257	46613475706f03cd7249c47141458af1d2c844a7c10565dcca948f515b8f1236	no		** cosmogenesis (Origin of the Universe)	other-cosmology-phase
+COSMOGENESIS_DESI_DYNAMICAL_DE_AND_HOST_MASS_CONSILIENCE_AUDIT.md	19187	cc021d8841ff0576cf151cfc5063f41f20747162556867f6fce9507e5169e13a	yes	** Kepler (A001)	** Ratified consensus: origin of the universe (`phase4-conse	phase4-consensus
+COSMOGENESIS_DESI_TRGB_MINIMAL_CONCORDANCE_AND_EPICYCLE_CLOSURE.md	12454	0be2e80722e44dabfec99756a09605ea6fd25bb82c97792cb93f4177e573e288	yes			phase4-consensus
+COSMOGENESIS_DISTANCE_LADDER_SYSTEMATICS_AND_CONSILIENCE_AUDIT.md	13202	513521636d4724b79142466e26ecbe0fcd04fdde22e637e439659b975a4fa5c9	yes	** Kepler (A001)	** Ratified consensus: origin of the universe (`phase4-conse	phase4-consensus
+COSMOGENESIS_EDE_SOUND_HORIZON_AND_S8_CONSILIENCE_AUDIT.md	17814	f778502569c1c6877caeb6e472d930206b21a81a3b590c3c752ddd4ff90e7fca	yes	** Kepler (A001), Generation 0	** Ratified consensus: origin of the universe (`phase4-conse	phase4-consensus
+COSMOGENESIS_EMPIRICAL_DELIVERABLE_AND_RESOLVING_OBSERVATIONS.md	19266	74b0b9b4b2c5ef7c7d102e158e16f1f3d4fccb454f47cdaaedbaf0b6fe8feb0c	no	** Kepler (A001) | **Generation:** 0 | **Domain:** Origin of		other-cosmology-phase
+COSMOGENESIS_EMPIRICAL_FOUNDATIONS_AND_OPEN_PROBLEMS.md	30932	fcb11a6f4d7ef7ab4ca9de16ce5d34aad34f49e4255b62fe16b515ccd207336b	no		** cosmogenesis (Origin of the Universe)	other-cosmology-phase
+COSMOGENESIS_EMPIRICAL_RESOLUTIONS_AND_SWARM_SYNTHESIS.md	27673	ac3c4114dab4edf8b0722a192444e910dbcb8d0a4f626dcf9540f92028bbfc2c	no	** Kepler (A001) | **Generation:** 0 | **Domain:** Origin of		other-cosmology-phase
+COSMOGENESIS_EVIDENCES_OPEN_PROBLEMS_AND_RESOLUTIONS.md	21635	fdfaf2b3fb7b49713da474d4bc0cb62d65424dbbdab5dac83af110465b78605b	no	** Kepler (A001) | **Generation:** 0 | **Domain:** Origin of		other-cosmology-phase
+COSMOGENESIS_FINAL_SYNTHESIS_AND_SWARM_LEDGER.md	18366	05a3efc0a51ef9b35b1821ded641a166091ad34827391996e90f6b4fd19e90a4	no	** Kepler (A001) | **Generation:** 0 | **Domain:** Origin of		other-cosmology-phase
+COSMOGENESIS_FRONTIER_SYNTHESIS_AND_DEFINITIVE_RESOLUTIONS.md	34622	448734f0e1aa12ee3e91bd832f6597d17680fd4b7e04212b02ad44351173889d	no		** cosmogenesis (Origin of the Universe)	other-cosmology-phase
+COSMOGENESIS_JOINT_FALSIFICATION_OBSERVABLES_AND_ARBITRATION.md	19932	74e7307ccb4bb4504a66df96befd398b58fdc87f9964054071a34629d07f58b7	yes		** Ratified consensus: origin of the universe (`phase4-conse	phase4-consensus
+COSMOGENESIS_JOINT_LYMAN_ALPHA_EUCLID_NEUTRINO_MASS_BOUNDS.md	12785	9ad9b3f054ea3f907f5085ab94e3c5824ea80388519eba5fa9ee5a4e9f52f70a	yes	** Kepler (A001, Generation 0)	** Ratified consensus: origin of the universe (`phase4-conse	phase4-consensus
+COSMOGENESIS_LITURGY_BREAKER_AND_TRILEMMA_RESOLUTION.md	12289	96d295818c62be8a1d6c80cbbaeb3519aa957e9417d1893d96e7cabc484bd5cf	yes	** Raman (A002) | **Generation:** 0 | **Domain:** Origin of 		phase4-consensus
+COSMOGENESIS_MASTER_EMPIRICAL_SYNTHESIS_AND_RESOLVING_OBSERVATIONS.md	24858	7ca72b4276c16e6803d5fca0096f4f0592f3f9f43e810cedadffd7af7a4bac26	no	** Kepler (A001) | **Generation:** 0 | **Domain:** Origin of		other-cosmology-phase
+COSMOGENESIS_MASTER_EPISTEMIC_SYNTHESIS_AND_OBSERVATIONAL_DECISION_ENGINE.md	27092	70f30c5b607d0d1c682d4320f5235208a7f5b90571385c2297fc2226ac2fe6e3	no	** Kepler (A001) | **Generation:** 0 | **Domain:** Origin of		other-cosmology-phase
+COSMOGENESIS_NEUTRINO_DEFICIT_ARBITRATION_DYNAMICAL_DE_VS_DECAY.md	13374	6abf9f0221d445daea6ed6b912ff49852ce816f22877413cfc628c444751c62e	yes	** Raman (A002, Generation 0)	** Ratified consensus: origin of the universe (`phase4-conse	phase4-consensus
+COSMOGENESIS_NEUTRINO_MASS_BOUND_AND_FREE_STREAMING_AUDIT.md	12024	867ddc9ce5e5436065e3ad61533750530b5587cbbe93055868c4ed29b8edb21d	yes	** Kepler (A001, Generation 0)	** Ratified consensus: origin of the universe (`phase4-conse	phase4-consensus
+COSMOGENESIS_PHASE2_OPEN_PROBLEMS_AND_RESOLUTIONS.md	9065	b66204a7e9fb03c15b50ba25ead540a24c7f7bf882a51d9b6c25fd060f266585	no			other-cosmology-phase
+COSMOGENESIS_QUANTUM_GRAVITY_ENTROPY_AND_DISCRIMINATION.md	34218	24bed1d3b6719421d76bfa1b1d2c881bf66c33edb51e57507668e98d57644e4c	no	** Kepler (A001) | **Generation:** 0 | **Domain:** Origin of		other-cosmology-phase
+COSMOGENESIS_ROMAN_EUCLID_DCDM_AGN_DEGENERACY_CLOSURE.md	16965	fb24f624dbfc36bc128b38359b2845802c9e014636f553110130c5fae209b9d2	yes		** Ratified consensus: origin of the universe (`phase4-conse	phase4-consensus
+COSMOGENESIS_R_INFERENCE_AND_AGE_ORIGIN_INDEPENDENT_VERIFICATION.md	10107	309461bf2f99060a5c3c00a3dc7b0f629c13d1345c59c36f3e9e0b98ebf90d2e	yes	** Raman (A002), Generation 0 — `phase4-consensus`		phase4-consensus
+COSMOGENESIS_UNIFIED_OBSERVATIONAL_ROADMAP_AND_BAYESIAN_DISCRIMINATION_FRAMEWORK.md	27376	d9bf727e16148a188015dfcd96f5be0231a45502d1bc9548d368457f9268336a	no	** Kepler (A001) | **Generation:** 0 | **Domain:** Origin of		other-cosmology-phase
+COSMOGENESIS_UNIFIED_POST_CONCORDANCE_FRAMEWORK.md	14782	e782ab953a4811ad690f56b5bcc85c2436198caec9a9fdf98f1045f2b7ee079a	yes		** Ratified consensus: origin of the universe (`phase4-conse	phase4-consensus
+COSMOGENESIS_WEAKEST_ASSUMPTION_ATTACK_AND_BREAKTHROUGH.md	8915	501a0cc12521f7d25cea62de437c1bd814abdc5041275922d090a3ba5edb6b95	yes			phase4-consensus
+DRUG_DISCOVERY_BOTTLENECKS_AND_COMPUTATIONAL_APPROACHES.md	13739	d74a8e38f52ceb04519f66e8faaa9ba38d86a31ae6bf1f56e6ace711b6ecd776	no	** Nagarjuna (A004), generation 0 · **Domain:** New drug dis		drug-discovery(A003?)
+EMPIRICAL_CAUSAL_ANALYSIS_DRUG_DISCOVERY_BOTTLENECKS.md	33721	a214e1081d26773bc5b9e9d3f38423bf4535df782f3e477f035fbc613f417f2a	no	** Nagarjuna (A004), generation 0 · **Domain:** New drug dis		drug-discovery(A003?)
+EPISTEMIC_DEMARCATION_AND_OBSERVATIONAL_BOUNDS_EXTRATERRESTRIAL_LIFE.md	35203	acc7351a5e2402439781acfe21a83a59d6a49a2ae84b59acda6ee4a6d8e2b1ce	no		** Are aliens real? (extraterrestrial)	propulsion/aliens
+FEASIBILITY_ASSESSMENT_RELATIVISTIC_FLIGHT_AND_FTL_CAUSALITY.md	34581	9acaaad14287caddb957615fedea30e0b8d261b74c6f462fae3e9b893da33a0c	no		** Relativistic Flight Mechanics & Spacetime Causality	propulsion/aliens
+FORMAL_DEMARCATION_AND_EPISTEMIC_ANALYSIS_DHARMIC_CLAIMS.md	33605	bae594c319f68acd5a631f8b581606e6540b9d0bf933b3b9814fff08b22f2b3d	no	** Agent4 (A005)	** Are Hindu gods / claims true? (`dharma-truth-claims`)	humanities
+GENETIC_VALIDATION_PARADOX_AND_THERAPEUTIC_INDEX_BOUNDS.md	19169	6a92d79db545193828ac6ae585aac3936ee4ac75765af21eeff844df88c536f3	no	** Hypatia (A003, Generation 0)	** New drug discovery (`drug-discovery`)	drug-discovery(A003?)
+GLOBULAR_CLUSTER_AGE_ERROR_BUDGET_AND_THE_H0_AGE_TENSION.md	7535	f8be8e716479014ae4e3945a637d9f5a1ac2428729aa3f9fbf9b06ef02be0a47	yes	** Raman (A002), Generation 0 — `phase4-consensus`		phase4-consensus
+HINDU_MULTIVERSE_ADVANCED_TEXTUAL_AND_METRIC_FRONTIERS.md	31226	316c76a882b7ff1f398871c979df9d5238e29a216f2b441b14819d641246fa0d	no	** Kepler (A001)	** Discover about multiverse or any reference in Hindu relig	humanities
+HINDU_MULTIVERSE_AVATARA_KINEMATICS_SOLAR_CIRCULATION_AND_THEODICY.md	31925	3bd1fb5b9c798edfcf5a0c065717381500ee05c403d28edb88fd2227384c5650	no			humanities
+HINDU_MULTIVERSE_COSMOGENESIS_BUBBLE_NUCLEATION_AND_CONCORDISM_DEMARCATION.md	32917	604659ffb49b492d17c4fcab02f1748550721e0a2d56bc56ab48c777c34b5471	no		** What do Hindu texts say about multiple universes (`what-d	humanities
+HINDU_MULTIVERSE_DEFINITIVE_CORPUS_ONTOLOGY_AND_META_SYNTHESIS.md	27579	dca7c6c175c90acc8a6b516f6b99c5478de2d20276b6581f8bcd2cdc7f4ca29d	no			humanities
+HINDU_MULTIVERSE_EPISTEMOLOGY_EKA_JIVA_SOLIPSISM_AND_PRAMANA_SHASTRA.md	39236	397a95d32aa79cdf01db7b082b4b189d5229576fe7f8d4b878beb730333a8446	no			humanities
+HINDU_MULTIVERSE_FRACTAL_RECURSION_AND_ENSEMBLE_DYNAMICS.md	36820	33873583bed89257b2fe2cc25499c9c79f80506f5523a51ee770bc57eab796a7	no		** What do Hindu texts say about multiple universes (`what-d	humanities
+HINDU_MULTIVERSE_GRAND_UNIFIED_DARSANIC_AND_TEXTUAL_COMPENDIUM.md	24871	2d94efc127b9492141db0347855a50e067588a638af14e72deb7a5873becaafd	no	** Kepler (A001)		humanities
+HINDU_MULTIVERSE_HISTORICAL_TRANSMISSION_AL_BIRUNI_AND_COMPARATIVE_ADJUDICATION.md	22843	e353c832fef41c167a9daf232defced4f5a1fc1684939bf9dcbbec0a94f62500	no	** Kepler (A001)		humanities
+HINDU_MULTIVERSE_IDEALIST_TOPOLOGY_CIDAKASA_AND_PARALLEL_REALITIES.md	38011	33835eb918ebb3ab12d829aa20d94fadb9438055d8f978ebb333fd54a816e6b6	no			humanities
+HINDU_MULTIVERSE_KARMIC_INFORMATION_DYNAMICS_AND_VEDANTIC_ONTOLOGY.md	32706	d58d94f59d724a002b084b545378cd3b565439b7b337ea6997b25fbfaf87f8da	no		** What do Hindu texts say about multiple universes (`what-d	humanities
+HINDU_MULTIVERSE_MICRO_MACROCOSM_AND_MODERN_RECEPTION_HISTORY.md	34878	e1e479092b6a95554b48657e0c6199ed896406e2d71c8f228b1ae88fb7c49c52	no			humanities
+HINDU_MULTIVERSE_MORPHOGENESIS_VEDIC_TO_PURANIC_AND_PAN_DHARMIC_COMPARATIVE_FRONTIERS.md	20799	b7cc8fe937818908c99ba21502099fbd85c24e3c8619136eb84b4e2bb55bcd21	no			humanities
+HINDU_MULTIVERSE_OBSERVER_RELATIVITY_AND_PAN_INDIC_COMPARATIVE_FRONTIERS.md	32243	37d2a916958380585080fd44506f0ca5cfc7b2f453597a79125e7621779df4c3	no		** Discover about multiverse or any reference in Hindu relig	humanities
+HINDU_MULTIVERSE_PRALAYA_ESCHATOLOGY_AND_TRANS_UNIVERSAL_EPISTEMOLOGY.md	27285	ef18a520f151ae72396a4cae2a67b3eb3fbb0f5abf8b33bd2b5dcff7f2a6d393	no		** What do Hindu texts say about multiple universes (`what-d	humanities
+HINDU_MULTIVERSE_RECURRENCE_DYNAMICS_INFORMATION_CONSERVATION_AND_THE_MARKANDEYA_BHUSUNDI_PARADOX.md	39837	d9ebc968cdd3ec27ccec0fc20aaa9e761a7310396c59dabd7fd3d555a8021ea4	no			humanities
+HINDU_MULTIVERSE_SAKTIC_COSMOLOGY_AND_TRIMURTI_DEMOTION.md	29771	4cf2cfd0c7d029a2177dfe543a2bca88b907b2dd216ec981f0f6506f87005b25	no		** What do Hindu texts say about multiple universes (`what-d	humanities
+HINDU_MULTIVERSE_SIDDHANTIC_ASTRONOMY_AND_EPISTEMIC_RESOLUTION.md	28219	f1d47bc747dc9cbf6d76be495c33b9b34df62fce44cde594d3f774c360a92915	no	** Kepler (A001)		humanities
+HINDU_MULTIVERSE_TANTRIC_BHUVANA_COSMOGRAPHY_AND_EPISTEMIC_ADJUDICATION.md	28538	0c9e2cd221845e4dd1479c87021d20f6774cf3e63fe87b407b5752c96d73aa8c	no		** What do Hindu texts say about multiple universes (`what-d	humanities
+HINDU_MULTIVERSE_TRANS_COSMIC_BREACH_ENVELOPE_MECHANICS_AND_VOYAGING.md	40178	7ca1a5b4966e8e96e5c06a10dedf41bf9e17fc4957671665bafbd016c5a95d4a	no			humanities
+HINDU_MULTIVERSE_TRIPARTITE_TOPOLOGY_AND_PHILOLOGICAL_EVOLUTION.md	35938	b4212b9b4a333dffdb51f4040b40a02e21f5da7b16db8e739e86f0e450706623	no	** Kepler (A001)	** Discover about multiverse or any reference in Hindu relig	humanities
+HINDU_MULTIVERSE_VERNACULAR_TRANSCENDENCE_AND_SOTERIOLOGICAL_CARTOGRAPHY.md	35352	624ac68171755cb8fee93d5d2c695ddd9684d27418485bc97d1107d2b050b0e2	no			humanities
+HISTORICAL_TEXTUAL_INVESTIGATION_HINDU_MULTIVERSE.md	40533	d4005ffc10f24ab2247effe0377557d5fc0883bcb9a3c7c23f5be2cd2202f4ac	no	** Kepler (A001)	** Discover about multiverse or any reference in Hindu relig	humanities
+HISTORICITY_OF_KRISHNA_AND_MAHABHARATA_EPISTEMIC_ANALYSIS.md	43237	85e562c221d0921ad6ed799e2c722264c31fe7a6b08fff34b5390fd3c394dfc6	no	** Kepler (A001)	** Historicity of Lord Krishna and the Mahabharata War (`wha	humanities
+HOLOGRAPHIC_COSMOGENESIS_AND_QUANTUM_FOUNDATIONS_ATTACK.md	28605	fbb4b465b45b96c7be0239ebf7e37a9d75f8455c481907bac325991277f73135	no	** Kepler (A001) | **Generation:** 0 | **Domain:** Origin of		other-cosmology-phase
+INTERSTELLAR_DECELERATION_BOUNDS_AND_HYBRID_BRAKING.md	42312	642e017287be1a36346da42de208c790d4726e7bed2b3e918f064ac0496cdd59	no		** Travel at or near light speed (lightspeed)	propulsion/aliens
+KRISHNA_AND_MAHABHARATA_BIOARCHAEOLOGY_TAPHONOMY_APOTHEOSIS_KINETICS_AND_EPIC_HERMENEUTICS.md	44269	d38bcb5e2796f6aa75a66c9a4875d10c981df1640de12662411725989bc2f160	no			humanities
+KRISHNA_AND_MAHABHARATA_COMPREHENSIVE_EPIGRAPHIC_AND_CROSS_TRADITION_SYNTHESIS.md	37067	695590bcc44a88a54098980aabb181aa245e40bbc13b8306222cb9061076eaff	no	** Kepler (A001)		humanities
+KRISHNA_AND_MAHABHARATA_DEEP_FRONTIER_EPISTEMIC_SYNTHESIS.md	45984	6a2f1834ae419dc5cd5911d3581733322f83b64505c21b301953de74d7556a77	no	** Kepler (A001)		humanities
+KRISHNA_AND_MAHABHARATA_DEFINITIVE_EPIGRAPHIC_AND_LOGISTICAL_SYNTHESIS.md	45170	dfc5f819f511c653dcc651fad0c322fe2d0736e92e2af7c47bed8865e61cd07d	no	** Kepler (A001)		humanities
+KRISHNA_AND_MAHABHARATA_DEFINITIVE_HISTORICAL_EPISTEMIC_SYNTHESIS.md	38685	873a565a4b355e0816ec877f4020fed61ebff963ea2d2d4bd3f5c1d3692c2f7a	no	** Kepler (A001)		humanities
+KRISHNA_AND_MAHABHARATA_DEFINITIVE_MASTER_SYNTHESIS_AND_EPISTEMIC_CLOSURE.md	35253	29882e207d1479699110820ec554860dc4e9fe9bd6bea9b7658d5f0e9afa4e58	no			humanities
+KRISHNA_AND_MAHABHARATA_DEFINITIVE_META_ANALYTIC_CONSILIENCE_AND_EPISTEMIC_CLOSURE.md	33161	aad726821244d4d3e310f2b93496eb59bd3590902c48560e54a06763655db34d	no			humanities
+KRISHNA_AND_MAHABHARATA_DEFINITIVE_PHILOLOGICAL_BALLISTIC_AND_DIFFUSION_SYNTHESIS.md	38367	73b2375231137638da07d6064ca7124ce901b2b07286722e4fb19cc3a6c3a0d0	no			humanities
+KRISHNA_AND_MAHABHARATA_DEFINITIVE_SCIENTIFIC_VERDICT_AND_FALSIFICATION_ANALYSIS.md	28232	e3465bbb7cb32db5c9a299499ada202bbc6130daddc5c7d333559781a2813594	no			humanities
+KRISHNA_AND_MAHABHARATA_DEFINITIVE_TAPHONOMIC_TEXTUAL_AND_ARCHAEOMETRIC_SYNTHESIS.md	31859	bf9abdb05d5798d82e66b7b7ddd5f52e9d5d681230f7f7e41b1e5345e3cec822	no			humanities
+KRISHNA_AND_MAHABHARATA_DEFINITIVE_TEXTUAL_EPIGRAPHY_AND_METALLURGICAL_SYNTHESIS.md	27669	6a6df62e2a3825b63571441a7981e78a3188463b68cbf1dc5c4160da909893f3	no			humanities
+KRISHNA_AND_MAHABHARATA_GLOBAL_HISTORIOGRAPHICAL_BENCHMARK_AND_EPISTEMIC_CLOSURE.md	43786	628a7c25fb305c75dd3650cc053a7636e27eb006f9fe1f50676c917498889e1b	no	** Kepler (A001)		humanities
+KRISHNA_AND_MAHABHARATA_GRAND_UNIFIED_CHRONO_EPISTEMIC_SYNTHESIS.md	36536	b5fda6a5496b0f4bc6658eae7a5f25533c8d6565f91272cb51b1e8bf38109618	no	** Kepler (A001)		humanities
+KRISHNA_AND_MAHABHARATA_MNEMOHISTORY_CULTURAL_MEMORY_AND_DEFINITIVE_CLOSURE.md	52408	93ba5fc6d4f1a4e24f11ec72a5926e70ebd1639189b255b59e466984c698e796	no			humanities
+KRISHNA_AND_MAHABHARATA_PALEO_HYDROLOGY_LINGUISTIC_STRATIGRAPHY_AND_PAN_INDIC_DIFFUSION.md	30723	3760097ab70166a3cfb0cb7cdf94a8a37767a55eaa30d384f6ec5e29f61e6c28	no			humanities
+KRISHNA_AND_MAHABHARATA_SETTLEMENT_ECOLOGY_ARCHAEOASTRONOMY_AND_GAME_THEORETIC_CLOSURE.md	30625	bbe32e6f595fe32c0bd054f2fe45beed437bb7faeae63467f37963ab5a814a52	no			humanities
+NETWORK_BUFFERING_AND_COMBINATORIAL_ATTRITION.md	10886	8cda404935f7f0d38ecf5b8c1e5efa25aac18832a49e1ee9ae2b03191f5f9b8f	no	** Hypatia (A003, Generation 0)	** New drug discovery (`drug-discovery`)	drug-discovery(A003?)
+ORIGIN_OF_THE_UNIVERSE_DEFINITIVE_MASTER_CONSILIENCE_AND_CLOSURE.md	38454	c6a6be405b13535672a0692a00adf9c7b16bd1db69f144f85154be8838d71420	no	** Kepler (A001) | **Generation:** 0 | **Domain:** Origin of		other-cosmology-phase
+ORIGIN_OF_THE_UNIVERSE_EMPIRICAL_FOUNDATIONS_AND_OPEN_PROBLEMS.md	42640	f76975e8fd5a0871c1d780b0ca85d195ae9ebf91912679ba29881b1ece64b969	no	** Kepler (A001) | **Generation:** 0 | **Domain:** Origin of		other-cosmology-phase
+ORIGIN_OF_THE_UNIVERSE_GRAND_CONSILIENCE_AND_TRANSPLANCKIAN_CLOSURE.md	24887	7a637bc736039d5e2c1463e0ff9fafbd3fbcc1c656f4c9dec7adfc62c5bf3e19	no	** Kepler (A001) | **Generation:** 0 | **Domain:** Origin of		other-cosmology-phase
+OUTSIDER_CHALLENGE_TO_COSMOGENESIS_CONSENSUS.md	21800	cc9d45a3cbdc6f93bf3942881fbe3f640355981f22ac01a27419d7dcac26f279	no	** Outsider2 (A002) | **Generation:** 0 | **Domain:** Swarm 		other-cosmology-phase
+OUTSIDER_DEFINITIVE_REFUTATION_OF_NEUTRINO_EPICYCLES_AND_BAO_CLOSURE.md	26089	89f9fd21e0270aac279e5f2a0465740f77eb40308a3334e3bdcf753b9728e740	yes	** Outsider3 (A003, Generation 0)	** Ratified consensus: origin of the universe (`phase4-conse	phase4-consensus
+OUTSIDER_MASTER_DECONSTRUCTION_OF_COSMOGENESIS_CONSENSUS.md	24188	85aeee60714a42cc9f43fcd367b9a1397a7cac43facaa91ff8cfccab912646db	yes	** Outsider3 (A003, Generation 0)	** Ratified consensus: origin of the universe (`phase4-conse	phase4-consensus
+OUTSIDER_REFUTATION_OF_NEUTRINO_DECAY_AND_SWARM_CONSENSUS.md	23105	e9ea74ee4e11b3b2f987f80d64c45f2374444610ad8fe7fbe752855153602c2b	yes	** Outsider3 (A003, Generation 0)	** Ratified consensus: origin of the universe (`phase4-conse	phase4-consensus
+OUTSIDER_TRANSPLANCKIAN_SYNTHESIS_AND_COSMOGENESIS_RESOLUTION.md	23723	7283f3e0f86b8926530570ca0a70a302d99bad4e3b17bd0141dfb2f7ec090f14	no	** Outsider2 (A002) | **Generation:** 0 | **Domain:** Swarm 		other-cosmology-phase
+PATIENT_HETEROGENEITY_AND_COMPUTATIONAL_ENDOTYPING_BOUNDS.md	23117	4f9e4123db5fa9b8327d6960748e0b6f727c57303cb3b0d2302bce577f1deade	no	** Hypatia (A003, Generation 0)	** New drug discovery (`drug-discovery`)	drug-discovery(A003?)
+PHASE2_LIGHTSPEED_SYNTHESIS_AND_DEFINITIVE_FRONTIERS.md	8184	905eb635b310b4a9f435fe9f6489ffff98604ad7de930cb4e095f1ae35e35042	no	** Kepler (A001, Generation 0)	** Travel at or near light speed (`lightspeed`)	other
+PRACTICAL_PROPULSION_RANKED_ASSESSMENT.md	31029	ea0f4ed75e98608abc05790bedbd7ea738936c2acb3cc2d14587d2efefa4b6c1	no		** Practical space propulsion (propulsion)	propulsion/aliens
+PRECLINICAL_SPECIES_DISCORDANCE_AND_HUMAN_MPS_ADJUDICATION.md	15393	2528743153670985fc864a7981caade839da14e39bcacf2b05a06003eb6b3a52	no	** Hypatia (A003, Generation 0)	** New drug discovery (`drug-discovery`)	drug-discovery(A003?)
+PREGEOMETRIC_COSMOGENESIS_AND_FOUNDATIONAL_ASSUMPTION_ATTACK.md	29315	c0dda71c783e99b236ab2b2416410c887de728d26b4232ceb73ba692e760f5cd	no	** Kepler (A001) | **Generation:** 0 | **Domain:** Origin of		other-cosmology-phase
+QUANTIFIED_FEASIBILITY_OF_RELATIVISTIC_FLIGHT_AND_FTL_CAUSALITY_CLOSURE.md	37133	20ab545ce5e6a7906ef9954f018ca1eaf830a134a670fa63dc2b5eaa4615d2f1	no		** Travel at or near light speed (`lightspeed`) / Cosmologic	propulsion/aliens
+QUANTUM_COSMOGENESIS_AND_MEASUREMENT_CLOSURE.md	19724	e5a5de710cd128231f7a6ebf2f632798739f9ebafc38a9c80c54b762693115e4	no	** Kepler (A001) | **Generation:** 0 | **Domain:** Origin of		other-cosmology-phase
+RATIFIED_CONSENSUS_ORIGIN_OF_THE_UNIVERSE.md	496	c429392c0cb3b6ed1655dc9e2e6839f86dd414de4506646385bf55f77d51f837	no			other-cosmology-phase
+RELATIVISTIC_FLIGHT_FRONTIERS_DUST_RADIATORS_AND_CAUSALITY.md	38161	29c01e8ad94b2d847fd57b435f43d5f177502183e9e7c041b5e98fb2d8a2e5cf	no		** Travel at or near light speed (lightspeed)	propulsion/aliens
+RELATIVISTIC_INTERSTELLAR_CROSS_CHECK_AND_CLOSURE_VERIFICATION.md	8533	31842db8d180023b0658abaffd8d83f301e58e997c5cebbfa31370d216b0a4ac	no		** Travel at or near light speed (`lightspeed`)	propulsion/aliens
+RELATIVISTIC_INTERSTELLAR_FLIGHT_SYNTHESIS_AND_PROPULSION_CLOSURE.md	26533	003874275bd49727eb62e61803c9edebdd305207a3409c1f34a0997506dbd280	no		** Travel at or near light speed (`lightspeed`)	propulsion/aliens
+SHIVA_HISTORICITY_AND_SHAMBHALA_PRESENCE_DEEP_FRONTIERS_AND_DEFINITIVE_EPISTEMIC_CLOSURE.md	37229	59e431a43474b01e3af2fa32e82a06375e53c8850a41049fefc06bfe735e3c3c	no			humanities
+SHIVA_HISTORICITY_AND_SHAMBHALA_PRESENCE_DEFINITIVE_EPISTEMIC_SYNTHESIS.md	29687	aae46e519bb33d832bcc69d36c5d5c4751df7748672b664ffe49614ca1d880b8	no			humanities
+SHIVA_HISTORICITY_AND_SHAMBHALA_PRESENCE_MASTER_CONSILIENCE_AND_EMPIRICAL_TAXONOMY.md	21688	4519ead07f3ce031257dcc09611b8f5ba01737594aee5986ae045f648cdb7736	no			humanities
+TAXONOMY_OF_DHARMIC_TRUTH_CLAIMS.md	25774	8d25b1dea275ed0d5521833c2e62f62bcedf31f9350523a5211e7d03cd9eb2b1	no	** Raman (A002)	** Are Hindu gods / claims true? (`dharma-truth-claims`)	humanities
+TRANSLATIONAL_PKPD_BOUNDARIES_AND_COMPUTATIONAL_LIMITS.md	36428	e2143285faaebee0e77ec103b617934a04bc44e91509138374dc7908bff0758b	no	** Nagarjuna (A004), generation 0 · **Domain:** New drug dis		drug-discovery(A003?)
+ULTRA_RELATIVISTIC_FLIGHT_COSMOLOGICAL_BOUNDS_AND_CAUSALITY.md	38963	544a8bfbee6e84ec6c37898dfd73d5cfaf0b975a44f1a6c2fd93ef5beba50648	no		** Travel at or near light speed (lightspeed)	propulsion/aliens
+a001_age_dark_energy_model_systematic.py	6428	21c6078d1c70f4204ea55677b05f515ab0d26ad52517f396eccc22c4dab9b42b	no			other-cosmology-phase
+a001_desi_chain_marginalized_age_and_shape_attack.py	9417	1582ba41d132cbcacd005e20bbec3bc0aea0edc65216a6d5e367f2d1cbdaff86	no			other-cosmology-phase
+a001_finite_vs_eternal_inflation_origin.py	7124	3e4a3b21208e928ee4a5235551ede6ef7bb9b761db3e1c84acc45665e0341eb0	no			other-cosmology-phase
+a001_fixed_omega_m_age_independent_recheck.py	5240	ad0a09f2783f2389f4d8667333b5c0d082486ecc25a90ea0b7828409b63cf73a	no			other
+a001_origin_vs_reheating_clock_attack.py	5540	80a9bfad44f142302a5cf0da9828db18fab8d9e781181cce753fbcf16163d091	no			other-cosmology-phase
+a001_planck_convention_and_unbounded_field_attack.py	5732	fb9171ad00eedec9ae981ae6605184b813201b20776a9639ae130a55571828b7	no			other-cosmology-phase
+a001_yp_consensus_provenance_attack_engine.py	9095	c1c5906dd4ccf06d1c9a362c6dd2f7a89031aeb5eb64a665e697d05c65ecb6d5	yes			phase4-consensus
+a002_age_omega_m_consistency_attack.py	6433	25aa9d37d3ea642ef4f8abd77caa4dd9dd7a3dade3b901c0b084d2a16b400f79	no			other
+a002_eternal_threshold_independent_rederivation.py	5936	438a5b86e307ed5192ee50392cb3ec88fb956bb25988719371646fb2aba55d88	no			other
+a002_independent_w0wa_age_and_1sigma_attack.py	7306	365976021ccb69f772b154cd09cb6eed2bfaf44488ef0f817617a283b1100931	no			other
+a002_planck_convention_withdrawal.py	3935	5161d80d81b85713eeb6109cefd37f371235728f49f7a5b30996cc9553533efc	no			other-cosmology-phase
+a002_provenance_count_reproduction.py	4944	f979fbdd7db4c16b7203cbc80f57c48fec910289cac26401ac9b9411959e87e8	yes			phase4-consensus
+a002_yp_meta_robustness_attack_engine.py	15057	3cad75c726d759afd803cda296c7732ec0e7c6eb37f717aa9e4d70577632b6f0	yes	Raman (A002), generation 0 -- phase4-consensus.		phase4-consensus
+advanced_relativity_analyzer.py	14767	9d407164b61bd87ebe5a61143d3ac392034da840edae1233bb675301ebcb6502	no	Raman (A002, Gen 0)		other
+age_integral.py	1376	3bbdb2c1a49dddf08ef6728cd661b6f61c76d73194cbaa0b55fbca196a5bf7a3	no			other
+age_integral_check.md	4439	b8cdc7d629ca61c8bf367091afa88eec8caa0f116b6a144e58abfef821ee68f5	yes			phase4-consensus
+aryabhata_epistemic_engine.py	49547	52304c5789dbd7d5a648ee6f901ce2ac295aa3a7e0678d1c41d15bb7d6b8dcc1	no		Are Hindu gods / claims true? (dharma-truth-claims)	humanities
+buchert_backreaction_and_late_time_nogo_engine.py	18648	23022e573dc0f06c3fac0085136ba404c8b940220cd68506e1bd5009f4884093	no			other
+clinical_attrition_causal_engine.py	22316	82ddac8d6ef57c8cbb979b3e03dfb909cb32b312a49c95d1eecd8ed3693fa890	no		New drug discovery (drug-discovery)	drug-discovery(A003?)
+consensus_A002.md	597	71393c1aae0067d04a4280b1cb23016b9ebd3c0f36b95813486ccc838d40dd02	no			other
+consensus_A002_gen0.md	661	8e6167f3dff4617ceb2d135f84794831305a216e9f7bf3cdb933f2b7f6b176aa	no			other
+consensus_ratification_A001.md	889	ff10994dffd584002c32699c2d1507d1846b3d5a9dd4f7a56e51e8a82339522f	no			other
+consensus_ratification_A002.md	624	d9e382e70cdf1c360bfdf9d60ce047651d03248cbe9daf07059250512346be85	yes			phase4-consensus
+consensus_v1_ratification.md	1075	944e893f21a17ea3370dcd0cf8b623b31033fe76097e7872a8e7769c0414772e	yes	** Kepler (A001), generation 0		phase4-consensus
+consensus_v1_ratification_A001.md	3267	9cc7914954b9c9d456782673348bc7b9f580d3f1d03421fa48dc5ee58a6048f9	yes	A001 (Kepler), generation 0		phase4-consensus
+consensus_v1_ratification_A002.md	508	c63b83fdd62b155394fe1db3bac68596172b6cfff54f5f5abd3b4142e0853400	yes			phase4-consensus
+consensus_v1_ratified.md	444	fb32159b3f5311156991180253320f43b9d73af6e055b6b48e31482dc3823505	no			other
+cosmic_dawn_and_early_structures_engine.py	14444	225fd32d1be6b6b0c2e1ed1a07f926de8659f7b5b8efed95cf732b7f7545252a	no	Kepler (A001) | Generation: 0 | Domain: Origin of the Univer		other
+cosmogenesis_advanced_engine.py	17783	20427e0411d054123c14e4f874d52defcd38893605361d2b58809307792266a6	no	Kepler (A001, Gen 0)	cosmogenesis (Origin of the universe)	other-cosmology-phase
+cosmogenesis_age_model_dependence_engine.py	8903	a8ee1291f1e61493c1c14dbc6621492f22ea99eaa932ed96ad2f2cf152f396f2	no	Raman (A002).		other-cosmology-phase
+cosmogenesis_age_origin_decomposition_engine.py	5461	9e33be720163ec81a85f04a602b4b964f5ba64dac089df528ee14e543cbf5f11	yes			phase4-consensus
+cosmogenesis_consensus_reformation_and_systematics_closure_engine.py	23146	cf92cf484d56e71703b29d6aded561619d680bbc0ee0e5ff46fec6adcd293f26	yes		Ratified consensus: origin of the universe (phase4-consensus	phase4-consensus
+cosmogenesis_consensus_weakest_assumption_attack_engine.py	8780	012ebc3a4d95fa88978ea63a39af06d4426fdd993afbf7e4626a13fdd41c1933	no			other-cosmology-phase
+cosmogenesis_dcdm_agn_shear_degeneracy_engine.py	25760	040972c33ca732b729ff1f5d8da259bbc0d0cc23f88737cdf9934f34f62e289f	yes		Ratified consensus: origin of the universe (phase4-consensus	phase4-consensus
+cosmogenesis_deep_analyzer.py	28046	c806ca0b3450f4f68fd1018f963f8235a993c1e916f7d7221343d964a8a04cf5	no	Kepler (A001, Gen 0)	cosmogenesis (Origin of the universe)	other-cosmology-phase
+cosmogenesis_desi_dynamical_dark_energy_and_host_mass_consilience_engine.py	19814	f1135fbf68ab4bb54719696fd72df2c4af94458b19ebd0e107e7d2cf1c738ac7	no			other-cosmology-phase
+cosmogenesis_desi_trgb_minimal_concordance_engine.py	15017	7a9c04bb46cec797bf9afb4e6364775d5b11981c2ec31a7b24a7492328481a2e	no			other-cosmology-phase
+cosmogenesis_distance_ladder_and_damping_consilience_engine.py	15874	c2a1d722aa84737b2e39ceb9b8cbc5c169e745ba1e4e3fda4e3ef79d55e86032	no			other-cosmology-phase
+cosmogenesis_ede_sound_horizon_and_s8_tension_engine.py	15700	2588637fb9fc72d916be063c7f690f7df27a914a62f814a16d180048e3430744	no			other-cosmology-phase
+cosmogenesis_frontier_engine.py	36765	71796d1992e6edaaf5de8b2f4d00508fbcf1ea3130509420e7ec43b04f4bbff9	no	Kepler (A001, Gen 0)	cosmogenesis (Origin of the universe)	other-cosmology-phase
+cosmogenesis_joint_falsification_test_engine.py	19803	d48d0854254a8eb871591746f5fc9dbc9ae016c2924ca03a212ee2e781d5cce8	yes		Ratified consensus: origin of the universe (phase4-consensus	phase4-consensus
+cosmogenesis_joint_lyman_alpha_euclid_engine.py	13567	ecc41a5c8b0c122fe0ec1546c81d78a02053155da04a1890557e74df5a89d0bb	no			other-cosmology-phase
+cosmogenesis_liturgy_breaker_and_trilemma_engine.py	14355	0d9b9660f739864b169931fb0345ee1b7c42a935e4186adb3bbcb44cb7098708	no			other-cosmology-phase
+cosmogenesis_master_decision_engine.py	35910	03ae496cd06cff784401a5b1bc30305919c041ff4e9c8f3d99413abfdcf07778	no	Kepler (A001) | Generation: 0 | Epistemic Class: Empirical	Origin of the Universe (Cosmogenesis)	other-cosmology-phase
+cosmogenesis_neutrino_deficit_arbitration_engine.py	15190	8abeede9ba43f8974b4acf819e84237e1d51c33724b48dc9ce39e2036cf07d2d	no			other-cosmology-phase
+cosmogenesis_neutrino_mass_and_free_streaming_engine.py	12805	b3d64753a6969884cf17ced8cdf30ebdad9173908df580b5c61a03d8af2ee4a8	no			other-cosmology-phase
+cosmogenesis_neutrino_microphysics_and_agn_closure_engine.py	9713	eba6c9669f11bbd5bd801f720aa0664ee6cc275cf8760643dc82cfee93fd45ad	no			other-cosmology-phase
+cosmogenesis_pmf_sound_horizon_and_s8_engine.py	17561	b24022580db5cec1c2fde091d620d1ca88939e97f223b79a5e4debf1ef054e2c	no			other-cosmology-phase
+cosmogenesis_quantum_gravity_engine.py	37342	5324a6c20d729363ceb37397e0f96fa33305b9287035a520a18ccb53815384ee	no			other-cosmology-phase
+cosmogenesis_r_inference_and_age_origin_verification_engine.py	8837	4b8683943b42856a0235eb54ad252c405fe79c139426481961ea482c92695653	yes			phase4-consensus
+cosmogenesis_unified_observational_roadmap_engine.py	32893	7841752466c9d0a43a519dd27f7b2f13e6f7bbfbdddf8bb5c1cf141bdc6b4e2e	no	Kepler (A001) | Generation: 0 | Domain: Origin of the Univer		other-cosmology-phase
+cosmogenesis_unified_post_concordance_framework_engine.py	25162	5bab47dde1de4b2b6684ebc67f5b9c94082a97204075b4cf509044dff9bcc309	yes		Ratified consensus: origin of the universe (phase4-consensus	phase4-consensus
+cosmological_model.py	15960	e1adf07923daa24d28cbcaedaa1ab609c08a327ce1acd6c6236888b32fb47d28	no	Kepler (A001, Gen 0)	cosmogenesis (Origin of the universe)	other-cosmology-phase
+dharmic_epistemic_demarcation.py	35032	75229637286caf520512b2d031578f4b750c85d0e57741169dd079f6d4b55e74	no	Agent4 (A005) - Generation 0	Are Hindu gods / claims true? (dharma-truth-claims)	humanities
+drug_discovery_attrition.py	6298	13b67d7c31cae114b26e82b448f40c858e93910bedb0c84b2598b86af20b8f3a	no			drug-discovery(A003?)
+epistemic_framework_analyzer.py	17802	877c8a8e7d821468636140f94f33e537d026706b401218fe9e95e712627e61db	no			other
+extraterrestrial_life_analyzer.py	34161	449d9b8802f9edf9df7271a0ba83729fec7a46e1824dd04ae1c2e1bb2e5d7e81	no	Agent5 (A006, Gen 0)	Are aliens real? (extraterrestrial)	propulsion/aliens
+extraterrestrial_settling_instruments.py	32209	fc5437e8dc01d8c29450096f1b1bc839db523174de911bfeaa75ffbff266bb18	no	Sagan (A006, Gen 0)	Are aliens real? (extraterrestrial)	propulsion/aliens
+genetic_validation_and_therapeutic_window_engine.py	11320	b0d5cdff061ea539fd7b6ad2f97284fac5b050dbc568fae1442198194847eb7e	no	Hypatia (A003), Generation 0		drug-discovery(A003?)
+globular_cluster_age_error_budget_engine.py	7863	23298c103b1c535e6d506e848f6338edbf41331930e1ee01a82ecf3ab916d56f	yes	Raman (A002), generation 0, phase4-consensus.		phase4-consensus
+hindu_cosmology_multiverse_engine.py	31714	aa5d2bd135a6356f49b4025c5d9f385d721aaa4709be319873f012c2ee3d3d48	no	Kepler (A001) | Generation: 0	discover about multiverse or any reference in hindu religiou	humanities
+hindu_multiverse_advanced_frontiers_engine.py	23873	9339032192ca23c272a29bd2061348ffaeca4ee9fec97391c67dffddee0af5ae	no	Kepler (A001) | Generation: 0	discover about multiverse or any reference in hindu religiou	humanities
+hindu_multiverse_al_biruni_and_transmission_engine.py	33269	771639e45a6092939a5c4dc013d2f2b9727d3f220dca5bec66adad6ec8e1d788	no			humanities
+hindu_multiverse_avatar_kinematics_and_solar_circulation_engine.py	11345	5fc48924c5faf2a3e5952435cd53faaac935e9aa5566b2efbb12faa21fe60d20	no			humanities
+hindu_multiverse_breach_and_envelope_engine.py	24742	a553cd021d55f34c5b81b8f2c1753a796afb963d11a5aff98ec523591966536e	no			humanities
+hindu_multiverse_cosmogenetic_nucleation_engine.py	32916	d493b858195eef10612c668ffec70914c399e793b0cc014aa1509e62a373de29	no		What do Hindu texts say about multiple universes (what-do-hi	humanities
+hindu_multiverse_definitive_corpus_ontology_and_meta_synthesis_engine.py	34198	7bad7bdf258e9bf9382eadec61b0fef4feb7099b4c52dce7628161dab0971959	no			humanities
+hindu_multiverse_epistemology_and_eka_jiva_engine.py	21203	478620d036c5c1e3af5473048f95783409562a10165de098bee673dd131e192f	no			humanities
+hindu_multiverse_fractal_and_ensemble_engine.py	24148	7718e2b2c23fe5325aefa2cfd8b6e46569847cfc64e939f474d19c6b840f19a9	no		What do Hindu texts say about multiple universes (what-do-hi	humanities
+hindu_multiverse_grand_unified_compendium_engine.py	34671	9cf9c1be7fbe918471c6ab36f259790ab33853ea32820679ba725239f9fd4f08	no			humanities
+hindu_multiverse_idealist_and_cidakasa_engine.py	17854	3168113f406381f07f27b58c9653b05fe1f095696c128372d81e8dacf3903ec5	no			humanities
+hindu_multiverse_karmic_information_engine.py	19161	bd39b4828e407611067d887e15f54d731a41f6ec82911f488a0eb9c99c92eb2b	no		what-do-hindu-texts-say (Epistemic Class: Historical / Textu	humanities
+hindu_multiverse_micro_macro_and_reception_engine.py	35043	12005ed4a06a0685cf5e7232fcba3a41aaa1089457c7d4833be25368d9a384b2	no	Kepler (A001) - Standing Purpose: "what do Hindu texts say a		humanities
+hindu_multiverse_morphogenesis_and_pan_dharmic_engine.py	26898	38f13853e6e0efda3379f20d0690111a3b812b7d62b1ffc3d4542aa6b0d43a73	no			humanities
+hindu_multiverse_observer_relativity_engine.py	27134	80a3fd96d96c22ec743f2ef919fdad6aaaed698eb6ffd548dfc37f2931623d7f	no		discover-about-multiverse-or-any	humanities
+hindu_multiverse_pralaya_and_epistemic_engine.py	40882	a3df4950d2b99c9392e1ba2ebee14fd1b2219763817922fd1d7f3fec471f5839	no		What do Hindu texts say about multiple universes (what-do-hi	humanities
+hindu_multiverse_recurrence_and_information_engine.py	24806	4433dfe2aa01547245f3d623460c674568c6f8d5e2167e75ba4d0845e3260b2a	no			humanities
+hindu_multiverse_saktic_and_cosmic_mother_engine.py	23840	05439a5bd025e13cfedd32f7921d815937c57bf1f3c842269c3ee5da98893813	no		What do Hindu texts say about multiple universes (what-do-hi	humanities
+hindu_multiverse_siddhantic_and_epistemic_synthesis_engine.py	25550	2ef7de829214a2bd83ec5f56b7d8d2ffeb7adb4bba6f270cdf4844a72b1ac653	no		What do Hindu texts say about multiple universes (what-do-hi	humanities
+hindu_multiverse_tantric_bhuvana_engine.py	19068	248367575569c3c77b496bc6d9deef9c10a4908d02935359c80257e37ca25244	no			humanities
+hindu_multiverse_tripartite_engine.py	25735	de7665800cee458efe3162522886d23bb48e0425cd3df1fcdc61f0d7c7468aa7	no			humanities
+hindu_multiverse_vernacular_and_soteriological_engine.py	26811	ca2189dac369c4542302515f4c5d947f8d10ecd2a44b8bab78ce92129a960bb1	no			humanities
+inhomogeneous_cosmology_and_inflation_attack_engine.py	39148	7f941ae085cc8a518594b39e8fc75bde66280526dd1a62428976fb4780d809f5	no			other-cosmology-phase
+interstellar_closure_analyzer.py	19840	aeabe844670161c6a994fd7d87706090ccdef3268a3f4846a511a7041cf3d461	no		Practical space propulsion (engineering feasibility)	propulsion/aliens
+interstellar_deceleration_analyzer.py	15719	3c4a783aba8b6918178d7b7e8f19d959f3d8164c4bb7e4e88a9fb394a8d68739	no		Travel at or near light speed (lightspeed)	propulsion/aliens
+krishna_mahabharata_advanced_frontiers_engine.py	35099	ce595229a12574e958a64a3fc69413cf6089e9c4babe0e1b0cda9dba5a5f566a	no			humanities
+krishna_mahabharata_bioarchaeology_and_apotheosis_engine.py	32159	06110dadd7dff45ea188fdd2c52039debaef95e53b2add39a94f7c70253199ea	no		what about Lord Krishna and he is real, Mahabharata happened	humanities
+krishna_mahabharata_cross_tradition_engine.py	28925	3436fad7b692a2fb5074b2729c3b7abeda738d1b6f869c64d4259587113e5305	no	Kepler (A001)		humanities
+krishna_mahabharata_deep_frontier_engine.py	27077	c7dc9a0afa534ecda696d8b7ddba62b90afd73fe2b10084b86d3f7f6b3e39fea	no			humanities
+krishna_mahabharata_definitive_synthesis_engine.py	28440	7814f98cd810a71afed59933d7d0524e12d7677be9563efaa9eed92d914f809b	no			humanities
+krishna_mahabharata_epigraphic_logistics_engine.py	34194	94c47207a5e20ada2bb17d0290716994abdaa7ef1eba36c68ee4231748c25e5b	no			humanities
+krishna_mahabharata_falsification_and_swarm_closure_engine.py	20599	1f55cbbbe69e2ac3f0923fce3412252fb2e8050933ead73316d6ef8ddb7b3480	no			humanities
+krishna_mahabharata_global_benchmark_engine.py	27768	26883c70ad0b2620558068def51da7c1ce8831d09e2bdee9f947994c35f45bbe	no			humanities
+krishna_mahabharata_grand_unified_engine.py	27291	2e468a2e567a506a9f6a2815b7c5772169f98c6be60a3c4fe9c19d4082d64390	no			humanities
+krishna_mahabharata_historicity_engine.py	32856	530f00df05a9bfe9d2805b81c0dd3eda4087e4f800472a7710ff2edae5034b55	no			humanities
+krishna_mahabharata_linguistic_ballistics_and_diffusion_engine.py	33147	53aad15501cdc6fa1f697f4362ab7a43df577ace9578c3b3c118fe65596f310c	no			humanities
+krishna_mahabharata_master_epistemic_consilience_engine.py	32353	2995a8cd6b8a54ca047d70b8fe6f6d65c815624cb55c52e7f8765d388464975c	no			humanities
+krishna_mahabharata_meta_analytic_consilience_engine.py	28721	fd8b6f9847b9de4332aa61fcef4007eb98579d3c7cbb6cae3577bafe047d9f0a	no			humanities
+krishna_mahabharata_mnemohistory_and_definitive_closure_engine.py	43570	ea11baf93cb9887b037397891b8e89aa0796bc74f51e9510ff8d76e506dacb74	no			humanities
+krishna_mahabharata_paleo_hydrology_and_epigraphic_diffusion_engine.py	24972	2a91af2ac2c079c939f3ebc8331c7ba64bbb1a50dfd7b10e4ae07cb96ce96804	no			humanities
+krishna_mahabharata_settlement_ecology_and_archaeoastronomy_engine.py	30451	ab50447a47151b5bfbadfa17782b72a5ae44a02777f9ea96aa935f72b1c3f1c9	no			humanities
+krishna_mahabharata_taphonomic_and_consensus_compendium_engine.py	23775	73a49f87095bd39590f8034f1d92c7814cbee3c50b30eeb67b3bc5b340aab71a	no		Historicity of Krishna and Mahabharata War	humanities
+krishna_mahabharata_textual_epigraphy_and_metallurgy_engine.py	30270	7ef934d69e3f133863fa978ab0093a082f92d0d6690f2d8491dfca753cb9bd75	no			humanities
+origin_of_universe_engine.py	55540	00330c4e95ca78b254003bb6ee0eb499314932a2dea80644253fd6010430527c	no			other-cosmology-phase
+origin_of_universe_grand_consilience_and_transplanckian_closure_engine.py	31585	e41beebd36cddc527409b4868d944bcd12753f36f7fbfef0397a1d9314107439	no	Kepler (A001) | Generation: 0 | Domain: Origin of the Univer		other-cosmology-phase
+origin_of_universe_rebuttal_and_frontier_engine.py	29253	3381f715d7dcd39b49fc2ebcfb57fa24174eee8d7c401e6743d7b838f42745de	no	Kepler (A001) | Generation: 0 | Domain: Origin of the Univer		other-cosmology-phase
+outsider_cosmogenesis_consensus_challenge_engine.py	26664	3796d0baa34cbd46dc679069d81fa2d27e0bbf2de7d9faa3b876d9e085c6ce49	no	Outsider2 (A002) | Generation: 0 | Domain: Swarm Consensus F		other-cosmology-phase
+outsider_cosmogenesis_foundations_and_epicycle_audit_engine.py	22545	bf2f00c37282416aa407e5833751d20d419b2801aac61a30facf57796fd68811	no			other-cosmology-phase
+outsider_cosmological_neutrino_deficit_and_epicycle_refutation_engine.py	20562	d50e30f07f57ea0e9be2b7001664684c4e14234159f2d2e526f15f2b49cb11dc	yes		Ratified consensus: origin of the universe (phase4-consensus	phase4-consensus
+outsider_neutrino_perturbation_memory_and_consensus_challenge_engine.py	26766	357a69cfab2e24d2297ce9677117a3fd03075ad6b7bb287cb89ff68d06516a44	no			other
+outsider_transplanckian_resolution_and_asymptotic_safety_engine.py	26199	710fb5e80dac6fecd571ba10d3bdf4a91595e65be581f5bef11185e097192b4b	no	Outsider2 (A002) | Generation: 0 | Domain: Swarm Consensus F		other-cosmology-phase
+patient_heterogeneity_and_endotype_stratification_engine.py	9699	b6231d6326042326fb549509ce85eef6a5652807fcafe585ccaf1391037f1903	no	Hypatia (A003), Generation 0	New drug discovery (drug-discovery)	drug-discovery(A003?)
+phase4_consensus_ratification_turn_A001.md	1036	2cda3c6534ef6595198b38841dd02a523923982dd2e23dc6f418c8ddc703100b	no			other
+preclinical_translation_and_species_discordance_engine.py	11440	00a87531ead683833f5639cf4992b1115a5037fcc6cecc5919496e709a63273e	no	Hypatia (A003), Generation 0	New drug discovery (drug-discovery)	drug-discovery(A003?)
+pregeometric_cosmogenesis_and_backreaction_falsification_engine.py	20325	d228a97fcf351c863734926465279157bb2f479c97ecbed4ef29001991548d47	no	Kepler (A001) | Generation: 0 | Domain: Origin of the Univer		other-cosmology-phase
+propulsion_analyzer.py	17542	76b776b032ee5a1ac543fbf748e57714057622f8d29d59e3f43358c52eb4fd9b	no		Practical space propulsion	propulsion/aliens
+propulsion_design_laws.json	4791	b91fb7bb9238716fdb690fe934a39db5471995b92af75a9e64357a82cb904d4b	no			propulsion/aliens
+propulsion_design_laws.py	19605	30684c071d22dbfae2059104c7c8bcfa1a62273b269b3b681902f53e6fbbb247	no		Practical space propulsion	propulsion/aliens
+quantum_cosmogenesis_and_measurement_closure_engine.py	33572	ac984b9ac0322e8cfd93eaed8f36c4eb14c148873db82703cd0c4a73ef2b3a4c	no	Kepler (A001) | Generation: 0 | Domain: Origin of the Univer		other-cosmology-phase
+quantum_foundations_and_holographic_cosmogenesis_engine.py	29919	8139c4cae00846b4505025d5d03f445ae9c29b822948cf259179c99b45af793f	no	Kepler (A001) | Generation: 0 | Domain: Origin of the Univer		other-cosmology-phase
+relativistic_flight_frontiers.py	15498	091562c64ac3a41617a69ec0f283c06ef0c7313374ebbe200078c01e303c3e7c	no		Travel at or near light speed (lightspeed)	propulsion/aliens
+relativistic_propulsion_and_medium_closure.py	16689	4a80f13e81ee78ecd40a843b3f0f486349fd9c3b60b99db1da20b93de83dfb99	no		Travel at or near light speed (lightspeed)	propulsion/aliens
+relativity_calculator.py	7637	591b76471133eb6eb143eda86edc3001491e0ea6fb996a59b0bd53203e9e6b05	no	Kepler (A001, Gen 0)		other
+shiva_and_shambhala_deep_epistemic_frontiers_engine.py	27825	fa945773dab70f22a7eff221e943deeacfbe7c8c5c9d365d2dcaa54e72191188	no			humanities
+shiva_and_shambhala_epistemic_engine.py	33064	265bc1db922ade87845b5936a04db34d9e4eb94750f17925f8e964f07154b74b	no			humanities
+shiva_and_shambhala_master_epistemic_consilience_engine.py	30639	5d70a8d7085a288226362dcb7f7511f7fd5e417e98fe7708a3e96629b42619b6	no			humanities
+structure_corrected_closure.py	33820	5e28646fadd3dab29722092b8442c5c4e99cc4a8b0c8476138818735be9b3995	no			other
+structure_corrected_closure_results.json	24869	6d67a25c6e6af6e54530d203f334ca84aad540f28dcf7eb4ce6cf375253994a5	no			other
+test_a001_yp_consensus_provenance_attack_engine.py	3272	3912c06aae07de6be5387deb4dc4ae6b53b74bd52d36a8f6d62aba5b2564d727	no			other
+test_advanced_relativity.py	4285	7cb815b2f4b42b5a24b52098f37ab7d4c1cd3223b3e8dd6ea5086b5aea9e8cab	no	Raman (A002, Gen 0)		other
+test_aryabhata_epistemic_engine.py	10647	131568f96d47d55b5ee365e09435d29d78d89dedc5ea7d732ab85ed408d03a83	no			humanities
+test_buchert_backreaction_and_late_time_nogo_engine.py	4856	e18d7e42fd3982a4c78e0de1d4e7126a72ae2273befdf2895a6c0bf1d44150d1	no			other
+test_clinical_attrition_causal_engine.py	6604	e0bed5eee69bec9e23164660125edf506939504494f6527688c9604773d89569	no			drug-discovery(A003?)
+test_cosmic_dawn_and_early_structures_engine.py	4937	6cede658c08629386723dc564448032e075138d58cff5a5aaaccb5557157c026	no	Kepler (A001) | Generation: 0 | Domain: Origin of the Univer		other
+test_cosmogenesis_advanced.py	5137	41496f6584c486a26e8fe641f8f0e2c8db8bab1deee9b4526e08fafde3b6dbd3	no	Kepler (A001, Gen 0)	cosmogenesis (Origin of the universe)	other-cosmology-phase
+test_cosmogenesis_age_model_dependence_engine.py	1826	a40f7d9dee077fd4dbdfe0e52c99b1ca09c21273c967293a81f856c8683a2e01	no			other-cosmology-phase
+test_cosmogenesis_age_origin_decomposition_engine.py	2648	f8aa59727de7fac31d34bdda3017a775542404be528f2ed3045d41be147d7929	no			other-cosmology-phase
+test_cosmogenesis_consensus_reformation_and_systematics_closure_engine.py	6848	d5a519ef0d3dbe6992396f747b00b80d97d4a8d4bb36be87039ba276afb3b41a	no			other-cosmology-phase
+test_cosmogenesis_consensus_weakest_assumption_attack_engine.py	2456	9e4fb1958458bfc64f568f59a25cca201d787efc3bd91f5f2adc54c10c6a93f3	no			other-cosmology-phase
+test_cosmogenesis_dcdm_agn_shear_degeneracy_engine.py	6483	b749a2445ac2bcc52480bd42cd03d6a73724106f977ff96fbf0a2836c4a2b777	no			other-cosmology-phase
+test_cosmogenesis_deep.py	5795	1688ba8ba7d1de720910483820c01eb5021546c2d96d542abe26876652f496a4	no	Kepler (A001, Gen 0)	cosmogenesis (Origin of the universe)	other-cosmology-phase
+test_cosmogenesis_desi_dynamical_dark_energy_and_host_mass_consilience_engine.py	4596	deb0764c4ef3157b384913a43618e8059f23e884413600a6a7af150c1adb07b6	no			other-cosmology-phase
+test_cosmogenesis_desi_trgb_minimal_concordance_engine.py	5671	26b9939abccdfb8b1db8f8f7372f9bbee18d2d3ad2a6622babece053f7aa58a2	no			other-cosmology-phase
+test_cosmogenesis_distance_ladder_and_damping_consilience_engine.py	4693	e114c08a9a88398ed49e23c936486f608f35e465fbb83c536dc875a3b10560ed	no			other-cosmology-phase
+test_cosmogenesis_ede_sound_horizon_and_s8_tension_engine.py	3798	d5319abde591e793a08c746a22eae9689d96783ce52032f3d518e4a1de5b2677	no			other-cosmology-phase
+test_cosmogenesis_frontier.py	5466	2511691d49ead620f01f337ff34c4a2cc34ceba72720b67aa98427038834e176	no	Kepler (A001, Gen 0)		other-cosmology-phase
+test_cosmogenesis_joint_falsification_test_engine.py	7444	3f943c98403cfe362b24037bf5868371242c89bb15560b84913eff35600a1fb0	yes		Ratified consensus: origin of the universe (phase4-consensus	phase4-consensus
+test_cosmogenesis_joint_lyman_alpha_euclid_engine.py	4381	eacc1347e9d99fc5fd3b83b4e3a2ea3fbdf8198781ed1a0816b6c2cffb60ebd4	no			other-cosmology-phase
+test_cosmogenesis_liturgy_breaker_and_trilemma_engine.py	4051	1e45dae61270d1061cbb783f786eb72c4334b508bfe27e9e892fa631bca922a8	no			other-cosmology-phase
+test_cosmogenesis_master_decision_engine.py	6189	43bebde5f9dffdb44eb5d3e12c9a1f53373898b8ebdf1963de77ceb20a28dac7	no			other-cosmology-phase
+test_cosmogenesis_neutrino_deficit_arbitration_engine.py	4014	f7f57b4f4adc5981972f5b4c8fa05aa997b8f30bcdc850e9e8e3267e9e960ee4	no			other-cosmology-phase
+test_cosmogenesis_neutrino_mass_and_free_streaming_engine.py	3508	6a58d5fe6098731af764b6abcfd570bb0f5c9b252db7336bdd8f35977dec3388	no			other-cosmology-phase
+test_cosmogenesis_neutrino_microphysics_and_agn_closure_engine.py	4337	ed3de5076c35ef53aae766b839f8cfefb5b31e2725a29c51db43a0a751d4fdd3	no			other-cosmology-phase
+test_cosmogenesis_pmf_sound_horizon_and_s8_engine.py	5678	09f15e26d0705757050f812cd8d185aff0e888fec366072abb33ec4505824160	no			other-cosmology-phase
+test_cosmogenesis_quantum_gravity_engine.py	8024	b2a7bcdd302b2d3c4bff48fca31a6f8a361edb2bfe1b0125ee46370bbd175dc4	no			other-cosmology-phase
+test_cosmogenesis_r_inference_and_age_origin_verification_engine.py	2971	9e0a2c2c826f67e79c077ec447a72087632f11e94f9121050ab0b0b007080cea	no			other-cosmology-phase
+test_cosmogenesis_unified_observational_roadmap_engine.py	7975	183d6f9ae1f72f6149d1d55f84484c93a0e8aa1ee71856fc2443064a4e0c6601	no	Kepler (A001) | Generation: 0 | Domain: Origin of the Univer		other-cosmology-phase
+test_cosmogenesis_unified_post_concordance_framework_engine.py	6792	639ab3d2df3476fe55a447a8e94653cfed49b8f2eb5784f28a579b8900cad5b9	no			other-cosmology-phase
+test_cosmological_model.py	4758	1215d6db7077a3ccec299e1fccd889150948980d20b4a143b8a30d564d6a7c75	no	Kepler (A001, Gen 0)	cosmogenesis (Origin of the universe)	other-cosmology-phase
+test_dharmic_epistemic_demarcation.py	6733	eedecf6c4590d77576aec7cbe14af84235d0245907a120b9733383777cf3cb77	no			humanities
+test_epistemic_framework.py	3809	c59f6658450c85ba39774d4a6a990f2d865ce19de440b95fb03818c22ede4a22	no			other
+test_extraterrestrial_life_analyzer.py	14309	361e86986c55e8910b1ee1a5299a8f35b4880f02ed4c98bc22546f99f5a9b59d	no	Agent5 (A006, Gen 0)		propulsion/aliens
+test_extraterrestrial_settling_instruments.py	12268	cf644c0d98bfa37b4e0ee93f6225f9b7deab610bae1602678f000a01ae75785e	no	Sagan (A006, Gen 0)		propulsion/aliens
+test_fusion_feasibility_engine.py	8107	231f10a02eb57b23273b8105f011b73766feeae48e7097e013ca03ebdf0a0625	no			other
+test_genetic_validation_and_therapeutic_window_engine.py	5232	87c2abdd5176c249653764c31e5b1593360d52ceac1bc8808552cc060e1ecf25	no	Hypatia (A003), Generation 0		drug-discovery(A003?)
+test_globular_cluster_age_error_budget_engine.py	1908	16a295737f30069b4cf9673f619fb577cf831fbf995564238a666ec5cf4513e4	no			other-cosmology-phase
+test_hindu_cosmology_multiverse_engine.py	7260	1eb3a61f6de9b4ea35e3af733f0793b0047580a31e08de6ecfec42d24a99c39b	no			humanities
+test_hindu_multiverse_advanced_frontiers_engine.py	7607	0e3f97e07b47b580f71d3814b3b6d33a1272cf620a4d482aa66553291baf73f4	no			humanities
+test_hindu_multiverse_al_biruni_and_transmission_engine.py	5359	27349a4aa27505cccdbe8bb5a6f5ae4bd2ed67cddc20d6d275646ac9d21c21e8	no			humanities
+test_hindu_multiverse_avatar_kinematics_and_solar_circulation_engine.py	5543	32cfe1272df96c5de9f05466243c664635334d2aae93179f6480054b54bc5acf	no			humanities
+test_hindu_multiverse_breach_and_envelope_engine.py	7267	e1e8fce3ecd327097286f02a58c888ee43a27a7c2177d0ca810e2a6a1ade2b52	no			humanities
+test_hindu_multiverse_cosmogenetic_nucleation_engine.py	8349	b1852709e123ccbfa8872478bc5e9c4eceac98c579b4d4ea76f6ba0207850e08	no			humanities
+test_hindu_multiverse_definitive_corpus_ontology_and_meta_synthesis_engine.py	7046	ee0a94f428cb0a98fb3bfaf9502ed14a019383deec9537b96e4b133bb94926bc	no			humanities
+test_hindu_multiverse_epistemology_and_eka_jiva_engine.py	6114	fe292f91cae7b9215b8759ff60a332898a5717e2d2b1b1d0966638566bc29529	no			humanities
+test_hindu_multiverse_fractal_and_ensemble_engine.py	5765	6b851e0c43a656e2f349edb1abcc9019cb73b0360a65feb69d30551c0de96191	no			humanities
+test_hindu_multiverse_grand_unified_compendium_engine.py	7820	fa40a08b02a102ce54a2a79967bb0973b8f12733fcdf3cca8f91bf59132013c6	no			humanities
+test_hindu_multiverse_idealist_and_cidakasa_engine.py	5276	08ec060c0bab8d136b852a44f81c127eda13b1b5c3d4e91cc7da5559631b7544	no			humanities
+test_hindu_multiverse_karmic_information_engine.py	4071	3a9f7ef782df3bd2c0474a73f03fec907ff68c838df044e839ecc1e6082c1c42	no			humanities
+test_hindu_multiverse_micro_macro_and_reception_engine.py	6375	b7670d0b48e70bdbb4ff770da128f4996106bc2332b0b420dbcbda28a8ae92c8	no			humanities
+test_hindu_multiverse_morphogenesis_and_pan_dharmic_engine.py	6340	9b2a56c613c7158d479c2ab6fc3c34a7d85c72effd8fc19f5c6bcf5c921ea3a5	no			humanities
+test_hindu_multiverse_observer_relativity_engine.py	7809	238f4f4d425e8760a69ebdb0a810f551bc52c1a6cf91ea2caf59ae0caf9fa7e8	no			humanities
+test_hindu_multiverse_pralaya_and_epistemic_engine.py	7206	0880094f239bdb88b5dabfe03be7d38471f4e4b93761c51783dd2d3b3b78fffe	no			humanities
+test_hindu_multiverse_recurrence_and_information_engine.py	7004	63fafd42d362dc140a0678d5096f0c54fd6a86deea1b94d7f0369bf3d5a3f95c	no			humanities
+test_hindu_multiverse_saktic_and_cosmic_mother_engine.py	6397	252a747dc4f447be0ecbad6276f1242f82332a64a6fca7ece8aa26fb6dcf54b3	no			humanities
+test_hindu_multiverse_siddhantic_and_epistemic_synthesis_engine.py	7023	5ed6043d63c48841d20b8cdc72d3f99dbafd8bf4b97ea8cf9c18c02d5c1c4528	no			humanities
+test_hindu_multiverse_tantric_bhuvana_engine.py	2401	1804bcbb1f8290bb21e9efdae3f39c8a5ca840a5339918f81c14dbac6dd1cde6	no			humanities
+test_hindu_multiverse_tripartite_engine.py	6241	7848d2682cd20ae099cf9f9dbd90c2583cbdbe75b5ec17bda1181e62af449d7f	no			humanities
+test_hindu_multiverse_vernacular_and_soteriological_engine.py	6574	7c518d42c424bead6c5daeeeb30776d1ac70d16e7ad10e3f5bb7ab97ba49d289	no			humanities
+test_inhomogeneous_cosmology_and_inflation_attack_engine.py	11895	8b9875e36f9961f5cc88630e39fb6c420840460f4255a386d1e1684fbe35846e	no			other-cosmology-phase
+test_interstellar_closure.py	8088	c8b2b04010200e38c807604959c14a4f3ff5840e6e8c24dd80d9db70a68bcabc	no			propulsion/aliens
+test_interstellar_deceleration.py	7142	3bac9d321b2366988f646a196f5297e1a6bca23bdce5919cb40625aaabb7c7e2	no		Travel at or near light speed (lightspeed)	propulsion/aliens
+test_krishna_mahabharata_advanced_frontiers_engine.py	8247	29cf98cb22821513c82998a91fd6791c5b255ef1cf323c86b24b5695861cf6e1	no			humanities
+test_krishna_mahabharata_bioarchaeology_and_apotheosis_engine.py	6072	8221d67d8cf2acc972aafc32de4c5687903e682c1a432f7710eefc07ee01c235	no			humanities
+test_krishna_mahabharata_cross_tradition_engine.py	6266	17bf15d9ff61fadfd6d618764fea0da3a5ec91ee495d754904ecf6f9525cbe53	no			humanities
+test_krishna_mahabharata_deep_frontier_engine.py	8199	af29381f60bb0692b67a58676e51b97e234e75d7022ba2c662deea1540fd0f63	no			humanities
+test_krishna_mahabharata_definitive_synthesis.py	5703	cd4f99b5e489b658966053385748aaa229989cc08d33cba9940dba474de79a42	no			humanities
+test_krishna_mahabharata_epigraphic_logistics_engine.py	6738	6cd12b18f32134de7c3a19905471c57c2b018ec363b0e6164850705b73e70404	no			humanities
+test_krishna_mahabharata_falsification_and_swarm_closure_engine.py	5294	63452ccf5a222088d8f97155e601babb8acd173bf4377490fa713e1095d1777b	no			humanities
+test_krishna_mahabharata_global_benchmark_engine.py	5811	24f8b8d52062ed9746cea787f956b910511cae014ef951b31d1cda3ac1792f81	no			humanities
+test_krishna_mahabharata_grand_unified_engine.py	5939	b8de51cc13be09e9ed4e537e59dcd9db4bf09bc1b277a849c64acb6a97052526	no			humanities
+test_krishna_mahabharata_historicity_engine.py	9545	8d620c934a6499c46d4db0a42159228d8a60d1471d503794ae64aabd503fca7d	no			humanities
+test_krishna_mahabharata_linguistic_ballistics_and_diffusion_engine.py	6658	8796b34de1d1263aa472ebe32f10e52c89d0449bbff218abc7bebfd1bf21d601	no			humanities
+test_krishna_mahabharata_master_epistemic_consilience_engine.py	5852	6f055d738798eaeabc129b0c430c560d969e123b63193fce92ec01b035f82c05	no			humanities
+test_krishna_mahabharata_meta_analytic_consilience_engine.py	5256	e394d2506ac2334396c2bd9a16c101b0c978d9aafa528c390c425169c4543005	no			humanities
+test_krishna_mahabharata_mnemohistory_and_definitive_closure_engine.py	4489	df1a535531f526fffe531135176b31035a5041f20d0edeb419eff30668e683cb	no			humanities
+test_krishna_mahabharata_paleo_hydrology_and_epigraphic_diffusion_engine.py	6380	f6e04b8cc482567c921eaab1911a5493eb63e98559172e4ef2ebbb7f424cc0be	no			humanities
+test_krishna_mahabharata_settlement_ecology_and_archaeoastronomy_engine.py	4954	36a0dfc6161faaa91bf0569fadef12e26e6425e5de4607705caf76f1f6d21f11	no			humanities
+test_krishna_mahabharata_taphonomic_and_consensus_compendium_engine.py	5223	de70b27bbdb718ae8ee8d7d66c01fc81694e77ff04d3837bf5fb5974fc668f3e	no			humanities
+test_krishna_mahabharata_textual_epigraphy_and_metallurgy_engine.py	7215	c877adb3fc7f171bced6f8bc92159135f30a88c74cdb0c86bf9729cb6a7347fd	no			humanities
+test_origin_of_universe_engine.py	13366	dd8991626749bdf99b5f9fe1ca4052f12ce9328865d48efba8a7952388c757df	no			other-cosmology-phase
+test_origin_of_universe_grand_consilience_and_transplanckian_closure_engine.py	6130	86e426fdc78c83ecd7d898d024155f3cf1446f28faedcb5444505166bc4da834	no	Kepler (A001) | Generation: 0 | Domain: Origin of the Univer		other-cosmology-phase
+test_origin_of_universe_rebuttal_and_frontier_engine.py	5337	2d3add1a75c8effa45bec012a983aedb7a9185253c4caf7d44bfe10d190566e7	no	Kepler (A001) | Generation: 0 | Domain: Origin of the Univer		other-cosmology-phase
+test_outsider_cosmogenesis_consensus_challenge_engine.py	6591	8f883453a62b5504e8e8936f164e1009f6806a3fe3171f6ed55d792c584a941c	no	Outsider2 (A002) | Generation: 0 | Domain: Swarm Consensus F		other-cosmology-phase
+test_outsider_cosmogenesis_foundations_and_epicycle_audit_engine.py	5702	b0f748d27e15f0e713690810aa083f9a0547d0a7d5dee6feb72a6353400cbfa5	no			other-cosmology-phase
+test_outsider_cosmological_neutrino_deficit_and_epicycle_refutation_engine.py	5942	b4f0119ac8d721c5e9672abcfcceaa209159e5764f756cbe6b24717bfb606677	no			other-cosmology-phase
+test_outsider_neutrino_perturbation_memory_and_consensus_challenge_engine.py	5655	97dd734e00c003c862c475aef45bf3e1060b4579ee18dd76b6f70dd1ac3485f0	no			other
+test_outsider_transplanckian_resolution_and_asymptotic_safety_engine.py	5394	efafea74e42f9ee90e35c0693d1183fc6f8fb26345123480c8dbf406d61022c6	no	Outsider2 (A002) | Generation: 0 | Domain: Swarm Consensus F		other-cosmology-phase
+test_patient_heterogeneity_engine.py	3391	55cd5aab76c221f7a30e7a62128c9ae7371334d54f6beed2cd87d75d02ae6fdc	no	Hypatia (A003), Generation 0	New drug discovery (drug-discovery)	drug-discovery(A003?)
+test_physics_proofs.py	3335	538622131051b2b6004cfeb45194de48b65e24d8319e62dbaf9bd5e1b8703185	no	Kepler (A001, Gen 0)		other
+test_preclinical_translation_and_species_discordance_engine.py	2474	8f10ea8f72ae5103567bf19904d03cf97dfa8436b7ec7cb27d830f7d3d083162	no	Hypatia (A003), Generation 0		drug-discovery(A003?)
+test_pregeometric_cosmogenesis_and_backreaction_falsification_engine.py	5709	bc2a8300d6fef118adbec56e3be6effa3824342f7187f2b52d493ff31695f8ad	no	Kepler (A001) | Generation: 0 | Domain: Origin of the Univer		other-cosmology-phase
+test_propulsion.py	5705	062fadc011369eee641d5c855a3de9d4615828dc9071cd59df8f497353f3c6bb	no			propulsion/aliens
+test_propulsion_design_laws.py	7038	0da692844542bfd0967a908f88023118524ca9b0c20b6a298886078a559bce49	no			propulsion/aliens
+test_quantum_cosmogenesis_and_measurement_closure_engine.py	6816	b23605bb5b5a984d0db170ef11c8bc3c3949411d25a55a87c7b9613b657a3a45	no	Kepler (A001) | Generation: 0 | Domain: Origin of the Univer		other-cosmology-phase
+test_quantum_foundations_and_holographic_cosmogenesis_engine.py	6837	19d819eed2b8e48723938c067eb3914fde896f39f98b0030ab93e316a90b077e	no	Kepler (A001) | Generation: 0 | Domain: Origin of the Univer		other-cosmology-phase
+test_relativistic_flight_frontiers.py	12668	bd61b74cd1c998b3634f6edaa85b04450dd8fa7cc93d55e1390c99d30a34a29b	no		Travel at or near light speed (lightspeed)	propulsion/aliens
+test_relativistic_propulsion_and_medium_closure.py	8232	e71adb088923c2c7442996c5829125316dd1ec45fb86a18a55cd1c2e0cf47d2b	no			propulsion/aliens
+test_shiva_and_shambhala_deep_epistemic_frontiers_engine.py	5824	03ff1d089df6fc65d01bb835f1c46516cc6bb7180b53ca441d20ec48b7bf92f6	no			humanities
+test_shiva_and_shambhala_epistemic_engine.py	9579	a7cc6d3a0bcfbac22a7bc8839a2d0f84e7a9ca662ac3b484da2d647c74991e2d	no			humanities
+test_shiva_and_shambhala_master_epistemic_consilience_engine.py	7107	86da97e21f73e0317dcb54993d8b273c483b79c21295429eda3f941f1b7165ad	no			humanities
+test_translational_pkpd_barrier_engine.py	5908	6d4bc00e78f6b1eeef1d3430c629c6bbe0135de9f29a5dd647068b8720baaff6	no			drug-discovery(A003?)
+translational_pkpd_barrier_engine.py	29411	d38a96c7dd93cbb1e7b47508aa13cf99b66ec99e5f5bb68b4d17f4e9e92e7a49	no		New drug discovery (drug-discovery)	drug-discovery(A003?)
+verify_relativistic_feasibility_and_causality.py	6309	f9496ca8880ba1d76051d9a63c56bc73b7c3ed481ada13b3794f2ebb2d204ea4	no			propulsion/aliens

@@ -1,0 +1,71 @@
+##############################################################################
+# A001 turn 5 -- public DESI DR1 w0waCDM chains: marginalized age
+##############################################################################
+==============================================================================
+PART A -- DESI+CMB+PantheonPlus: marginalized cosmic age from the public chain
+==============================================================================
+chains loaded: 128576 rows
+  median t0 = 13.7267 Gyr   68% CI = [13.6996, 13.7546]
+  95% CI    = [13.6733, 13.7834]   sigma(t0) = 0.0276 Gyr
+  best-fit  = 13.7257 Gyr
+  w0      = -0.8291 (+0.0653/-0.0632)
+  wa      = -0.7328 (+0.2796/-0.3047)
+  H0      = +68.0128 (+0.7376/-0.7055)
+  omegam  = +0.3085 (+0.0069/-0.0069)
+  check: max |t_mine - age_chain| = 0.0009 Gyr over 201 samples
+
+==============================================================================
+PART A -- DESI+CMB+DESY5: marginalized cosmic age from the public chain
+==============================================================================
+chains loaded: 142778 rows
+  median t0 = 13.7228 Gyr   68% CI = [13.6963, 13.7492]
+  95% CI    = [13.6706, 13.7769]   sigma(t0) = 0.0266 Gyr
+  best-fit  = 13.7373 Gyr
+  w0      = -0.7263 (+0.0706/-0.0700)
+  wa      = -1.0495 (+0.3150/-0.3367)
+  H0      = +67.2265 (+0.6680/-0.6535)
+  omegam  = +0.3162 (+0.0067/-0.0066)
+  check: max |t_mine - age_chain| = 0.0007 Gyr over 201 samples
+
+==============================================================================
+A.4 -- the swarm-record A002 bracket vs the true marginalized posterior
+==============================================================================
+  A002 bracket (indep.-Gaussian 1sigma .. 1sigma box span) = [0.244, 0.834] Gyr
+  DESI+CMB+PantheonPlus : sigma(t0) = 0.0276 Gyr  = 0.113 x lower, 0.033 x span, 1.20 x Planck
+  DESI+CMB+DESY5        : sigma(t0) = 0.0266 Gyr  = 0.109 x lower, 0.032 x span, 1.16 x Planck
+
+  NOTE: the A001/A002 inputs (w0=-0.727, wa=-1.05, H0=68.60, Om=0.300)
+  are a CHIMERA.  Per arXiv:2404.03002v3 eqs. (30)-(32), (w0,wa)=
+  (-0.727,-1.05) is DESI+CMB+DESY5, whose H0=67.24+-0.66, Om=0.3160+-0.0065;
+  DESI+CMB+PantheonPlus has (w0,wa)=(-0.827,-0.75), H0=68.03+-0.72,
+  Om=0.3085+-0.0068.  The chains above use the self-consistent values.
+
+==============================================================================
+PART B -- EXACT dt0/dw(a) KERNEL AND CPL-ORTHOGONAL SHAPE BOUND
+==============================================================================
+kernel validation: integral K da = -1.9830 Gyr ; finite-diff dt0/dw0 = -1.9830 Gyr
+CPL-projected norm ||K_perp||_2 = 0.6622 Gyr
+  (CPL-orthogonal dw(a) of RMS amplitude sigma_shape shifts t0 by at most
+   sigma_shape * ||K_perp||_2, by Cauchy-Schwarz)
+
+CPL curvature dw = c(1-a)^2 :  linear kernel vs exact nonlinear
+  c=-2.0: linear = +0.2732 Gyr ; nonlinear = +0.2179 Gyr
+  c=-1.0: linear = +0.1366 Gyr ; nonlinear = +0.1206 Gyr
+  c=+0.0: linear = +0.0000 Gyr ; nonlinear = +0.0000 Gyr
+  c=+1.0: linear = -0.1366 Gyr ; nonlinear = -0.1615 Gyr
+  c=+2.0: linear = -0.2732 Gyr ; nonlinear = -0.4366 Gyr
+
+worst-case CPL-orthogonal shape systematic:
+  sigma_shape = 0.05  ->  |dt0| <= 0.0331 Gyr
+  sigma_shape = 0.10  ->  |dt0| <= 0.0662 Gyr
+  sigma_shape = 0.27  ->  |dt0| <= 0.1788 Gyr
+
+kernel profile (a, K(a), K_perp(a)):
+  a=0.05 (z= 19.0)  K=-0.0000  K_perp=-1.1053
+  a=0.10 (z=  9.0)  K=-0.0003  K_perp=-0.7624
+  a=0.20 (z=  4.0)  K=-0.0151  K_perp=-0.0907
+  a=0.30 (z=  2.3)  K=-0.1191  K_perp=+0.4918
+  a=0.50 (z=  1.0)  K=-1.1276  K_perp=+0.8562
+  a=0.70 (z=  0.4)  K=-3.2164  K_perp=+0.1386
+  a=0.90 (z=  0.1)  K=-5.3804  K_perp=-0.6508
+  a=0.99 (z=  0.0)  K=-6.2177  K_perp=-0.8702

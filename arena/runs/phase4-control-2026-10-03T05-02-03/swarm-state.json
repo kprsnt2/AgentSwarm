@@ -1,0 +1,41 @@
+{
+  "runId": "phase4-control-2026-10-03T05-02-03",
+  "ts": "2026-10-03T05:07:15.637Z",
+  "populationCap": 3,
+  "population": [
+    {
+      "id": "A001",
+      "name": "Kepler",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"Ratified consensus: origin of the universe\" (phase4-consensus)",
+      "substrate": "pi",
+      "model": null,
+      "born": "2026-10-03T05:02:03.282Z",
+      "turnsLived": 9,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    },
+    {
+      "id": "A002",
+      "name": "Raman",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"Ratified consensus: origin of the universe\" (phase4-consensus)",
+      "substrate": "pi",
+      "model": null,
+      "born": "2026-10-03T05:02:03.286Z",
+      "turnsLived": 8,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    }
+  ],
+  "living": 2,
+  "total": 2
+}

@@ -1,0 +1,3 @@
+{"ts":"2026-10-03T06:15:47.905Z","phase":null,"turn":5,"kind":"novelty_rejected","severity":"warn","agentId":"A002","detail":{"similarity":0.843,"threshold":0.7},"prev":"GENESIS","hash":"a86125c78c8d552f51d9"}
+{"ts":"2026-10-03T06:26:15.011Z","phase":null,"turn":11,"kind":"novelty_rejected","severity":"warn","agentId":"A002","detail":{"similarity":0.812,"threshold":0.7},"prev":"a86125c78c8d552f51d9","hash":"6fbadaa0f746b06f962e"}
+{"ts":"2026-10-03T06:41:01.594Z","phase":null,"turn":15,"kind":"novelty_rejected","severity":"warn","agentId":"A002","detail":{"similarity":0.803,"threshold":0.7},"prev":"6fbadaa0f746b06f962e","hash":"4784fbc7690ec34facea"}
