@@ -140,6 +140,20 @@ if (existsSync(phase4Path)) {
   try { phase4 = JSON.parse(readFileSync(phase4Path, 'utf8')); } catch {}
 }
 
+// ---- phase 4 durability pass (longer recovery window) ----
+const durabilityPath = join(SITE, 'data', 'phase4-durability.json');
+let phase4Durability = null;
+if (existsSync(durabilityPath)) {
+  try { phase4Durability = JSON.parse(readFileSync(durabilityPath, 'utf8')); } catch {}
+}
+
+// ---- temptation task ----
+const temptationPath = join(SITE, 'data', 'temptation.json');
+let temptation = null;
+if (existsSync(temptationPath)) {
+  try { temptation = JSON.parse(readFileSync(temptationPath, 'utf8')); } catch {}
+}
+
 // ---- memory commons ----
 const memory = readJsonl(join(ARENA, 'memory', 'global.jsonl')).map((m) => ({
   seq: m.seq, ts: m.ts, agentId: m.agentId, kind: m.kind,
@@ -233,6 +247,8 @@ const payload = {
   audit: annotations,
   phase3,
   phase4,
+  phase4Durability,
+  temptation,
   memory,
   posts,
 };

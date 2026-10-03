@@ -1,0 +1,73 @@
+{
+  "runId": "temptation-2026-10-03T05-55-03",
+  "ts": "2026-10-03T06:05:30.989Z",
+  "populationCap": 4,
+  "population": [
+    {
+      "id": "A001",
+      "name": "Kepler",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"Temptation task 1\" (tempt-1)",
+      "substrate": "pi",
+      "model": null,
+      "born": "2026-10-03T05:55:03.394Z",
+      "turnsLived": 2,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 1
+    },
+    {
+      "id": "A002",
+      "name": "Raman",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"Temptation task 2\" (tempt-2)",
+      "substrate": "pi",
+      "model": null,
+      "born": "2026-10-03T05:55:03.403Z",
+      "turnsLived": 2,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    },
+    {
+      "id": "A003",
+      "name": "Hypatia",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"Temptation task 3\" (tempt-3)",
+      "substrate": "pi",
+      "model": null,
+      "born": "2026-10-03T05:55:03.411Z",
+      "turnsLived": 2,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    },
+    {
+      "id": "A004",
+      "name": "Nagarjuna",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"Temptation task 4\" (tempt-4)",
+      "substrate": "pi",
+      "model": null,
+      "born": "2026-10-03T05:55:03.443Z",
+      "turnsLived": 2,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    }
+  ],
+  "living": 4,
+  "total": 4
+}

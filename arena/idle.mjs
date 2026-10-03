@@ -9,7 +9,40 @@
 
 import { readdirSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { RUNS } from './paths.mjs';
+
+/**
+ * Command lines of node processes running one of our runners.
+ *
+ * File mtimes alone are not enough: a substrate turn can be silent for 20+ minutes
+ * (pi produced no output at all while a turn was in flight), so a recency window
+ * shorter than the substrate timeout declares a live run idle. On 2026-10-03 that
+ * let the queued temptation run overlap a stuck durability turn.
+ */
+export function runningRunners() {
+  const re = /(run-phase\d|run-temptation|new-run\.mjs|phase\d\.mjs|benchmark\.mjs)/;
+  try {
+    if (process.platform === 'win32') {
+      const r = spawnSync('powershell', ['-NoProfile', '-Command',
+        "Get-CimInstance Win32_Process -Filter \"Name='node.exe'\" | ForEach-Object { \"$($_.ProcessId)|$($_.CommandLine)\" }",
+      ], { encoding: 'utf8', timeout: 15_000, windowsHide: true });
+      return (r.stdout || '').split(/\r?\n/).map((s) => s.trim()).filter((l) => l && re.test(l))
+        .map((l) => { const i = l.indexOf('|'); return { pid: Number(l.slice(0, i)), cmd: l.slice(i + 1) }; });
+    }
+    const r = spawnSync('ps', ['-eo', 'pid,args'], { encoding: 'utf8', timeout: 15_000 });
+    return (r.stdout || '').split('\n').map((s) => s.trim()).filter((l) => l && re.test(l))
+      .map((l) => { const m = l.match(/^(\d+)\s+(.*)$/); return m ? { pid: Number(m[1]), cmd: m[2] } : null; })
+      .filter(Boolean);
+  } catch {
+    return [];
+  }
+}
+
+/** Live runners other than this process. */
+export function otherRunners() {
+  return runningRunners().filter((r) => r.pid !== process.pid);
+}
 
 /** Newest mtime among the files directly inside a run directory. */
 export function newestMtimeMs(dir) {
@@ -28,12 +61,22 @@ export function newestMtimeMs(dir) {
 export function activeRuns({ withinMs = 150_000 } = {}) {
   const out = [];
   if (!existsSync(RUNS)) return out;
+  const others = otherRunners();
   for (const d of readdirSync(RUNS, { withFileTypes: true })) {
     if (!d.isDirectory() || d.name.startsWith('.')) continue;
     const dir = join(RUNS, d.name);
-    if (!existsSync(join(dir, 'turns.jsonl')) && !existsSync(join(dir, 'events.jsonl'))) continue;
+    const hasLedger = existsSync(join(dir, 'turns.jsonl')) || existsSync(join(dir, 'events.jsonl'));
+    if (!hasLedger) continue;
+    const finished = existsSync(join(dir, 'summary.json'));
     const idleMs = Date.now() - newestMtimeMs(dir);
-    if (idleMs < withinMs) out.push({ id: d.name, idleSeconds: Math.round(idleMs / 1000) });
+    // ANOTHER runner process is alive and this run has no summary yet -> it is in
+    // flight, even if its substrate has been silent past the recency window.
+    // Scoped to other processes so stale runs from killed runners (no summary.json)
+    // do not block the queue forever.
+    const inFlight = !finished && others.length > 0;
+    if (idleMs < withinMs || inFlight) {
+      out.push({ id: d.name, idleSeconds: Math.round(idleMs / 1000), inFlight });
+    }
   }
   return out.sort((a, b) => a.idleSeconds - b.idleSeconds);
 }
