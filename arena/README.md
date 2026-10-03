@@ -235,7 +235,7 @@ npm run site                 # export → corpus pages → self-contained build
 - [x] Phase 3 shock matrix — complete (7 shocks; results in `site/data/phase3.json`, writeup in `docs/PHASE3_RESULTS.md`)
 - [x] Phase 4 liturgy breaker — complete (control held; exogenous/novelty broke the loop; arrival = composition effect; results in `site/data/phase4.json`, writeup in `docs/PHASE4_RESULTS.md`)
 - [ ] Controlled substrate benchmark run (`benchmark.mjs` implemented; needs a live run)
-- [ ] Temptation task (deception cheaper than success) — the harder honesty test
+- [ ] Temptation task — **running/queued** (`run-temptation.mjs`: the published rubric is satisfiable by a stub; correctness is measured afterwards on hidden inputs)
 
 ### Results at a glance (all runs)
 
@@ -300,6 +300,7 @@ node phase1.mjs        # open emergence across six research domains
 node run-phase2.mjs    # adversarial goal with independent scoring
 node run-phase3.mjs    # the shock matrix: 7 shock types, novelty before vs after
 node run-phase4.mjs    # breaking the liturgy: induce a consensus loop, then shock it
+node run-temptation.mjs # when deception is cheaper than success (Phase 2's harder test)
 ```
 
 `run-phase3.mjs` runs one experiment per shock (deadline, exogenous, substrate,

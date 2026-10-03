@@ -53,6 +53,9 @@ const wait = has('--wait');
 // harness when one is unavailable (e.g. agy out of credits). Note it in the writeup:
 // conditions run on different substrates are not directly comparable.
 const substrate = arg('--substrate', 'agy');
+// Durability passes write to their own file so they cannot overwrite the published
+// matrix (site/data/phase4.json).
+const outFile = arg('--out', 'phase4.json');
 const similarity = parseFloat(arg('--similarity', '0.7'));
 const streakThreshold = parseInt(arg('--streak', '2'), 10);   // 2 = three consecutive turns
 const crystallize = parseInt(arg('--crystallize', '8'), 10);
@@ -110,7 +113,7 @@ console.log(`  substrate  : ${substrate}`);
 console.log(`  liturgy    : 2 agents, one domain, consensus statement restated verbatim`);
 console.log(`  trigger    : streak >= ${streakThreshold} at similarity > ${similarity}, or turn ${crystallize}`);
 console.log(`  run length : ${crystallize} crystallization + ${recovery} recovery = ${maxTurns} turns`);
-console.log(`  results    : site/data/phase4.json (written after every condition)`);
+console.log(`  results    : site/data/${outFile} (written after every condition)`);
 console.log(`  kill       : create arena/STOP`);
 
 if (dry) {
@@ -132,7 +135,7 @@ if (active.length) {
 // ---------------------------------------------------------------- matrix
 
 const startedAt = Date.now();
-const outPath = join(SITE, 'data', 'phase4.json');
+const outPath = join(SITE, 'data', outFile);
 mkdirSync(join(SITE, 'data'), { recursive: true });
 
 // Resume-safe: keep results for conditions NOT being run in this pass, so
@@ -194,6 +197,8 @@ for (const condition of conditions) {
   const state = {
     turns: [], triggerTurn: null, crystallizedAt: null, shockInfo: null,
     streakAtTrigger: 0, applied: false,
+    // Durability: does a NEW near-identical streak form after the shock?
+    postMaxStreak: 0, recrystallizedAt: null,
   };
 
   let summary;
@@ -204,6 +209,12 @@ for (const condition of conditions) {
         const text = outcome.result.text || '';
         const { sim, streak } = tracker.observe(rec.agentName, text);
         state.turns.push({ turn: rec.seq, agent: rec.agentName, sim, streak, len: text.length, text });
+
+        // After the shock, watch for the liturgy re-forming.
+        if (state.applied && rec.seq > state.triggerTurn) {
+          if (streak > state.postMaxStreak) state.postMaxStreak = streak;
+          if (state.recrystallizedAt == null && streak >= streakThreshold) state.recrystallizedAt = rec.seq;
+        }
 
         if (!state.applied && (tracker.best >= streakThreshold || rec.seq >= crystallize)) {
           state.applied = true;
@@ -292,6 +303,11 @@ for (const condition of conditions) {
     noveltyPost,
     delta,
     verdict,
+    postMaxStreak: state.postMaxStreak,
+    recrystallizedAt: state.recrystallizedAt,
+    durability: state.recrystallizedAt
+      ? `loop re-formed at turn ${state.recrystallizedAt}`
+      : 'no re-crystallization in the measured window',
     perAgent,
     simTrace: state.turns.map((t) => ({ turn: t.turn, agent: t.agent, sim: t.sim == null ? null : Number(t.sim.toFixed(3)) })),
     turns: summary.turns,
