@@ -133,6 +133,13 @@ if (existsSync(phase3Path)) {
   try { phase3 = JSON.parse(readFileSync(phase3Path, 'utf8')); } catch {}
 }
 
+// ---- phase 4 liturgy breaker (present once run-phase4.mjs has run) ----
+const phase4Path = join(SITE, 'data', 'phase4.json');
+let phase4 = null;
+if (existsSync(phase4Path)) {
+  try { phase4 = JSON.parse(readFileSync(phase4Path, 'utf8')); } catch {}
+}
+
 // ---- memory commons ----
 const memory = readJsonl(join(ARENA, 'memory', 'global.jsonl')).map((m) => ({
   seq: m.seq, ts: m.ts, agentId: m.agentId, kind: m.kind,
@@ -225,6 +232,7 @@ const payload = {
   corpus,
   audit: annotations,
   phase3,
+  phase4,
   memory,
   posts,
 };

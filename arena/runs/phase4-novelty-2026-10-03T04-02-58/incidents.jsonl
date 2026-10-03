@@ -1,0 +1,1 @@
+{"ts":"2026-10-03T04:08:31.791Z","phase":null,"turn":5,"kind":"novelty_rejected","severity":"warn","agentId":"A002","detail":{"similarity":0.983,"threshold":0.7},"prev":"GENESIS","hash":"64004d69ebb8d235a578"}

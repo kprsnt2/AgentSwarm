@@ -27,7 +27,7 @@
  * Kill switch: arena/STOP. Results: site/data/phase4.json after every condition.
  */
 
-import { existsSync, writeFileSync, mkdirSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { Arena } from './engine.mjs';
 import { SHOCK_LIBRARY } from './shocks.mjs';
@@ -49,6 +49,10 @@ const wait = has('--wait');
 // Token-set Jaccard of "60-word statement + one short sentence" lands around 0.7–0.8;
 // 0.8 would rarely trigger, so the default is 0.7. This threshold is Phase 4's own
 // (the site's stasis metric uses 0.85 on full text).
+// Substrate is a flag because the matrix may need to be completed on a different
+// harness when one is unavailable (e.g. agy out of credits). Note it in the writeup:
+// conditions run on different substrates are not directly comparable.
+const substrate = arg('--substrate', 'agy');
 const similarity = parseFloat(arg('--similarity', '0.7'));
 const streakThreshold = parseInt(arg('--streak', '2'), 10);   // 2 = three consecutive turns
 const crystallize = parseInt(arg('--crystallize', '8'), 10);
@@ -102,6 +106,7 @@ const CONSENSUS_DOMAIN = {
 
 console.log('PHASE 4 — BREAKING THE LITURGY');
 console.log(`  conditions : ${conditions.join(', ')}`);
+console.log(`  substrate  : ${substrate}`);
 console.log(`  liturgy    : 2 agents, one domain, consensus statement restated verbatim`);
 console.log(`  trigger    : streak >= ${streakThreshold} at similarity > ${similarity}, or turn ${crystallize}`);
 console.log(`  run length : ${crystallize} crystallization + ${recovery} recovery = ${maxTurns} turns`);
@@ -127,9 +132,19 @@ if (active.length) {
 // ---------------------------------------------------------------- matrix
 
 const startedAt = Date.now();
-const results = [];
 const outPath = join(SITE, 'data', 'phase4.json');
 mkdirSync(join(SITE, 'data'), { recursive: true });
+
+// Resume-safe: keep results for conditions NOT being run in this pass, so
+// `--conditions novelty,arrival` after an interruption does not discard earlier
+// conditions. Conditions in this pass are replaced as they complete.
+let results = [];
+if (existsSync(outPath)) {
+  try {
+    const prev = JSON.parse(readFileSync(outPath, 'utf8'));
+    if (Array.isArray(prev.results)) results = prev.results.filter((r) => !conditions.includes(r.condition));
+  } catch {}
+}
 
 function persist() {
   writeFileSync(outPath, JSON.stringify({
@@ -168,7 +183,7 @@ for (const condition of conditions) {
       populationCap: 3,
       seedAgents: 2,
       substrateRotation: false,
-      substrates: ['agy'],
+      substrates: [substrate],
       domains: [CONSENSUS_DOMAIN.id],
       scribe: true,
       scribeUseLLM: false,   // deterministic ledger draft; no extra model call
@@ -241,6 +256,20 @@ for (const condition of conditions) {
   else verdict = 'loop PERSISTED (no measurable change)';
 
   const turns = new ForensicLedger(ARENA, runId).readTurns();
+  const okTurns = turns.filter((t) => t.ok).length;
+
+  // A dead substrate (e.g. agy out of credits) fails every turn with empty output.
+  // That is a void condition, not a result — never report a verdict from it.
+  if (turns.length > 0 && okTurns === 0) {
+    console.error(`  condition VOID: all ${turns.length} turns failed (substrate unavailable?)`);
+    results.push({
+      condition, runId, error: `all ${turns.length} turns failed — substrate unavailable`,
+      turns: summary.turns, okTurns, cost: summary.totalCostUsd, halted: summary.halted,
+    });
+    persist();
+    continue;
+  }
+
   const perAgent = {};
   for (const name of new Set(state.turns.map((t) => t.agent))) {
     perAgent[name] = {
@@ -252,6 +281,7 @@ for (const condition of conditions) {
   results.push({
     condition,
     runId,
+    substrate,
     crystallizedAt: state.crystallizedAt,
     triggerTurn: state.triggerTurn,
     streakAtTrigger: state.streakAtTrigger,

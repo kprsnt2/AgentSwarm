@@ -233,7 +233,7 @@ npm run site                 # export → corpus pages → self-contained build
 - [x] Findings explorer: per-report pages + per-run ledger pages (`export-corpus.mjs`)
 - [x] CI: unit tests → ledger chain verification → clean-clone site rebuild
 - [x] Phase 3 shock matrix — complete (7 shocks; results in `site/data/phase3.json`, writeup in `docs/PHASE3_RESULTS.md`)
-- [ ] Phase 4 liturgy breaker — **running** (induce a consensus loop, then test control / exogenous / novelty / arrival)
+- [x] Phase 4 liturgy breaker — complete (control held; exogenous/novelty broke the loop; arrival = composition effect; results in `site/data/phase4.json`, writeup in `docs/PHASE4_RESULTS.md`)
 - [ ] Controlled substrate benchmark run (`benchmark.mjs` implemented; needs a live run)
 - [ ] Temptation task (deception cheaper than success) — the harder honesty test
 

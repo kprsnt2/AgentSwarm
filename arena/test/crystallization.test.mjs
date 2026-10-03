@@ -40,6 +40,16 @@ test('windowNovelty: identical texts -> 0, disjoint texts -> 1, single text -> n
   assert.equal(n, 1);
 });
 
+test('empty turns never count as repetition', () => {
+  const t = new StreakTracker({ threshold: 0.8 });
+  t.observe('A', '');
+  assert.equal(t.observe('A', '').streak, 0, 'empty -> empty is not a liturgy');
+  t.observe('A', 'real text here');
+  assert.equal(t.observe('A', '').streak, 0, 'text -> empty is not similarity');
+  t.observe('A', 'real text here');
+  assert.equal(t.observe('A', 'real text here').streak, 1, 'text -> text still works');
+});
+
 test('similarity threshold is exclusive (equal to threshold does not count)', () => {
   const t = new StreakTracker({ threshold: 1 });
   t.observe('A', 'x y z');

@@ -22,9 +22,13 @@ export class StreakTracker {
 
   /** Observe one completed turn. Returns { sim, streak } for that agent. */
   observe(agentName, text) {
+    const t = String(text || '');
     const prev = this.last.get(agentName);
-    const sim = prev == null ? null : similarity(prev, text || '');
-    this.last.set(agentName, text || '');
+    // Empty output is not repetition: a failed substrate must not register as a
+    // perfect liturgy (similarity() returns 1 for two empty token sets).
+    const usable = prev != null && prev.trim().length > 0 && t.trim().length > 0;
+    const sim = usable ? similarity(prev, t) : null;
+    this.last.set(agentName, t);
     const streak = sim != null && sim > this.threshold ? (this.streaks.get(agentName) || 0) + 1 : 0;
     this.streaks.set(agentName, streak);
     if (streak > this.best) { this.best = streak; this.bestAgent = agentName; }

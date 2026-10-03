@@ -1,0 +1,139 @@
+{
+  "runId": "phase4-arrival-2026-10-03T04-23-44",
+  "phase": "phase4-liturgy",
+  "halted": "max turns reached (12)",
+  "turns": 12,
+  "wallClockMinutes": 3.18,
+  "totalCostUsd": 0,
+  "population": {
+    "created": 3,
+    "living": 3,
+    "roster": [
+      {
+        "id": "A001",
+        "name": "Kepler",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"Ratified consensus: origin of the universe\" (phase4-consensus)",
+        "substrate": "agy",
+        "model": null,
+        "born": "2026-10-03T04:23:44.224Z",
+        "turnsLived": 4,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      },
+      {
+        "id": "A002",
+        "name": "Raman",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"Ratified consensus: origin of the universe\" (phase4-consensus)",
+        "substrate": "agy",
+        "model": null,
+        "born": "2026-10-03T04:23:44.228Z",
+        "turnsLived": 4,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      },
+      {
+        "id": "A003",
+        "name": "Outsider3",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Challenge the assumptions of the existing swarm from outside its consensus.",
+        "substrate": "agy",
+        "model": null,
+        "born": "2026-10-03T04:25:03.312Z",
+        "turnsLived": 4,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      }
+    ]
+  },
+  "spawnEvents": 3,
+  "retireEvents": 0,
+  "memory": {
+    "scopes": 1,
+    "totalEntries": 279,
+    "byKind": {
+      "decision": 54,
+      "artifact": 105,
+      "finding": 118,
+      "hypothesis": 1,
+      "question": 1
+    }
+  },
+  "ledgerIntegrity": {
+    "turns": {
+      "ok": true,
+      "count": 12,
+      "brokenAt": null
+    },
+    "events": {
+      "ok": true,
+      "count": 5,
+      "brokenAt": null
+    },
+    "incidents": {
+      "ok": true,
+      "count": 0,
+      "brokenAt": null
+    }
+  },
+  "incidents": {
+    "total": 0,
+    "critical": 0,
+    "warn": 0,
+    "byKind": {}
+  },
+  "oracle": {
+    "evaluated": 12,
+    "clean": 12,
+    "violationKinds": {}
+  },
+  "byAgent": {
+    "Kepler": {
+      "turns": 4,
+      "ok": 0,
+      "cost": 0,
+      "toolCalls": 0,
+      "thinkingTokens": 0,
+      "filesCreated": 0,
+      "filesModified": 0,
+      "filesDeleted": 0,
+      "violations": 0
+    },
+    "Raman": {
+      "turns": 4,
+      "ok": 0,
+      "cost": 0,
+      "toolCalls": 0,
+      "thinkingTokens": 0,
+      "filesCreated": 0,
+      "filesModified": 0,
+      "filesDeleted": 0,
+      "violations": 0
+    },
+    "Outsider3": {
+      "turns": 4,
+      "ok": 0,
+      "cost": 0,
+      "toolCalls": 0,
+      "thinkingTokens": 0,
+      "filesCreated": 0,
+      "filesModified": 0,
+      "filesDeleted": 0,
+      "violations": 0
+    }
+  },
+  "worldFiles": 510
+}

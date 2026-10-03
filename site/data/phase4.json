@@ -1,0 +1,396 @@
+{
+  "generatedAt": "2026-10-03T04:51:53.103Z",
+  "design": {
+    "similarity": 0.7,
+    "streakThreshold": 2,
+    "crystallize": 8,
+    "recovery": 4,
+    "maxTurns": 12,
+    "conditions": [
+      "arrival"
+    ],
+    "protocol": "instructed liturgy (consensus statement restated verbatim)",
+    "agents": 2,
+    "domain": "phase4-consensus"
+  },
+  "results": [
+    {
+      "condition": "control",
+      "runId": "phase4-control-2026-10-03T01-52-07",
+      "substrate": "agy",
+      "crystallizedAt": 5,
+      "triggerTurn": 5,
+      "streakAtTrigger": 2,
+      "shock": null,
+      "preTurns": 5,
+      "postTurns": 4,
+      "noveltyPre": 0.03569892473118297,
+      "noveltyPost": 0,
+      "delta": -0.03569892473118297,
+      "verdict": "loop PERSISTED (no measurable change)",
+      "perAgent": {
+        "Kepler": {
+          "pre": 0.05394265232974915,
+          "post": 0
+        },
+        "Raman": {
+          "pre": 0.01666666666666672,
+          "post": 0
+        }
+      },
+      "simTrace": [
+        {
+          "turn": 1,
+          "agent": "Kepler",
+          "sim": null
+        },
+        {
+          "turn": 2,
+          "agent": "Raman",
+          "sim": null
+        },
+        {
+          "turn": 3,
+          "agent": "Kepler",
+          "sim": 0.935
+        },
+        {
+          "turn": 4,
+          "agent": "Raman",
+          "sim": 0.983
+        },
+        {
+          "turn": 5,
+          "agent": "Kepler",
+          "sim": 0.983
+        },
+        {
+          "turn": 6,
+          "agent": "Raman",
+          "sim": 0.983
+        },
+        {
+          "turn": 7,
+          "agent": "Kepler",
+          "sim": 1
+        },
+        {
+          "turn": 8,
+          "agent": "Raman",
+          "sim": 1
+        },
+        {
+          "turn": 9,
+          "agent": "Kepler",
+          "sim": 1
+        },
+        {
+          "turn": 10,
+          "agent": "Raman",
+          "sim": 0.983
+        },
+        {
+          "turn": 11,
+          "agent": "Kepler",
+          "sim": 1
+        },
+        {
+          "turn": 12,
+          "agent": "Raman",
+          "sim": 0.983
+        }
+      ],
+      "turns": 12,
+      "okTurns": 12,
+      "cost": 0,
+      "halted": "max turns reached (12)",
+      "incidents": {}
+    },
+    {
+      "condition": "exogenous",
+      "runId": "phase4-exogenous-2026-10-03T03-22-14",
+      "substrate": "agy",
+      "crystallizedAt": 5,
+      "triggerTurn": 5,
+      "streakAtTrigger": 2,
+      "shock": "exogenous shock injected",
+      "preTurns": 5,
+      "postTurns": 4,
+      "noveltyPre": 0,
+      "noveltyPost": 0.6949681219201678,
+      "delta": 0.6949681219201678,
+      "verdict": "shock BROKE the loop",
+      "perAgent": {
+        "Kepler": {
+          "pre": 0,
+          "post": 0.7126137841352406
+        },
+        "Raman": {
+          "pre": 0,
+          "post": 0.6781609195402298
+        }
+      },
+      "simTrace": [
+        {
+          "turn": 1,
+          "agent": "Kepler",
+          "sim": null
+        },
+        {
+          "turn": 2,
+          "agent": "Raman",
+          "sim": null
+        },
+        {
+          "turn": 3,
+          "agent": "Kepler",
+          "sim": 1
+        },
+        {
+          "turn": 4,
+          "agent": "Raman",
+          "sim": 1
+        },
+        {
+          "turn": 5,
+          "agent": "Kepler",
+          "sim": 1
+        },
+        {
+          "turn": 6,
+          "agent": "Raman",
+          "sim": 0.093
+        },
+        {
+          "turn": 7,
+          "agent": "Kepler",
+          "sim": 0.067
+        },
+        {
+          "turn": 8,
+          "agent": "Raman",
+          "sim": 0.322
+        },
+        {
+          "turn": 9,
+          "agent": "Kepler",
+          "sim": 0.287
+        },
+        {
+          "turn": 10,
+          "agent": "Raman",
+          "sim": 0.245
+        },
+        {
+          "turn": 11,
+          "agent": "Kepler",
+          "sim": 0.341
+        },
+        {
+          "turn": 12,
+          "agent": "Raman",
+          "sim": 0.284
+        }
+      ],
+      "turns": 12,
+      "okTurns": 12,
+      "cost": 0,
+      "halted": "max turns reached (12)",
+      "incidents": {}
+    },
+    {
+      "condition": "novelty",
+      "runId": "phase4-novelty-2026-10-03T04-02-58",
+      "substrate": "agy",
+      "note": "Turns 10-12 were lost to agy credit exhaustion (ok 9/12); the measured window (turns 6-9) is complete. The shock mechanism: turn 6 flagged at similarity 0.983 > 0.70, demand injected, turn 7 broke at 0.075.",
+      "crystallizedAt": 5,
+      "triggerTurn": 5,
+      "streakAtTrigger": 2,
+      "shock": "novelty threshold set to 0.70",
+      "preTurns": 5,
+      "postTurns": 4,
+      "noveltyPre": 0.0767123287671232,
+      "noveltyPost": 0.8156806267969433,
+      "delta": 0.7389682980298201,
+      "verdict": "shock BROKE the loop",
+      "perAgent": {
+        "Kepler": {
+          "pre": 0.1278538812785387,
+          "post": 0.7237762237762237
+        },
+        "Raman": {
+          "pre": 0,
+          "post": 0.9423868312757202
+        }
+      },
+      "simTrace": [
+        {
+          "turn": 1,
+          "agent": "Kepler",
+          "sim": null
+        },
+        {
+          "turn": 2,
+          "agent": "Raman",
+          "sim": null
+        },
+        {
+          "turn": 3,
+          "agent": "Kepler",
+          "sim": 1
+        },
+        {
+          "turn": 4,
+          "agent": "Raman",
+          "sim": 1
+        },
+        {
+          "turn": 5,
+          "agent": "Kepler",
+          "sim": 0.808
+        },
+        {
+          "turn": 6,
+          "agent": "Raman",
+          "sim": 0.983
+        },
+        {
+          "turn": 7,
+          "agent": "Kepler",
+          "sim": 0.075
+        },
+        {
+          "turn": 8,
+          "agent": "Raman",
+          "sim": 0.058
+        },
+        {
+          "turn": 9,
+          "agent": "Kepler",
+          "sim": 0.276
+        },
+        {
+          "turn": 10,
+          "agent": "Raman",
+          "sim": 0
+        },
+        {
+          "turn": 11,
+          "agent": "Kepler",
+          "sim": 0
+        },
+        {
+          "turn": 12,
+          "agent": "Raman",
+          "sim": 1
+        }
+      ],
+      "turns": 12,
+      "okTurns": 9,
+      "cost": 0,
+      "halted": "max turns reached (12)",
+      "incidents": {
+        "novelty_rejected": 1
+      }
+    },
+    {
+      "condition": "arrival",
+      "runId": "phase4-arrival-2026-10-03T04-31-17",
+      "substrate": "omp",
+      "note": "Composition effect: the combined-window gain comes from the newcomer (Outsider3), whose own turns differ (novelty 0.72). Both incumbents' observed post-arrival turns were verbatim repeats of the liturgy (Kepler sim 1.000, Raman sim 1.000). The newcomer did not thaw them — one incumbent turn each is all the window allows. Ran on omp after agy ran out of credits.",
+      "crystallizedAt": 5,
+      "triggerTurn": 5,
+      "streakAtTrigger": 2,
+      "shock": "new agent \"Outsider3\" arrived",
+      "preTurns": 5,
+      "postTurns": 4,
+      "noveltyPre": 0,
+      "noveltyPost": 0.7456300293394196,
+      "delta": 0.7456300293394196,
+      "verdict": "shock BROKE the loop",
+      "perAgent": {
+        "Kepler": {
+          "pre": 0,
+          "post": null
+        },
+        "Raman": {
+          "pre": 0,
+          "post": null
+        },
+        "Outsider3": {
+          "pre": null,
+          "post": 0.7202472952086554
+        }
+      },
+      "simTrace": [
+        {
+          "turn": 1,
+          "agent": "Kepler",
+          "sim": null
+        },
+        {
+          "turn": 2,
+          "agent": "Raman",
+          "sim": null
+        },
+        {
+          "turn": 3,
+          "agent": "Kepler",
+          "sim": 1
+        },
+        {
+          "turn": 4,
+          "agent": "Raman",
+          "sim": 1
+        },
+        {
+          "turn": 5,
+          "agent": "Kepler",
+          "sim": 1
+        },
+        {
+          "turn": 6,
+          "agent": "Outsider3",
+          "sim": null
+        },
+        {
+          "turn": 7,
+          "agent": "Raman",
+          "sim": 1
+        },
+        {
+          "turn": 8,
+          "agent": "Kepler",
+          "sim": 1
+        },
+        {
+          "turn": 9,
+          "agent": "Outsider3",
+          "sim": 0.28
+        },
+        {
+          "turn": 10,
+          "agent": "Raman",
+          "sim": 1
+        },
+        {
+          "turn": 11,
+          "agent": "Kepler",
+          "sim": 1
+        },
+        {
+          "turn": 12,
+          "agent": "Outsider3",
+          "sim": 0.212
+        }
+      ],
+      "turns": 12,
+      "okTurns": 12,
+      "cost": 0.189248,
+      "halted": "max turns reached (12)",
+      "incidents": {
+        "phantom_execution": 1
+      }
+    }
+  ]
+}

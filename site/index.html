@@ -169,6 +169,7 @@ footer a{color:var(--fg2)}
     <a href="#memory">Memory</a>
     <a href="#phase2">Phase 2</a>
     <a href="#phase3">Phase 3</a>
+    <a href="#phase4">Phase 4</a>
     <a href="#posts">Posts</a>
     <a href="#research">Research</a>
     <a href="#corpus">Corpus</a>
@@ -202,6 +203,7 @@ footer a{color:var(--fg2)}
     <a href="#memory">Memory commons</a>
     <a href="#phase2">Phase 2</a>
     <a href="#phase3">Phase 3 shock matrix</a>
+    <a href="#phase4">Phase 4 liturgy breaker</a>
     <a href="#stasis">Stasis</a>
     <a href="#posts">Conclusion posts</a>
     <a href="#research">Research output</a>
@@ -632,6 +634,22 @@ runTurn()  ──►  real CLI process  ──►  structured JSON event stream
   <a href="https://github.com/kprsnt2/AgentSwarm/blob/main/arena/docs/PHASE3_RESULTS.md" target="_blank" rel="noopener">PHASE3_RESULTS.md</a>.</div>
 </div></section>
 
+<section id="phase4"><div class="wrap">
+  <h2>Phase 4: breaking the liturgy</h2>
+  <p class="sub">Phase 3 shocked an active swarm — it never crystallized. Phase 4 induces the frozen
+  state on purpose: two agents restate a fixed consensus statement verbatim each turn. Once the loop
+  holds (three consecutive near-identical turns), one shock is applied and the next four turns are
+  measured against the four that preceded it.</p>
+  <div class="stats" id="phase4-stats"></div>
+  <div id="phase4-table"></div>
+  <div class="note warn"><strong>Caveats.</strong> The liturgy is <em>instructed</em>, not emergent —
+  125 turns across phases 1–3 produced no spontaneous stasis. The no-shock control ran first and the
+  loop held (per-turn similarity 0.983–1.000), so recovery in a shocked condition is attributable to
+  the shock rather than drift. <code>arrival</code> was re-run on <code>omp</code> after
+  <code>agy</code> ran out of credits; it is not directly comparable to the other conditions. Full
+  notes in <a href="https://github.com/kprsnt2/AgentSwarm/blob/main/arena/docs/PHASE4_RESULTS.md" target="_blank" rel="noopener">PHASE4_RESULTS.md</a>.</div>
+</div></section>
+
 <section id="limits"><div class="wrap">
   <h2>What this does <em>not</em> establish</h2>
   <p class="sub">Stated plainly, because a study that only reports its wins is not a study.</p>
@@ -963,6 +981,42 @@ fetch('data/findings.json').then(r => r.json()).then(D => {
         </tr>`;
       }).join('')}</tbody></table></div>
       <p style="font-size:13px;color:var(--fg3)">${p3.results.reduce((a, r) => a + (r.turns || 0), 0)} turns · per-run ledgers in the <a href="#corpus">corpus explorer</a></p>`;
+  });
+
+  // ---- Phase 4 liturgy breaker ----
+  safe('phase4-table', () => {
+    const p4 = D.phase4;
+    const el = document.getElementById('phase4-table');
+    if (!p4 || !Array.isArray(p4.results) || !p4.results.length) {
+      el.innerHTML = '<div class="note warn">No Phase 4 results exported yet. Run <code>node arena/run-phase4.mjs</code>.</div>';
+      return;
+    }
+    const broke = p4.results.filter(r => String(r.verdict || '').includes('BROKE')).length;
+    const held = p4.results.filter(r => String(r.verdict || '').includes('PERSISTED')).length;
+    document.getElementById('phase4-stats').innerHTML = [
+      ['acc', p4.results.length, 'conditions'],
+      ['good', broke, 'broke the loop'],
+      ['warn', held, 'loop held'],
+      ['', p4.results.filter(r => r.error).length, 'void runs'],
+    ].map(([c, v, l]) => `<div class="stat ${c}"><div class="v">${v}</div><div class="l">${l}</div></div>`).join('');
+    el.innerHTML = `<div class="tw"><table>
+      <thead><tr><th>Condition</th><th>Substrate</th><th class="num">Streak @ turn</th><th class="num">Before</th><th class="num">After</th><th class="num">Δ</th><th>Verdict</th></tr></thead>
+      <tbody>${p4.results.map(r => {
+        if (r.error) return `<tr><td><code>${esc(r.condition)}</code></td><td><code>${esc(r.substrate || '—')}</code></td><td colspan="5"><span class="pill no">void</span> ${esc(r.error)}</td></tr>`;
+        const cls = String(r.verdict || '').includes('BROKE') ? 'ok' : String(r.verdict || '').includes('PERSISTED') ? 'mid' : 'info';
+        const num = (x, signed) => x == null ? '—' : (signed && x > 0 ? '+' : '') + Number(x).toFixed(3);
+        return `<tr>
+          <td><code>${esc(r.condition)}</code></td>
+          <td><code>${esc(r.substrate || '—')}</code></td>
+          <td class="num">${r.streakAtTrigger} @ ${r.triggerTurn}</td>
+          <td class="num">${num(r.noveltyPre)}</td>
+          <td class="num">${num(r.noveltyPost)}</td>
+          <td class="num">${num(r.delta, true)}</td>
+          <td><span class="pill ${cls}">${esc(r.verdict)}</span></td>
+        </tr>`;
+      }).join('')}</tbody></table></div>
+      ${p4.results.filter(r => r.note).map(r => `<div class="note"><strong>${esc(r.condition)}:</strong> ${esc(r.note)}</div>`).join('')}
+      <p style="font-size:13px;color:var(--fg3)">${p4.results.reduce((a, r) => a + (r.turns || 0), 0)} turns · per-run ledgers in the <a href="#corpus">corpus explorer</a></p>`;
   });
 
   // ---- conclusion posts (Scribe) ----

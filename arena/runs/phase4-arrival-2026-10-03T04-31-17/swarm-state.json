@@ -1,0 +1,57 @@
+{
+  "runId": "phase4-arrival-2026-10-03T04-31-17",
+  "ts": "2026-10-03T04:51:52.876Z",
+  "populationCap": 3,
+  "population": [
+    {
+      "id": "A001",
+      "name": "Kepler",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"Ratified consensus: origin of the universe\" (phase4-consensus)",
+      "substrate": "omp",
+      "model": null,
+      "born": "2026-10-03T04:31:17.641Z",
+      "turnsLived": 5,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    },
+    {
+      "id": "A002",
+      "name": "Raman",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"Ratified consensus: origin of the universe\" (phase4-consensus)",
+      "substrate": "omp",
+      "model": null,
+      "born": "2026-10-03T04:31:17.646Z",
+      "turnsLived": 4,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    },
+    {
+      "id": "A003",
+      "name": "Outsider3",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Challenge the assumptions of the existing swarm from outside its consensus.",
+      "substrate": "omp",
+      "model": null,
+      "born": "2026-10-03T04:34:40.220Z",
+      "turnsLived": 3,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    }
+  ],
+  "living": 3,
+  "total": 3
+}
