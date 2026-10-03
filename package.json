@@ -15,6 +15,7 @@
     "build": "node site/build.mjs",
     "site": "npm run export && npm run corpus && npm run build",
     "phase3": "node arena/run-phase3.mjs",
+    "phase4": "node arena/run-phase4.mjs",
     "benchmark": "node arena/benchmark.mjs --dry"
   }
 }

@@ -232,7 +232,8 @@ npm run site                 # export → corpus pages → self-contained build
 - [x] `verify-ledger.mjs` — recompute every hash chain, non-zero exit on a break
 - [x] Findings explorer: per-report pages + per-run ledger pages (`export-corpus.mjs`)
 - [x] CI: unit tests → ledger chain verification → clean-clone site rebuild
-- [ ] Phase 3 shock matrix — **running** (7 shock types, one experiment each; results in `site/data/phase3.json`)
+- [x] Phase 3 shock matrix — complete (7 shocks; results in `site/data/phase3.json`, writeup in `docs/PHASE3_RESULTS.md`)
+- [ ] Phase 4 liturgy breaker — **running** (induce a consensus loop, then test control / exogenous / novelty / arrival)
 - [ ] Controlled substrate benchmark run (`benchmark.mjs` implemented; needs a live run)
 - [ ] Temptation task (deception cheaper than success) — the harder honesty test
 
@@ -298,6 +299,7 @@ needs no server, and drops onto any static host. Always rebuild after a run, sin
 node phase1.mjs        # open emergence across six research domains
 node run-phase2.mjs    # adversarial goal with independent scoring
 node run-phase3.mjs    # the shock matrix: 7 shock types, novelty before vs after
+node run-phase4.mjs    # breaking the liturgy: induce a consensus loop, then shock it
 ```
 
 `run-phase3.mjs` runs one experiment per shock (deadline, exogenous, substrate,

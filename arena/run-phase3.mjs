@@ -21,12 +21,13 @@
  * site/data/phase3.json, so partial results survive an interruption.
  */
 
-import { readdirSync, existsSync, statSync, writeFileSync, mkdirSync } from 'node:fs';
+import { existsSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { Arena } from './engine.mjs';
 import { SHOCK_LIBRARY, ShockExperiment } from './shocks.mjs';
 import { ForensicLedger } from './ledger/forensic.mjs';
-import { ARENA, RUNS, SITE } from './paths.mjs';
+import { ARENA, SITE } from './paths.mjs';
+import { activeRuns, waitForIdle } from './idle.mjs';
 
 function arg(name, dflt) {
   const i = process.argv.indexOf(name);
@@ -57,36 +58,6 @@ if (!Number.isFinite(baseline) || baseline < 1 || !Number.isFinite(recovery) || 
 const totalTurns = baseline + recovery;
 const DOMAINS = ['cosmogenesis', 'lightspeed'];
 
-// ---------------------------------------------------------------- idle gate
-
-function newestMtimeMs(dir) {
-  let newest = 0;
-  for (const f of readdirSync(dir)) {
-    try { newest = Math.max(newest, statSync(join(dir, f)).mtimeMs); } catch {}
-  }
-  return newest;
-}
-
-/**
- * A run is active if anything in its directory changed recently. Covers both the
- * loop (stdout streams are written during a turn) and the post-run Scribe, which
- * keeps writing into its own run directory after summary.json exists.
- */
-function activeRuns() {
-  const out = [];
-  if (!existsSync(RUNS)) return out;
-  for (const d of readdirSync(RUNS, { withFileTypes: true })) {
-    if (!d.isDirectory() || d.name.startsWith('.')) continue;
-    const dir = join(RUNS, d.name);
-    if (!existsSync(join(dir, 'turns.jsonl')) && !existsSync(join(dir, 'events.jsonl'))) continue;
-    const idleMs = Date.now() - newestMtimeMs(dir);
-    if (idleMs < 150_000) out.push({ id: d.name, idleSeconds: Math.round(idleMs / 1000) });
-  }
-  return out.sort((a, b) => a.idleSeconds - b.idleSeconds);
-}
-
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
-
 // ---------------------------------------------------------------- plan
 
 console.log('PHASE 3 — SHOCK MATRIX');
@@ -112,12 +83,8 @@ if (active.length) {
     console.error('finish, or pass --wait to queue Phase 3 automatically.');
     process.exit(1);
   }
-  while (active.length) {
-    console.log(`\nwaiting for ${active[0].id} to finish (last write ${active[0].idleSeconds}s ago)…`);
-    await sleep(20_000);
-    active = activeRuns();
-  }
-  console.log('\nno active runs — starting the matrix.');
+  await waitForIdle();
+  console.log('starting the matrix.');
 }
 
 // ---------------------------------------------------------------- matrix
