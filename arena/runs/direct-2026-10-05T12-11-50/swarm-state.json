@@ -1,0 +1,25 @@
+{
+  "runId": "direct-2026-10-05T12-11-50",
+  "ts": "2026-10-05T12:40:11.381Z",
+  "populationCap": 8,
+  "population": [
+    {
+      "id": "A001",
+      "name": "Kepler",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"what about Lord shiva and he is real, Shambala is present?\" (what-about-lord-shiva-and)",
+      "substrate": "agy",
+      "model": null,
+      "born": "2026-10-05T12:11:51.647Z",
+      "turnsLived": 10,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    }
+  ],
+  "living": 1,
+  "total": 1
+}

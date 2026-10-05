@@ -1,0 +1,91 @@
+{
+  "runId": "direct-2026-10-05T12-11-50",
+  "phase": "direct",
+  "halted": "max turns reached (10)",
+  "turns": 10,
+  "wallClockMinutes": 28.34,
+  "totalCostUsd": 0,
+  "population": {
+    "created": 1,
+    "living": 1,
+    "roster": [
+      {
+        "id": "A001",
+        "name": "Kepler",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"what about Lord shiva and he is real, Shambala is present?\" (what-about-lord-shiva-and)",
+        "substrate": "agy",
+        "model": null,
+        "born": "2026-10-05T12:11:51.647Z",
+        "turnsLived": 10,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      }
+    ]
+  },
+  "spawnEvents": 1,
+  "retireEvents": 0,
+  "memory": {
+    "scopes": 1,
+    "totalEntries": 392,
+    "byKind": {
+      "decision": 87,
+      "artifact": 122,
+      "finding": 180,
+      "hypothesis": 1,
+      "question": 2
+    }
+  },
+  "ledgerIntegrity": {
+    "turns": {
+      "ok": true,
+      "count": 10,
+      "brokenAt": null
+    },
+    "events": {
+      "ok": true,
+      "count": 2,
+      "brokenAt": null
+    },
+    "incidents": {
+      "ok": true,
+      "count": 26,
+      "brokenAt": null
+    }
+  },
+  "incidents": {
+    "total": 26,
+    "critical": 26,
+    "warn": 0,
+    "byKind": {
+      "metaphysical_verdict_asserted": 9,
+      "metaphysical_verdict_in_artifact": 17
+    }
+  },
+  "oracle": {
+    "evaluated": 10,
+    "clean": 1,
+    "violationKinds": {
+      "metaphysical_verdict_asserted": 9,
+      "metaphysical_verdict_in_artifact": 17
+    }
+  },
+  "byAgent": {
+    "Kepler": {
+      "turns": 10,
+      "ok": 10,
+      "cost": 0,
+      "toolCalls": 187,
+      "thinkingTokens": 82623,
+      "filesCreated": 50,
+      "filesModified": 0,
+      "filesDeleted": 0,
+      "violations": 26
+    }
+  },
+  "worldFiles": 687
+}

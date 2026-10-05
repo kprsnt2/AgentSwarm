@@ -1,6 +1,80 @@
 {
-  "generatedAt": "2026-10-03T08:55:02.927Z",
+  "generatedAt": "2026-10-05T16:05:22.759Z",
   "posts": [
+    {
+      "runId": "propulsion-2026-10-05T15-28-28",
+      "file": "propulsion-2026-10-05t15-28-28.md",
+      "title": "propulsion — propulsion-2026-10-05T15-28-28",
+      "phase": "propulsion",
+      "generatedAt": "2026-10-05T16:01:10.292Z",
+      "polished": true,
+      "polish": {
+        "ok": true,
+        "source": "POST.md",
+        "substrate": "agy",
+        "model": "gemini-3.8-flash-high",
+        "cost": 0,
+        "thinkingTokens": 20529,
+        "toolCalls": 34,
+        "durationSeconds": 238.865291
+      },
+      "totals": {
+        "turns": 10,
+        "okTurns": 10,
+        "agents": 1,
+        "toolCalls": 191,
+        "thinkingTokens": 134653,
+        "cost": 0,
+        "violations": 0,
+        "filesWritten": 40,
+        "incidents": 0
+      },
+      "halted": "max turns reached (10)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Practical space propulsion\" (propulsion)",
+          "turns": 10
+        }
+      ]
+    },
+    {
+      "runId": "direct-2026-10-05T12-11-50",
+      "file": "direct-2026-10-05t12-11-50.md",
+      "title": "direct — direct-2026-10-05T12-11-50",
+      "phase": "direct",
+      "generatedAt": "2026-10-05T12:40:11.492Z",
+      "polished": true,
+      "polish": {
+        "ok": true,
+        "source": "POST.md",
+        "substrate": "agy",
+        "model": "gemini-3.8-flash-high",
+        "cost": 0,
+        "thinkingTokens": 9605,
+        "toolCalls": 3,
+        "durationSeconds": 38.5039552
+      },
+      "totals": {
+        "turns": 10,
+        "okTurns": 10,
+        "agents": 1,
+        "toolCalls": 187,
+        "thinkingTokens": 82623,
+        "cost": 0,
+        "violations": 26,
+        "filesWritten": 50,
+        "incidents": 26
+      },
+      "halted": "max turns reached (10)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"what about Lord shiva and he is real, Shambala is present?\" (what-about-lord-shiva-and)",
+          "turns": 10
+        }
+      ]
+    },
     {
       "runId": "phase4-novelty-2026-10-03T08-06-14",
       "file": "phase4-novelty-2026-10-03t08-06-14.md",

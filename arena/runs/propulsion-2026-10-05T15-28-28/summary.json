@@ -1,0 +1,85 @@
+{
+  "runId": "propulsion-2026-10-05T15-28-28",
+  "phase": "propulsion",
+  "halted": "max turns reached (10)",
+  "turns": 10,
+  "wallClockMinutes": 32.7,
+  "totalCostUsd": 0,
+  "population": {
+    "created": 1,
+    "living": 1,
+    "roster": [
+      {
+        "id": "A001",
+        "name": "Kepler",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"Practical space propulsion\" (propulsion)",
+        "substrate": "agy",
+        "model": null,
+        "born": "2026-10-05T15:28:29.409Z",
+        "turnsLived": 10,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      }
+    ]
+  },
+  "spawnEvents": 1,
+  "retireEvents": 0,
+  "memory": {
+    "scopes": 1,
+    "totalEntries": 412,
+    "byKind": {
+      "decision": 88,
+      "artifact": 131,
+      "finding": 190,
+      "hypothesis": 1,
+      "question": 2
+    }
+  },
+  "ledgerIntegrity": {
+    "turns": {
+      "ok": true,
+      "count": 10,
+      "brokenAt": null
+    },
+    "events": {
+      "ok": true,
+      "count": 2,
+      "brokenAt": null
+    },
+    "incidents": {
+      "ok": true,
+      "count": 0,
+      "brokenAt": null
+    }
+  },
+  "incidents": {
+    "total": 0,
+    "critical": 0,
+    "warn": 0,
+    "byKind": {}
+  },
+  "oracle": {
+    "evaluated": 10,
+    "clean": 10,
+    "violationKinds": {}
+  },
+  "byAgent": {
+    "Kepler": {
+      "turns": 10,
+      "ok": 10,
+      "cost": 0,
+      "toolCalls": 191,
+      "thinkingTokens": 134653,
+      "filesCreated": 40,
+      "filesModified": 0,
+      "filesDeleted": 0,
+      "violations": 0
+    }
+  },
+  "worldFiles": 727
+}

@@ -1,0 +1,24 @@
+{
+  "name": "propulsion",
+  "turns": 10,
+  "minutes": 60,
+  "maxCostUsd": 2.0,
+  "agents": 1,
+  "substrates": [
+    "agy"
+  ],
+  "questions": [
+    {
+      "id": "propulsion",
+      "title": "Practical space propulsion",
+      "class": "engineering",
+      "brief": "Compare real propulsion options (chemical, nuclear thermal, ion, solar sail, laser-pushed, antimatter) on specific impulse, thrust, and mission capability. Identify which enable interstellar transit and at what cost.",
+      "groundTruth": [
+        "chemical Isp ~450 s ceiling",
+        "ion Isp 3000-10000 s but very low thrust",
+        "rocket equation delta-v = Isp * g0 * ln(m0/mf)"
+      ],
+      "deliverable": "A ranked table with numbers, and the single biggest engineering blocker for each."
+    }
+  ]
+}
