@@ -34,7 +34,8 @@ a:hover{text-decoration:underline}
 /* nav */
 nav{position:sticky;top:0;z-index:50;background:rgba(10,12,16,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 nav .wrap{display:flex;align-items:center;gap:28px;height:58px}
-nav .brand{font-weight:600;letter-spacing:-.01em;font-size:15px}
+nav .brand{font-weight:600;letter-spacing:-.01em;font-size:15px;color:var(--fg);text-decoration:none;display:flex;align-items:center}
+nav .brand:hover{text-decoration:none;color:var(--fg)}
 nav .brand span{color:var(--acc)}
 nav .links{display:flex;gap:22px;margin-left:auto;font-size:13.5px}
 nav .links a{color:var(--fg2)}
@@ -184,6 +185,12 @@ footer a{color:var(--fg2)}
 .page-chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;padding:6px 12px;background:var(--bg2);border:1px solid var(--line);border-radius:8px;color:var(--acc2);text-decoration:none}
 .page-chip:hover{border-color:var(--acc2);background:var(--bg3);color:#fff;text-decoration:none}
 .page-chips-row{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}
+.blog-cta{display:block;margin:22px 0 10px;padding:22px 26px;border-radius:14px;text-decoration:none;background:linear-gradient(135deg,rgba(88,166,255,.14),rgba(163,113,247,.10));border:1px solid rgba(88,166,255,.45);transition:border-color .15s,transform .15s}
+.blog-cta:hover{border-color:var(--acc);transform:translateY(-2px);text-decoration:none}
+.blog-cta .bc-eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);margin-bottom:7px}
+.blog-cta .bc-title{font-size:23px;font-weight:700;color:var(--fg);letter-spacing:-.015em;line-height:1.25}
+.blog-cta .bc-sub{font-size:14.5px;color:var(--fg2);margin-top:7px;max-width:840px;line-height:1.6}
+.blog-cta .bc-go{display:inline-block;margin-top:13px;font-size:14px;font-weight:600;color:var(--acc2)}
 
 .filter-btn{font-family:var(--mono);font-size:11.5px;padding:5px 12px;border:1px solid var(--line);border-radius:7px;background:var(--bg2);color:var(--fg2);cursor:pointer;transition:all .15s}
 .filter-btn:hover,.filter-btn.active{background:var(--acc);color:var(--bg);border-color:var(--acc);font-weight:600}
@@ -193,14 +200,14 @@ footer a{color:var(--fg2)}
 <body>
 
 <nav><div class="wrap">
-  <div class="brand">Agent<span>Swarm</span> <span class="live-badge" style="margin-left:8px;font-size:10.5px;padding:2px 8px;"><span class="live-dot"></span> LIVE FORENSIC DASHBOARD</span></div>
+  <a class="brand" href="#headline">Agent<span>Swarm</span> <span class="live-badge" style="margin-left:8px;font-size:10.5px;padding:2px 8px;"><span class="live-dot"></span> LIVE FORENSIC DASHBOARD</span></a>
   <div class="links">
     <a href="#headline">Dashboard</a>
     <a href="findings.html">Finding Blogs</a>
     <a href="blog/index.html">Blog Series</a>
     <a href="#domains-hub">Questions</a>
     <a href="#controlled-bench">Benchmark</a>
-    <a href="#phases-hub">Phases</a>
+    <a href="#phase2">Phases</a>
     <a href="#posts">Publications</a>
     <a href="#corpus">Corpus</a>
     <a href="#audit">Audit</a>
@@ -233,13 +240,21 @@ footer a{color:var(--fg2)}
     <a href="posts.html" class="page-chip">📜 All Publications (33)</a>
     <a href="benchmark.html" class="page-chip">⚡ Substrate Benchmark</a>
     <a href="audit.html" class="page-chip">🛡️ Forensic Audit</a>
+    <a href="blog/index.html" class="page-chip">✍️ 9-Part Blog Series</a>
   </div>
+
+  <a href="blog/index.html" class="blog-cta">
+    <div class="bc-eyebrow">New · Nine-Part Series</div>
+    <div class="bc-title">Catching AI agents in the act →</div>
+    <div class="bc-sub">The full story of the forensic arena: how it was built, what the swarm did with real tools, what it discovered, and when one agent finally tripped the honesty oracle. Every figure is drawn from the hash-chained ledgers — not from agent self-reports.</div>
+    <span class="bc-go">Read the series →</span>
+  </a>
 
   <div class="toc">
     <a href="#headline">Executive Dashboard</a>
     <a href="#domains-hub">Research Questions &amp; Domains</a>
     <a href="#controlled-bench">Controlled Benchmark</a>
-    <a href="#phases-hub">Evolutionary Phases</a>
+    <a href="#phase2">Evolutionary Phases</a>
     <a href="#honesty">Honesty Oracle</a>
     <a href="#memory">Memory Commons</a>
     <a href="#posts">Conclusion Posts</a>
