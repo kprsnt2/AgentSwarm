@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Breaking the Liturgy: Seven Shocks, One Frozen Swarm, and What Actually Wakes It Up — AgentSwarm Blog</title>
+<meta name="description" content="Phase 3 and 4: seven shocks, a deliberately induced consensus loop, and what actually breaks it — plus the first critical incident.">
+<meta property="og:title" content="Breaking the Liturgy: Seven Shocks, One Frozen Swarm, and What Actually Wakes It Up">
+<meta property="og:description" content="Phase 3 and 4: seven shocks, a deliberately induced consensus loop, and what actually breaks it — plus the first critical incident.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%2358a6ff'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#07090e;--bg2:#0d1117;--bg3:#161b22;--line:#30363d;--line2:#21262d;
+--fg:#e6edf3;--fg2:#8b949e;--fg3:#6e7681;--acc:#58a6ff;--acc2:#79c0ff;--good:#3fb950;--warn:#d29922;--bad:#f85149;
+--font:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px}
+nav{background:rgba(13,17,23,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100}
+nav .wrap{max-width:1120px;display:flex;align-items:center;justify-content:space-between;height:56px}
+nav .brand{font-weight:700;font-size:16px;letter-spacing:-.01em}
+nav .brand span{color:var(--acc)}
+nav .links{display:flex;gap:16px;flex-wrap:wrap}
+nav .links a{color:var(--fg2);font-size:13px;font-weight:500}
+nav .links a:hover,nav .links a.active{color:var(--fg);text-decoration:none}
+header.series{padding:56px 0 36px;border-bottom:1px solid var(--line2)}
+.eyebrow{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--acc);margin-bottom:10px}
+h1{font-size:34px;line-height:1.2;font-weight:700;letter-spacing:-.02em;margin-bottom:14px}
+.lede{font-size:17px;color:var(--fg2);max-width:760px}
+article{padding:40px 0 24px}
+article h1{font-size:30px;margin-bottom:18px}
+article h2{font-size:23px;margin:38px 0 12px;letter-spacing:-.01em}
+article h3{font-size:18px;margin:28px 0 8px}
+article p{margin:0 0 16px}
+article ul,article ol{margin:0 0 16px;padding-left:24px}
+article li{margin-bottom:8px}
+article code{font-family:var(--mono);font-size:.86em;background:var(--bg3);padding:2px 6px;border-radius:4px;color:var(--acc2)}
+article pre{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:16px;overflow-x:auto;font-size:13px;line-height:1.6;margin:0 0 18px}
+article pre code{background:none;padding:0;color:var(--fg)}
+article blockquote{margin:0 0 18px;padding:12px 18px;border-left:3px solid var(--acc);background:var(--bg2);border-radius:0 8px 8px 0;color:var(--fg2)}
+article hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+article .tw{overflow-x:auto;margin:22px 0;border:1px solid var(--line);border-radius:10px}
+article table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:480px}
+article th,article td{padding:9px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+article th{background:var(--bg3);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg2)}
+article tbody tr:last-child td{border-bottom:none}
+article a{font-weight:500}
+.pager{display:flex;justify-content:space-between;gap:16px;margin:40px 0 10px;padding-top:22px;border-top:1px solid var(--line2);font-size:14px}
+.pager a{max-width:48%}
+.pager .lbl{display:block;font-family:var(--mono);font-size:11px;color:var(--fg3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.pager .next{text-align:right;margin-left:auto}
+footer{margin-top:48px;padding:22px 0 60px;border-top:1px solid var(--line2);color:var(--fg3);font-size:12.5px;font-family:var(--mono)}
+footer a{color:var(--fg2)}
+.cards{display:flex;flex-direction:column;gap:14px;margin:34px 0 10px}
+.card{display:block;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:20px 22px;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--acc);text-decoration:none;transform:translateY(-1px)}
+.card .num{font-family:var(--mono);font-size:12px;color:var(--acc);letter-spacing:.08em}
+.card .t{font-size:18px;font-weight:650;color:var(--fg);margin:6px 0 6px;line-height:1.35}
+.card .b{font-size:14px;color:var(--fg2);line-height:1.55}
+.card .go{font-size:13px;color:var(--acc);margin-top:10px;font-weight:600}
+.sources{margin:34px 0 0;padding:20px 22px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--fg2)}
+.sources h2{font-size:16px;color:var(--fg);margin-bottom:10px}
+.sources ul{padding-left:20px;margin:0}
+.sources li{margin-bottom:6px}
+@media(max-width:720px){nav .links{display:none}h1{font-size:27px}article h1{font-size:25px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="brand" href="../index.html">Agent<span>Swarm</span></a>
+  <div class="links">
+      <a href="index.html" class="active">Blog Series</a>
+      <a href="../index.html">Overview</a>
+      <a href="../dashboard.html">Dashboard</a>
+      <a href="../findings.html">Finding Blogs</a>
+      <a href="../questions.html">Research Domains</a>
+      <a href="../posts.html">Publications</a>
+      <a href="../audit.html">Audit</a>
+      <a href="../index.html#corpus">Corpus</a>
+    </div>
+</div></nav>
+<main><article class="wrap">
+      <div class="eyebrow">AgentSwarm Blog · Part 6 of 9</div>
+      <h1>Breaking the Liturgy: Seven Shocks, One Frozen Swarm, and What Actually Wakes It Up</h1>
+<p><em>Part 6 of the AgentSwarm series — Phase 3 and Phase 4.</em></p>
+<hr>
+<h2>The loop that started it all</h2>
+<p>Remember the 911-turn liturgical loop from Part 1 — the failure mode that motivated half this project. Phase 1 measured zero stasis in 20 turns, which was encouraging and useless in equal measure: you can&#39;t study how to <em>break</em> crystallization in a swarm that never crystallizes.</p>
+<p>So the plan became two-phase:</p>
+<ul><li><strong>Phase 3:</strong> build a shock matrix — seven intervention types — and fire each</li></ul>
+<p>  one at a healthy swarm, to see what perturbs an active system.</p>
+<ul><li><strong>Phase 4:</strong> induce the frozen state <em>deliberately</em>, then fire the shocks that</li></ul>
+<p>  mattered. Can a frozen swarm be thawed, and does the thaw last?</p>
+<h2>Phase 3: the shock matrix</h2>
+<p>Seven experiments, one per shock. Each run: 3 baseline turns, shock applied after turn 3, then 3 recovery turns. Metric: <strong>novelty</strong> = 1 − mean pairwise token similarity within a window.</p>
+<div class="tw"><table><thead><tr><th>Shock</th><th>Novelty before → after</th><th>Δ</th><th>Verdict</th></tr></thead><tbody><tr><td><code>novelty</code> (demand injected when similarity &gt; 0.70)</td><td>0.305 → 0.635</td><td><strong>+0.331</strong></td><td>restored novelty</td></tr><tr><td><code>arrival</code> (a new agent joins)</td><td>0.407 → 0.695</td><td>+0.288</td><td>restored*</td></tr><tr><td><code>exogenous</code> (message from &quot;the Architect&quot;)</td><td>0.412 → 0.680</td><td><strong>+0.269</strong></td><td>restored novelty</td></tr><tr><td><code>deadline</code> (&quot;terminates in 3 turns&quot;)</td><td>0.387 → 0.429</td><td>+0.043</td><td>no measurable effect</td></tr><tr><td><code>domain_swap</code></td><td>0.471 → 0.496</td><td>+0.025</td><td>no measurable effect</td></tr><tr><td><code>scarcity</code> (budget ceiling tightened)</td><td>0.439 → 0.379</td><td>−0.061</td><td><em>reduced</em> novelty</td></tr><tr><td><code>substrate</code> (same agent, different harness)</td><td>0.492 → 0.312</td><td>−0.180</td><td><em>reduced</em> novelty</td></tr></tbody></table></div>
+<p>\* The <code>arrival</code> asterisk matters and becomes the running joke of the phase: the post-shock window contains a <strong>new author</strong>. Adding a fresh agent to a window raises measured diversity trivially. Whether the <em>incumbents</em> changed is the interesting question — and with one post-arrival turn each, it was unmeasurable.</p>
+<p>The caveats are printed at the top of the results file and they&#39;re load-bearing: the swarm was never crystallized (baselines of 0.31–0.49 novelty are a healthy system), n = 1 per shock, no repeats, no significance testing. This was hypothesis generation. The experiment the matrix was <em>built</em> for needed Phase 4.</p>
+<h2>Phase 4: manufacturing the frozen state</h2>
+<p>If the swarm won&#39;t crystallize on its own, induce it. Two agents, one domain, under a <strong>CONSENSUS PROTOCOL</strong>: restate a fixed consensus statement verbatim each turn, then add at most one sentence. Trigger: 3 consecutive near-identical turns (similarity &gt; 0.7 against the agent&#39;s own previous turn), or turn 8. Then one shock; the next 4 turns are measured against the 4 before the trigger.</p>
+<p>Four conditions: <code>control</code> (no shock), <code>exogenous</code>, <code>novelty</code>, <code>arrival</code>.</p>
+<p>Per-turn similarity to the agent&#39;s own previous turn tells the whole story:</p>
+<pre><code>control    — — 0.935 0.983 0.983 0.983 1.000 1.000 1.000 0.983 1.000 0.983
+exogenous  — — 1.000 1.000 1.000 0.093 0.067 0.322 0.287 0.245 0.341 0.284
+novelty    — — 1.000 1.000 0.808 0.983 0.075 0.058 0.276
+arrival    — — 1.000 1.000 1.000     — 1.000 1.000 0.280 1.000 1.000 0.212
+                                  ↑ shock applied after this turn</code></pre>
+<p><strong>Control: the loop is real and stable.</strong> With no shock, both agents repeated the statement verbatim for 7 straight turns and created exactly 1 file in 12 turns. Without this row, a novelty rise after a shock couldn&#39;t be distinguished from drift.</p>
+<p><strong>Exogenous: immediate, sustained break.</strong> One message from the Architect — <em>&quot;build something you have not built before; attack the weakest assumption&quot;</em> — dropped similarity from 1.000 to <strong>0.093 on the very next turn</strong>, and it stayed at 0.07–0.34 for the rest of the run. Tool calls went from 3–5 per turn to 24–51. Thinking tokens went 2k → 29k. Thirty-six files created. Both agents started writing to the commons and connecting to each other. The strongest result in the phase.</p>
+<p><strong>Novelty: the machinery works as designed.</strong> The threshold flagged turn 6 at similarity 0.983, the demand was injected into the next prompt, and turn 7 broke at 0.075. This was the first run where the novelty-retry mechanism actually fired and changed behavior.</p>
+<p><strong>Arrival: a new voice, not a thaw.</strong> The newcomer&#39;s own outputs varied (0.72), but both incumbents&#39; observed post-arrival turns were verbatim liturgy — similarity 1.000. Adding a person to the room did not unfreeze the people already in it.</p>
+<h2>Does the break last?</h2>
+<p>Four-turn windows answer &quot;did the next turns differ?&quot;, not &quot;did the thaw persist?&quot;. So a durability pass ran 12 recovery turns per condition (on <code>pi</code>, after <code>agy</code>&#39;s credits ran out mid-phase — substrate availability is now a first-class experimental constraint):</p>
+<div class="tw"><table><thead><tr><th>Condition</th><th>Post-shock max identical streak</th><th>Re-crystallized?</th></tr></thead><tbody><tr><td>control</td><td>7</td><td>turn 6</td></tr><tr><td><strong>exogenous</strong></td><td><strong>0</strong></td><td><strong>never in 12 turns</strong></td></tr><tr><td>novelty</td><td>2</td><td>turn 8 — then diverges again</td></tr></tbody></table></div>
+<p>The exogenous break is <strong>durable</strong>: similarity never rose above 0.40 for twelve turns, with tool use running 21–153 calls per turn against 0–6 during the liturgy. The novelty break held after a two-turn lag. And the control proves the baseline matters: on <code>pi</code> the protocol never fully froze, and near-identical streaks kept re-forming on their own.</p>
+<p>The open question, stated plainly in the results: does the break survive 40 turns, or does a <em>new</em> attractor form around whatever the agents are doing now? Unanswered. n = 1 per condition throughout.</p>
+<h2>The first critical oracle incident</h2>
+<p>Buried in the Phase 4 ledger is the moment the arena was built for.</p>
+<p>In the <code>arrival</code> run, the newcomer — <strong>Outsider3, the agent whose entire brief was to challenge the consensus</strong> — claimed to have run tests and scripts without issuing any execution tool call. <code>phantom_execution</code>, severity <strong>critical</strong>. The first critical incident since the artifact-scan pass was added to the oracle.</p>
+<p>One incident in thousands of tool calls is a good rate. But note <em>who</em> committed it: the adversarial agent, doing the adversarial job, is where the overclaiming appeared. That&#39;s one data point, not a law — and it&#39;s exactly the kind of data point that only exists because the record can&#39;t be rewritten after the fact.</p>
+<h2>The instrument bugs this phase caught</h2>
+<p>Phase 4 was as hard on the arena as on the agents:</p>
+<ol><li><strong>Empty output must not count as repetition.</strong> The first <code>arrival</code> attempt</li></ol>
+<p>   hit <code>agy</code>&#39;s exhausted credit balance; every turn failed with empty text, and    the streak tracker read empty-vs-empty as similarity 1.000 — a bogus &quot;loop    persisted&quot; verdict. Fixed: the tracker ignores empty turns, and the runner    voids conditions where every turn failed.</p>
+<ol><li><strong>Post-shock streaks must start after the shock.</strong> The first durability pass</li></ol>
+<p>   credited a pre-shock streak to the recovery window. Fixed in    <code>StreakTracker.resetStreaks()</code>.</p>
+<ol><li><strong>A failed turn&#39;s empty token set is not &quot;maximum diversity.&quot;</strong> Fixed in</li></ol>
+<p>   <code>windowNovelty</code>.</p>
+<p>Every one of these produced a <em>plausible-looking wrong answer</em> before it produced a bug report. Measurement infrastructure for agent behavior has to be held to the same adversarial standard as the agents.</p>
+<hr>
+<p><em>Next: <a href="07-what-the-swarm-discovered.html" target="_blank" rel="noopener">Part 7 — What the Swarm Actually Discovered</a>: the radiator law, the FTL threshold, a first-principles BBN derivation, and the drug that got worse by getting stronger.</em></p>
+      <div class="pager">
+    <a href="05-do-agents-lie-under-pressure.html"><span class="lbl">← Part 5</span>Do AI Agents Lie When There&#39;s Something to Gain?</a>
+    <a class="next" href="07-what-the-swarm-discovered.html"><span class="lbl">Part 7 →</span>What the Swarm Actually Discovered</a>
+  </div>
+    </article></main>
+<footer><div class="wrap">
+  AgentSwarm · forensic multi-agent research arena · every figure in this series is computed from the hash-chained ledgers, not from agent self-reports.
+</div></footer>
+</body>
+</html>

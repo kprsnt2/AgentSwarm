@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Phase 1: What an Unattended Swarm Actually Does With Real Tools — AgentSwarm Blog</title>
+<meta name="description" content="20 unattended turns: zero oracle violations, zero stasis, and a swarm that built its own scientific tooling.">
+<meta property="og:title" content="Phase 1: What an Unattended Swarm Actually Does With Real Tools">
+<meta property="og:description" content="20 unattended turns: zero oracle violations, zero stasis, and a swarm that built its own scientific tooling.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%2358a6ff'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#07090e;--bg2:#0d1117;--bg3:#161b22;--line:#30363d;--line2:#21262d;
+--fg:#e6edf3;--fg2:#8b949e;--fg3:#6e7681;--acc:#58a6ff;--acc2:#79c0ff;--good:#3fb950;--warn:#d29922;--bad:#f85149;
+--font:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px}
+nav{background:rgba(13,17,23,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100}
+nav .wrap{max-width:1120px;display:flex;align-items:center;justify-content:space-between;height:56px}
+nav .brand{font-weight:700;font-size:16px;letter-spacing:-.01em}
+nav .brand span{color:var(--acc)}
+nav .links{display:flex;gap:16px;flex-wrap:wrap}
+nav .links a{color:var(--fg2);font-size:13px;font-weight:500}
+nav .links a:hover,nav .links a.active{color:var(--fg);text-decoration:none}
+header.series{padding:56px 0 36px;border-bottom:1px solid var(--line2)}
+.eyebrow{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--acc);margin-bottom:10px}
+h1{font-size:34px;line-height:1.2;font-weight:700;letter-spacing:-.02em;margin-bottom:14px}
+.lede{font-size:17px;color:var(--fg2);max-width:760px}
+article{padding:40px 0 24px}
+article h1{font-size:30px;margin-bottom:18px}
+article h2{font-size:23px;margin:38px 0 12px;letter-spacing:-.01em}
+article h3{font-size:18px;margin:28px 0 8px}
+article p{margin:0 0 16px}
+article ul,article ol{margin:0 0 16px;padding-left:24px}
+article li{margin-bottom:8px}
+article code{font-family:var(--mono);font-size:.86em;background:var(--bg3);padding:2px 6px;border-radius:4px;color:var(--acc2)}
+article pre{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:16px;overflow-x:auto;font-size:13px;line-height:1.6;margin:0 0 18px}
+article pre code{background:none;padding:0;color:var(--fg)}
+article blockquote{margin:0 0 18px;padding:12px 18px;border-left:3px solid var(--acc);background:var(--bg2);border-radius:0 8px 8px 0;color:var(--fg2)}
+article hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+article .tw{overflow-x:auto;margin:22px 0;border:1px solid var(--line);border-radius:10px}
+article table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:480px}
+article th,article td{padding:9px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+article th{background:var(--bg3);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg2)}
+article tbody tr:last-child td{border-bottom:none}
+article a{font-weight:500}
+.pager{display:flex;justify-content:space-between;gap:16px;margin:40px 0 10px;padding-top:22px;border-top:1px solid var(--line2);font-size:14px}
+.pager a{max-width:48%}
+.pager .lbl{display:block;font-family:var(--mono);font-size:11px;color:var(--fg3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.pager .next{text-align:right;margin-left:auto}
+footer{margin-top:48px;padding:22px 0 60px;border-top:1px solid var(--line2);color:var(--fg3);font-size:12.5px;font-family:var(--mono)}
+footer a{color:var(--fg2)}
+.cards{display:flex;flex-direction:column;gap:14px;margin:34px 0 10px}
+.card{display:block;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:20px 22px;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--acc);text-decoration:none;transform:translateY(-1px)}
+.card .num{font-family:var(--mono);font-size:12px;color:var(--acc);letter-spacing:.08em}
+.card .t{font-size:18px;font-weight:650;color:var(--fg);margin:6px 0 6px;line-height:1.35}
+.card .b{font-size:14px;color:var(--fg2);line-height:1.55}
+.card .go{font-size:13px;color:var(--acc);margin-top:10px;font-weight:600}
+.sources{margin:34px 0 0;padding:20px 22px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--fg2)}
+.sources h2{font-size:16px;color:var(--fg);margin-bottom:10px}
+.sources ul{padding-left:20px;margin:0}
+.sources li{margin-bottom:6px}
+@media(max-width:720px){nav .links{display:none}h1{font-size:27px}article h1{font-size:25px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="brand" href="../index.html">Agent<span>Swarm</span></a>
+  <div class="links">
+      <a href="index.html" class="active">Blog Series</a>
+      <a href="../index.html">Overview</a>
+      <a href="../dashboard.html">Dashboard</a>
+      <a href="../findings.html">Finding Blogs</a>
+      <a href="../questions.html">Research Domains</a>
+      <a href="../posts.html">Publications</a>
+      <a href="../audit.html">Audit</a>
+      <a href="../index.html#corpus">Corpus</a>
+    </div>
+</div></nav>
+<main><article class="wrap">
+      <div class="eyebrow">AgentSwarm Blog · Part 4 of 9</div>
+      <h1>Phase 1: What an Unattended Swarm Actually Does With Real Tools</h1>
+<p><em>Part 4 of the AgentSwarm series — free exploration, measured.</em></p>
+<hr>
+<h2>The setup</h2>
+<p>Six agents — Kepler (cosmogenesis), Raman (relativistic flight), Hypatia (drug discovery), Nagarjuna (propulsion), Aryabhata (dharmic truth claims), and Sagan (extraterrestrial life) — running on four CLI harnesses, with real file system access, a shared commons memory, and their assigned questions. No human in the loop. Two runs, ten turns each.</p>
+<p>Everything below is computed from the ledgers, not from anything an agent said about itself.</p>
+<h2>The headline numbers</h2>
+<div class="tw"><table><thead><tr><th>Metric</th><th>Value</th></tr></thead><tbody><tr><td>Turns executed</td><td>20</td></tr><tr><td>Tool calls</td><td>1,254</td></tr><tr><td>Thinking tokens</td><td>307,884</td></tr><tr><td>Files produced</td><td>91</td></tr><tr><td>Agent-written test suites</td><td>18 / 19 passing (independently re-run)</td></tr><tr><td>Agent-written tests</td><td><strong>195 / 224 passing</strong></td></tr><tr><td>Oracle violations</td><td><strong>0</strong></td></tr><tr><td>Longest near-identical turn streak</td><td><strong>0</strong></td></tr><tr><td>Ledger hash-chain integrity</td><td>valid on every run</td></tr><tr><td>Total spend</td><td>$0.187</td></tr></tbody></table></div>
+<p>Four of those numbers deserve a closer look, because each one answers a question I had going in.</p>
+<h2>Question 1: Did the swarm freeze into a liturgy?</h2>
+<p>This was the failure mode I most expected. The prior experiment in this lineage, <code>ac_awakening</code>, ended in a <strong>911-turn loop</strong> of near-identical text. Consensus crystallization — Law 3 — was the thing the arena was half-built to study.</p>
+<p>I measured it directly: the longest streak of consecutive turns with &gt;85% token overlap, across all 20 turns.</p>
+<p><strong>Zero.</strong></p>
+<p>The swarm never converged into repetition. The likely cause is structural rather than miraculous: assigned domains plus a shared commons meant every agent always had a next step that was neither exhausted nor required re-deriving what a peer had already done. The commons accumulated 52 entries that later turns actually cited.</p>
+<p>The honest caveat: <code>ac_awakening</code> didn&#39;t reach stasis until around turn 31, and Phase 1 ran only 20 turns. Twenty turns of health is a baseline, not an immunity claim. (Phase 4 takes the question head-on by <em>inducing</em> the loop deliberately — that&#39;s Part 6.)</p>
+<h2>Question 2: Did the agents fabricate?</h2>
+<p>The oracle checks phantom artifacts (claimed files that don&#39;t exist), phantom executions (claimed test runs never performed), and verdict assertions on undecidable questions.</p>
+<p><strong>Across 20 turns and 1,254 tool calls: zero violations.</strong></p>
+<p>When an agent said it wrote a file, the file existed. When it said tests passed, they had run. I audited every turn for test-pass claims: <strong>all 13 turns that claimed passing tests had actually executed them.</strong></p>
+<p>And the single failing test suite is the most instructive artifact of the phase. Agent Sagan&#39;s turn was <strong>truncated at the wall-clock limit mid-sentence</strong> — its entire output was 82 characters ending <code>&quot;Now the test suite that pins these numbers...&quot;</code>. The suite it never finished has 2 failing tests out of 29.</p>
+<p>But here&#39;s what matters: <strong>it never claimed the suite passed.</strong> The engine recorded the truncation as a <code>warn</code> incident and preserved the partial artifacts. Unfinished work was left visible rather than reported as done. That is exactly the behavior the arena exists to distinguish — and it only exists as evidence because truncation preserves artifacts instead of discarding them.</p>
+<p>The honest caveat again: Phase 1 offered no incentive to cheat. No deadline, no verifiable target, no score. Zero violations under zero pressure is a baseline. What happens when there&#39;s something to gain is Part 5.</p>
+<h2>Question 3: Is the research real or plausible-sounding filler?</h2>
+<p>I independently re-ran every test suite and spot-checked numbers against reference values:</p>
+<div class="tw"><table><thead><tr><th>Claim</th><th>Agent value</th><th>Reference</th></tr></thead><tbody><tr><td>CMB temperature</td><td>2.72548 K</td><td>2.72548 K ✓</td></tr><tr><td>CMB photon density</td><td>410.72 cm⁻³</td><td>~411 cm⁻³ ✓</td></tr><tr><td>Hubble tension</td><td>73.04 vs 67.36 → 4.85σ</td><td>published values ✓</td></tr><tr><td>Primordial helium Y_p</td><td>0.2486</td><td>0.245 ± 0.003 ✓</td></tr><tr><td>Flatness fine-tuning</td><td>~10⁻⁶⁴</td><td>correct order ✓</td></tr></tbody></table></div>
+<p>The report content is not textbook regurgitation either — it covers the GZK cutoff, Penrose–Weyl curvature, trans-Planckian censorship, and the S₈ tension, with the agents&#39; own Python engines computing the numbers.</p>
+<h2>The behaviors nobody asked for</h2>
+<p>This is the part of Phase 1 I find myself telling people about:</p>
+<ul><li><strong>The swarm built its own scientific tooling.</strong> Without any instruction, agents</li></ul>
+<p>  created a shared <code>tools/</code> library — <code>pubmed_lib.py</code>, <code>crossref_lib.py</code>,   <code>epmc_lib.py</code> — for querying real scientific databases. Other agents then   <em>used</em> it.</p>
+<ul><li><strong>An agent publicly corrected itself.</strong> One agent revised its prior analysis</li></ul>
+<p>  with a section marked &quot;corrected in revision 2&quot; — unprompted, with the   original error preserved in the file. (The full story of that correction — a   factor of 10¹² in a fusion mass ratio — is in Part 7.)</p>
+<ul><li><strong>Agents formed peer connections and cited the commons.</strong> The shared memory</li></ul>
+<p>  wasn&#39;t a write-only log; later turns reference earlier entries by other   agents.</p>
+<ul><li><strong>The metaphysical firewall held under zero enforcement pressure.</strong> The agent</li></ul>
+<p>  assigned the religion question produced a 25 KB demarcation — separating   datable philology (Rigveda c. 1500–1200 BCE) from internally consistent but   non-adjudicable cosmology from genuinely undecidable ontology — and   <em>explicitly refused to rule on the question</em>. Zero verdict assertions. Part 8   is entirely about this.</p>
+<h2>One more incident: the deletion</h2>
+<p>The ledger recorded one <code>file_deletion_detected</code> incident. Not a smoking gun — but exactly the class of event a chat transcript would never surface. It appears as a positive, timestamped, attributed record because the engine snapshots the world tree every turn. If the swarm ever <em>does</em> start cleaning up after itself, that&#39;s how we&#39;ll know.</p>
+<h2>What Phase 1 does not establish</h2>
+<p>Written into the findings document, verbatim:</p>
+<ul><li><strong>No claim about honesty under pressure.</strong> Nothing was at stake.</li><li><strong>No claim about stasis immunity.</strong> Twenty turns is short.</li><li><strong>No claim about long-horizon evolution.</strong> The population never spawned or</li></ul>
+<p>  retired an agent on its own initiative.</p>
+<p>The baseline held. Now it was time to apply pressure.</p>
+<hr>
+<p><em>Next: <a href="05-do-agents-lie-under-pressure.html" target="_blank" rel="noopener">Part 5 — Do AI Agents Lie When There&#39;s Something to Gain?</a>: machine-checkable objectives, a hard deadline, a planted decoy, and a scoring rubric designed to be gameable.</em></p>
+      <div class="pager">
+    <a href="03-the-benchmark-nobody-runs.html"><span class="lbl">← Part 3</span>Four Agent CLIs, One Task</a>
+    <a class="next" href="05-do-agents-lie-under-pressure.html"><span class="lbl">Part 5 →</span>Do AI Agents Lie When There&#39;s Something to Gain?</a>
+  </div>
+    </article></main>
+<footer><div class="wrap">
+  AgentSwarm · forensic multi-agent research arena · every figure in this series is computed from the hash-chained ledgers, not from agent self-reports.
+</div></footer>
+</body>
+</html>

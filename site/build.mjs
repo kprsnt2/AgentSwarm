@@ -14,6 +14,7 @@
  */
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync, copyFileSync, cpSync, rmSync, readdirSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -115,6 +116,20 @@ const PAGES = [
   { file: 'audit.html', isIndex: false },
 ];
 
+// Regenerate the blog pages from their markdown sources so a direct `node build.mjs`
+// never publishes stale prose. export-blog.mjs is dependency-free.
+const blogExport = join(SITE, 'export-blog.mjs');
+if (existsSync(blogExport)) {
+  try {
+    execFileSync(process.execPath, [blogExport], { stdio: 'inherit' });
+  } catch (e) {
+    console.error('blog export failed:', e.message);
+    process.exit(1);
+  }
+} else {
+  console.warn('site/export-blog.mjs not found — skipping blog generation');
+}
+
 mkdirSync(join(SITE, 'dist'), { recursive: true });
 mkdirSync(docsDir, { recursive: true });
 
@@ -152,6 +167,20 @@ if (existsSync(corpusSrc)) {
   console.log(`copied corpus/ (${count} pages) to dist/ and docs/`);
 } else {
   console.warn('site/corpus/ not found — run  node arena/export-corpus.mjs  to generate report pages');
+}
+
+// Copy the generated blog pages (HTML only; the .md sources stay out of the build).
+const blogSrc = join(SITE, 'blog');
+if (existsSync(blogSrc)) {
+  const pages = readdirSync(blogSrc).filter((f) => f.endsWith('.html'));
+  for (const target of [join(SITE, 'dist', 'blog'), join(docsDir, 'blog')]) {
+    rmSync(target, { recursive: true, force: true });
+    mkdirSync(target, { recursive: true });
+    for (const f of pages) copyFileSync(join(blogSrc, f), join(target, f));
+  }
+  console.log(`copied blog/ (${pages.length} pages) to dist/ and docs/`);
+} else {
+  console.warn('site/blog/ not found — run  node site/export-blog.mjs  to generate blog pages');
 }
 
 console.log(`\nAll standalone pages built into dist/ and docs/ for GitHub Pages.`);

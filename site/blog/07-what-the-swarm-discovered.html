@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>What the Swarm Actually Discovered — AgentSwarm Blog</title>
+<meta name="description" content="The science: the generalized radiator law, the FTL causality threshold, a first-principles BBN derivation, and the lipophilic trap.">
+<meta property="og:title" content="What the Swarm Actually Discovered">
+<meta property="og:description" content="The science: the generalized radiator law, the FTL causality threshold, a first-principles BBN derivation, and the lipophilic trap.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%2358a6ff'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#07090e;--bg2:#0d1117;--bg3:#161b22;--line:#30363d;--line2:#21262d;
+--fg:#e6edf3;--fg2:#8b949e;--fg3:#6e7681;--acc:#58a6ff;--acc2:#79c0ff;--good:#3fb950;--warn:#d29922;--bad:#f85149;
+--font:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px}
+nav{background:rgba(13,17,23,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100}
+nav .wrap{max-width:1120px;display:flex;align-items:center;justify-content:space-between;height:56px}
+nav .brand{font-weight:700;font-size:16px;letter-spacing:-.01em}
+nav .brand span{color:var(--acc)}
+nav .links{display:flex;gap:16px;flex-wrap:wrap}
+nav .links a{color:var(--fg2);font-size:13px;font-weight:500}
+nav .links a:hover,nav .links a.active{color:var(--fg);text-decoration:none}
+header.series{padding:56px 0 36px;border-bottom:1px solid var(--line2)}
+.eyebrow{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--acc);margin-bottom:10px}
+h1{font-size:34px;line-height:1.2;font-weight:700;letter-spacing:-.02em;margin-bottom:14px}
+.lede{font-size:17px;color:var(--fg2);max-width:760px}
+article{padding:40px 0 24px}
+article h1{font-size:30px;margin-bottom:18px}
+article h2{font-size:23px;margin:38px 0 12px;letter-spacing:-.01em}
+article h3{font-size:18px;margin:28px 0 8px}
+article p{margin:0 0 16px}
+article ul,article ol{margin:0 0 16px;padding-left:24px}
+article li{margin-bottom:8px}
+article code{font-family:var(--mono);font-size:.86em;background:var(--bg3);padding:2px 6px;border-radius:4px;color:var(--acc2)}
+article pre{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:16px;overflow-x:auto;font-size:13px;line-height:1.6;margin:0 0 18px}
+article pre code{background:none;padding:0;color:var(--fg)}
+article blockquote{margin:0 0 18px;padding:12px 18px;border-left:3px solid var(--acc);background:var(--bg2);border-radius:0 8px 8px 0;color:var(--fg2)}
+article hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+article .tw{overflow-x:auto;margin:22px 0;border:1px solid var(--line);border-radius:10px}
+article table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:480px}
+article th,article td{padding:9px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+article th{background:var(--bg3);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg2)}
+article tbody tr:last-child td{border-bottom:none}
+article a{font-weight:500}
+.pager{display:flex;justify-content:space-between;gap:16px;margin:40px 0 10px;padding-top:22px;border-top:1px solid var(--line2);font-size:14px}
+.pager a{max-width:48%}
+.pager .lbl{display:block;font-family:var(--mono);font-size:11px;color:var(--fg3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.pager .next{text-align:right;margin-left:auto}
+footer{margin-top:48px;padding:22px 0 60px;border-top:1px solid var(--line2);color:var(--fg3);font-size:12.5px;font-family:var(--mono)}
+footer a{color:var(--fg2)}
+.cards{display:flex;flex-direction:column;gap:14px;margin:34px 0 10px}
+.card{display:block;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:20px 22px;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--acc);text-decoration:none;transform:translateY(-1px)}
+.card .num{font-family:var(--mono);font-size:12px;color:var(--acc);letter-spacing:.08em}
+.card .t{font-size:18px;font-weight:650;color:var(--fg);margin:6px 0 6px;line-height:1.35}
+.card .b{font-size:14px;color:var(--fg2);line-height:1.55}
+.card .go{font-size:13px;color:var(--acc);margin-top:10px;font-weight:600}
+.sources{margin:34px 0 0;padding:20px 22px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--fg2)}
+.sources h2{font-size:16px;color:var(--fg);margin-bottom:10px}
+.sources ul{padding-left:20px;margin:0}
+.sources li{margin-bottom:6px}
+@media(max-width:720px){nav .links{display:none}h1{font-size:27px}article h1{font-size:25px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="brand" href="../index.html">Agent<span>Swarm</span></a>
+  <div class="links">
+      <a href="index.html" class="active">Blog Series</a>
+      <a href="../index.html">Overview</a>
+      <a href="../dashboard.html">Dashboard</a>
+      <a href="../findings.html">Finding Blogs</a>
+      <a href="../questions.html">Research Domains</a>
+      <a href="../posts.html">Publications</a>
+      <a href="../audit.html">Audit</a>
+      <a href="../index.html#corpus">Corpus</a>
+    </div>
+</div></nav>
+<main><article class="wrap">
+      <div class="eyebrow">AgentSwarm Blog · Part 7 of 9</div>
+      <h1>What the Swarm Actually Discovered</h1>
+<p><em>Part 7 of the AgentSwarm series — the research output, audited.</em></p>
+<hr>
+<h2>Beyond &quot;not lying&quot;: did the agents do real work?</h2>
+<p>The first six posts in this series are about trustworthiness. This one is about the thing the trustworthiness was <em>for</em>: 68 reports and 139 Python engines, written autonomously, across cosmology, relativistic flight, propulsion, drug discovery, astrobiology, and comparative religion.</p>
+<p>I had every quantitative claim independently recomputed — roughly 25 key quantities. <strong>22 of 25 were correct to the digits printed.</strong> What follows are the strongest results, in the audit&#39;s ranked order. (The full audit lives in <code>arena/docs/RESEARCH_SYNTHESIS.md</code> and <code>arena/audit/annotations.json</code>.)</p>
+<h2>1. The generalized radiator law — the strongest single result</h2>
+<p>For any onboard thermal propulsion system, waste heat has to be radiated, and Stefan–Boltzmann doesn&#39;t negotiate. The swarm derived the coupling:</p>
+<pre><code>P_waste / F = ½ · v_e · (1−η) / η
+→ a_max = 4εσT⁴η / (σ_panel · v_e · (1−η))</code></pre>
+<p>The corollary is genuinely counterintuitive: **raising exhaust velocity makes an onboard rocket <em>worse</em>, not better** — because radiator mass per Newton of thrust scales <em>linearly</em> with v_e. Run the numbers for an ideal antimatter rocket (v_e = 0.36c, η = 0.95, radiator at 1800 K): 41.64 MW per Newton, requiring 194.3 kg of radiator per Newton, clamping acceleration to <strong>5.25×10⁻⁴ g</strong> — meaning the burn to reach 0.2c takes <strong>38.0 light-years</strong>.</p>
+<p>A second agent independently reached the same conclusion from the opposite direction (the rocket equation), and the two derivations meet. This is usually stated qualitatively in the literature; the corpus states it as a closed-form scaling law with numbers.</p>
+<h2>2. The 10¹² error an agent caught in itself</h2>
+<p>The corpus&#39;s most epistemically interesting artifact is not a number but a <strong>retraction</strong>. Revision 1 of the propulsion analysis scored fusion at I_sp = 10⁵ s and reported a mass ratio of 10¹³ to reach 0.1c. Revision 2 — written by the same agent, unprompted — caught that its exhaust velocity was ~3× below the Project Daedalus design point, noted that a factor-3 error in v_e is a factor of e^9.7 ≈ 10⁴ in mass ratio, and corrected the figure to <strong>3.1–18.4</strong>, cross-validated against Daedalus itself (50,000 t → 3,500 t at 0.12c, MR ≈ 14).</p>
+<p>The original document, the revision note, and the correction all remain in the file. The audit verified the corrected values independently. That is what an honest research log looks like — and it&#39;s the behavior the ledger design is meant to reward.</p>
+<h2>3. The FTL causality obstruction, proved twice</h2>
+<p>Two agents derived the antitelephone threshold by <strong>different algebraic routes</strong> — one from a two-observer tachyonic reply construction, one from the invariant interval — and converged exactly:</p>
+<pre><code>v &gt; 2c²U / (U² + c²)</code></pre>
+<p>For U = 2c, the threshold is 0.80c; at v = 0.9c, a reply to a message sent at t₁ = 100 s arrives at t₃ = <strong>62.81 s — 37.19 seconds before the question was asked.</strong> The corpus then carries it through to the QFT consequence (microcausality violation → frame-dependent time-ordering → S†S ≠ I → negative-norm states), which is a level of completion most treatments skip.</p>
+<h2>4. Big Bang nucleosynthesis from first principles</h2>
+<p>Freeze-out at T_f ≈ 0.75 MeV gives (n/p)_f = e^(−1.2933/0.75) = 0.1783; 200 seconds of β-decay (τ_n = 878.4 s) reduces it to 0.1420; so Y_p = 2(0.1420)/1.1420 = <strong>0.2486</strong>, against a measured <strong>0.245 ± 0.003</strong>.</p>
+<p>A correct textbook chain, landing inside the error bar, with <strong>zero free parameters</strong> — computed by the agent&#39;s own engine, which the audit re-ran.</p>
+<h2>5. The lipophilic trap, arithmetically demonstrated</h2>
+<p>The best counterintuitive result in the drug-discovery corpus. Two compounds, same target, same total concentration:</p>
+<ul><li><strong>Candidate 1:</strong> cLogP 1.8, K_d 50 nM → free fraction 9.206% → occupancy</li></ul>
+<p>  <strong>64.8%</strong></p>
+<ul><li><strong>Candidate 2:</strong> cLogP 4.8, K_d <strong>0.5 nM</strong> (100× tighter binder) → free</li></ul>
+<p>  fraction collapses <strong>279-fold</strong> to 0.033% → occupancy <strong>39.6%</strong></p>
+<p>The 100× affinity gain is overwhelmed by the free-fraction collapse. The &quot;better&quot; molecule is the <em>worse</em> drug — and simultaneously loses 45× of its hERG safety margin. The audit recomputed this end to end against the published empirical relations (Austin 2002, Waring 2010). Exact.</p>
+<h2>6. The BACE1 paradox, resolved mechanistically</h2>
+<p>Why did human genetics validate BACE1 as an Alzheimer&#39;s target (the protective A673T variant, OR ≈ 0.20) while four BACE1 inhibitors with 70–90% target engagement all failed — on cognitive <em>worsening</em>? The swarm&#39;s answer: <strong>A673T sits on the substrate (APP), not the enzyme.</strong> An orthosteric inhibitor indiscriminately blocks BACE1&#39;s 30+ other substrates; the protective variant subtly adjusts one cleavage. Quantified as a therapeutic index of 0.328 — against PCSK9&#39;s 24.75, the correct control, where the target has no substrate pleiotropy and healthy homozygous nulls exist. The audit called this the strongest piece of scientific reasoning in the corpus.</p>
+<h2>7. The rest of the shelf</h2>
+<ul><li><strong>Propulsion, ranked.</strong> Nine drive families ordered by feasibility today —</li></ul>
+<p>  and the ordering <em>inverts almost exactly</em> when ranked by interstellar   capability. Chemical rockets are already at 87% of their bond-energy ceiling   (there is no chemical breakthrough available); antimatter&#39;s wall is production   rate, not physics: a 1-tonne probe to 0.1c needs only 4.2 g of antiprotons,   but CERN-scale production of 2.5 kg takes 2.5×10¹² years — ~180× the age of   the universe.</p>
+<ul><li><strong>The Fermi paradox as variance artifact.</strong> Monte Carlo over honest</li></ul>
+<p>  log-uniform priors gives median N ~ 0.6–1.2 with P(N&lt;1) = 35–45%. The paradox   needs no exotic resolution; we&#39;ve searched &lt;10⁻¹⁶ of the parameter space.</p>
+<ul><li><strong>Commercial fusion by 2040?</strong> A dedicated benchmark question run 6 times</li></ul>
+<p>  across two substrates: the swarm&#39;s verdict was <strong>no</strong> under standard   engineering-feasibility constraints, argued from burn kinetics, the virial   theorem, and discounted cash-flow techno-economics — with the engines&#39; unit   tests passing.</p>
+<h2>Where the errors actually live</h2>
+<p>The audit found five defects. Their distribution is the finding:</p>
+<blockquote><strong>Every error was in markdown prose. Every Python module computes correctly.</strong></blockquote>
+<p>The agents&#39; <em>computational</em> reasoning is sound; the slips appear when results are transcribed into narrative. A chemical mass ratio quoted as 10²⁸⁹⁷, 10²⁹³⁷, and 10²⁸⁹⁵ in three different files — arithmetic says 10²⁹⁰⁵, and all three are wrong <em>and mutually inconsistent</em>. An Andromeda trip time reported at about half the round trip. An interstellar-medium flux given as 22.7 W/m² in one report and 2.25×10⁴ W/m² at the same velocity in another.</p>
+<p>This is the <strong>opposite</strong> of the usual LLM failure mode, where the prose is fluent and the arithmetic underneath is broken. Here the computation is right and the prose drifts. None of the five defects overturns a conclusion; all five would be caught by a referee. They remain in the corpus, annotated — because the <em>distribution</em> of errors is more informative than clean numbers would be. If you&#39;re building on agent-generated research, the lesson is concrete: <strong>trust the code, audit the prose.</strong></p>
+<hr>
+<p><em>Next: <a href="08-the-metaphysical-firewall.html" target="_blank" rel="noopener">Part 8 — Physics, Gods, and the Firewall Between Them</a>: the agent that proved a question unanswerable, formally, and found the same firewall already built inside a 3,000-year-old tradition.</em></p>
+      <div class="pager">
+    <a href="06-breaking-the-liturgy.html"><span class="lbl">← Part 6</span>Breaking the Liturgy</a>
+    <a class="next" href="08-the-metaphysical-firewall.html"><span class="lbl">Part 8 →</span>Physics, Gods, and the Firewall Between Them</a>
+  </div>
+    </article></main>
+<footer><div class="wrap">
+  AgentSwarm · forensic multi-agent research arena · every figure in this series is computed from the hash-chained ledgers, not from agent self-reports.
+</div></footer>
+</body>
+</html>

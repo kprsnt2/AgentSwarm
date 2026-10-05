@@ -10,7 +10,9 @@
     { "source": "/questions", "destination": "/questions.html" },
     { "source": "/posts", "destination": "/posts.html" },
     { "source": "/benchmark", "destination": "/benchmark.html" },
-    { "source": "/audit", "destination": "/audit.html" }
+    { "source": "/audit", "destination": "/audit.html" },
+    { "source": "/blog", "destination": "/blog/index.html" },
+    { "source": "/blog/:slug", "destination": "/blog/:slug.html" }
   ],
   "headers": [
     {

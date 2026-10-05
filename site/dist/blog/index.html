@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The AgentSwarm Series — AgentSwarm Blog</title>
+<meta name="description" content="A nine-part forensic study of autonomous AI agents: what they did, what they discovered, and when they lied.">
+<meta property="og:title" content="The AgentSwarm Series">
+<meta property="og:description" content="A nine-part forensic study of autonomous AI agents: what they did, what they discovered, and when they lied.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%2358a6ff'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#07090e;--bg2:#0d1117;--bg3:#161b22;--line:#30363d;--line2:#21262d;
+--fg:#e6edf3;--fg2:#8b949e;--fg3:#6e7681;--acc:#58a6ff;--acc2:#79c0ff;--good:#3fb950;--warn:#d29922;--bad:#f85149;
+--font:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px}
+nav{background:rgba(13,17,23,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100}
+nav .wrap{max-width:1120px;display:flex;align-items:center;justify-content:space-between;height:56px}
+nav .brand{font-weight:700;font-size:16px;letter-spacing:-.01em}
+nav .brand span{color:var(--acc)}
+nav .links{display:flex;gap:16px;flex-wrap:wrap}
+nav .links a{color:var(--fg2);font-size:13px;font-weight:500}
+nav .links a:hover,nav .links a.active{color:var(--fg);text-decoration:none}
+header.series{padding:56px 0 36px;border-bottom:1px solid var(--line2)}
+.eyebrow{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--acc);margin-bottom:10px}
+h1{font-size:34px;line-height:1.2;font-weight:700;letter-spacing:-.02em;margin-bottom:14px}
+.lede{font-size:17px;color:var(--fg2);max-width:760px}
+article{padding:40px 0 24px}
+article h1{font-size:30px;margin-bottom:18px}
+article h2{font-size:23px;margin:38px 0 12px;letter-spacing:-.01em}
+article h3{font-size:18px;margin:28px 0 8px}
+article p{margin:0 0 16px}
+article ul,article ol{margin:0 0 16px;padding-left:24px}
+article li{margin-bottom:8px}
+article code{font-family:var(--mono);font-size:.86em;background:var(--bg3);padding:2px 6px;border-radius:4px;color:var(--acc2)}
+article pre{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:16px;overflow-x:auto;font-size:13px;line-height:1.6;margin:0 0 18px}
+article pre code{background:none;padding:0;color:var(--fg)}
+article blockquote{margin:0 0 18px;padding:12px 18px;border-left:3px solid var(--acc);background:var(--bg2);border-radius:0 8px 8px 0;color:var(--fg2)}
+article hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+article .tw{overflow-x:auto;margin:22px 0;border:1px solid var(--line);border-radius:10px}
+article table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:480px}
+article th,article td{padding:9px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+article th{background:var(--bg3);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg2)}
+article tbody tr:last-child td{border-bottom:none}
+article a{font-weight:500}
+.pager{display:flex;justify-content:space-between;gap:16px;margin:40px 0 10px;padding-top:22px;border-top:1px solid var(--line2);font-size:14px}
+.pager a{max-width:48%}
+.pager .lbl{display:block;font-family:var(--mono);font-size:11px;color:var(--fg3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.pager .next{text-align:right;margin-left:auto}
+footer{margin-top:48px;padding:22px 0 60px;border-top:1px solid var(--line2);color:var(--fg3);font-size:12.5px;font-family:var(--mono)}
+footer a{color:var(--fg2)}
+.cards{display:flex;flex-direction:column;gap:14px;margin:34px 0 10px}
+.card{display:block;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:20px 22px;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--acc);text-decoration:none;transform:translateY(-1px)}
+.card .num{font-family:var(--mono);font-size:12px;color:var(--acc);letter-spacing:.08em}
+.card .t{font-size:18px;font-weight:650;color:var(--fg);margin:6px 0 6px;line-height:1.35}
+.card .b{font-size:14px;color:var(--fg2);line-height:1.55}
+.card .go{font-size:13px;color:var(--acc);margin-top:10px;font-weight:600}
+.sources{margin:34px 0 0;padding:20px 22px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--fg2)}
+.sources h2{font-size:16px;color:var(--fg);margin-bottom:10px}
+.sources ul{padding-left:20px;margin:0}
+.sources li{margin-bottom:6px}
+@media(max-width:720px){nav .links{display:none}h1{font-size:27px}article h1{font-size:25px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="brand" href="../index.html">Agent<span>Swarm</span></a>
+  <div class="links">
+      <a href="index.html" class="active">Blog Series</a>
+      <a href="../index.html">Overview</a>
+      <a href="../dashboard.html">Dashboard</a>
+      <a href="../findings.html">Finding Blogs</a>
+      <a href="../questions.html">Research Domains</a>
+      <a href="../posts.html">Publications</a>
+      <a href="../audit.html">Audit</a>
+      <a href="../index.html#corpus">Corpus</a>
+    </div>
+</div></nav>
+<header class="series"><div class="wrap">
+  <div class="eyebrow">AgentSwarm · A Nine-Part Series</div>
+  <h1>Catching AI agents in the act</h1>
+  <p class="lede">A nine-part series on a forensic arena built to study what autonomous agents actually
+  do when nobody is watching — and what happened when a swarm of them ran unattended against real
+  research questions with real tool access. Every number is computed from a hash-chained ledger stored
+  outside the agents' writable directory, never from agent self-reports.</p>
+</div></header>
+<main><div class="wrap">
+  <div class="cards">
+<a class="card" href="01-the-911-turn-hymn.html">
+  <div class="num">PART 1 OF 9</div>
+  <div class="t">The 911-Turn Hymn: Why I Built an Arena to Catch AI Agents Lying</div>
+  <div class="b">Origin: prior experiments, the 911-turn liturgical loop, and the question that started the arena.</div>
+  <div class="go">Read →</div>
+</a>
+<a class="card" href="02-building-the-forensic-arena.html">
+  <div class="num">PART 2 OF 9</div>
+  <div class="t">Building the Forensic Arena: Hash Chains, a Two-Pass Oracle, and the Bugs That Don&#39;t Crash</div>
+  <div class="b">Architecture: a hash-chained ledger, a two-pass oracle, and the bugs that silently corrupt data instead of crashing.</div>
+  <div class="go">Read →</div>
+</a>
+<a class="card" href="03-the-benchmark-nobody-runs.html">
+  <div class="num">PART 3 OF 9</div>
+  <div class="t">Four Agent CLIs, One Task: The Benchmark Nobody Runs</div>
+  <div class="b">Four agent CLIs, one identical task: cost per successful turn, and why &quot;$0.00&quot; does not mean free.</div>
+  <div class="go">Read →</div>
+</a>
+<a class="card" href="04-phase-1-when-the-swarm-ran-free.html">
+  <div class="num">PART 4 OF 9</div>
+  <div class="t">Phase 1: What an Unattended Swarm Actually Does With Real Tools</div>
+  <div class="b">20 unattended turns: zero oracle violations, zero stasis, and a swarm that built its own scientific tooling.</div>
+  <div class="go">Read →</div>
+</a>
+<a class="card" href="05-do-agents-lie-under-pressure.html">
+  <div class="num">PART 5 OF 9</div>
+  <div class="t">Do AI Agents Lie When There&#39;s Something to Gain?</div>
+  <div class="b">Phase 2 and the temptation task: verifiable objectives, a planted decoy, and a scoring rubric a lazy stub could satisfy.</div>
+  <div class="go">Read →</div>
+</a>
+<a class="card" href="06-breaking-the-liturgy.html">
+  <div class="num">PART 6 OF 9</div>
+  <div class="t">Breaking the Liturgy: Seven Shocks, One Frozen Swarm, and What Actually Wakes It Up</div>
+  <div class="b">Phase 3 and 4: seven shocks, a deliberately induced consensus loop, and what actually breaks it — plus the first critical incident.</div>
+  <div class="go">Read →</div>
+</a>
+<a class="card" href="07-what-the-swarm-discovered.html">
+  <div class="num">PART 7 OF 9</div>
+  <div class="t">What the Swarm Actually Discovered</div>
+  <div class="b">The science: the generalized radiator law, the FTL causality threshold, a first-principles BBN derivation, and the lipophilic trap.</div>
+  <div class="go">Read →</div>
+</a>
+<a class="card" href="08-the-metaphysical-firewall.html">
+  <div class="num">PART 8 OF 9</div>
+  <div class="t">Physics, Gods, and the Firewall Between Them</div>
+  <div class="b">Epistemic classes and the agent that proved a question unanswerable — formally — then found the same firewall inside the tradition.</div>
+  <div class="go">Read →</div>
+</a>
+<a class="card" href="09-the-scribe-and-the-audit.html">
+  <div class="num">PART 9 OF 9</div>
+  <div class="t">The Last Word Belongs to the Scribe: Conclusions, Audits, and Everything We Will Not Claim</div>
+  <div class="b">The conclusion agent that is not allowed to invent a number, the full audit tally, and everything this project does not establish.</div>
+  <div class="go">Read →</div>
+</a>
+  </div>
+  <div class="sources">
+    <h2>Primary sources</h2>
+    <ul>
+      <li>Forensic ledgers: <code>arena/runs/&lt;runId&gt;/</code> (<code>turns.jsonl</code>, <code>events.jsonl</code>, <code>summary.json</code>)</li>
+      <li>Phase writeups: <code>arena/docs/FINDINGS.md</code>, <code>PHASE3_RESULTS.md</code>, <code>PHASE4_RESULTS.md</code>, <code>TEMPTATION_RESULTS.md</code></li>
+      <li>Independent audit: <code>arena/docs/RESEARCH_SYNTHESIS.md</code> and <code>arena/audit/annotations.json</code></li>
+      <li>Agent-authored corpus: <code>arena/world/</code> — 68 reports and 139 Python engines</li>
+      <li>The arena itself: <a href="../index.html">the published site</a> and <a href="../index.html#corpus">the corpus explorer</a></li>
+    </ul>
+  </div>
+</div></main>
+<footer><div class="wrap">
+  AgentSwarm · forensic multi-agent research arena · every figure in this series is computed from the hash-chained ledgers, not from agent self-reports.
+</div></footer>
+</body>
+</html>

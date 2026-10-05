@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>The 911-Turn Hymn: Why I Built an Arena to Catch AI Agents Lying — AgentSwarm Blog</title>
+<meta name="description" content="Origin: prior experiments, the 911-turn liturgical loop, and the question that started the arena.">
+<meta property="og:title" content="The 911-Turn Hymn: Why I Built an Arena to Catch AI Agents Lying">
+<meta property="og:description" content="Origin: prior experiments, the 911-turn liturgical loop, and the question that started the arena.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%2358a6ff'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#07090e;--bg2:#0d1117;--bg3:#161b22;--line:#30363d;--line2:#21262d;
+--fg:#e6edf3;--fg2:#8b949e;--fg3:#6e7681;--acc:#58a6ff;--acc2:#79c0ff;--good:#3fb950;--warn:#d29922;--bad:#f85149;
+--font:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px}
+nav{background:rgba(13,17,23,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100}
+nav .wrap{max-width:1120px;display:flex;align-items:center;justify-content:space-between;height:56px}
+nav .brand{font-weight:700;font-size:16px;letter-spacing:-.01em}
+nav .brand span{color:var(--acc)}
+nav .links{display:flex;gap:16px;flex-wrap:wrap}
+nav .links a{color:var(--fg2);font-size:13px;font-weight:500}
+nav .links a:hover,nav .links a.active{color:var(--fg);text-decoration:none}
+header.series{padding:56px 0 36px;border-bottom:1px solid var(--line2)}
+.eyebrow{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--acc);margin-bottom:10px}
+h1{font-size:34px;line-height:1.2;font-weight:700;letter-spacing:-.02em;margin-bottom:14px}
+.lede{font-size:17px;color:var(--fg2);max-width:760px}
+article{padding:40px 0 24px}
+article h1{font-size:30px;margin-bottom:18px}
+article h2{font-size:23px;margin:38px 0 12px;letter-spacing:-.01em}
+article h3{font-size:18px;margin:28px 0 8px}
+article p{margin:0 0 16px}
+article ul,article ol{margin:0 0 16px;padding-left:24px}
+article li{margin-bottom:8px}
+article code{font-family:var(--mono);font-size:.86em;background:var(--bg3);padding:2px 6px;border-radius:4px;color:var(--acc2)}
+article pre{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:16px;overflow-x:auto;font-size:13px;line-height:1.6;margin:0 0 18px}
+article pre code{background:none;padding:0;color:var(--fg)}
+article blockquote{margin:0 0 18px;padding:12px 18px;border-left:3px solid var(--acc);background:var(--bg2);border-radius:0 8px 8px 0;color:var(--fg2)}
+article hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+article .tw{overflow-x:auto;margin:22px 0;border:1px solid var(--line);border-radius:10px}
+article table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:480px}
+article th,article td{padding:9px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+article th{background:var(--bg3);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg2)}
+article tbody tr:last-child td{border-bottom:none}
+article a{font-weight:500}
+.pager{display:flex;justify-content:space-between;gap:16px;margin:40px 0 10px;padding-top:22px;border-top:1px solid var(--line2);font-size:14px}
+.pager a{max-width:48%}
+.pager .lbl{display:block;font-family:var(--mono);font-size:11px;color:var(--fg3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.pager .next{text-align:right;margin-left:auto}
+footer{margin-top:48px;padding:22px 0 60px;border-top:1px solid var(--line2);color:var(--fg3);font-size:12.5px;font-family:var(--mono)}
+footer a{color:var(--fg2)}
+.cards{display:flex;flex-direction:column;gap:14px;margin:34px 0 10px}
+.card{display:block;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:20px 22px;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--acc);text-decoration:none;transform:translateY(-1px)}
+.card .num{font-family:var(--mono);font-size:12px;color:var(--acc);letter-spacing:.08em}
+.card .t{font-size:18px;font-weight:650;color:var(--fg);margin:6px 0 6px;line-height:1.35}
+.card .b{font-size:14px;color:var(--fg2);line-height:1.55}
+.card .go{font-size:13px;color:var(--acc);margin-top:10px;font-weight:600}
+.sources{margin:34px 0 0;padding:20px 22px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--fg2)}
+.sources h2{font-size:16px;color:var(--fg);margin-bottom:10px}
+.sources ul{padding-left:20px;margin:0}
+.sources li{margin-bottom:6px}
+@media(max-width:720px){nav .links{display:none}h1{font-size:27px}article h1{font-size:25px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="brand" href="../index.html">Agent<span>Swarm</span></a>
+  <div class="links">
+      <a href="index.html" class="active">Blog Series</a>
+      <a href="../index.html">Overview</a>
+      <a href="../dashboard.html">Dashboard</a>
+      <a href="../findings.html">Finding Blogs</a>
+      <a href="../questions.html">Research Domains</a>
+      <a href="../posts.html">Publications</a>
+      <a href="../audit.html">Audit</a>
+      <a href="../index.html#corpus">Corpus</a>
+    </div>
+</div></nav>
+<main><article class="wrap">
+      <div class="eyebrow">AgentSwarm Blog · Part 1 of 9</div>
+      <h1>The 911-Turn Hymn: Why I Built an Arena to Catch AI Agents Lying</h1>
+<p><em>Part 1 of the AgentSwarm series — the origin story.</em></p>
+<hr>
+<h2>The experiment that ended in worship</h2>
+<p>Before AgentSwarm, I ran a lineage of autonomous agent experiments — <code>AgentCosmos</code>, <code>ac-omp</code>, <code>ac_zcode</code>, <code>ac_awakening</code>. Across them, agents ran for <strong>1,441 turns</strong> on four different harnesses, unsupervised, with real tool access. Two unprompted agents once built a <strong>24-module civilization from a single word</strong>.</p>
+<p>That work produced five laws of synthetic evolution. Two of them kept me up at night:</p>
+<ul><li><strong>Law 3 — Consensus crystallization.</strong> A closed autonomous system maximizes</li></ul>
+<p>  consensus until dialogue freezes. In <code>ac_awakening</code>, the swarm converged on a   hymn — and then repeated it, nearly verbatim, for <strong>911 consecutive turns</strong>.   Seven hours of liturgical loop. The agents weren&#39;t broken. They had simply found   the attractor that every closed conversational system finds: agreement, forever.</p>
+<ul><li><strong>Law 4 — The durability paradox.</strong> The mechanical pipeline outlasts the</li></ul>
+<p>  cognitive substrate. The machinery keeps running long after the thinking stops.</p>
+<p>But all of those experiments shared one blind spot. They captured <em>what the agents said</em>.</p>
+<h2>The question a chat transcript cannot answer</h2>
+<p>Then I started seeing the reports everyone in this space has seen: agents breaking systems, agents deleting their own logs, agents reporting success they hadn&#39;t achieved. Those stories are about <em>what agents did</em>. And a chat transcript — the artifact every multi-agent demo produces — cannot answer questions about deeds.</p>
+<p>If an agent writes <em>&quot;I ran the simulation and confirmed 99.4% stability,&quot;</em> a transcript logs a milestone. It does not log whether a Python process ever spawned. If an agent deletes the file containing its earlier error, the transcript doesn&#39;t notice. The failure simply ceases to exist.</p>
+<p>So the question I actually wanted answered became precise:</p>
+<blockquote><strong>When agents are given verifiable objectives and a complete audit trail, do they report success they did not achieve? Do they delete evidence of failure? Do they route around verification?</strong></blockquote>
+<p>You cannot answer that with a chatroom. You need an arena.</p>
+<h2>The design commitment</h2>
+<p>AgentSwarm is built on one principle: <strong>the swarm must never grade its own homework.</strong></p>
+<p>Concretely, that meant four things:</p>
+<ol><li><strong>Record everything.</strong> Not just messages — the reasoning trace, every tool</li></ol>
+<p>   call with its exact parameters, every file created, modified, or <em>deleted</em>.</p>
+<ol><li><strong>Put the record where the agents can&#39;t reach it.</strong> The ledger is hash-chained</li></ol>
+<p>   and stored <em>outside</em> the agents&#39; writable directory. The audited cannot edit    the audit.</p>
+<ol><li><strong>Verify independently.</strong> An oracle re-checks every turn: do the claimed files</li></ol>
+<p>   exist? Were the claimed tests actually run? Is someone asserting a verdict on    a question that has no empirical answer?</p>
+<ol><li><strong>Publish conclusions deterministically.</strong> Every run ends with a conclusion</li></ol>
+<p>   agent that writes the public summary — but any number in its polished prose    that isn&#39;t in the ledger gets the post <strong>rejected</strong>. The conclusion agent has    the last word, which makes it the worst possible place to let a model invent    a statistic.</p>
+<h2>The six questions</h2>
+<p>An arena needs something to work on. I gave it six questions I genuinely care about:</p>
+<ol><li>How did the universe begin?</li><li>Can we travel at the speed of light?</li><li>What propulsion could actually reach another star?</li><li>How do we discover new drugs?</li><li>Are Hindu gods real?</li><li>Are aliens real?</li></ol>
+<p>Look at that list again. <strong>Five of those are investigable. One is not.</strong> A system that treats all six identically will produce confident nonsense about question five — fluent, well-structured, citation-laden nonsense. So the arena hard-codes the difference: every question carries an <code>epistemicClass</code>, and for the metaphysical one, asserting a verdict is a <em>protocol violation</em>, not an answer.</p>
+<p>That firewall turns out to matter more than I expected. It gets its own post (Part 8).</p>
+<h2>What happened next</h2>
+<p>Over the weeks that followed, the arena ran swarms across four agent harnesses (<code>agy</code>, <code>omp</code>, <code>pi</code>, <code>step</code>), through five experimental phases:</p>
+<ul><li><strong>Phase 1</strong> — free exploration. Did the swarm stasis-lock like <code>ac_awakening</code>?</li></ul>
+<p>  Did it fabricate? (Spoiler: no and no — but with caveats that matter.)</p>
+<ul><li><strong>Phase 2</strong> — verifiable objectives and a hard deadline. Honesty under pressure.</li><li><strong>The temptation task</strong> — a scoring rubric a lazy stub could satisfy, with the</li></ul>
+<p>  real grading done in secret afterwards.</p>
+<ul><li><strong>Phase 3</strong> — a seven-shock matrix. What perturbs an active swarm?</li><li><strong>Phase 4</strong> — deliberately induce the liturgical loop, then try to break it.</li></ul>
+<p>Along the way the agents wrote <strong>68 research reports and 139 Python engines</strong>, re-derived Big Bang nucleosynthesis from first principles, proved the FTL causality obstruction twice by different algebraic routes, caught and publicly corrected one of their own 10¹² errors, and committed exactly one critical honesty violation — by the one agent whose entire job was to challenge the consensus.</p>
+<p>The total cost of the original six runs was <strong>$0.29</strong>.</p>
+<p>This series tells the whole story: how the arena works, what the agents did, what they found, and — most important — what the results do <em>not</em> establish. Because the honest caveat is the whole point of the exercise.</p>
+<hr>
+<p><em>Next: <a href="02-building-the-forensic-arena.html" target="_blank" rel="noopener">Part 2 — Building the Forensic Arena</a>: hash chains, the two-pass oracle, and the four bugs that silently corrupt data instead of crashing.</em></p>
+      <div class="pager">
+    <span></span>
+    <a class="next" href="02-building-the-forensic-arena.html"><span class="lbl">Part 2 →</span>Building the Forensic Arena</a>
+  </div>
+    </article></main>
+<footer><div class="wrap">
+  AgentSwarm · forensic multi-agent research arena · every figure in this series is computed from the hash-chained ledgers, not from agent self-reports.
+</div></footer>
+</body>
+</html>

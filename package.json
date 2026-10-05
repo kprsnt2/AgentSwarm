@@ -12,6 +12,7 @@
     "verify": "node arena/verify-ledger.mjs",
     "export": "node arena/export-site.mjs",
     "corpus": "node arena/export-corpus.mjs",
+    "blog": "node site/export-blog.mjs",
     "build": "npm run export && npm run corpus && node site/build.mjs",
     "site": "npm run build",
     "phase3": "node arena/run-phase3.mjs",
