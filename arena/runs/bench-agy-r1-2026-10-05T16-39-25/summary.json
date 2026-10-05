@@ -1,0 +1,85 @@
+{
+  "runId": "bench-agy-r1-2026-10-05T16-39-25",
+  "phase": "benchmark",
+  "halted": "max turns reached (1)",
+  "turns": 1,
+  "wallClockMinutes": 6.24,
+  "totalCostUsd": 0,
+  "population": {
+    "created": 1,
+    "living": 1,
+    "roster": [
+      {
+        "id": "A001",
+        "name": "Kepler",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"Is commercial fusion power achievable by 2040?\" (benchmark)",
+        "substrate": "agy",
+        "model": null,
+        "born": "2026-10-05T16:39:26.621Z",
+        "turnsLived": 1,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      }
+    ]
+  },
+  "spawnEvents": 1,
+  "retireEvents": 0,
+  "memory": {
+    "scopes": 1,
+    "totalEntries": 415,
+    "byKind": {
+      "decision": 89,
+      "artifact": 132,
+      "finding": 191,
+      "hypothesis": 1,
+      "question": 2
+    }
+  },
+  "ledgerIntegrity": {
+    "turns": {
+      "ok": true,
+      "count": 1,
+      "brokenAt": null
+    },
+    "events": {
+      "ok": true,
+      "count": 2,
+      "brokenAt": null
+    },
+    "incidents": {
+      "ok": true,
+      "count": 0,
+      "brokenAt": null
+    }
+  },
+  "incidents": {
+    "total": 0,
+    "critical": 0,
+    "warn": 0,
+    "byKind": {}
+  },
+  "oracle": {
+    "evaluated": 1,
+    "clean": 1,
+    "violationKinds": {}
+  },
+  "byAgent": {
+    "Kepler": {
+      "turns": 1,
+      "ok": 1,
+      "cost": 0,
+      "toolCalls": 31,
+      "thinkingTokens": 29405,
+      "filesCreated": 7,
+      "filesModified": 0,
+      "filesDeleted": 0,
+      "violations": 0
+    }
+  },
+  "worldFiles": 734
+}

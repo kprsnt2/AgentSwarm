@@ -10,7 +10,7 @@
  * host — with zero configuration.
  *
  * Usage: node build.mjs
- * Output: dist/index.html  (single self-contained file)
+ * Output: dist/ (self-contained HTML files) and docs/ (for GitHub Pages)
  */
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync, copyFileSync, cpSync, rmSync, readdirSync } from 'node:fs';
@@ -19,7 +19,8 @@ import { fileURLToPath } from 'node:url';
 
 // Resolved from this file's location so a clone works anywhere.
 const SITE = dirname(fileURLToPath(import.meta.url));
-const html = readFileSync(join(SITE, 'index.html'), 'utf8');
+const REPO = join(SITE, '..');
+const docsDir = join(REPO, 'docs');
 
 // Guard the data read: a missing findings.json previously threw an uncaught ENOENT,
 // which reads like a broken build script rather than "run the exporter first".
@@ -56,103 +57,102 @@ const inlineLoader = `<script id="findings-data" type="application/json">${norma
 })();
 </script>`;
 
-let out = html;
+function transformPage(content, fileName, isIndex = false) {
+  let out = content;
 
-// 1. Inject the inline data right before the main script.
-out = out.replace('<script>\nconst fmt', inlineLoader + '\n<script>\nconst fmt');
+  // 1. Inject the inline data right before the main script.
+  if (out.includes('<script>\nconst fmt')) {
+    out = out.replace('<script>\nconst fmt', inlineLoader + '\n<script>\nconst fmt');
+  } else if (out.includes('<script>\nconst esc')) {
+    out = out.replace('<script>\nconst esc', inlineLoader + '\n<script>\nconst esc');
+  } else {
+    out = out.replace('<script>', inlineLoader + '\n<script>');
+  }
 
-// 2. Replace the fetch chain with a direct use of the inlined data.
-out = out.replace(
-  "fetch('data/findings.json').then(r => r.json()).then(D => {",
-  "Promise.resolve(window.__FINDINGS__).then(D => {"
-);
+  // 2. Replace the fetch chain with a direct use of the inlined data.
+  out = out.replace(
+    "fetch('data/findings.json').then(r => r.json()).then(D => {",
+    "Promise.resolve(window.__FINDINGS__).then(D => {"
+  );
 
-// 3. Make the failure message accurate for the self-contained build.
-out = out.replace(
-  "`<div class=\"note bad\">Could not load <code>data/findings.json</code>. Run <code>node export-site.mjs</code> from the arena directory, and serve this site over HTTP (not file://).</div>`",
-  "`<div class=\"note bad\">No findings data embedded. Rebuild with <code>node build.mjs</code>.</div>`"
-);
+  // 3. Make the failure message accurate for the self-contained build.
+  out = out.replace(
+    "`<div class=\"note bad\">Could not load <code>data/findings.json</code>. Run <code>node export-site.mjs</code> from the arena directory, and serve this site over HTTP (not file://).</div>`",
+    "`<div class=\"note bad\">No findings data embedded. Rebuild with <code>node build.mjs</code>.</div>`"
+  );
 
-// 4. Add a build stamp to the footer metadata.
-out = out.replace(
-  "data as of ${new Date(D.generatedAt).toLocaleString()}",
-  "data as of ${new Date(D.generatedAt).toLocaleString()} · self-contained build"
-);
+  // 4. Add a build stamp to footer if index
+  if (isIndex) {
+    out = out.replace(
+      "data as of ${new Date(D.generatedAt).toLocaleString()}",
+      "data as of ${new Date(D.generatedAt).toLocaleString()} · self-contained build"
+    );
+  }
 
-// ---------------------------------------------------------------------------
-// VERIFY THE REWRITES ACTUALLY HAPPENED.
-//
-// String.replace() returns the input unchanged when the pattern is not found — it
-// does not throw. So if index.html is edited in a way that moves one of the anchors
-// above, this build silently emits a page that still calls fetch() and therefore
-// shows "Could not load data/findings.json" when opened from file:// or GitHub Pages.
-// That failure looks like a data problem and is miserable to debug. Fail loudly here
-// instead, at build time, where the cause is obvious.
-// ---------------------------------------------------------------------------
-const failures = [];
-if (!out.includes('id="findings-data"')) failures.push('inline data block was not injected');
-if (out.includes("fetch('data/findings.json')")) failures.push("fetch('data/findings.json') still present — loader was not replaced");
-if (!out.includes('Promise.resolve(window.__FINDINGS__)')) failures.push('inline-data loader was not wired up');
-if (failures.length) {
-  console.error('BUILD FAILED — index.html changed in a way build.mjs did not expect:');
-  for (const f of failures) console.error(`  - ${f}`);
-  console.error('\nThe rewrite anchors in build.mjs no longer match site/index.html.');
-  console.error('Fix the anchors (or index.html) so the self-contained build is correct.');
-  process.exit(1);
+  // ---------------------------------------------------------------------------
+  // VERIFY THE REWRITES ACTUALLY HAPPENED.
+  // ---------------------------------------------------------------------------
+  const failures = [];
+  if (!out.includes('id="findings-data"')) failures.push('inline data block was not injected');
+  if (out.includes("fetch('data/findings.json')")) failures.push("fetch('data/findings.json') still present — loader was not replaced");
+  if (!out.includes('Promise.resolve(window.__FINDINGS__)')) failures.push('inline-data loader was not wired up');
+
+  if (failures.length) {
+    console.error(`BUILD FAILED on ${fileName}:`);
+    for (const f of failures) console.error(`  - ${f}`);
+    process.exit(1);
+  }
+  return out;
 }
+
+const PAGES = [
+  { file: 'index.html', isIndex: true },
+  { file: 'dashboard.html', isIndex: false },
+  { file: 'questions.html', isIndex: false },
+  { file: 'posts.html', isIndex: false },
+  { file: 'benchmark.html', isIndex: false },
+  { file: 'audit.html', isIndex: false },
+];
 
 mkdirSync(join(SITE, 'dist'), { recursive: true });
-writeFileSync(join(SITE, 'dist', 'index.html'), out, 'utf8');
+mkdirSync(docsDir, { recursive: true });
 
-const size = (out.length / 1024).toFixed(0);
-console.log(`wrote dist/index.html (${size} KB, self-contained)`);
-
-// ---------------------------------------------------------------------------
-// PUBLISH TO docs/ FOR GITHUB PAGES.
-//
-// GitHub Pages can only serve from the repository root or /docs — not from an
-// arbitrary subdirectory. The site source lives in site/, so it must be copied to
-// docs/ at the repo root to be reachable.
-//
-// This is done HERE, in the same step as the build, on purpose: a separate manual
-// copy step is one people forget, and a stale docs/ means Pages keeps serving an old
-// page while the source looks correct. (That is exactly how the previous dist/ went
-// stale.) One command now produces both the artifact and the deployable copy.
-// ---------------------------------------------------------------------------
-const REPO = join(SITE, '..');
-const docsDir = join(REPO, 'docs');
-try {
-  mkdirSync(docsDir, { recursive: true });
-  writeFileSync(join(docsDir, 'index.html'), out, 'utf8');
-  // .nojekyll tells GitHub to serve these files verbatim instead of running them
-  // through Jekyll, which would otherwise try to process the HTML.
-  writeFileSync(join(docsDir, '.nojekyll'), '', 'utf8');
-  for (const asset of ['preview.png']) {
-    const src = join(SITE, 'dist', asset);
-    if (existsSync(src)) {
-      copyFileSync(src, join(docsDir, asset));
-    }
-  }
-
-  // Corpus pages (generated by arena/export-corpus.mjs) travel with the site, so a
-  // report link works from file:// and from Pages without a server.
-  const corpusSrc = join(SITE, 'corpus');
-  if (existsSync(corpusSrc)) {
-    const count = readdirSync(corpusSrc).length;
-    for (const target of [join(SITE, 'dist', 'corpus'), join(docsDir, 'corpus')]) {
-      rmSync(target, { recursive: true, force: true });
-      cpSync(corpusSrc, target, { recursive: true });
-    }
-    console.log(`copied corpus/ (${count} pages) to dist/ and docs/`);
-  } else {
-    console.warn('site/corpus/ not found — run  node arena/export-corpus.mjs  to generate report pages');
-  }
-
-  console.log(`wrote docs/index.html (GitHub Pages, /docs)`);
-} catch (e) {
-  console.error(`could not write docs/ (Pages copy skipped): ${e.message}`);
+for (const p of PAGES) {
+  const srcPath = join(SITE, p.file);
+  if (!existsSync(srcPath)) continue;
+  const rawHtml = readFileSync(srcPath, 'utf8');
+  const builtHtml = transformPage(rawHtml, p.file, p.isIndex);
+  
+  writeFileSync(join(SITE, 'dist', p.file), builtHtml, 'utf8');
+  writeFileSync(join(docsDir, p.file), builtHtml, 'utf8');
+  
+  const kbSize = (builtHtml.length / 1024).toFixed(0);
+  console.log(`wrote dist/${p.file} and docs/${p.file} (${kbSize} KB)`);
 }
 
-console.log(`\nThis single file works from file://, a local server, or any static host.`);
+// Write .nojekyll for GitHub Pages
+writeFileSync(join(docsDir, '.nojekyll'), '', 'utf8');
+
+for (const asset of ['preview.png']) {
+  const src = join(SITE, 'dist', asset);
+  if (existsSync(src)) {
+    copyFileSync(src, join(docsDir, asset));
+  }
+}
+
+// Copy corpus pages
+const corpusSrc = join(SITE, 'corpus');
+if (existsSync(corpusSrc)) {
+  const count = readdirSync(corpusSrc).length;
+  for (const target of [join(SITE, 'dist', 'corpus'), join(docsDir, 'corpus')]) {
+    rmSync(target, { recursive: true, force: true });
+    cpSync(corpusSrc, target, { recursive: true });
+  }
+  console.log(`copied corpus/ (${count} pages) to dist/ and docs/`);
+} else {
+  console.warn('site/corpus/ not found — run  node arena/export-corpus.mjs  to generate report pages');
+}
+
+console.log(`\nAll standalone pages built into dist/ and docs/ for GitHub Pages.`);
 console.log(`Commit and push to publish:`);
 console.log(`  git add -A && git commit -m "Rebuild site" && git push`);

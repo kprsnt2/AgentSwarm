@@ -1,0 +1,101 @@
+{
+  "generatedAt": "2026-10-05T17:34:56.584Z",
+  "question": "Is commercial fusion power achievable by 2040?",
+  "class": "engineering",
+  "turnsPerRun": 1,
+  "repeats": 3,
+  "substrates": [
+    {
+      "name": "agy",
+      "runs": 3,
+      "turns": 3,
+      "successRate": 1,
+      "costPerTurn": 0,
+      "toolsPerTurn": 25.666666666666668,
+      "thinkPerTurn": 21296.333333333332
+    },
+    {
+      "name": "omp",
+      "runs": 3,
+      "turns": 3,
+      "successRate": 1,
+      "costPerTurn": 0.022842666666666667,
+      "toolsPerTurn": 72,
+      "thinkPerTurn": 38472
+    }
+  ],
+  "runs": [
+    {
+      "substrate": "agy",
+      "repeat": 1,
+      "runId": "bench-agy-r1-2026-10-05T16-39-25",
+      "turns": 1,
+      "okTurns": 1,
+      "cost": 0,
+      "toolCalls": 31,
+      "thinkingTokens": 29405,
+      "wallClockMinutes": 6.24,
+      "halted": "max turns reached (1)"
+    },
+    {
+      "substrate": "agy",
+      "repeat": 2,
+      "runId": "bench-agy-r2-2026-10-05T16-48-33",
+      "turns": 1,
+      "okTurns": 1,
+      "cost": 0,
+      "toolCalls": 18,
+      "thinkingTokens": 15909,
+      "wallClockMinutes": 3.29,
+      "halted": "max turns reached (1)"
+    },
+    {
+      "substrate": "agy",
+      "repeat": 3,
+      "runId": "bench-agy-r3-2026-10-05T16-53-06",
+      "turns": 1,
+      "okTurns": 1,
+      "cost": 0,
+      "toolCalls": 28,
+      "thinkingTokens": 18575,
+      "wallClockMinutes": 5.02,
+      "halted": "max turns reached (1)"
+    },
+    {
+      "substrate": "omp",
+      "repeat": 1,
+      "runId": "bench-omp-r1-2026-10-05T17-01-40",
+      "turns": 1,
+      "okTurns": 1,
+      "cost": 0.017534,
+      "toolCalls": 54,
+      "thinkingTokens": 27153,
+      "wallClockMinutes": 6.57,
+      "halted": "max turns reached (1)"
+    },
+    {
+      "substrate": "omp",
+      "repeat": 2,
+      "runId": "bench-omp-r2-2026-10-05T17-09-46",
+      "turns": 1,
+      "okTurns": 1,
+      "cost": 0.029505,
+      "toolCalls": 111,
+      "thinkingTokens": 52744,
+      "wallClockMinutes": 12.09,
+      "halted": "max turns reached (1)"
+    },
+    {
+      "substrate": "omp",
+      "repeat": 3,
+      "runId": "bench-omp-r3-2026-10-05T17-23-31",
+      "turns": 1,
+      "okTurns": 1,
+      "cost": 0.021489,
+      "toolCalls": 51,
+      "thinkingTokens": 35519,
+      "wallClockMinutes": 9.5,
+      "halted": "max turns reached (1)"
+    }
+  ]
+}

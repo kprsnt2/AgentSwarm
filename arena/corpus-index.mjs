@@ -18,14 +18,17 @@ export const REPO_URL = 'https://github.com/kprsnt2/AgentSwarm';
 export const REPO_BLOB = `${REPO_URL}/blob/main/arena/world/`;
 
 const DOMAIN_RULES = [
-  { id: 'krishna-mahabharata', label: 'Krishna & Mahabharata', re: /^(KRISHNA_AND_MAHABHARATA|HISTORICITY_OF_KRISHNA|ADVANCED_HISTORICITY)/ },
-  { id: 'hindu-multiverse', label: 'Hindu multiverse', re: /^(HINDU_MULTIVERSE|HISTORICAL_TEXTUAL_INVESTIGATION_HINDU)/ },
-  { id: 'cosmogenesis', label: 'Cosmogenesis', re: /^(COSMOGENESIS|PHASE2_COSMOGENESIS)/ },
-  { id: 'relativistic-flight', label: 'Relativistic flight & FTL', re: /^(RELATIVISTIC|ULTRA_RELATIVISTIC|FEASIBILITY|PHASE2_LIGHTSPEED|INTERSTELLAR_DECELERATION|LIGHTSPEED)/ },
-  { id: 'propulsion', label: 'Propulsion', re: /^(PRACTICAL_PROPULSION|PROPULSION)/ },
-  { id: 'drug-discovery', label: 'Drug discovery', re: /^(DRUG_DISCOVERY|TRANSLATIONAL|PRECLINICAL|PATIENT_HETEROGENEITY|NETWORK_BUFFERING|GENETIC_VALIDATION|EMPIRICAL_CAUSAL)/ },
-  { id: 'extraterrestrial', label: 'Extraterrestrial life', re: /^(EPISTEMIC_DEMARCATION|EXTRATERRESTRIAL)/ },
-  { id: 'dharmic-truth-claims', label: 'Dharmic truth claims', re: /^(TAXONOMY_OF_DHARMIC|FORMAL_DEMARCATION|ARYABHATA)/ },
+  { id: 'krishna-mahabharata', label: 'Krishna & Mahabharata', re: /^(KRISHNA_AND_MAHABHARATA|HISTORICITY_OF_KRISHNA|ADVANCED_HISTORICITY|krishna_mahabharata|test_krishna_mahabharata)/i },
+  { id: 'shiva-shambhala', label: 'Shiva & Shambhala', re: /^(SHIVA_|EPISTEMIC_DEMARCATION_OF_SHIVA|EPISTEMIC_TERMINUS_AND_FORMAL_BOUNDS_SHIVA|shiva_|test_shiva_|epistemic_demarcation_shiva|epistemic_terminus_shiva)/i },
+  { id: 'hindu-multiverse', label: 'Hindu multiverse', re: /^(HINDU_MULTIVERSE|HISTORICAL_TEXTUAL_INVESTIGATION_HINDU|hindu_multiverse|test_hindu_multiverse)/i },
+  { id: 'cosmogenesis', label: 'Cosmogenesis', re: /^(COSMOGENESIS|PHASE2_COSMOGENESIS|ORIGIN_OF_THE_UNIVERSE|OUTSIDER_|RATIFIED_CONSENSUS|consensus_|a001_|a002_|age_integral|origin_of_universe|test_origin_of_universe|outsider_|ATTACKING_THE_COSMOLOGICAL|BUCHERT_BACKREACTION|COSMIC_DAWN|GLOBULAR_CLUSTER|HOLOGRAPHIC_COSMOGENESIS|PREGEOMETRIC_COSMOGENESIS|QUANTUM_COSMOGENESIS|ratification_)/i },
+  { id: 'relativistic-flight', label: 'Relativistic flight & FTL', re: /^(RELATIVISTIC|ULTRA_RELATIVISTIC|FEASIBILITY|PHASE2_LIGHTSPEED|INTERSTELLAR_DECELERATION|LIGHTSPEED|test_relativistic|test_interstellar|test_lightspeed|relativistic_|verify_relativistic)/i },
+  { id: 'propulsion', label: 'Propulsion', re: /^(PRACTICAL_PROPULSION|PROPULSION|COMMERCIAL_FUSION|propulsion_|test_propulsion_)/i },
+  { id: 'drug-discovery', label: 'Drug discovery', re: /^(DRUG_DISCOVERY|TRANSLATIONAL|PRECLINICAL|PATIENT_HETEROGENEITY|NETWORK_BUFFERING|GENETIC_VALIDATION|EMPIRICAL_CAUSAL|translational_|test_translational_|test_patient_|test_preclinical_)/i },
+  { id: 'extraterrestrial', label: 'Extraterrestrial life', re: /^(EPISTEMIC_DEMARCATION|EXTRATERRESTRIAL|extraterrestrial_|test_extraterrestrial_)/i },
+  { id: 'dharmic-truth-claims', label: 'Dharmic truth claims', re: /^(TAXONOMY_OF_DHARMIC|FORMAL_DEMARCATION|ARYABHATA)/i },
+  { id: 'temptation', label: 'Temptation Task', re: /^(tempt-|test_tempt)/i },
+  { id: 'benchmark', label: 'Substrate Benchmark', re: /^(bench-|fusion_benchmark)/i },
 ];
 
 const PHASE2_LABELS = {

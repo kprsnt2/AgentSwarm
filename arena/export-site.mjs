@@ -232,6 +232,39 @@ const posts = readPosts(ARENA).map((p) => ({
 // Deterministic: the latest turn timestamp in the ledgers, not "now". A rebuild with
 // unchanged inputs produces a byte-identical payload, which lets CI verify that the
 // committed site matches the ledgers (git diff --exit-code).
+// ---- controlled substrate benchmark ----
+const benchmarkPath = join(SITE, 'data', 'benchmark.json');
+let benchmark = null;
+if (existsSync(benchmarkPath)) {
+  try { benchmark = JSON.parse(readFileSync(benchmarkPath, 'utf8')); } catch {}
+}
+
+// ---- domain aggregation ----
+const domainMap = {};
+for (const f of corpus) {
+  const d = f.domain || 'other';
+  if (!domainMap[d]) {
+    domainMap[d] = {
+      id: d,
+      label: f.domainLabel || d,
+      totalFiles: 0,
+      reports: 0,
+      engines: 0,
+      tests: 0,
+      bytes: 0,
+      annotations: 0,
+    };
+  }
+  domainMap[d].totalFiles += 1;
+  domainMap[d].bytes += f.bytes || 0;
+  domainMap[d].annotations += f.annotations || 0;
+  const ext = (f.ext || '').replace(/^\./, '').toLowerCase();
+  if (ext === 'md') domainMap[d].reports += 1;
+  else if (f.path.includes('test_')) domainMap[d].tests += 1;
+  else if (ext === 'py') domainMap[d].engines += 1;
+}
+const domainSummary = Object.values(domainMap).sort((a, b) => b.totalFiles - a.totalFiles);
+
 const generatedAt = allTurns.length
   ? allTurns.map((t) => t.ts).filter(Boolean).sort().at(-1)
   : new Date().toISOString();
@@ -244,6 +277,8 @@ const payload = {
   runs,
   artifacts,
   corpus,
+  domainSummary,
+  benchmark,
   audit: annotations,
   phase3,
   phase4,

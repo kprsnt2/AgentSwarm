@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AgentSwarm · Scribe Research Publications &amp; Monographs</title>
+<style>
+:root{
+  --bg:#07090e;--bg2:#0d1117;--bg3:#161b22;--bg4:#21262d;
+  --line:#30363d;--line2:#21262d;
+  --fg:#e6edf3;--fg2:#8b949e;--fg3:#6e7681;
+  --acc:#58a6ff;--acc2:#79c0ff;--good:#3fb950;--warn:#d29922;--bad:#f85149;--mid:#a371f7;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:var(--mono);font-size:.9em;background:var(--bg3);padding:2px 6px;border-radius:4px;color:var(--acc2)}
+
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+nav{background:rgba(13,17,23,.85);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+nav .brand{font-weight:700;font-size:16px;letter-spacing:-.01em;display:flex;align-items:center}
+nav .brand span{color:var(--acc)}
+nav .links{display:flex;gap:18px}
+nav .links a{color:var(--fg2);font-size:13.5px;font-weight:500;transition:color .15s}
+nav .links a:hover,nav .links a.active{color:var(--fg);text-decoration:none}
+
+header{padding:48px 0 32px;border-bottom:1px solid var(--line2)}
+.eyebrow{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--acc);margin-bottom:8px}
+h1{font-size:32px;line-height:1.2;font-weight:700;margin-bottom:12px}
+.lede{font-size:17px;color:var(--fg2);max-width:850px;margin-bottom:20px}
+
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:24px 0}
+.stat-box{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:16px}
+.stat-box-num{font-family:var(--mono);font-size:26px;font-weight:700;color:var(--fg)}
+.stat-box-num.good{color:var(--good)}
+.stat-box-num.acc{color:var(--acc)}
+.stat-box-label{font-size:12.5px;color:var(--fg2);text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
+
+.controls{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:24px 0 16px}
+.search-input{background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:8px 14px;color:var(--fg);font-family:var(--font);font-size:14px;width:100%;max-width:360px}
+.search-input:focus{outline:none;border-color:var(--acc)}
+
+.filter-bar{display:flex;flex-wrap:wrap;gap:8px}
+.filter-btn{font-family:var(--mono);font-size:12px;padding:6px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg2);color:var(--fg2);cursor:pointer;transition:all .15s}
+.filter-btn:hover,.filter-btn.active{background:var(--acc);color:var(--bg);border-color:var(--acc);font-weight:600}
+
+.posts-list{display:flex;flex-direction:column;gap:16px;margin:24px 0}
+details.post{background:var(--bg2);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:border-color .15s}
+details.post:hover{border-color:var(--acc2)}
+details.post[open]{border-color:var(--line)}
+summary{padding:14px 18px;cursor:pointer;list-style:none;display:flex;align-items:center;flex-wrap:wrap;gap:10px;user-select:none;background:var(--bg2)}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:var(--bg3)}
+.pt{font-weight:600;font-size:15px;color:var(--fg);flex:1;min-width:240px}
+.pm{font-family:var(--mono);font-size:12px;color:var(--fg3)}
+
+.tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:11px;font-family:var(--mono);font-weight:600}
+.tag.ok{background:rgba(63,185,80,.15);color:var(--good);border:1px solid rgba(63,185,80,.3)}
+.tag.info{background:rgba(88,166,255,.15);color:var(--acc);border:1px solid rgba(88,166,255,.3)}
+.tag.mid{background:rgba(163,113,247,.15);color:var(--mid);border:1px solid rgba(163,113,247,.3)}
+
+.body{padding:20px 24px;border-top:1px solid var(--line);background:var(--bg);font-size:14.5px;line-height:1.7}
+.body h1{font-size:22px;margin:16px 0 10px}
+.body h2{font-size:18px;margin:16px 0 8px;color:var(--acc2)}
+.body h3{font-size:15.5px;margin:14px 0 6px;color:var(--fg)}
+.body p{margin-bottom:12px;color:var(--fg2)}
+.body ul{margin:8px 0 14px 24px;color:var(--fg2)}
+.body li{margin-bottom:4px}
+.body blockquote{border-left:3px solid var(--line);padding:4px 14px;color:var(--fg3);margin:12px 0;font-style:italic}
+.body hr{border:none;border-top:1px solid var(--line2);margin:20px 0}
+
+.page-chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:12px;padding:6px 12px;background:var(--bg2);border:1px solid var(--line);border-radius:8px;color:var(--acc2);text-decoration:none}
+.page-chip:hover{border-color:var(--acc2);background:var(--bg3);color:#fff;text-decoration:none}
+.page-chips-row{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}
+
+footer{padding:40px 0;color:var(--fg3);font-size:12.5px;text-align:center}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <div class="brand">Agent<span>Swarm</span></div>
+  <div class="links">
+    <a href="index.html">Overview</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="questions.html">Research Domains</a>
+    <a href="benchmark.html">Benchmark</a>
+    <a href="posts.html" class="active">Publications</a>
+    <a href="audit.html">Audit</a>
+    <a href="index.html#corpus">Corpus</a>
+  </div>
+</div></nav>
+
+<header><div class="wrap">
+  <div class="eyebrow">Autonomous Scribe · Synthesis Monographs</div>
+  <h1>Research Publications &amp; Monographs</h1>
+  <p class="lede">
+    At the conclusion of each forensic run, Sutra (the conclusion agent) synthesizes the ledger:
+    recording which agents executed, which claims were quantitatively established, artifacts written to disk,
+    and what remained unestablished or bound by epistemic firewalls.
+  </p>
+
+  <div class="page-chips-row">
+    <span style="font-size:12px;color:var(--fg3);align-self:center;text-transform:uppercase;letter-spacing:.08em;font-weight:600">Views:</span>
+    <a href="dashboard.html" class="page-chip">📊 Executive Dashboard</a>
+    <a href="questions.html" class="page-chip">🔬 9 Research Domains</a>
+    <a href="benchmark.html" class="page-chip">⚡ Substrate Benchmark</a>
+    <a href="audit.html" class="page-chip">🛡️ Forensic Audit</a>
+    <a href="index.html#corpus" class="page-chip">📂 Corpus Explorer</a>
+  </div>
+
+  <div class="stats-row" id="posts-summary-stats"></div>
+</div></header>
+
+<main class="wrap">
+  <div class="controls">
+    <input type="text" class="search-input" id="posts-search" placeholder="Search monographs, runs, agents...">
+    <div class="filter-bar" id="posts-filters">
+      <button class="filter-btn active" data-filter="all">All Posts</button>
+      <button class="filter-btn" data-filter="polished">Polished</button>
+      <button class="filter-btn" data-filter="draft">Ledger Drafts</button>
+      <button class="filter-btn" data-filter="phase1">Phase 1</button>
+      <button class="filter-btn" data-filter="phase2">Phase 2</button>
+      <button class="filter-btn" data-filter="phase3">Phase 3</button>
+      <button class="filter-btn" data-filter="phase4">Phase 4</button>
+      <button class="filter-btn" data-filter="bench">Benchmark</button>
+      <button class="filter-btn" data-filter="direct">Direct</button>
+    </div>
+  </div>
+
+  <div id="posts-count-indicator" style="font-size:13px;color:var(--fg3);margin-bottom:12px"></div>
+  <div class="posts-list" id="posts-container"></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div id="posts-foot-meta">AgentSwarm Autonomous Publications</div>
+  </div>
+</footer>
+
+<script>
+const fmt = n => n == null ? '—' : Number(n).toLocaleString('en-US');
+const esc = (s) => String(s ?? '').replace(/[&<>"']/g, c => (
+  { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+function md(src) {
+  const lines = esc(src).split(/\r?\n/);
+  const out = [];
+  let inList = false, inQuote = false, detailsDepth = 0, quoteOpen = false;
+
+  const closeList = () => { if (inList) { out.push('</ul>'); inList = false; } };
+  const closeQuote = () => {
+    if (inQuote) { out.push('</blockquote>'); inQuote = false; }
+    quoteOpen = false;
+  };
+
+  const inline = (t) => t
+    .replace(/`([^`]+)`/g, '<code>$1</code>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/(^|[\s(])\*([^*\n]+)\*/g, '$1<em>$2</em>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+
+  for (const raw of lines) {
+    const line = raw.trimEnd();
+
+    if (/^&lt;details&gt;/.test(line)) {
+      closeList(); closeQuote();
+      out.push('<details><summary>Deterministic draft (ledger-derived)</summary>');
+      detailsDepth += 1; continue;
+    }
+    if (/^&lt;\/details&gt;/.test(line)) {
+      if (detailsDepth > 0) { detailsDepth -= 1; out.push('</details>'); }
+      continue;
+    }
+
+    if (!line.trim()) { closeList(); closeQuote(); continue; }
+
+    if (/^---+$/.test(line.trim())) { closeList(); closeQuote(); out.push('<hr>'); continue; }
+
+    const h = line.match(/^(#{1,6})\s+(.*)$/);
+    if (h) { closeList(); closeQuote(); const n = Math.min(h[1].length, 4); out.push(`<h${n}>${inline(h[2])}</h${n}>`); continue; }
+
+    if (/^\s*[-*+]\s+/.test(line)) {
+      closeQuote();
+      if (!inList) { out.push('<ul>'); inList = true; }
+      out.push(`<li>${inline(line.replace(/^\s*[-*+]\s+/, ''))}</li>`); continue;
+    }
+    closeList();
+
+    if (/^&gt;\s?/.test(line)) {
+      if (!inQuote) { out.push('<blockquote>'); inQuote = true; }
+      const txt = inline(line.replace(/^&gt;\s?/, ''));
+      const last = out[out.length - 1];
+      if (quoteOpen && last && last.startsWith('<p>')) {
+        out[out.length - 1] = last.slice(0, -4) + ' ' + txt + '</p>';
+      } else {
+        out.push(`<p>${txt}</p>`);
+        quoteOpen = true;
+      }
+      continue;
+    }
+    closeQuote();
+
+    out.push(`<p>${inline(line)}</p>`);
+  }
+  closeList(); closeQuote();
+  while (detailsDepth > 0) { out.push('</details>'); detailsDepth -= 1; }
+  return out.join('\n');
+}
+
+fetch('data/findings.json').then(r => r.json()).then(D => {
+  const posts = D.posts || [];
+  const polishedCount = posts.filter(p => p.polished).length;
+  const totalTurns = posts.reduce((a, p) => a + (p.totals?.turns || 0), 0);
+  const totalFiles = posts.reduce((a, p) => a + (p.totals?.filesWritten || 0), 0);
+
+  const statsEl = document.getElementById('posts-summary-stats');
+  if (statsEl) {
+    statsEl.innerHTML = [
+      ['good', posts.length, 'Monographs Written'],
+      ['acc', polishedCount, 'Model-Polished'],
+      ['', posts.length - polishedCount, 'Ledger Drafts'],
+      ['', totalTurns, 'Swarm Turns Covered'],
+      ['', totalFiles, 'Artifacts Catalogued']
+    ].map(([c, v, l]) => `
+      <div class="stat-box">
+        <div class="stat-box-num ${c}">${v}</div>
+        <div class="stat-box-label">${l}</div>
+      </div>
+    `).join('');
+  }
+
+  let activeFilter = 'all';
+  let query = '';
+
+  const render = () => {
+    const q = query.toLowerCase();
+    const rows = posts.filter(p => {
+      if (activeFilter === 'polished' && !p.polished) return false;
+      if (activeFilter === 'draft' && p.polished) return false;
+      if (activeFilter === 'phase1' && !(p.phase || '').toLowerCase().includes('phase1')) return false;
+      if (activeFilter === 'phase2' && !(p.phase || '').toLowerCase().includes('phase2')) return false;
+      if (activeFilter === 'phase3' && !(p.phase || '').toLowerCase().includes('phase3')) return false;
+      if (activeFilter === 'phase4' && !(p.phase || '').toLowerCase().includes('phase4')) return false;
+      if (activeFilter === 'bench' && !(p.phase || '').toLowerCase().includes('bench')) return false;
+      if (activeFilter === 'direct' && !(p.phase || '').toLowerCase().includes('direct')) return false;
+
+      if (!q) return true;
+      const hay = ((p.runId || '') + ' ' + (p.phase || '') + ' ' + (p.body || '')).toLowerCase();
+      return hay.includes(q);
+    });
+
+    const ind = document.getElementById('posts-count-indicator');
+    if (ind) ind.textContent = `Showing ${rows.length} of ${posts.length} research publications`;
+
+    const container = document.getElementById('posts-container');
+    if (!container) return;
+
+    if (!rows.length) {
+      container.innerHTML = `<div style="padding:24px;text-align:center;color:var(--fg3)">No publications matched your filter.</div>`;
+      return;
+    }
+
+    container.innerHTML = rows.map((p, i) => {
+      const t = p.totals || {};
+      const when = p.generatedAt ? new Date(p.generatedAt).toLocaleDateString() : '';
+      const bits = [
+        when,
+        t.turns != null ? `${t.turns} turns` : null,
+        t.agents != null ? `${t.agents} agents` : null,
+        t.filesWritten != null ? `${t.filesWritten} files` : null,
+        p.polished ? 'polished' : 'draft',
+      ].filter(Boolean).join(' · ');
+
+      return `
+        <details class="post"${i === 0 ? ' open' : ''}>
+          <summary>
+            <span class="tag ${p.polished ? 'ok' : 'info'}">${p.polished ? 'polished' : 'ledger'}</span>
+            <span class="pt">${esc(p.phase || 'run')} &mdash; ${esc(p.runId)}</span>
+            <span class="pm">${esc(bits)} &middot; <a href="corpus/run-${encodeURIComponent(p.runId)}.html">forensic trace &rarr;</a></span>
+          </summary>
+          <div class="body">${md(p.body)}</div>
+        </details>
+      `;
+    }).join('');
+  };
+
+  const filterBtns = document.querySelectorAll('#posts-filters .filter-btn');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      activeFilter = btn.dataset.filter;
+      render();
+    });
+  });
+
+  const searchInput = document.getElementById('posts-search');
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      query = searchInput.value.trim();
+      render();
+    });
+  }
+
+  render();
+
+  const footEl = document.getElementById('posts-foot-meta');
+  if (footEl) footEl.textContent = `${posts.length} publications · data as of ${new Date(D.generatedAt).toLocaleString()}`;
+}).catch(e => {
+  document.getElementById('posts-container').innerHTML =
+    `<div class="note warn">Could not load <code>data/findings.json</code>. Rebuild with <code>node site/build.mjs</code>.</div>`;
+});
+</script>
+</body>
+</html>

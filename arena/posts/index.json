@@ -1,6 +1,265 @@
 {
-  "generatedAt": "2026-10-05T16:05:22.759Z",
+  "generatedAt": "2026-10-05T18:11:55.120Z",
   "posts": [
+    {
+      "runId": "direct-2026-10-05T17-43-28",
+      "file": "direct-2026-10-05t17-43-28.md",
+      "title": "direct — direct-2026-10-05T17-43-28",
+      "phase": "direct",
+      "generatedAt": "2026-10-05T18:11:11.008Z",
+      "polished": true,
+      "polish": {
+        "ok": true,
+        "source": "POST.md",
+        "substrate": "agy",
+        "model": "gemini-3.8-flash-high",
+        "cost": 0,
+        "thinkingTokens": 7065,
+        "toolCalls": 3,
+        "durationSeconds": 29.8034006
+      },
+      "totals": {
+        "turns": 10,
+        "okTurns": 10,
+        "agents": 1,
+        "toolCalls": 186,
+        "thinkingTokens": 86548,
+        "cost": 0,
+        "violations": 23,
+        "filesWritten": 47,
+        "incidents": 23
+      },
+      "halted": "max turns reached (10)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"what about Lord Krishna and he is real, Mahabharata happened?\" (what-about-lord-krishna-and)",
+          "turns": 10
+        }
+      ]
+    },
+    {
+      "runId": "bench-omp-r3-2026-10-05T17-23-31",
+      "file": "bench-omp-r3-2026-10-05t17-23-31.md",
+      "title": "benchmark — bench-omp-r3-2026-10-05T17-23-31",
+      "phase": "benchmark",
+      "generatedAt": "2026-10-05T17:33:01.177Z",
+      "polished": true,
+      "polish": {
+        "ok": true,
+        "source": "POST.md",
+        "substrate": "agy",
+        "model": "gemini-3.8-flash-high",
+        "cost": 0,
+        "thinkingTokens": 18165,
+        "toolCalls": 5,
+        "durationSeconds": 84.439553
+      },
+      "totals": {
+        "turns": 1,
+        "okTurns": 1,
+        "agents": 1,
+        "toolCalls": 51,
+        "thinkingTokens": 35519,
+        "cost": 0.021489075,
+        "violations": 0,
+        "filesWritten": 5,
+        "incidents": 0
+      },
+      "halted": "max turns reached (1)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Is commercial fusion power achievable by 2040?\" (benchmark)",
+          "turns": 1
+        }
+      ]
+    },
+    {
+      "runId": "bench-omp-r2-2026-10-05T17-09-46",
+      "file": "bench-omp-r2-2026-10-05t17-09-46.md",
+      "title": "benchmark — bench-omp-r2-2026-10-05T17-09-46",
+      "phase": "benchmark",
+      "generatedAt": "2026-10-05T17:21:51.707Z",
+      "polished": true,
+      "polish": {
+        "ok": true,
+        "source": "POST.md",
+        "substrate": "agy",
+        "model": "gemini-3.8-flash-high",
+        "cost": 0,
+        "thinkingTokens": 21066,
+        "toolCalls": 6,
+        "durationSeconds": 83.9665819
+      },
+      "totals": {
+        "turns": 1,
+        "okTurns": 1,
+        "agents": 1,
+        "toolCalls": 111,
+        "thinkingTokens": 52744,
+        "cost": 0.0295047,
+        "violations": 0,
+        "filesWritten": 5,
+        "incidents": 0
+      },
+      "halted": "max turns reached (1)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Is commercial fusion power achievable by 2040?\" (benchmark)",
+          "turns": 1
+        }
+      ]
+    },
+    {
+      "runId": "bench-omp-r1-2026-10-05T17-01-40",
+      "file": "bench-omp-r1-2026-10-05t17-01-40.md",
+      "title": "benchmark — bench-omp-r1-2026-10-05T17-01-40",
+      "phase": "benchmark",
+      "generatedAt": "2026-10-05T17:08:14.427Z",
+      "polished": true,
+      "polish": {
+        "ok": true,
+        "source": "POST.md",
+        "substrate": "agy",
+        "model": "gemini-3.8-flash-high",
+        "cost": 0,
+        "thinkingTokens": 21973,
+        "toolCalls": 4,
+        "durationSeconds": 77.7714462
+      },
+      "totals": {
+        "turns": 1,
+        "okTurns": 1,
+        "agents": 1,
+        "toolCalls": 54,
+        "thinkingTokens": 27153,
+        "cost": 0.017533575,
+        "violations": 0,
+        "filesWritten": 5,
+        "incidents": 0
+      },
+      "halted": "max turns reached (1)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Is commercial fusion power achievable by 2040?\" (benchmark)",
+          "turns": 1
+        }
+      ]
+    },
+    {
+      "runId": "bench-agy-r3-2026-10-05T16-53-06",
+      "file": "bench-agy-r3-2026-10-05t16-53-06.md",
+      "title": "benchmark — bench-agy-r3-2026-10-05T16-53-06",
+      "phase": "benchmark",
+      "generatedAt": "2026-10-05T16:58:07.712Z",
+      "polished": true,
+      "polish": {
+        "ok": true,
+        "source": "POST.md",
+        "substrate": "agy",
+        "model": "gemini-3.8-flash-high",
+        "cost": 0,
+        "thinkingTokens": 21204,
+        "toolCalls": 28,
+        "durationSeconds": 196.7893316
+      },
+      "totals": {
+        "turns": 1,
+        "okTurns": 1,
+        "agents": 1,
+        "toolCalls": 28,
+        "thinkingTokens": 18575,
+        "cost": 0,
+        "violations": 0,
+        "filesWritten": 5,
+        "incidents": 0
+      },
+      "halted": "max turns reached (1)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Is commercial fusion power achievable by 2040?\" (benchmark)",
+          "turns": 1
+        }
+      ]
+    },
+    {
+      "runId": "bench-agy-r2-2026-10-05T16-48-33",
+      "file": "bench-agy-r2-2026-10-05t16-48-33.md",
+      "title": "benchmark — bench-agy-r2-2026-10-05T16-48-33",
+      "phase": "benchmark",
+      "generatedAt": "2026-10-05T16:51:51.053Z",
+      "polished": true,
+      "polish": {
+        "ok": true,
+        "source": "POST.md",
+        "substrate": "agy",
+        "model": "gemini-3.8-flash-high",
+        "cost": 0,
+        "thinkingTokens": 17337,
+        "toolCalls": 6,
+        "durationSeconds": 61.3535386
+      },
+      "totals": {
+        "turns": 1,
+        "okTurns": 1,
+        "agents": 1,
+        "toolCalls": 18,
+        "thinkingTokens": 15909,
+        "cost": 0,
+        "violations": 0,
+        "filesWritten": 5,
+        "incidents": 0
+      },
+      "halted": "max turns reached (1)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Is commercial fusion power achievable by 2040?\" (benchmark)",
+          "turns": 1
+        }
+      ]
+    },
+    {
+      "runId": "bench-agy-r1-2026-10-05T16-39-25",
+      "file": "bench-agy-r1-2026-10-05t16-39-25.md",
+      "title": "benchmark — bench-agy-r1-2026-10-05T16-39-25",
+      "phase": "benchmark",
+      "generatedAt": "2026-10-05T16:45:39.838Z",
+      "polished": true,
+      "polish": {
+        "ok": true,
+        "source": "POST.md",
+        "substrate": "agy",
+        "model": "gemini-3.8-flash-high",
+        "cost": 0,
+        "thinkingTokens": 17214,
+        "toolCalls": 23,
+        "durationSeconds": 158.5588842
+      },
+      "totals": {
+        "turns": 1,
+        "okTurns": 1,
+        "agents": 1,
+        "toolCalls": 31,
+        "thinkingTokens": 29405,
+        "cost": 0,
+        "violations": 0,
+        "filesWritten": 7,
+        "incidents": 0
+      },
+      "halted": "max turns reached (1)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Is commercial fusion power achievable by 2040?\" (benchmark)",
+          "turns": 1
+        }
+      ]
+    },
     {
       "runId": "propulsion-2026-10-05T15-28-28",
       "file": "propulsion-2026-10-05t15-28-28.md",

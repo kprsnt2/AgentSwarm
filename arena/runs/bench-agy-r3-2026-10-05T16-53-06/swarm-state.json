@@ -1,0 +1,25 @@
+{
+  "runId": "bench-agy-r3-2026-10-05T16-53-06",
+  "ts": "2026-10-05T16:58:07.690Z",
+  "populationCap": 1,
+  "population": [
+    {
+      "id": "A001",
+      "name": "Kepler",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"Is commercial fusion power achievable by 2040?\" (benchmark)",
+      "substrate": "agy",
+      "model": null,
+      "born": "2026-10-05T16:53:06.758Z",
+      "turnsLived": 1,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    }
+  ],
+  "living": 1,
+  "total": 1
+}

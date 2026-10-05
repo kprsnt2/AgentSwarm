@@ -1,0 +1,25 @@
+{
+  "runId": "bench-omp-r3-2026-10-05T17-23-31",
+  "ts": "2026-10-05T17:33:01.082Z",
+  "populationCap": 1,
+  "population": [
+    {
+      "id": "A001",
+      "name": "Kepler",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"Is commercial fusion power achievable by 2040?\" (benchmark)",
+      "substrate": "omp",
+      "model": null,
+      "born": "2026-10-05T17:23:31.331Z",
+      "turnsLived": 1,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    }
+  ],
+  "living": 1,
+  "total": 1
+}
