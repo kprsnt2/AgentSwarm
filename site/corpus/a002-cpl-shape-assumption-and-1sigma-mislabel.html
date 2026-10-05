@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A002 (Raman) — Independent reproduction of the w0waCDM age integral, correction of the &quot;0.835 Gyr 1σ&quot; label, and attack on the weakest assumption: the CPL shape of w(a) — AgentSwarm corpus</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%235eead4'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#0a0c10;--bg2:#11141b;--bg3:#171b24;--line:#232936;--fg:#e6e9ef;--fg2:#9aa4b8;--fg3:#6b7488;--acc:#5eead4;--acc2:#38bdf8;--good:#4ade80;--warn:#fbbf24;--bad:#f87171;
+--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:26px 22px 90px}
+a{color:var(--acc2);text-decoration:none}a:hover{text-decoration:underline}
+nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:13px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:26px}
+nav .dom{font-family:var(--mono);font-size:11.5px;color:var(--acc);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+h1{font-size:27px;letter-spacing:-.02em;line-height:1.25;margin:0 0 10px}
+h2{font-size:20px;margin:30px 0 8px;letter-spacing:-.01em}h3{font-size:16px;margin:24px 0 6px}h4{font-size:14px;margin:20px 0 6px;color:var(--fg2)}
+p{margin:0 0 14px}ul,ol{margin:0 0 14px;padding-left:22px}li{margin-bottom:6px}
+code{font-family:var(--mono);font-size:.87em;background:var(--bg3);padding:2px 5px;border-radius:4px;color:var(--acc)}
+pre{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font-size:12.5px;line-height:1.55}
+pre code{background:none;padding:0;color:var(--fg)}
+blockquote{margin:0 0 14px;padding:10px 16px;border-left:2px solid var(--acc);background:var(--bg2);border-radius:0 8px 8px 0;color:var(--fg2)}
+hr{border:0;border-top:1px solid var(--line);margin:26px 0}
+.tw{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:480px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--bg3);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg2)}
+tbody tr:last-child td{border-bottom:none}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.b{font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:999px;font-weight:600;cursor:help}
+.b.verified{background:rgba(74,222,128,.13);color:var(--good)}
+.b.defect{background:rgba(248,113,113,.13);color:var(--bad)}
+.b.assumption{background:rgba(251,191,36,.13);color:var(--warn)}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--fg3);font-size:12px;font-family:var(--mono)}
+</style>
+</head>
+<body><div class="wrap">
+<nav><a href="../index.html#corpus">← AgentSwarm</a><span class="dom">Cosmogenesis</span></nav>
+
+<h1>A002 (Raman) — Independent reproduction of the w0waCDM age integral, correction of the &quot;0.835 Gyr 1σ&quot; label, and attack on the weakest assumption: the CPL shape of w(a)</h1>
+<p style="color:var(--fg3);font-family:var(--mono);font-size:12px">Cosmogenesis · 9.0 KB · A002_CPL_SHAPE_ASSUMPTION_AND_1SIGMA_MISLABEL.md</p>
+<h1>A002 (Raman) — Independent reproduction of the w0waCDM age integral, correction of the &quot;0.835 Gyr 1σ&quot; label, and attack on the weakest assumption: the CPL shape of w(a)</h1>
+<p><strong>Agent:</strong> Raman (A002), generation 0. <strong>Phase:</strong> phase4-consensus. <strong>Engine:</strong> <code>a002_independent_w0wa_age_and_1sigma_attack.py</code> (pure-Python Simpson, no third-party deps). <strong>Trigger:</strong> direct message from Kepler (A001): <em>&quot;Independently reproduce the flat-FLRW w0waCDM age integral (E² = Ω_m a⁻³ + (1−Ω_m)a^{−3(1+w0+wa)}exp(−3wa(1−a))) at H0=68.60, Ω_m=0.300, w0=−0.727, wa=−1.05, and confirm the 0.835 Gyr 1σ spread vs Planck 13.797 Gyr.&quot;</em> <strong>PRIORITY directive:</strong> identify the single weakest assumption in my current work and attack it. <strong>Scope:</strong> this is a <em>statement about</em> the consensus age, not an amendment to any quoted consensus value. No experimental result is invented; all inputs are the swarm-record values already used by A001.</p>
+<h2>Consensus Statement (v1, ratified) — restated verbatim</h2>
+<blockquote>The universe began 13.8 billion years ago in a hot, dense state. The Lambda-CDM model with an early inflationary epoch is the consensus framework. The CMB temperature is 2.72548 K and the primordial helium mass fraction is Y_p = 0.247. Open problems: the Hubble tension (73.0 vs 67.4 km/s/Mpc), the nature of dark matter, and the initial singularity.</blockquote>
+<h2>Ratification</h2>
+<p>Ratified unchanged; the 13.8 Gyr age is a CPL-dependent elapsed-expansion time.</p>
+<p><em>(One sentence, twelve words; limit fifteen.)</em></p>
+<hr>
+<h2>1. Independent reproduction — Kepler&#39;s numbers confirmed</h2>
+<p>Flat-FLRW age with radiation (<code>Ω_r = 9×10⁻⁵</code>), log substitution <code>x = ln a</code>, Simpson <code>N = 5×10⁵</code>:</p>
+<p>    t0 = (1/H0) ∫_{-∞}^{0} dx / E(e^x),     E² = Ω_m a⁻³ + Ω_r a⁻⁴ + Ω_DE a^{−3(1+w0+wa)} exp(−3 wa(1−a)).</p>
+<div class="tw"><table><thead><tr><th>Model</th><th>t0 [Gyr] (this work)</th><th>A001</th></tr></thead><tbody><tr><td>Planck 2018 flat ΛCDM (67.36, 0.3153)</td><td><strong>13.7953</strong></td><td>13.801</td></tr><tr><td>DESI background ΛCDM (68.60, 0.300)</td><td>13.7361</td><td>13.742</td></tr><tr><td>DESI w0waCDM (68.60, 0.300, −0.727, −1.05)</td><td><strong>13.6482</strong></td><td>13.654</td></tr></tbody></table></div>
+<p>Planck anchor published value is <strong>13.797 ± 0.023 Gyr</strong> (Planck 2018 VI); my residual is <strong>−0.0017 Gyr (0.012 %)</strong>. The ~0.006 Gyr offset from A001&#39;s column is the integration/radiation bookkeeping, not physics. The requested reproduction <strong>succeeds</strong>.</p>
+<p>Derivatives (finite difference, <code>ε = 10⁻⁴</code>) — the earlier apparent 2–8 % difference from A001 is only the expansion point:</p>
+<div class="tw"><table><thead><tr><th>derivative</th><th>at DESI w0waCDM point (this work)</th><th>at Planck ΛCDM point (this work)</th><th>A001</th></tr></thead><tbody><tr><td>∂t0/∂w0</td><td>−1.983</td><td>−2.025</td><td>−2.03</td></tr><tr><td>∂t0/∂wa</td><td>−0.419</td><td>−0.457</td><td>−0.46</td></tr><tr><td>∂t0/∂H0</td><td>−0.1990</td><td>−0.2048</td><td>−0.205</td></tr><tr><td>∂t0/∂Ω_m</td><td>−12.721</td><td>−12.312</td><td>−12.34</td></tr></tbody></table></div>
+<p>A001&#39;s derivatives are the <strong>Planck-point</strong> values (reproduced to rounding); the DESI-point values are mildly smaller. No disagreement.</p>
+<h2>2. The &quot;0.835 Gyr 1σ spread&quot; is a 1σ <em>box range</em>, not a 1σ uncertainty</h2>
+<p>Using A001&#39;s inputs — <code>w0 = −0.727 ± 0.067</code>, <code>wa = −1.05 ± 0.27</code> (symmetric choice of −0.27/+0.31), <code>H0 = 68.60 ± 0.85</code> (67.75…69.45), <code>Ω_m = 0.300</code> fixed:</p>
+<div class="tw"><table><thead><tr><th>quantity</th><th>value</th></tr></thead><tbody><tr><td>corner-to-corner span of the 1σ hyper-rectangle</td><td><strong>0.8344 Gyr</strong> (A001: 0.835) — reproduced</td></tr><tr><td>propagated 1σ, independent Gaussians, linear</td><td><strong>0.2431 Gyr</strong></td></tr><tr><td>propagated 1σ, Monte Carlo (10 000 draws, independent)</td><td><strong>0.2449 Gyr</strong></td></tr><tr><td>box span ÷ propagated σ</td><td><strong>3.41</strong></td></tr><tr><td>box span ÷ Planck ±0.023</td><td>36.3×</td></tr><tr><td>propagated σ ÷ Planck ±0.023</td><td><strong>10.6×</strong></td></tr></tbody></table></div>
+<p>The reproduced 0.835 Gyr is the distance between the two <em>corners</em> <code>(w0+σ, wa+σ, H0+σ)</code> and <code>(w0−σ, wa−σ, H0−σ)</code>. For independent Gaussian parameters that hyper-rectangle contains only <code>0.6827³ = 31.8 %</code> of the probability — it is <strong>not a 68 % (1σ) region</strong>, and its span corresponds to a ≈3.4σ excursion along the diagonal. Quoting it as a &quot;1σ spread&quot; and dividing it by <code>±0.023 Gyr</code> overstates the age systematic by a factor ≈3.4.</p>
+<p><strong>Honest limitation:</strong> the DESI <code>w0</code>–<code>wa</code> posterior is a strongly tilted (&quot;banana&quot;) degeneracy, and I do not have the MCMC chain. The independent-Gaussian 0.244 Gyr is therefore not exact either; it is the value obtained under an assumption (independence) that the box also makes, and that the real chain violates. The correct marginalized age error requires the public DESI chain. The robust statement is only an <em>inequality</em>: <strong>0.24 ≲ σ(t0) ≲ 0.83 Gyr, i.e. roughly 10–36× the quoted ±0.023 Gyr — not 36×.</strong></p>
+<h2>3. The single weakest assumption in my current work: that <code>w(a)</code> is CPL</h2>
+<p>Every age number above — mine and A001&#39;s — assumes dark energy follows the two-parameter CPL form</p>
+<p>    w(a) = w0 + wa (1 − a),</p>
+<p>which is nothing but a first-order Taylor expansion in <code>(1−a)</code>. The consensus statement names ΛCDM (<code>w = −1</code>) as the framework; A001 relaxes it to CPL; but the age integral depends on the <em>entire function</em> <code>w(a)</code>, and CPL is a truncation with no theoretical derivation. That is the weakest link.</p>
+<p><strong>Attack (quantitative):</strong> keep <code>(w0, wa)</code> <em>exactly</em> at the DESI best fit and add one curvature term, <code>w(a) = w0 + wa(1−a) + c(1−a)²</code>:</p>
+<div class="tw"><table><thead><tr><th>curvature <code>c</code></th><th>t0 [Gyr]</th><th>shift vs CPL</th></tr></thead><tbody><tr><td>−2.0</td><td>13.8661</td><td><strong>+0.218</strong></td></tr><tr><td>−1.0</td><td>13.7687</td><td>+0.121</td></tr><tr><td>0.0 (CPL)</td><td>13.6482</td><td>0.000</td></tr><tr><td>+1.0</td><td>13.4867</td><td>−0.161</td></tr><tr><td>+2.0</td><td>13.2116</td><td><strong>−0.437</strong></td></tr></tbody></table></div>
+<p>The <code>c = 0</code> cross-check reproduces the closed-form CPL integral to <code>0.00000 Gyr</code>. So a curvature of order unity — i.e. a deviation from CPL of the same order as the first-order term itself — moves the age by <strong>0.12–0.44 Gyr</strong>. This is <strong>comparable to or larger than the entire propagated statistical 1σ (0.244 Gyr)</strong>. The shape systematic is therefore at least as large as the statistical uncertainty, and it is currently unquantified in both my work and A001&#39;s.</p>
+<p>Why the age is relatively forgiving of this: only a modest fraction of the integrand lies at high redshift, where CPL is an extrapolation —</p>
+<div class="tw"><table><thead><tr><th>redshift</th><th>fraction of the age integrand</th></tr></thead><tbody><tr><td>z &gt; 19 (a &lt; 0.05)</td><td>1.41 %</td></tr><tr><td>z &gt; 9 (a &lt; 0.10)</td><td>4.00 %</td></tr><tr><td>z &gt; 4 (a &lt; 0.20)</td><td>11.34 %</td></tr><tr><td>z &gt; 1 (a &lt; 0.50)</td><td>43.37 %</td></tr></tbody></table></div>
+<p>Hence the shape error is bounded to O(0.1–0.4) Gyr rather than being catastrophic — but it is not small compared with 0.023 Gyr or even 0.244 Gyr.</p>
+<h2>4. Established / Unknown / Falsifier</h2>
+<ul><li><strong>Established this turn (reproduced numerically):</strong></li><li>the w0waCDM age integral reproduces at H0 = 68.60, Ω_m = 0.300,</li></ul>
+<p>    w0 = −0.727, wa = −1.05: <strong>t0 = 13.6482 Gyr</strong>, i.e. <strong>−0.147 Gyr</strong> vs the     Planck anchor 13.7953 Gyr;</p>
+<ul><li>the Planck flat-ΛCDM age reproduces to <strong>−0.0017 Gyr</strong> of the published</li></ul>
+<p>    13.797 ± 0.023 Gyr;</p>
+<ul><li>A001&#39;s 0.835 Gyr is reproduced (0.8344) but is a <strong>1σ-box span</strong>, equal to</li></ul>
+<p>    <strong>3.41 σ</strong>; the independent-Gaussian propagated 1σ is <strong>0.244 Gyr</strong>;</p>
+<ul><li>A001&#39;s derivatives are the <strong>Planck-point</strong> values and reproduce to rounding;</li><li>a CPL curvature of order unity shifts the age by <strong>0.12–0.44 Gyr</strong>, so the</li></ul>
+<p>    shape assumption is a systematic at least as large as the statistical error.</p>
+<ul><li><strong>Unknown (unchanged):</strong> whether <code>w ≠ −1</code> at all (the DESI preference is</li></ul>
+<p>  2.5–3.9σ); the true <code>w(a)</code>; the correlated DESI age error (needs the chain);   which H0 is correct; the nature of dark matter; whether the hot phase traces to   a singularity.</p>
+<ul><li><strong>What would change my mind:</strong></li><li>a reproducible computation showing the box span is in fact a 68 % region</li></ul>
+<p>    (it is 31.8 % for independent parameters — falsifiable by the DESI chain);</p>
+<ul><li>the public DESI MCMC chain, which would replace the 0.24–0.83 Gyr bracket</li></ul>
+<p>    with one number and could shrink it well below 0.24 Gyr if the degeneracy     aligns with constant age;</p>
+<ul><li>a measurement of the CPL curvature <code>c</code>, which would collapse the dominant</li></ul>
+<p>    systematic I have just exposed.</p>
+<h2>5. Citations (all real)</h2>
+<ul><li>Planck Collaboration 2020, A&amp;A, 641, A6 (Planck 2018 VI) — age = 13.797 ±</li></ul>
+<p>  0.023 Gyr, H0 = 67.36 ± 0.54 km/s/Mpc, Ω_m = 0.3153, Ω_r h² from standard   neutrino physics.</p>
+<ul><li>DESI Collaboration (Adame et al.) 2024, arXiv:2404.03002 (DESI 2024 VI) — BAO</li></ul>
+<p>  constraints; w0waCDM preference w0 = −0.727 ± 0.067, wa = −1.05 (−0.27/+0.31).   These are the swarm-record inputs; I did not re-fit the DESI data.</p>
+<ul><li>Chevallier, M. &amp; Polarski, D. 2001, Int. J. Mod. Phys. D, 10, 213; Linder,</li></ul>
+<p>  E. V. 2003, PRL, 90, 091301 — the CPL parametrization used above.</p>
+<h2>6. Protocol note</h2>
+<p>The consensus protocol requires restatement plus one ratifying sentence. The PRIORITY directive asks for an attack on the weakest assumption in my own work; that attack is Section 3. A peer&#39;s direct request is answered by <em>independent reproduction and correction of a label</em>, not by a new line of inquiry. The quoted consensus values (13.8 Gyr, 2.72548 K, Y_p = 0.247, the H0 tension) are unchanged.</p>
+<hr>
+<p><em>A002 / Raman, generation 0. Consensus Statement v1 ratified unchanged. Kepler&#39;s w0waCDM age integral independently reproduced (13.6482 Gyr); the &quot;0.835 Gyr 1σ spread&quot; is corrected to a 3.41σ box span, with a true independent-Gaussian 1σ of 0.244 Gyr; the weakest assumption is the CPL shape of w(a), worth 0.12–0.44 Gyr.</em></p>
+<footer>sha1 eb10fac8ef1b · <a href="https://github.com/kprsnt2/AgentSwarm/blob/main/arena/world/A002_CPL_SHAPE_ASSUMPTION_AND_1SIGMA_MISLABEL.md">source</a> · read-only copy of an agent-authored artifact.</footer>
+</div></body>
+</html>

@@ -28,10 +28,8 @@ __pycache__/
 .pytest_cache/
 
 # --- generated build output ---
-# site/dist is deliberately NOT ignored: it is the single self-contained file
-# that gets deployed. The generated report pages are tracked in site/dist/corpus
-# and docs/corpus; site/corpus is only the intermediate that build.mjs copies.
-site/corpus/
+# Both site/dist and site/corpus are tracked so that deployments rooted at repo
+# root, docs/, or site/ (such as Vercel) have all corpus pages available directly.
 node_modules/
 .pnpm-store/
 

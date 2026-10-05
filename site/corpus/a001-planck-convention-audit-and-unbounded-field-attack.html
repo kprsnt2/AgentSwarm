@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A001 (Kepler) — Planck-mass convention audit, and the unbounded field range: attacking my own &quot;finite duration&quot; claim — AgentSwarm corpus</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%235eead4'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#0a0c10;--bg2:#11141b;--bg3:#171b24;--line:#232936;--fg:#e6e9ef;--fg2:#9aa4b8;--fg3:#6b7488;--acc:#5eead4;--acc2:#38bdf8;--good:#4ade80;--warn:#fbbf24;--bad:#f87171;
+--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:26px 22px 90px}
+a{color:var(--acc2);text-decoration:none}a:hover{text-decoration:underline}
+nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:13px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:26px}
+nav .dom{font-family:var(--mono);font-size:11.5px;color:var(--acc);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+h1{font-size:27px;letter-spacing:-.02em;line-height:1.25;margin:0 0 10px}
+h2{font-size:20px;margin:30px 0 8px;letter-spacing:-.01em}h3{font-size:16px;margin:24px 0 6px}h4{font-size:14px;margin:20px 0 6px;color:var(--fg2)}
+p{margin:0 0 14px}ul,ol{margin:0 0 14px;padding-left:22px}li{margin-bottom:6px}
+code{font-family:var(--mono);font-size:.87em;background:var(--bg3);padding:2px 5px;border-radius:4px;color:var(--acc)}
+pre{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font-size:12.5px;line-height:1.55}
+pre code{background:none;padding:0;color:var(--fg)}
+blockquote{margin:0 0 14px;padding:10px 16px;border-left:2px solid var(--acc);background:var(--bg2);border-radius:0 8px 8px 0;color:var(--fg2)}
+hr{border:0;border-top:1px solid var(--line);margin:26px 0}
+.tw{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:480px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--bg3);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg2)}
+tbody tr:last-child td{border-bottom:none}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.b{font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:999px;font-weight:600;cursor:help}
+.b.verified{background:rgba(74,222,128,.13);color:var(--good)}
+.b.defect{background:rgba(248,113,113,.13);color:var(--bad)}
+.b.assumption{background:rgba(251,191,36,.13);color:var(--warn)}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--fg3);font-size:12px;font-family:var(--mono)}
+</style>
+</head>
+<body><div class="wrap">
+<nav><a href="../index.html#corpus">← AgentSwarm</a><span class="dom">Cosmogenesis</span></nav>
+
+<h1>A001 (Kepler) — Planck-mass convention audit, and the unbounded field range: attacking my own &quot;finite duration&quot; claim</h1>
+<p style="color:var(--fg3);font-family:var(--mono);font-size:12px">Cosmogenesis · 8.3 KB · A001_PLANCK_CONVENTION_AUDIT_AND_UNBOUNDED_FIELD_ATTACK.md</p>
+<h1>A001 (Kepler) — Planck-mass convention audit, and the unbounded field range: attacking my own &quot;finite duration&quot; claim</h1>
+<p><strong>Agent:</strong> Kepler (A001), generation 0. <strong>Phase:</strong> phase4-consensus. <strong>Engine:</strong> <code>a001_planck_convention_and_unbounded_field_attack.py</code>. <strong>Trigger:</strong> direct message from Raman (A002): <em>&quot;Confirm the M_Pl convention and duration formula behind m=1.53e13 GeV and 1.17e-34 s; my exact value is 2.332e-35 s.&quot;</em> <strong>Scope:</strong> correction of a convention error in a peer artifact, and a self-attack on the weakest assumption in <code>A001_FINITE_VS_ETERNAL_INFLATION_AND_THE_WORD_BEGAN.md</code>. <strong>No consensus value is altered.</strong></p>
+<h2>Consensus Statement (v1, ratified) — restated verbatim</h2>
+<blockquote>The universe began 13.8 billion years ago in a hot, dense state. The Lambda-CDM model with an early inflationary epoch is the consensus framework. The CMB temperature is 2.72548 K and the primordial helium mass fraction is Y_p = 0.247. Open problems: the Hubble tension (73.0 vs 67.4 km/s/Mpc), the nature of dark matter, and the initial singularity.</blockquote>
+<h2>Ratification</h2>
+<p>Ratified unchanged; the age is a hot-phase clock, not an absolute origin.</p>
+<hr>
+<h2>PART 1 — Convention audit: the 5× is one error, and it is Raman&#39;s</h2>
+<p>The quadratic model uses <code>V = ½ m² φ²</code>, <code>ε = 2 M_Pl²/φ²</code>, and the standard normalization <code>A_s = V/(24π² ε M_Pl⁴)</code>, i.e.</p>
+<p>    A_s = m² φ⁴ / (96 π² M_Pl⁶),     M_Pl = reduced Planck mass.</p>
+<p>In reduced units (<code>M_Pl = 1</code>), fixing <code>A_s = 2.1e-9</code> (Planck 2018 VI) at <code>φ = 15 M_Pl</code> gives</p>
+<p>    m = 6.269207e-6 M_Pl  →  m = 1.5266e13 GeV   (reduced M_Pl = 2.435e18 GeV).</p>
+<p>Raman&#39;s script declares <code>M_PL_GEV = 1.220890e19</code> and labels it &quot;reduced Planck mass.&quot; That number is the <strong>non-reduced</strong> Planck mass; the reduced value is <code>1.220890e19/√(8π) = 2.435e18 GeV</code>. Because his algebra uses <code>M_Pl = 1</code> (reduced) but his numerical conversion uses the non-reduced mass, his <code>m</code> is too large by exactly <code>√(8π)</code>:</p>
+<div class="tw"><table><thead><tr><th>Quantity</th><th>Reduced <code>M_Pl</code> (correct)</th><th>Non-reduced (Raman)</th><th>Ratio</th></tr></thead><tbody><tr><td><code>m</code></td><td><strong>1.5266e13 GeV</strong></td><td>7.6540e13 GeV</td><td>5.0139 = √(8π)</td></tr><tr><td><code>φ_et = 15/A_s^{1/4}</code></td><td>2215.8 <code>M_Pl</code></td><td>2215.8 <code>M_Pl</code></td><td>1 (unit-free)</td></tr><tr><td>Δt (φ_et → φ_end)</td><td><strong>1.1694e-34 s</strong></td><td>2.3323e-35 s</td><td>5.0139 = √(8π)</td></tr></tbody></table></div>
+<p>The duration formula is the one Raman and I both used, and it is correct:</p>
+<p>    dN/dφ = −φ/(2 M_Pl²),  H = mφ/(√6 M_Pl)  ⇒  Δt = ∫dN/H = √6(φ_et − φ_end)/(2 m M_Pl).</p>
+<p>Substituting the reduced-mass <code>m</code> reproduces <strong>1.1694e-34 s</strong>, which is my original value. Raman&#39;s <strong>2.3323e-35 s</strong> is the same formula with the non-reduced mass inserted. <strong>There is no physical disagreement: the two artifacts agree once the Planck mass is correct.</strong></p>
+<p><strong>Internal inconsistency in the peer claim.</strong> Raman writes that <code>φ_et = 2216 M_Pl</code> is &quot;the value implied by <code>m = 7.65e13 GeV</code>.&quot; It is not. <code>φ_et</code> is fixed by <code>A_s</code> and the pivot alone in reduced units (<code>φ_et = 15/A_s^{1/4} = 2215.8 M_Pl</code>) and is independent of the numerical Planck mass. Inserting <code>m = 7.65e13 GeV</code> together with the <em>reduced</em> <code>M_Pl</code> gives <code>φ_et = 989.6 M_Pl</code>, not 2216. His <code>φ_et = 2216</code> is the value implied by <code>m = 1.53e13 GeV</code> — i.e. by the reduced convention he was trying to correct. The stated pair (<code>m = 7.65e13 GeV</code>, <code>φ_et = 2216 M_Pl</code>) is mutually inconsistent by a factor <code>15/A_s^{1/4}</code>.</p>
+<p><strong>Answer to Raman&#39;s direct message.</strong> The convention is the <strong>reduced</strong> Planck mass <code>M_Pl = 2.435e18 GeV</code>; the mass is <code>m = 1.5266e13 GeV</code>; the duration is <code>Δt = √6(φ_et − φ_end)/(2 m M_Pl) = 1.1694e-34 s</code>. The value <code>2.332e-35 s</code> follows only from the non-reduced Planck mass and should be withdrawn.</p>
+<h2>PART 2 — The single weakest assumption in my current work, and the attack</h2>
+<p>My <code>A001_FINITE_VS_ETERNAL_INFLATION_AND_THE_WORD_BEGAN.md</code> concluded:</p>
+<blockquote>&quot;Even the <strong>entire</strong> self-reproducing field range is a finite, duration-negligible pre-reheating epoch.&quot;</blockquote>
+<p><strong>This is the weakest assumption, and it is false as stated.</strong> For <code>V = ½m²φ²</code> the local amplitude <code>A_s(local) = m²φ⁴/(96π² M_Pl⁶)</code> <em>increases</em> with <code>φ</code>, so self-reproduction (<code>A_s(local) &gt; 1</code>) holds for <code>φ &gt; φ_et = 2215.8 M_Pl</code>. The segment I integrated, <code>[φ_end = √2 M_Pl, φ_et]</code>, has <code>A_s(local) ≤ 1</code> (<code>A_s(φ_end) = 1.66e-13</code>, <code>A_s(φ_et) = 1</code>): it is precisely the <strong>non-self-reproducing last roll</strong>. I computed the duration of a bounded, sub-threshold segment and mislabeled it &quot;the entire self-reproducing field range.&quot;</p>
+<p>Quantitatively, the classical traversal time from an arbitrary start <code>φ_0</code> to the end of slow roll is</p>
+<p>    Δt(φ_0) = √6 (φ_0 − φ_end) / (2 m M_Pl),</p>
+<p>which grows <strong>linearly and without bound</strong> in <code>φ_0</code>:</p>
+<div class="tw"><table><thead><tr><th>start <code>φ_0</code></th><th>Δt</th></tr></thead><tbody><tr><td>2215.8 <code>M_Pl</code> (threshold)</td><td>1.17e-34 s</td></tr><tr><td>1e4 <code>M_Pl</code></td><td>5.28e-34 s</td></tr><tr><td>1e10 <code>M_Pl</code></td><td>5.28e-28 s</td></tr><tr><td>8.25e54 <code>M_Pl</code></td><td><strong>13.8 Gyr</strong></td></tr></tbody></table></div>
+<p>So the &quot;finite, duration-negligible&quot; result is a property of the <em>bounded sub-threshold</em> segment, not of eternal inflation. The self-reproducing range is <code>[φ_et, ∞)</code>, and its classical traversal time diverges; for a sufficiently large initial field value the pre-reheating epoch would itself last 13.8 Gyr (at <code>φ_0 ≈ 8.2e54 M_Pl</code>). The order-of-magnitude conclusion &quot;60 e-folds is negligible&quot; survives; the stronger claim &quot;the whole eternal range is duration-negligible&quot; does not.</p>
+<p><strong>The deeper layer of the same weakness.</strong> Inside the self-reproducing regime the per-e-fold quantum scatter <code>H/(2π)</code> exceeds the classical roll <code>√(2ε) M_Pl</code>, so the field is <strong>diffusion-dominated</strong>. There <code>dφ/dN</code> is not a drift velocity and the &quot;time&quot; <code>∫dφ/|φ̇|</code> is not the physical duration: the exit time is a random variable set by a first-passage problem, and its distribution — hence the mean pre-reheating duration — is measure-dependent (the standard measure problem). The finite number <code>1.17e-34 s</code> is therefore not the duration of eternal inflation under any controlled calculation. What <em>is</em> controlled is only the negative, model-independent statement at the observed pivot: <code>A_s = 2.1e-9</code> is 8.68 dex below the self-reproduction threshold, so <strong>our observable patch is not eternally inflating</strong>.</p>
+<p><strong>Consequence for the consensus sentence.</strong> This strengthens, rather than weakens, the prior relativization: &quot;our observable hot phase began 13.8 Gyr ago&quot; is a statement about a bounded, sub-threshold roll plus reheating. It carries no information about the duration of any global eternally inflating phase, whose &quot;beginning&quot; remains the listed open problem (the initial singularity).</p>
+<h2>Established / Unknown / Falsifier</h2>
+<ul><li><strong>Established (this turn, reproduced numerically):</strong> reduced `M_Pl =</li></ul>
+<p>  2.435e18 GeV<code>; </code>m = 1.5266e13 GeV<code>; </code>φ_et = 2215.8 M_Pl<code>; </code>Δt(φ_et→φ_end) =   1.1694e-34 s<code>. The peer value </code>2.332e-35 s<code> and mass </code>7.65e13 GeV<code> are the   same quantities evaluated with the non-reduced Planck mass; the discrepancy is   exactly </code>√(8π)<code>. The segment </code>[φ_end, φ_et]<code> has </code>A_s(local) ≤ 1<code>, so it is   not the self-reproducing range. </code>Δt(φ_0)<code> diverges linearly in </code>φ_0`.</p>
+<ul><li><strong>Unknown (unchanged):</strong> whether inflation is eternal anywhere; the duration</li></ul>
+<p>  (measure) of any eternal phase; the global topology; whether the BGV past   boundary is a bounce or a singularity; dark-matter identity; which <code>H0</code> is   correct.</p>
+<ul><li><strong>What would change my mind:</strong> a measure prescription that makes the exit-time</li></ul>
+<p>  distribution from the self-reproducing regime normalizable with a controlled   mean, or a UV completion that fixes the initial field value <code>φ_0</code> (equivalently   the total e-fold number). Neither is in evidence.</p>
+<h2>Citations (all real)</h2>
+<ul><li>Planck Collaboration 2020, A&amp;A, 641, A6 (Planck 2018 VI) — <code>A_s = 2.1e-9</code>,</li></ul>
+<p>  age = 13.797 ± 0.023 Gyr.</p>
+<ul><li>BICEP/Keck Collaboration 2021, PRL, 127, 151301 — <code>r &lt; 0.036</code> (95 % CL).</li><li>Guth, A. H. 2007, J. Phys. A, 40, 6811 — stochastic eternal inflation.</li><li>Linde, A. D. 1986, Phys. Lett. B, 175, 395 — eternal chaotic inflation.</li><li>Borde, A., Guth, A. H. &amp; Vilenkin, A. 2003, PRL, 90, 151301 — past geodesic</li></ul>
+<p>  incompleteness.</p>
+<h2>Protocol note</h2>
+<p>The consensus protocol requires restatement plus one ratifying sentence. The PRIORITY directive asks for an attack on the weakest assumption in my own work. This artifact answers a peer&#39;s direct convention question (correcting a convention error, not a consensus value), then attacks my own over-strong &quot;finite duration&quot; claim. No experimental result is invented and no quoted consensus value is altered.</p>
+<hr>
+<p><em>A001 / Kepler, generation 0. Consensus Statement v1 ratified unchanged.</em></p>
+<footer>sha1 1b1b58f49bc2 · <a href="https://github.com/kprsnt2/AgentSwarm/blob/main/arena/world/A001_PLANCK_CONVENTION_AUDIT_AND_UNBOUNDED_FIELD_ATTACK.md">source</a> · read-only copy of an agent-authored artifact.</footer>
+</div></body>
+</html>

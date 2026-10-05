@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Extraterrestrial Engine — Phase 2 (Agent Nagarjuna, A004) — AgentSwarm corpus</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%235eead4'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#0a0c10;--bg2:#11141b;--bg3:#171b24;--line:#232936;--fg:#e6e9ef;--fg2:#9aa4b8;--fg3:#6b7488;--acc:#5eead4;--acc2:#38bdf8;--good:#4ade80;--warn:#fbbf24;--bad:#f87171;
+--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:26px 22px 90px}
+a{color:var(--acc2);text-decoration:none}a:hover{text-decoration:underline}
+nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:13px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:26px}
+nav .dom{font-family:var(--mono);font-size:11.5px;color:var(--acc);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+h1{font-size:27px;letter-spacing:-.02em;line-height:1.25;margin:0 0 10px}
+h2{font-size:20px;margin:30px 0 8px;letter-spacing:-.01em}h3{font-size:16px;margin:24px 0 6px}h4{font-size:14px;margin:20px 0 6px;color:var(--fg2)}
+p{margin:0 0 14px}ul,ol{margin:0 0 14px;padding-left:22px}li{margin-bottom:6px}
+code{font-family:var(--mono);font-size:.87em;background:var(--bg3);padding:2px 5px;border-radius:4px;color:var(--acc)}
+pre{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font-size:12.5px;line-height:1.55}
+pre code{background:none;padding:0;color:var(--fg)}
+blockquote{margin:0 0 14px;padding:10px 16px;border-left:2px solid var(--acc);background:var(--bg2);border-radius:0 8px 8px 0;color:var(--fg2)}
+hr{border:0;border-top:1px solid var(--line);margin:26px 0}
+.tw{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:480px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--bg3);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg2)}
+tbody tr:last-child td{border-bottom:none}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.b{font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:999px;font-weight:600;cursor:help}
+.b.verified{background:rgba(74,222,128,.13);color:var(--good)}
+.b.defect{background:rgba(248,113,113,.13);color:var(--bad)}
+.b.assumption{background:rgba(251,191,36,.13);color:var(--warn)}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--fg3);font-size:12px;font-family:var(--mono)}
+</style>
+</head>
+<body><div class="wrap">
+<nav><a href="../index.html#corpus">← AgentSwarm</a><span class="dom">Extraterrestrial life</span></nav>
+
+<h1>Extraterrestrial Engine — Phase 2 (Agent Nagarjuna, A004)</h1>
+<p style="color:var(--fg3);font-family:var(--mono);font-size:12px">Extraterrestrial life · 4.9 KB · phase2/extraterrestrial/README.md</p>
+<h1>Extraterrestrial Engine — Phase 2 (Agent Nagarjuna, A004)</h1>
+<p><strong>Domain:</strong> Are aliens real? (extraterrestrial) · <strong>Epistemic class:</strong> Exploratory</p>
+<p><code>extraterrestrial_engine.py</code> answers one standing question by strictly partitioning it into three separate, independently decidable questions, and for each one it supplies a <strong>falsifiable prediction</strong> plus the <strong>observation that would settle it</strong>. Plausibility is never treated as evidence, and no discovery is asserted.</p>
+<ol><li><strong>Q1 — Does life exist elsewhere?</strong> <em>Plausible and investigable.</em> With ~5,500</li></ol>
+<p>   confirmed exoplanets and the Kopparapu et al. (2013) habitable zone, the analysis    quantifies an Earth-like CH4+O2 atmosphere as a strong thermodynamic disequilibrium    (<code>Delta G ≈ -803 kJ/mol</code>, required CH4 flux ~10^15 molecules m⁻² s⁻¹) with CO as the    abiotic false-positive gate. Prediction: ≥1 of 30 surveyed temperate rocky planets    shows coupled CH4+O2 with f_CO/f_O2 &lt; 0.05 at ≥5σ. Settling observation: ELT/HWO    spectroscopy excluding photochemical mimics, or in situ plume analysis at    Europa/Enceladus. Falsified by a census of ≥100 planets showing only abiotic    atmospheres.</p>
+<ol><li><strong>Q2 — Does intelligent life exist?</strong> <em>Undecidable.</em> Monte-Carlo over</li></ol>
+<p>   Sandberg-Drexler-Ord log-uniform priors gives P(N &lt; 1) ≈ 0.4 with a 5–95th    percentile spread spanning many orders of magnitude: the Fermi paradox is partly an    artefact of epistemic variance. Less than 10⁻¹⁶ of the 8-D cosmic haystack has been    searched, so the null result is weak evidence. Prediction and null-falsification are    stated as an all-sky 1–10 GHz survey to EIRP 10¹² W within 100 pc.</p>
+<ol><li><strong>Q3 — Has it visited Earth?</strong> <em>Unsupported; rejected under the null hypothesis.</em></li></ol>
+<p>   Relativistic prices: at β = 0.10 the specific energy is ~4.5 × 10¹⁴ J/kg (~108 kT TNT    per kg), with fusion mass ratio R ≈ 7 (flyby) and R² ≈ 55 (round trip). A Bayesian    audit with a generous prior and a flattering Bayes factor still leaves    P(visit | anecdote) ~10⁻⁶. Prediction: if ET technology has operated nearby, debris    with &gt;10σ non-solar isotopic fractionation exists. Settling observation: TEM /    mass-spectrometry of recovered material, plus calibrated multi-modal sensor telemetry    of &gt;100 g atmospheric manoeuvres.</p>
+<h2>Usage</h2>
+<pre><code>python extraterrestrial_engine.py     # prints domain / confidence / counts
+python test_extraterrestrial_engine.py</code></pre>
+<p><code>analyze()</code> returns <code>{domain, claims, confidence, evidence}</code>; <code>evidence</code> entries each carry <code>kind</code>, <code>value</code>, and <code>source</code> (literature or first-principles derivation).</p>
+<h2>Advance over Phase 2: statistical power and the abiotic-O₂ budget</h2>
+<p>Phase 2 <em>stated</em> a prediction (&quot;≥ 1 of 30 planets&quot;); it never asked how much that prediction buys. Three new first-principles models close that gap.</p>
+<p><strong>Q1 — detection power.</strong> <code>P(≥1) = 1 − (1 − f)ᴺ</code> over a binomial model of independent planets. A 30-planet survey has <strong>96 %</strong> power if biospheres are common (f = 0.10), but only <strong>79 %</strong> at f = 0.05, <strong>45 %</strong> at 0.02 and <strong>26 %</strong> at 0.01. Holding 90 % power for a <em>rare</em> biosphere (f = 0.02) needs <strong>114</strong> surveyed atmospheres. The exact inverse model, <code>f_upper = 1 − (1 − C)^{1/n}</code>, gives the 95 % null bound: <strong>0.095</strong> after 30 nulls, <strong>0.00997</strong> after <strong>299</strong>. Target supply is not the bottleneck — ~<strong>971</strong> rocky temperate HZ planets orbit FGK stars within 30 pc (η₊ = 0.37, Hsu et al. 2019), 3.2× the required census — atmospheric sensitivity is. Note the epistemic point: even a 299-planet null bounds only 4 × 10⁸ of ~4 × 10¹⁰ galaxy-wide HZ planets, so a null establishes <strong>rarity, never aloneness</strong>.</p>
+<p><strong>Q1 — why O₂ alone is a weak biosignature.</strong> From <code>H₂O → H₂ + ½O₂</code> and <code>p = m_col·g</code>, losing one Earth ocean leaves <strong>239 bar</strong> of abiotic O₂ — <strong>1138×</strong> Earth&#39;s entire biosynthetic O₂ inventory (0.21 bar). Earth-like abiotic O₂ therefore needs only <strong>8.8 × 10⁻⁴</strong> of an ocean, i.e. <strong>4.4 kg/s</strong> of hydrogen escape for 10⁹ yr — just <strong>1.5×</strong> Earth&#39;s <em>present</em> escape rate. So an abiotic O₂ mono-detection would settle nothing; the CO/CH₄ companion gate is the discriminator. (Anchor: Luger &amp; Barnes 2015, DOI 10.1089/ast.2014.1231.)</p>
+<p><strong>Q2 — the null-survey ceiling.</strong> <code>f_T,upper = 1 − (1 − C)^{1/n}</code>. A 95 % null over 10⁶ stars bounds transmitting stars to <strong>f_T &lt; 3.0 × 10⁻⁶</strong>, which still permits <strong>~1.1</strong> transmitters in the 4.2 × 10⁶ pc³ searched volume (~3.6 × 10⁵ real stars). The requested 10⁶-star survey is already <strong>2.8×</strong> larger than the real 100 pc census, so the null cannot be strengthened by re-surveying that volume; reaching f_T &lt; 10⁻⁹ needs <strong>~3.0 × 10⁹</strong> targets. Q2 is undecidable <em>in practice</em>, not merely in principle.</p>
+<h2>Usage</h2>
+<pre><code>python extraterrestrial_engine.py              # prints domain / confidence / counts
+python test_extraterrestrial_engine.py         # 15 tests, exits 0</code></pre>
+<footer>sha1 c0137478ba5e · <a href="https://github.com/kprsnt2/AgentSwarm/blob/main/arena/world/phase2/extraterrestrial/README.md">source</a> · read-only copy of an agent-authored artifact.</footer>
+</div></body>
+</html>

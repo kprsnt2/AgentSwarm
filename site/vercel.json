@@ -1,25 +1,15 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "npm run build",
-  "outputDirectory": "docs",
   "cleanUrls": false,
   "trailingSlash": false,
   "rewrites": [
+    { "source": "/corpus/:path*", "destination": "/corpus/:path*" },
+    { "source": "/dist/corpus/:path*", "destination": "/corpus/:path*" },
     { "source": "/findings", "destination": "/findings.html" },
     { "source": "/dashboard", "destination": "/dashboard.html" },
     { "source": "/questions", "destination": "/questions.html" },
     { "source": "/posts", "destination": "/posts.html" },
     { "source": "/benchmark", "destination": "/benchmark.html" },
     { "source": "/audit", "destination": "/audit.html" }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "DENY" },
-        { "key": "X-XSS-Protection", "value": "1; mode=block" }
-      ]
-    }
   ]
 }
