@@ -1,0 +1,178 @@
+
+==========================================================================
+A. Lunar heat-flow experiment: derived quantities
+==========================================================================
+VERIFIED INPUTS (V)
+  measured heat flow            q    = 17 mW/m^2
+  measured thermal gradient     dT/dz = 1.5-2.0 K/m
+  regolith density              1.1-2.1 g/cc
+  radiative share at noon (top few cm) = 70%
+  heater settings               0.002-0.5 W
+  gradient thermometers at      28 and 47 cm
+
+DERIVED: regolith thermal conductivity from Fourier's law, k = q / (dT/dz)
+  gradient 1.5 K/m  ->  k =  11.33 mW/(m.K) = 1.13e-02 W/(m.K)
+  gradient 2.0 K/m  ->  k =   8.50 mW/(m.K) = 8.50e-03 W/(m.K)
+  => k = 8.5-11.3 mW/(m.K), central 9.7 mW/(m.K)
+  DERIVED HERE, NOT RETRIEVED.  For scale: intact igneous rock conducts
+  at ~2-4 W/(m.K), so loose regolith at ~9.7 mW/(m.K) is roughly 300x
+  LESS conductive -- which is exactly what a granular powder with point
+  contacts should be, and radiative transfer across those contacts is the
+  standard reason for it.  HONEST QUALIFICATION: the MEASURED 70% radiative
+  share applies only to the top few cm at noon, whereas the derived k is a
+  bulk value over the whole probe depth, so the radiative share cannot be
+  named as 'the mechanism' for k itself -- only as an example of the class
+  of effect.  (The ~2-4 W/(m.K) rock figure is a conventional textbook
+  value, NOT verified in this session; it is used only as an
+  order-of-magnitude comparison.)
+
+DERIVED, AND IT CORRECTS AN IMPLICATION: how far can the surface
+  gradient be extrapolated downward?
+  linear extrapolation to 300 km: 1.5 K/m x 3.00e5 m = 4.500e+05 K
+  linear extrapolation to 300 km: 2.0 K/m x 3.00e5 m = 6.000e+05 K
+  The measured surface gradient sustained to 300 km would give ~5e5 K --
+  ~300x above the ~1.5e3 K at which mantle silicates melt, i.e. about THREE
+  orders of magnitude, not four.  So the surface measurement ALONE does not
+  give the deep temperature, and the source's statement
+  that 'temperatures [at] ~300 km' would be 'relatively close to melting'
+  is a MODELLED result, not an extrapolation of the gradient that HFE
+  measured.  This is recorded because it is the one place where the
+  source's framing could be over-read: what HFE measured is the shallow
+  gradient and the heat flux, and the deep structure comes from elsewhere.
+
+DERIVED: total lunar heat output, q x (4 pi R_Moon^2)
+  lunar surface area           = 3.7932e+13 m^2 (37.932 x 10^12 m^2)
+  total heat output at 17 mW/m^2 = 6.448e+11 W = 645 GW
+  For scale only, and NOT asserted from a source retrieved this session:
+  Earth's total surface heat flow is commonly quoted near 4.7 x 10^13 W
+  (47 TW).  The Moon's output is then about 1 part in 73 of Earth's -- and the Moon's mass is
+  about 1 part in 81, so the two bodies' heat output PER UNIT MASS comes
+  out within ~10% of each other:
+    Moon  6.448e+11 W / 7.346e+22 kg = 8.78e-12 W/kg
+    Earth 4.700e+13 W / 5.972e+24 kg = 7.87e-12 W/kg  (Earth figure flagged NOT verified)
+  This matters because it is a scale check on the HFE number: a value
+  that were wildly wrong would not land within a factor of ~1 of Earth's
+  per-unit-mass figure.  It is NOT evidence about Apollo on its own.
+
+SENSITIVITY: heat flow over a plausible band
+  q = 12.0 mW/m^2 -> k =  6.00- 8.00 mW/(m.K)  -> global output  455 GW
+  q = 17.0 mW/m^2 -> k =  8.50-11.33 mW/(m.K)  -> global output  645 GW
+  q = 22.0 mW/m^2 -> k = 11.00-14.67 mW/(m.K)  -> global output  835 GW
+  q = 30.0 mW/m^2 -> k = 15.00-20.00 mW/(m.K)  -> global output 1138 GW
+
+==========================================================================
+B. Apollo lunar seismic network: durability and what it took to put it there
+==========================================================================
+VERIFIED INPUTS (V)
+  Wikipedia, 'Moonquake': 'instruments placed by the Apollo 12, 14, 15 and
+   16 missions functioned perfectly until they were switched off in 1977';
+   'Between 1972 and 1977, 28 shallow moonquakes were observed'; shallow
+   events up to mB = 5.5; deep events ~700 km down, probably tidal.
+  Wikipedia, 'Apollo Lunar Surface Experiments Package': Apollo 11's
+   EASEP seismometer 'was sensitive enough to detect Neil Armstrong's
+   movements during sleep.'
+  Wikipedia, 'Apollo 12': the LM ascent stage was fired into the Moon as a
+   ~1 ton of TNT calibration event.
+
+  Apollo 12 landed 19 Nov 1969 (day-of-year 323); ALSEP shut off 30 Sep 1977
+  => continuous unattended seismic coverage = 7.86 years (2870 days)
+     (Apollo 12's OWN instrument ran the whole interval; Apollo 14/15/16
+     were added from 1971-72, so the NETWORK's span is 5.77 yr, 1972-1977,
+     matching the window over which the 28 shallow events were logged.)
+     network-era span = 5.75 yr
+
+  shallow moonquakes: 28 events logged
+     over the 5.0 yr 1972-1977 window used here -> 5.6 /yr by the network
+     over 6 calendar years (1972..1977 inclusive)   -> 4.7 /yr
+     The divisor is an ASSUMPTION (A): the exact span of the window is
+     not stated by the source, which says only 'Between 1972 and 1977'.
+     Both values are given so the reader can choose.  All four stations
+     heard each event, so this is a network detection rate, not per station.
+
+  Scales of sensitivity, as arithmetic:
+   * the Apollo 11 seismometer detected a sleeping astronaut MOVING INSIDE
+     the LM -- a ~10 kg mass displaced a few metres away, on an instrument
+     in vacuum with no atmospheric or oceanic noise.
+   * the Apollo 12 LM ascent stage was deliberately crashed as a ~1 ton of
+     TNT equivalent calibration event -- a signal from a KNOWN, known-mass
+     source at a known time and place, used to calibrate lunar travel-time
+     curves.  Its mass is not asserted here (not verified this session).
+   * lunar shaking from a shallow event 'can last for up to an hour',
+     because there is little damping -- a direct, dated consequence of
+     the Moon having no oceans and no significant atmosphere.
+
+  What an Apollo staging hoax would have had to accomplish.  Under the
+  staging hypothesis, no Apollo hardware went to the Moon, so everything the
+  program LEFT there must have been delivered robotically and have gone on
+  reporting, unprompted, for years.  Scoped to Apollo only (the Lunokhod and
+  Chandrayaan-3 arrays are INDEPENDENT hardware and are not the hoax's
+  problem -- the correct statement is that a faked Apollo would have had to
+  COEXIST with them, not to place them):
+    3 retroreflectors (Apollo 11/14/15) returning pulses to this day;
+    5 autonomous radioisotope-powered ALSEP stations + EASEP, operating
+      to 30 Sep 1977 and still received by RATAN-600 in Oct-Nov 1977;
+    4 seismometers that detected moonquakes nobody had predicted;
+    2 heat-flow stations that produced a self-consistent 17 mW/m^2;
+    381 kg of sample.
+  A programme able to do all that robotically in 1969-1973 could have
+  landed a man.  This is a COMPARATIVE ENGINEERING JUDGEMENT, not a proof:
+  it says the fake requires more capability than the landing, which the
+  hypothesis exists to deny.
+
+==========================================================================
+C. Roswell: Mogul Flight 4 geometry and the shape-memory chronology
+==========================================================================
+VERIFIED INPUTS (V)
+  Wikipedia, 'Roswell incident': 'On June 4, researchers at Alamogordo
+   Army Air Field in New Mexico launched a long train of these balloons;
+   they lost contact with the balloons and balloon-borne equipment within
+   17 miles (27 km) of the ranch managed by W.W. "Mac" Brazel near
+   Corona, New Mexico, where a balloon array subsequently crashed.'
+  Wikipedia, 'Project Mogul': NYU Flight 4, launched 4 June 1947 from
+   Alamogordo AAF, lost within 17 mi (27 km) of the Brazel ranch.
+
+  A. GEOMETRY OF THE DRIFT (town of Corona used as a proxy for the ranch;
+     both coordinates approximate to ~0.1 deg = ~10 km):
+     straight-line distance Alamogordo AAF -> Corona = 162 km
+     initial great-circle bearing                    = 16.4 deg (nearly due north, so NNE of the launch site)
+     implied mean drift over 31 days = 5.2 km/day
+     HONEST LIMITS, stated in full.  (i) I did NOT retrieve the June 1947
+     upper-air wind field, so I do NOT claim this trajectory is
+     wind-consistent; the usual drift speed of a constant-altitude balloon
+     is set by the wind and is commonly TENS of km/day, not a few, and no
+     figure for it is asserted here from any source.  (ii) The divisor is
+     wrong in the conservative direction: 5 July is the date Brazel reached
+     Corona, not the date the debris arrived, so the true drift window is
+     SHORTER and the implied rate LARGER.  (iii) Corona is a proxy for the
+     ranch and both coordinates are approximate to ~10 km.
+     What the arithmetic does establish is only that the displacement
+     required -- ~160 km -- is of the order balloons actually achieve, and
+     that no one has ever shown 'no balloon could have done this.'
+
+     The load-bearing fact is different and is the USAF's own: the balloon
+     train's LAST KNOWN POSITION, from its own radio tracking, was 27 km
+     from the spot where the debris was later found.  That is a specific,
+     pre-1978, quantitative prediction the Mogul account made about a
+     document that already existed in 1947.
+
+  B. THE 'MEMORY METAL' CHRONOLOGY
+     Verified live, Wikipedia, 'Nickel titanium':
+       * 'The shape-memory effect was discovered in 1932, when Swedish
+         chemist Arne Olander observed the property in gold-cadmium
+         alloys. The same effect was observed in Cu-Zn (brass) in the
+         early 1950s.'
+       * nitinol itself was created at the Naval Ordnance Laboratory in
+         1961-1962.
+     Verified live, Wikipedia, 'Roswell incident': Marcel described 'a foil
+     that could be crumpled but would uncrumple when released' -- in his
+     1978-1980 interviews, not in 1947.
+     => the shape-memory effect post-dates neither Roswell (1932 precedes
+        it by 15 years) nor Marcel's account (nitinol, 1962, precedes
+        that by 16 years).  So the property is NOT evidence of
+        extraterrestrial origin.  The burden on the claimant is to show
+        what about the material WAS anomalous; no specimen survives to
+        characterise, so no one has ever carried that burden.
+
+==========================================================================
+END OF derivation4.py
+==========================================================================

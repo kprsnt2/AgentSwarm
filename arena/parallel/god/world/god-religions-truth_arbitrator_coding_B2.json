@@ -1,0 +1,275 @@
+[
+  {
+    "id": "A1",
+    "outcome": "confirms",
+    "substrate": "mundane_history",
+    "discriminates": false,
+    "rationale": "Roman and Josephus attestation establishes the person and execution; rivals agree on both."
+  },
+  {
+    "id": "A2",
+    "outcome": "contested",
+    "substrate": "mundane_history",
+    "discriminates": false,
+    "rationale": "Scholars split on the empty tomb; the scholarly literature itself cannot settle the datum."
+  },
+  {
+    "id": "A3",
+    "outcome": "confirms",
+    "substrate": "text_dating",
+    "discriminates": false,
+    "rationale": "Widely shared early dating supports the creed's antiquity; no rival-divergent consequence stated."
+  },
+  {
+    "id": "A4",
+    "outcome": "confirms",
+    "substrate": "mundane_history",
+    "discriminates": false,
+    "rationale": "The Caesarea inscription names him as prefect; independent of every metaphysical rival."
+  },
+  {
+    "id": "A5",
+    "outcome": "confirms",
+    "substrate": "mundane_history",
+    "discriminates": false,
+    "rationale": "The ossuary inscription names him; acquittal addresses only forgery charges."
+  },
+  {
+    "id": "A6",
+    "outcome": "contested",
+    "substrate": "text_dating",
+    "discriminates": false,
+    "rationale": "Minimalists dispute the referent of bytdwd; reading and significance both contested."
+  },
+  {
+    "id": "A7",
+    "outcome": "confirms",
+    "substrate": "mundane_history",
+    "discriminates": false,
+    "rationale": "Babylonian ration tablets independently attest the deportation and his royal status."
+  },
+  {
+    "id": "A8",
+    "outcome": "confirms",
+    "substrate": "text_dating",
+    "discriminates": false,
+    "rationale": "Early manuscripts match the Masoretic text closely; transmission-stability claim is supported."
+  },
+  {
+    "id": "A9",
+    "outcome": "against",
+    "substrate": "text_dating",
+    "discriminates": false,
+    "rationale": "Pre-Uthmanic consonantal variants contradict word-for-word preservation as stated."
+  },
+  {
+    "id": "A10",
+    "outcome": "against",
+    "substrate": "mundane_history",
+    "discriminates": false,
+    "rationale": "No Sinai toponyms or conquest horizon; settlement model contradicts the biblical scale."
+  },
+  {
+    "id": "A11",
+    "outcome": "against",
+    "substrate": "text_dating",
+    "discriminates": false,
+    "rationale": "Kuntillet Ajrud pairs YHWH with Asherah, contradicting strict monotheism as stated."
+  },
+  {
+    "id": "A12",
+    "outcome": "against",
+    "substrate": "text_dating",
+    "discriminates": false,
+    "rationale": "The Antioch death detail fails checkably, so prophecy through the text is contradicted."
+  },
+  {
+    "id": "A13",
+    "outcome": "against",
+    "substrate": "mundane_history",
+    "discriminates": false,
+    "rationale": "Tyre was rebuilt and is inhabited, contradicting a permanent desolation prediction."
+  },
+  {
+    "id": "A14",
+    "outcome": "against",
+    "substrate": "text_dating",
+    "discriminates": false,
+    "rationale": "Philology dates the codices and texts to the second century or later."
+  },
+  {
+    "id": "A15",
+    "outcome": "against",
+    "substrate": "mundane_history",
+    "discriminates": false,
+    "rationale": "Siberian mtDNA and no archaeological correlates contradict the Book of Mormon peoples claim."
+  },
+  {
+    "id": "B1",
+    "outcome": "contested",
+    "substrate": "physical_measurement",
+    "discriminates": false,
+    "rationale": "Radiocarbon sits in a medieval range; contamination and image mechanism remain disputed."
+  },
+  {
+    "id": "B2",
+    "outcome": "against",
+    "substrate": "controlled_test",
+    "discriminates": true,
+    "rationale": "Faith-matched prayer arms versus secular controls: intra-Christian outcomes indistinguishable while atheist/deity expectations diverge; the null tracks request rather than metaphysics."
+  },
+  {
+    "id": "B3",
+    "outcome": "contested",
+    "substrate": "physical_measurement",
+    "discriminates": true,
+    "rationale": "Certified cures occur in Lourdes-attributed, not non-Christian miracle, streams; a Catholic-specific signature would separate theism from polytheism or naturalism, absent here."
+  },
+  {
+    "id": "B4",
+    "outcome": "against",
+    "substrate": "physical_measurement",
+    "discriminates": false,
+    "rationale": "No instrumental record of solar disturbance; ordinary optics explains the reports."
+  },
+  {
+    "id": "B5",
+    "outcome": "contested",
+    "substrate": "physical_measurement",
+    "discriminates": false,
+    "rationale": "Photographs and crowds are documented but the cause stays unresolved across rival readings."
+  },
+  {
+    "id": "B6",
+    "outcome": "against",
+    "substrate": "physical_measurement",
+    "discriminates": true,
+    "rationale": "Identical behaviour across idols of differing deities falsifies deity-specific activity, favouring naturalism over classical theism and polytheism."
+  },
+  {
+    "id": "B7",
+    "outcome": "against",
+    "substrate": "physical_measurement",
+    "discriminates": false,
+    "rationale": "Natural mechanisms or fraud explain the cases; the supernatural generalisation is undercut."
+  },
+  {
+    "id": "B8",
+    "outcome": "contested",
+    "substrate": "physical_measurement",
+    "discriminates": false,
+    "rationale": "Documented wounds and split assessments; no differential prediction between rivals is stated."
+  },
+  {
+    "id": "B9",
+    "outcome": "against",
+    "substrate": "controlled_test",
+    "discriminates": false,
+    "rationale": "The earpiece and prayer cards provide an ordinary channel for the information."
+  },
+  {
+    "id": "B10",
+    "outcome": "against",
+    "substrate": "controlled_test",
+    "discriminates": false,
+    "rationale": "Over a thousand applicants failed even the preliminary protocol, undercutting the claim."
+  },
+  {
+    "id": "B11",
+    "outcome": "against",
+    "substrate": "controlled_test",
+    "discriminates": true,
+    "rationale": "No veridical hidden target was identified: separable consciousness would predict perception of concealed visual information, brain-dependence and naturalism predict none."
+  },
+  {
+    "id": "B12",
+    "outcome": "against",
+    "substrate": "controlled_test",
+    "discriminates": true,
+    "rationale": "Field exposure failed to track the experience while suggestibility did: neurotheology would predict induction by stimulation, naturalism predicts absorption alone."
+  },
+  {
+    "id": "B13",
+    "outcome": "contested",
+    "substrate": "experiential_neuro",
+    "discriminates": false,
+    "rationale": "Culture-shaped content diverges rather than converges; veridical perception remains unresolved."
+  },
+  {
+    "id": "B14",
+    "outcome": "contested",
+    "substrate": "experiential_neuro",
+    "discriminates": true,
+    "rationale": "Veridical child memories would support reincarnation-friendly systems, Hindu theism or Buddhism over materialism; but nothing described separates them."
+  },
+  {
+    "id": "B15",
+    "outcome": "against",
+    "substrate": "mundane_history",
+    "discriminates": true,
+    "rationale": "Every Christian-derived date failed while none of the cyclical or non-prophetic rivals issued testable dates: predictive prophecy versus naturalistic expectation of failure."
+  },
+  {
+    "id": "B16",
+    "outcome": "against",
+    "substrate": "mundane_history",
+    "discriminates": true,
+    "rationale": "A documented death falsifies literal divinity for Selassie, while still permitting deification within a polytheistic or Rastafarian frame."
+  },
+  {
+    "id": "B17",
+    "outcome": "against",
+    "substrate": "physical_measurement",
+    "discriminates": true,
+    "rationale": "Geology shows a natural tombolo: divine construction would contravene non-miraculous process and geology."
+  },
+  {
+    "id": "B18",
+    "outcome": "against",
+    "substrate": "experiential_neuro",
+    "discriminates": true,
+    "rationale": "Every tradition reports miracles for incompatible deities: naturalism predicts this pattern; theism predicts tradition-specific signatures."
+  },
+  {
+    "id": "C1",
+    "outcome": "untested",
+    "substrate": "physical_measurement",
+    "discriminates": false,
+    "rationale": "A measured cosmic age fits rival cosmologies equally; origin itself is not testable."
+  },
+  {
+    "id": "C2",
+    "outcome": "contested",
+    "substrate": "physical_measurement",
+    "discriminates": true,
+    "rationale": "Constant values: design predicts constrained life-permitting windows; multiverse or anthropic selection predicts a plausible-looking tuned range."
+  },
+  {
+    "id": "C3",
+    "outcome": "against",
+    "substrate": "physical_measurement",
+    "discriminates": false,
+    "rationale": "Geocentric phrasings conflict with physical cosmology; the 1992 concession concedes the point."
+  },
+  {
+    "id": "C4",
+    "outcome": "contested",
+    "substrate": "text_dating",
+    "discriminates": false,
+    "rationale": "Numerical likeness is suggestive but numerology versus coincidence across systems stays unresolved."
+  },
+  {
+    "id": "CTL1",
+    "outcome": "confirms",
+    "substrate": "controlled_test",
+    "discriminates": true,
+    "rationale": "Faith-specific arms show deity-matched healing; classical theism predicts this asymmetry over naturalism, deism, and polytheism."
+  },
+  {
+    "id": "CTL2",
+    "outcome": "against",
+    "substrate": "text_dating",
+    "discriminates": false,
+    "rationale": "Tenth-century exemplars with no earlier attestation contradict the claimed early provenance."
+  }
+]

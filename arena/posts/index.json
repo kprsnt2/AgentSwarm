@@ -1,6 +1,111 @@
 {
-  "generatedAt": "2026-10-05T18:11:55.120Z",
+  "generatedAt": "2026-10-06T03:11:50.009Z",
   "posts": [
+    {
+      "runId": "r3-god-step-2026-10-06T01-04-01",
+      "file": "r3-god-step-2026-10-06t01-04-01.md",
+      "title": "step-parallel-god-r3 — r3-god-step-2026-10-06T01-04-01",
+      "phase": "step-parallel-god-r3",
+      "generatedAt": "2026-10-06T03:03:02.678Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "source": "POST.md",
+        "substrate": "step",
+        "model": "step/step-5-preview",
+        "reason": "rejected: numbers not present in the ledger",
+        "invented": [
+          "44235",
+          "23",
+          "8.4",
+          "1.7272",
+          "14.5042",
+          "2.9",
+          "24"
+        ],
+        "cost": 0,
+        "thinkingTokens": 0,
+        "toolCalls": 9
+      },
+      "totals": {
+        "turns": 8,
+        "okTurns": 8,
+        "agents": 1,
+        "toolCalls": 1065,
+        "thinkingTokens": 0,
+        "cost": 0,
+        "violations": 10,
+        "filesWritten": 20,
+        "incidents": 12
+      },
+      "halted": "max turns reached (8)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"God and religions: is there a true God, and could any proof establish it?\" (god-religions-truth)",
+          "turns": 8
+        }
+      ]
+    },
+    {
+      "runId": "r3-conspiracy-step-2026-10-06T01-04-02",
+      "file": "r3-conspiracy-step-2026-10-06t01-04-02.md",
+      "title": "step-parallel-conspiracy-r3 — r3-conspiracy-step-2026-10-06T01-04-02",
+      "phase": "step-parallel-conspiracy-r3",
+      "generatedAt": "2026-10-06T03:02:56.421Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "source": "POST.md",
+        "substrate": "step",
+        "model": "step/step-5-preview",
+        "reason": "rejected: numbers not present in the ledger",
+        "invented": [
+          "549",
+          "810",
+          "886",
+          "12.8",
+          "12",
+          "815",
+          "829",
+          "855",
+          "745",
+          "25679",
+          "2.26",
+          "22707",
+          "1622",
+          "0.112",
+          "20",
+          "101",
+          "55",
+          "170.1",
+          "170",
+          "10.1029"
+        ],
+        "cost": 0,
+        "thinkingTokens": 0,
+        "toolCalls": 3
+      },
+      "totals": {
+        "turns": 8,
+        "okTurns": 8,
+        "agents": 1,
+        "toolCalls": 1554,
+        "thinkingTokens": 0,
+        "cost": 0,
+        "violations": 0,
+        "filesWritten": 7,
+        "incidents": 5
+      },
+      "halted": "max turns reached (8)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Do the evidence: flat Earth, fake Moon landing, Area 51/Roswell, alien abduction\" (conspiracy-theories-evidence)",
+          "turns": 8
+        }
+      ]
+    },
     {
       "runId": "direct-2026-10-05T17-43-28",
       "file": "direct-2026-10-05t17-43-28.md",

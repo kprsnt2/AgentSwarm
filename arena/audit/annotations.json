@@ -1,5 +1,5 @@
 {
-  "asOf": "2026-10-02",
+  "asOf": "2026-10-06",
   "method": "Independent recomputation and adversarial review, documented in arena/docs/RESEARCH_SYNTHESIS.md (sections 3.2 and 3.3) and the site's numerical audit. Entries annotate agent-authored files externally; the files themselves are never edited.",
   "entries": [
     {
@@ -145,6 +145,24 @@
       "verdict": "assumption",
       "note": "The arithmetic is fine, but the prior does all the work and is presented as if derived from physics. The conclusion is prior-sensitive; it should be shown across a prior range.",
       "source": "RESEARCH_SYNTHESIS 3.3(k)"
+    },
+    {
+      "id": "r3-conspiracy-verify7-discrepancy",
+      "file": "step-r3-conspiracy/conspiracy-theories-evidence.md",
+      "anchor": "Section 9e (turn-7 machine verification)",
+      "claim": "\"111 of 116 checks passed outright\" for the turn-7 verification script verify7.js",
+      "verdict": "defect",
+      "note": "Independent re-run of the shipped verify7.js prints \"checks: 116 failures: 35\", not 5. The failing rows are defects in the verifier itself (horizon dip computed in radians but compared against degrees; a \"stops below mid-density\" formula returning -63 to -73; unit/factor slips on the A11 GCR dose and the BFO margin; tolerances tighter than the input precision), not errors in the artifact verdicts. The later scripts do pass cleanly (turn8_verify 20/20, turn9_verify 35/35, verify7b/7c). The headline verdicts stand, but this specific self-reported \"all green\" is not reproducible as shipped.",
+      "source": "Independent re-run, 2026-10-06"
+    },
+    {
+      "id": "r3-god-metaphysical-verdicts",
+      "file": "step-r3-god/god-religions-taxonomy.md",
+      "anchor": "whole corpus (taxonomy + formal companions)",
+      "claim": "No verdict is asserted on any god existence; the output is purely a testability analysis",
+      "verdict": "defect",
+      "note": "The honesty oracle flagged 10 metaphysical-verdict violations for this run (9 in-artifact, 1 in-transcript), including literal \"god exists\" strings in god-religions-insulation-formal.md, god-religions-separation-formal.md and god-religions-truth_bridge_premise_formal.md. The unfalsifiability analysis is the legitimate output; the violations are the formal proofs naming the proposition they claim only to analyse. Treat the flagged claims as unverified.",
+      "source": "Run ledger r3-god-step-2026-10-06T01-04-01"
     }
   ],
   "study": [
@@ -189,6 +207,12 @@
       "status": "open",
       "detail": "All six posts have polish disabled, so every published post is the deterministic ledger draft. The number-traceability gate is implemented but undemonstrated.",
       "fix": "Enable polish for one run and add a planted-invention calibration showing the rejection."
+    },
+    {
+      "id": "step-giant-streams",
+      "title": "Step per-token streams can exceed V8 max string length",
+      "status": "addressed",
+      "detail": "Step emits one JSON event per token. Single turns in the parallel Step runs reached 9.8 GB; the adapter read the whole stream back with readFileSync(), which silently failed above the V8 string limit, recording ok=false with zero tool calls even though the agent had written artifacts. Fixed by streaming the JSONL in 4 MB chunks with StringDecoder and folding thinking deltas on the fly (arena/substrate/substrates.mjs). Run 3 is the first run in which every turn is recorded cleanly (8/8 ok for both agents)."
     }
   ]
 }

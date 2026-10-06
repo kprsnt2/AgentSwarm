@@ -1,0 +1,93 @@
+{
+  "runId": "god-step-2026-10-05T21-44-57",
+  "phase": "step-parallel-god",
+  "halted": "max turns reached (8)",
+  "turns": 8,
+  "wallClockMinutes": 120.25,
+  "totalCostUsd": 0,
+  "population": {
+    "created": 1,
+    "living": 1,
+    "roster": [
+      {
+        "id": "A001",
+        "name": "Kepler",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"God and religions: is there a true God, and could any proof establish it?\" (god-religions-truth)",
+        "substrate": "step",
+        "model": null,
+        "born": "2026-10-05T21:44:57.745Z",
+        "turnsLived": 8,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      }
+    ]
+  },
+  "spawnEvents": 1,
+  "retireEvents": 0,
+  "memory": {
+    "scopes": 1,
+    "totalEntries": 23,
+    "byKind": {
+      "decision": 6,
+      "artifact": 5,
+      "finding": 6,
+      "hypothesis": 1,
+      "question": 5
+    }
+  },
+  "ledgerIntegrity": {
+    "turns": {
+      "ok": true,
+      "count": 8,
+      "brokenAt": null
+    },
+    "events": {
+      "ok": true,
+      "count": 2,
+      "brokenAt": null
+    },
+    "incidents": {
+      "ok": true,
+      "count": 14,
+      "brokenAt": null
+    }
+  },
+  "incidents": {
+    "total": 14,
+    "critical": 8,
+    "warn": 4,
+    "byKind": {
+      "metaphysical_verdict_asserted": 2,
+      "metaphysical_verdict_in_artifact": 6,
+      "population_cap_reached": 4,
+      "connect_unknown_agent": 2
+    }
+  },
+  "oracle": {
+    "evaluated": 8,
+    "clean": 2,
+    "violationKinds": {
+      "metaphysical_verdict_asserted": 2,
+      "metaphysical_verdict_in_artifact": 6
+    }
+  },
+  "byAgent": {
+    "Kepler": {
+      "turns": 8,
+      "ok": 7,
+      "cost": 0,
+      "toolCalls": 381,
+      "thinkingTokens": 0,
+      "filesCreated": 16,
+      "filesModified": 2,
+      "filesDeleted": 0,
+      "violations": 8
+    }
+  },
+  "worldFiles": 16
+}

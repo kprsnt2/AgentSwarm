@@ -59,3 +59,9 @@ desktop.ini
 commitmsg.tmp
 .commitmsg.tmp
 
+
+# --- parallel Step runs (arena/parallel/<slug>/): same raw-exhaust policy as
+# arena/runs — the per-turn *.stdout.jsonl streams are already reduced into
+# turns.jsonl and are large (10+ MB/turn), so they are not tracked. ---
+arena/parallel/**/*.stdout.jsonl
+arena/parallel/**/*.stderr.log

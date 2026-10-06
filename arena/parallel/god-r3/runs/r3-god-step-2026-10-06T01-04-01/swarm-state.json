@@ -1,0 +1,25 @@
+{
+  "runId": "r3-god-step-2026-10-06T01-04-01",
+  "ts": "2026-10-06T03:03:02.510Z",
+  "populationCap": 1,
+  "population": [
+    {
+      "id": "A001",
+      "name": "Kepler",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"God and religions: is there a true God, and could any proof establish it?\" (god-religions-truth)",
+      "substrate": "step",
+      "model": null,
+      "born": "2026-10-06T01:04:01.752Z",
+      "turnsLived": 8,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    }
+  ],
+  "living": 1,
+  "total": 1
+}

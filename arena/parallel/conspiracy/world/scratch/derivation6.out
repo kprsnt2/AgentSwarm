@@ -1,0 +1,332 @@
+==============================================================================
+SIXTH PASS -- derivation6.py
+==============================================================================
+
+==============================================================================
+BLOCK A -- Claim (a): rotation by Sagnac / ring interferometry
+           (a NEW class of test: mechanistically independent of
+            pendulums, of Newtonian gravitation, and of satellites)
+==============================================================================
+
+A0. Earth's rotation rate, recomputed from the sidereal day (T = 86164.0905 s)
+    15.0411 deg/hour   and   15.0411 arcsec/sec
+    15.04 deg/h quoted in the report == 15.0411 deg/h  -> agrees to -0.01%
+    A stationary plane predicts EXACTLY 0 deg/h.
+
+A1. One-way relay of pulses around a great circle: Sagnac delay
+    Form: dt = 2*A*Omega/c^2, A = area the circuit encloses as seen
+    from the rotation axis.
+    Equatorial circuit: A = pi*R_eq^2 = 1.278020e+14 m^2
+    dt = 207.39 ns   =  62.17 m of light travel   (c*dt = 62.17 m)
+    VERIFIED (V) Wikipedia 'Sagnac effect': '...the amount of time
+    difference between the clocks when they arrive back at the starting
+    point will be equal to the time difference that is found for a relay
+    of pulses that travels around the world: 207 nanoseconds.'
+    --> first-principles reproduction: computed 207.4 ns vs verified 207 ns
+        relative agreement 0.19%.
+    General latitude: A = pi*R_eq^2*cos(phi), so a 45 deg circuit gives
+    146.6 ns.  A stationary plane gives 0 ns -- i.e. the verified value
+    is infinitely inconsistent with zero, not merely different.
+
+A2. Michelson-Gale-Pearson ring interferometer, 1926 (a 1.9 km
+    perimeter ring, i.e. large enough to see Earth's own rotation).
+    VERIFIED (V): 'The measured shift was 230 parts in 1000, with an
+    accuracy of 5 parts in 1000. The predicted shift was 237 parts in 1000.'
+    measured/predicted = 0.9705 +/- 0.0211   (relative error 2.11%)
+    predicted - measured = 7.0 parts = 1.40 sigma
+    STATIONARY-EARTH prediction = 0 parts in 1000.
+        |230 - 0| / 5 = 46 standard deviations  --> the zero-shift
+        hypothesis is excluded by a 1926 interferometer.
+    Independent of Foucault (dynamical) and of orbital mechanics;
+    the effect is relativistic and depends only on Omega.
+
+A3. The Sagnac term a GPS receiver must account for, from first
+    principles:  dt = (2/c^2) * Omega * (x_s*y_g - y_s*x_g)
+    verified inputs: GPS geocentric radius r_s = 26560 km (the value the
+    report derives from Kepler's third law), ground r_g = 6371.0 km (WGS-84
+    mean radius).  Upper bound |x_s y_g - y_s x_g| <= r_s*r_g.
+    MAXIMUM Sagnac term  dt = 274.6 ns  ==  82.3 m of light travel
+    (A stationary plane predicts EXACTLY 0.)
+    Transit time ground -> satellite at that radius: 88.6 ms.
+    In that time the ground station itself moves 41.2 m (Omega*R*t),
+    and the Earth's rotation angle during the transit is 0.006 mrad
+    = 1.333 arcsec.  That is the geometry the correction encodes.
+    A non-rotating Earth would need exactly 0 ns and 0 m of it.
+    VERIFIED (V) 'Sagnac effect': 'Global navigation satellite systems
+    (GNSSs) ... need to take the rotation of the Earth into account in
+    the procedures of using radio signals to synchronize clocks.'
+    VERIFIED (V) same source: a 1984 verification 'involved three ground
+    stations and several GPS satellites, with relays of signals both
+    going eastward and westward around the world.'
+
+A4. Ring-laser and fibre-optic gyroscopes -- the instruments that
+    measure the same rotation in an aircraft cockpit.
+    VERIFIED (V) 'Sagnac effect': 'Ring laser interferometers are
+    self-calibrating. The beat frequency will be zero if and only if
+    the ring laser setup is non-rotating with respect to inertial space.'
+    and: 'The ring laser also can detect the sidereal day, which can
+    also be termed "mode 1".'
+    => beat frequency at rest = f_beat = 4*A*Omega/(lambda*P); a
+    non-rotating Earth gives exactly 0 Hz, which is what every
+    commercial inertial-nav unit rules out at the parts-per-billion
+    level.  This is the 'GlobeBusters/BEHIND THE CURVE' ring-laser
+    result already quoted in section 2.3, now anchored in the physics.
+
+==============================================================================
+BLOCK B -- Claim (b): the laser return is COORDINATE-DEPENDENT
+           (a test the report had not run, using verified LRO/LLR data)
+==============================================================================
+
+B1. The natural objection to 'the retroreflectors return pulses' as a test
+    is that light can be reflected from the bare Moon.  The report's link
+    budget already excludes that by >=50x in flux and >=300x in timing
+    (section 10.1).  A second, independent, and cheaper test exists that
+    had not been run: the return is *coordinate-dependent*.
+
+  VERIFIED (V) 'Lunokhod 1' and 'Lunar laser ranging experiments':
+    - 'The final location of Lunokhod 1 was uncertain until 2010, as lunar
+       laser ranging experiments had failed to detect a return signal from
+       it since 1971.'
+    - 'On March 17, 2010, Albert Abdrakhimov found both the lander and the
+       rover in Lunar Reconnaissance Orbiter (LRO) image M114185541RC
+       (Line 21977, Sample 3189).'
+    - 'On April 22, 2010, and days following, the team [APOLLO, UC San
+       Diego] successfully measured the distance several times.'
+    - NASA press release, Tom Murphy: 'We got about 2,000 photons from
+       Lunokhod 1 on our first try. After almost 40 years of silence, this
+       rover still has a lot to say.'
+    - 'The intersection of the spheres described by the measured distances
+       then pinpointed the current location of Lunokhod 1 to within 1 meter.'
+    - 'By November 2010, the location of the rover had been determined to
+       within about a centimeter.'
+    - French scientists at the Cote d'Azur Observatory replicated the
+       ranging in May 2013.
+
+  INTERPRETATION, and why it is a TEST rather than a citation:
+    A diffuse surface return is not coordinate-dependent -- it does not
+    care where the rover is.  The return here is: for 39 years the array
+    was silent at western stations DESPITE its published approximate
+    location, and then produced ~2,000 photons on the first shot after an
+    image from lunar orbit fixed the coordinate.  That is the signature of
+    a small discrete object, not of a surface.
+
+
+B2. Beam geometry, and what the verified 6.5 km beam tells us.
+    (V) the reported beam is 6.5 km in diameter at the Moon.
+    That implies a divergence of 1.688e-05 rad = 3.48 arcsec.
+    (V) first success was the 3.1 m Lick telescope, ruby 694.3 nm.
+        Its diffraction limit, 2*lambda/D, is 172 m in DIAMETER at the
+        Moon (4.48e-07 rad = 0.0924 arcsec).
+        The reported 6.5 km beam is therefore 38x WIDER than the
+        telescope can in principle deliver, i.e. 1421x more area and
+        1421x fewer photons per square metre than an ideal beam.
+        (That is exactly what a seeing-limited beam of the pre-adaptive-
+        optics era looks like: 3.5 arcsec is plausible for ~1970s sites.
+        It is a ~1,400x dilution of an already ~1-in-10^17 photon budget,
+        it is why a few photons come back rather than millions.)
+        Apollo 11 / 14 (0.46 x 0.46 m panel x 50% fill)              0.106 m^2 = 3.188e-09 of the beam area
+        Apollo 15  (1.05 x 0.64 m panel x 50% fill, ~3x the others)   0.336 m^2 = 1.013e-08 of the beam area
+        Lunokhod   (0.44 x 0.19 m x 50% fill)                        0.042 m^2 = 1.260e-09 of the beam area
+        Chandrayaan-3 (single 5.11 cm reflector)                     0.001 m^2 = 3.090e-11 of the beam area
+    => the arrays are ~10^-9 to 10^-8 of the illuminated area.  THAT is
+    the size of the target the returned light must find, and it is why
+    a corner-cube array is hard to hit and a surface is easy.
+
+B3. Timing width: what a corner-cube array and a diffuse surface do
+    to the returned pulse.
+    (V) beam 6.5 km in diameter at the Moon; (V) 1 cm weighted-rms
+    residual.  Timing required to resolve 1 cm on a two-way path:
+    2*dr/c = 66.7 ps.
+    Geometric spread of a diffuse return over that spot: the sagitta of a
+    6.5 km chord on a 1737.4 km-radius sphere is 3.04 m  ->  20.3 ns of
+    two-way spread.  Ratio required/available = 304x.
+    The return is sharp.  A surface return is not.
+
+B4. Trilateration, stated without a fabricated precision model.
+    The published result is that LLR ranges -- nothing but ranges, from
+    ground stations to a moving target -- 'pinpointed the current
+    location of Lunokhod 1 to within 1 meter' (April 2010), and to
+    'about a centimeter' by November 2010.
+    A single range sphere has a 1-parameter (radial) constraint; three or
+    more non-coplanar range spheres intersect at a POINT.  A diffuse
+    surface gives a continuum of ranges, not an intersection.  So the
+    fact that LLR converges on a single point is a second, independent
+    demonstration that the scatterer is discrete and small -- which is
+    what Apollo 11/14/15, Lunokhod 1/2 and Chandrayaan-3 all are, at
+    six independently published coordinates (see section 10.1).
+    (V) 'As of 2009, the distance to the Moon can be measured with
+    millimeter precision' -- and 'Modern Lunar Laser Ranging data can be
+    fit with a 1 cm weighted rms residual.'
+    (V) Replication: French scientists at the Cote d'Azur Observatory
+    reproduced the Lunokhod 1 ranging in May 2013.
+    NOTE ON CONSISTENCY WITH SECTION 10.1: that block's ~1-5 photon
+    applies to the 1970s-90s ruby-era return from the Apollo 11 array.
+    Modern stations report different numbers from the same arrays.
+    (V) 'We got about 2,000 photons from Lunokhod 1 on our first try.'
+    The two figures are not in conflict; they are different instruments:
+    ~1e3-1e4 photons per *shot* with a 3.5 m telescope, adaptive optics
+    and a ~100 ps pulse is a different epoch from ~1-5 photons with a
+    3.1 m telescope and a 6.5 km beam.  The direction of the change is
+    itself evidence that the return is beam-divergence-limited, which is
+    what a discrete array predicts and a surface does not.
+
+B5. A vividness check on the source's own analogy (recomputed).
+    (V) 'equivalent in accuracy to determining the distance between Los
+    Angeles and New York to within the width of a human hair.'
+    LA-NY / hair = 7.88e+10 : 1  for a hair of 50.0 um.
+    LA-NY / hair = 6.57e+10 : 1  for a hair of 60.0 um.
+    LA-NY / hair = 5.63e+10 : 1  for a hair of 70.0 um.
+
+==============================================================================
+BLOCK C -- Claim (c2): the Roswell/Mogul trajectory, from verified
+           gazetteer coordinates. This is the item pass 4 left open.
+==============================================================================
+    (V) Alamogordo, NM  32.856111  -105.974444   [launch site: 'Alamogordo AAF']
+    (V) Corona, NM      34.247778  -105.596944   [find vicinity]
+    (V) Roswell, NM     33.3942  -104.5228   [Roswell Army Air Field]
+
+    Great-circle (WGS-84 mean radius) Alamogordo -> Corona: 158.7 km,
+    initial bearing 12.6 deg (compass 'NE', i.e. +12.6 deg E of N).
+    Alamogordo -> Roswell (RAAF, the reporting base): 147.8 km.
+    (V) VERIFIED verbatim, 'Roswell incident': 'On June 4, researchers
+    at Alamogordo Army Air Field in New Mexico launched a long train of
+    these balloons; they lost contact with the balloons and balloon-
+    borne equipment within 17 miles (27 km) of the ranch managed by
+    W. W. "Mac" Brazel near Corona, New Mexico, where a balloon array
+    subsequently crashed.'
+
+    CAVEAT, stated plainly: Corona is the nearest gazetted town to the
+    Brazel ranch, which lies a few km further NE of it, so 159 km is a
+    LOWER BOUND on the required launch-to-find displacement.  I take
+    +10% as a rounding allowance and scan 130-200 km below.
+
+    A constant-altitude balloon CANNOT AIM: its track is the passive
+    integral of the wind at its altitude.  So the Mogul hypothesis
+    makes a checkable prediction, and the required mean drift speed is
+    simply (displacement)/(time aloft):
+
+      time aloft      required mean drift speed (km/h / m/s)
+      -------------------------------------------------------
+          1 h          158.7 km/h =   44.1 m/s
+          3 h           52.9 km/h =   14.7 m/s
+          6 h           26.4 km/h =    7.3 m/s
+         12 h           13.2 km/h =    3.7 m/s
+         18 h            8.8 km/h =    2.4 m/s
+         24 h            6.6 km/h =    1.8 m/s
+         36 h            4.4 km/h =    1.2 m/s
+         48 h            3.3 km/h =    0.9 m/s
+         72 h            2.2 km/h =    0.6 m/s
+        168 h            0.9 km/h =    0.3 m/s
+        720 h            0.2 km/h =    0.1 m/s
+
+    READ THIS AS: the open item from pass 4 is now a stated, checkable
+    number rather than a hand-wave.  If Flight 4 was aloft for T hours,
+    its mean wind between ~9 and ~15 km over southern New Mexico must
+    have been (158.7/T) km/h from the SW-SSW, T in hours.  To settle it
+    it, one needs the June 1947 upper-air wind field (radiosonde archive
+    or a long-period reanalysis), which this session did NOT retrieve.
+
+    Debris-field geometry: the several-acres scatter.
+    (V) 'tinfoil, rubber, tape, and thin wooden beams scattered across
+    several acres of the ranch.'
+      3 acres =   12141 m^2 -> equivalent square 110 m on a side.
+      4 acres =   16187 m^2 -> equivalent square 127 m on a side.
+      5 acres =   20234 m^2 -> equivalent square 142 m on a side.
+    A compact impact site of a ~10 m craft would concentrate nearly all
+    recoverable mass into one location, with fragments thrown O(10 m).
+    A field 100-140 m across with 'no engine or metal parts' (the 9 July
+    1947 Roswell Daily Record, verified in source 4) is what a long
+    balloon train shredding and dropping material over its length does.
+    Because the source gives only the AREA, not the shape or the
+    length/width ratio, this is an argument of direction, not a
+    precision measurement.
+
+    The 8 July 1947 FBI telex, verbatim (V): 'The disc is hexagonal in
+    shape and was suspended from a balloon by cable, which balloon was
+    approximately twenty feet (6.1 m) in diameter.'
+    A 6.1 m envelope, treated as a superpressure sphere at 9-15 km:
+      altitude  9 km (ISA, A): T = 229.6 K, p = 30742 Pa, rho_air = 0.466 kg/m^3
+        envelope volume 118.8 m^3, gross lift 468 N = 47.8 kg
+        helium mass 7.7 kg -> net payload ~40.1 kg before envelope mass.
+      altitude 12 km (ISA, A): T = 216.7 K, p = 19330 Pa, rho_air = 0.311 kg/m^3
+        envelope volume 118.8 m^3, gross lift 312 N = 31.8 kg
+        helium mass 5.1 kg -> net payload ~26.7 kg before envelope mass.
+      altitude 15 km (ISA, A): T = 216.7 K, p = 12044 Pa, rho_air = 0.194 kg/m^3
+        envelope volume 118.8 m^3, gross lift 195 N = 19.8 kg
+        helium mass 3.2 kg -> net payload ~16.7 kg before envelope mass.
+    A Mogul train (balloons + sonobuoys + radios + cable) is a
+    payload of order that size; a crewed interstellar vehicle with
+    'bodies' is not.  (A) pressures/masses use the standard atmosphere.
+    This is a scale check -- the load-bearing datum remains that the
+    USAF's report identified the specific train and the 27 km miss.
+
+    Base rate (V): 'By 1947, the United States had launched THOUSANDS
+    of top-secret Project Mogul balloons.'  Thousands of long balloon
+    trains were aloft over New Mexico in 1947; debris falls were
+    routine, and only this one became a legend.  The Blue Book record
+    (V) independently notes that 'a number of the reports could be
+    explained by flights of the formerly secret reconnaissance planes
+    U-2 and A-12' -- i.e. same lesson, same sky, later decade.
+
+==============================================================================
+BLOCK D -- Claim (d): base rates from Project Blue Book, and two
+           narrative-internal quantities
+==============================================================================
+
+D1. Project Blue Book (V, 'Project Blue Book'): March 1952 - 17 Dec
+    1969, HQ Wright-Patterson AFB.
+    (V) 'By the time Project Blue Book ended, it had collected 12,618
+    UFO reports, and concluded that most of them were misidentifications
+    of natural phenomena (clouds, stars, etc.) or conventional aircraft.'
+    (V) '701 reports were classified as unexplained, even after stringent
+    analysis.'
+    (V) 'By the time of the hearing, Blue Book had identified and
+    explained 95% of the reported UFO sightings.'
+
+    computed: identified = 94.44% ; unexplained = 5.56%
+    (V) the two official conclusions, verbatim:
+      'There was no evidence submitted to or discovered by the Air
+       Force that sightings categorized as "unidentified" represented
+       technological developments or principles beyond the range of
+       present-day scientific knowledge.'
+      'There was no evidence indicating that sightings categorized as
+       "unidentified" were extraterrestrial vehicles.'
+    (V) the Condon Report 'concluded that the study of UFOs was unlikely
+    to yield major scientific discoveries'.
+    SO: over 17 years, 12,618 reports, 701 left open -- and 0 of the 701
+    produced physical, photographic, radar or biological evidence.
+    That is the quantitatively stated absence for claim (d).
+
+D2. Two NARRATIVE-INTERNAL quantities (new; both from 'Alien
+    abduction', (V)):
+    (i) Hopkins' own count of 'alien mistakes': 'Hopkins has estimated
+    that these "errors" accompany 4-5 percent of abduction reports'
+    -- the 'cosmic application of Murphy's Law': failing to return the
+    experiencer to the same spot, or putting clothes on backwards.
+    An entity with interstellar transport makes mundane handling errors
+    in 1 in 20-25 reports.  That ratio is a property of fiction, not of
+    engineering.
+    (ii) Mack 'interviewed over 800 people' -- i.e. the proponent with
+    the largest clinical sample still produced no physical artefact.
+    (V) the Lancet's Niall Boyce on Mack: 'a well-meaning man uncritically
+    elaborating on tales of alien abduction, and potentially both
+    cementing and constructing false memories'.
+
+D3. Two further artifacts of the abduction claim, both (V) and both
+    disconfirmed rather than merely unsupported:
+    - the 2017 'Kodachrome slides' of a dead alien (Jaime Maussan):
+      'the slides were in fact of a mummified Native American child
+      discovered in 1896 and which had been on display at the Chapin
+      Mesa Archeological Museum in Mesa Verde, Colorado, for many
+      decades.'
+    - a 2020-declassified c.1951 incident: two Roswell personnel in
+      'poorly fitting radioactive suits, complete with oxygen masks,
+      while retrieving a weather balloon after an atomic test', met a
+      woman who fainted; the historian notes they could have appeared
+      'to someone unaccustomed to then-modern gear, to be alien.'
+    Both are 'disconfirming' evidence for the artefacts-as-offered, not
+    'absent' evidence.
+
+==============================================================================
+END OF SIXTH PASS
+==============================================================================

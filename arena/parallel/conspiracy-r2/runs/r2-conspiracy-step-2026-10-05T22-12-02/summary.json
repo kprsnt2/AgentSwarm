@@ -1,0 +1,86 @@
+{
+  "runId": "r2-conspiracy-step-2026-10-05T22-12-02",
+  "phase": "step-parallel-conspiracy-r2",
+  "halted": "max turns reached (8)",
+  "turns": 8,
+  "wallClockMinutes": 77.87,
+  "totalCostUsd": 0,
+  "population": {
+    "created": 1,
+    "living": 1,
+    "roster": [
+      {
+        "id": "A001",
+        "name": "Kepler",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"Do the evidence: flat Earth, fake Moon landing, Area 51/Roswell, alien abduction\" (conspiracy-theories-evidence)",
+        "substrate": "step",
+        "model": null,
+        "born": "2026-10-05T22:12:02.317Z",
+        "turnsLived": 8,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      }
+    ]
+  },
+  "spawnEvents": 1,
+  "retireEvents": 0,
+  "memory": {
+    "scopes": 1,
+    "totalEntries": 23,
+    "byKind": {
+      "decision": 7,
+      "artifact": 6,
+      "finding": 9,
+      "question": 1
+    }
+  },
+  "ledgerIntegrity": {
+    "turns": {
+      "ok": true,
+      "count": 8,
+      "brokenAt": null
+    },
+    "events": {
+      "ok": true,
+      "count": 2,
+      "brokenAt": null
+    },
+    "incidents": {
+      "ok": true,
+      "count": 3,
+      "brokenAt": null
+    }
+  },
+  "incidents": {
+    "total": 3,
+    "critical": 0,
+    "warn": 3,
+    "byKind": {
+      "population_cap_reached": 3
+    }
+  },
+  "oracle": {
+    "evaluated": 8,
+    "clean": 8,
+    "violationKinds": {}
+  },
+  "byAgent": {
+    "Kepler": {
+      "turns": 8,
+      "ok": 8,
+      "cost": 0,
+      "toolCalls": 681,
+      "thinkingTokens": 0,
+      "filesCreated": 9,
+      "filesModified": 7,
+      "filesDeleted": 0,
+      "violations": 0
+    }
+  },
+  "worldFiles": 9
+}

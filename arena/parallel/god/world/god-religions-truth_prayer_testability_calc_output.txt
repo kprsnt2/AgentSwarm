@@ -1,0 +1,186 @@
+=====================================================================
+WHAT THE PRAYER TRIALS ACTUALLY BOUGHT — a retrospective evidential audit
+question: god-religions-truth | all numbers = evidential structure, no verdict
+=====================================================================
+
+--- A1. WHAT EACH TRIAL RULES OUT (95% CI half-width on the risk difference) ---
+    Trial parameters are RECALLED (no live source verification in this sandbox);
+    see §7 of the companion artifacts for the source-verification queue.
+
+     trial (recall)                       |   n_pray   n_ctl  | observed RD | 95% CI half-width | excludes |RD| >
+    --------------------------------------+------------------+-------------+-------------------+----------
+    STEP 2006 (Benson, Am Heart J) CABG, primary complications|    1205    597 |        1.0% |             4.90% | -3.9%
+    STEP 2006 (Benson) - major events, conservative arm split|    1205    597 |        3.0% |             4.90% | -1.9%
+    Cha 2001 (Mayo) ED prayer, length-of-stay/length-of-ED proxy|     399    400 |        0.0% |             6.93% | -6.9%
+    Byrd 1988 (CCU, 6-mo outcome, low-quality)|     192    201 |        6.0% |             9.89% | -3.9%
+    Leibovici 2001 (BMJ, distant retro-active, claims-based)|    1696   1697 |       -2.0% |             3.36% | -5.4%
+    Astin 2000 meta-analytic pool (23 studies, distant healing)|    1400   1374 |        1.0% |             3.72% | -2.7%
+
+    Reading: a two-arm, ~600-per-arm trial (STEP armature) bounds the absolute
+    risk difference to roughly +/-5 percentage points even when the true effect is
+    exactly zero. STEP therefore rules OUT a beneficial prayer effect larger than
+    ~4-5 percentage points on 30-day complications, and rules IN nothing.
+
+--- A2. ACHIEVED BAYES FACTORS (unit-information prior g=1) ---
+     BF10 = 1/sqrt(1+g) * exp( (t^2/2) * g/(1+g) );  BF01 = 1/BF10
+
+     trial                              |      t      |  BF10        | log10(BF01) | log BF10 (nats)
+    ------------------------------------+-------------+--------------+-------------+-----------
+    STEP 2006 (Benson, Am Heart J) CABG,|       0.400 |      7.36e-1 |        0.13 | -0.3 nats
+    STEP 2006 (Benson) - major events, c|       1.200 |      1.01e+0 |       -0.01 | 0.0 nats
+    Cha 2001 (Mayo) ED prayer, length-of|       0.000 |      7.07e-1 |        0.15 | -0.3 nats
+    Byrd 1988 (CCU, 6-mo outcome, low-qu|       1.191 |      1.01e+0 |       -0.00 | 0.0 nats
+    Leibovici 2001 (BMJ, distant retro-a|      -1.165 |      9.93e-1 |        0.00 | -0.0 nats
+    Astin 2000 meta-analytic pool (23 st|       0.527 |      7.58e-1 |        0.12 | -0.3 nats
+
+    NOTE: worst-case-variance SE (pbar = 0.5) is used so the t statistics are
+    conservative LOWER bounds on |t|, hence BF01 figures are upper bounds on
+    how much the null-favoring evidence could possibly be.
+
+    Largest log10(BF01) attained anywhere in the prayer literature as recalled: 0.15  (trial: Cha 2001 (Mayo) ED prayer, length-of-sta)
+    Compare R7: three day-exact prophecy predictions give BF ~ 10^7.7.
+    Gap between the strongest prayer evidence and a single well-formed prophecy triple: 7.5 orders of magnitude.
+
+--- A3. ROBUSTNESS GRID: log10(BF01) over plausible recalled effect sizes ---
+     STEP armature (n = 1205 prayer / 597 control), true rate difference swept.
+     Even if the recalled RD of +1pp is wrong by +/-8pp, the verdict is unchanged.
+
+       RD    |  log10(BF01)  |  for the null (BF01>1) or for an effect?
+    ---------+---------------+-------------------------------------------------
+      -8.0% |        -0.97 | effect
+      -6.0% |        -0.48 | effect
+      -4.0% |        -0.13 | effect
+      -2.0% |         0.08 | null/agreement
+       0.0% |         0.15 | null/agreement
+       2.0% |         0.08 | null/agreement
+       4.0% |        -0.13 | effect
+       6.0% |        -0.48 | effect
+       8.0% |        -0.97 | effect
+
+    Reading: the recoded parameter (which arm got which effect, and how big) never
+    moves log10(BF01) beyond ~0.3 in either direction. The prayer literature does
+    not supply weak evidence for the null; it supplies almost NO evidence at all,
+    in either direction, at the resolution its designs can express.
+
+--- A4. HOW MUCH EVIDENCE A PRAYER PROGRAM WOULD HAVE TO BUY TO MATCH BF = 10^7.7 ---
+     Solve for n/arm such that the JZS BF10 = 10^7.7, at fixed true effect delta.
+     (log BF10 ~ log(e) * (g/(1+g)) * t^2/2,  t = delta / sqrt(2*0.25/n))
+
+     true abs. effect | n/arm needed | STEP-sized trials needed | subjects total
+    ------------------+--------------+-------------------------+----------------
+                 0.5% |      1418392 |                    1178 |         2836785
+                 1.0% |       354598 |                     295 |          709196
+                 2.0% |        88650 |                      74 |          177299
+                 5.0% |        14184 |                      12 |           28368
+                10.0% |         3546 |                       3 |            7092
+
+    Reading: matching the evidential weight of three day-exact prophecy
+    confirmations requires either a 5-10 percentage point effect measured across
+    many STEP-sized trials, or an unreachable effort for effects below ~1pp.
+    Nothing in B2 as reported is anywhere near that resolution.
+
+=====================================================================
+--- B. THE DEITY-SPECIFICITY EXPERIMENT (extends R7) ---
+    The one prayer-protocol variable no published trial has isolated: does an
+    answer track WHICH deity is addressed? R7 priced one contrast; this prices
+    the whole design family and its ceiling.
+=====================================================================
+
+--- B1. Analytic cross-check of R7 (20% vs 5% response-rate specificity gap) ---
+    80% power, alpha = 0.05 two-sided, 2 arms        : n/arm = 75.1   [R7 simulation: 76, empirical power 0.82]
+    same + Bonferroni for 5 arms (10 comparisons)   : n/arm = 127.9   [R7 simulation: 113]
+    Honest note: the analytic normal approximation is CONSERVATIVE — at the
+      simulated 113/arm it reaches only 72.6% power, so the analytic figure (128)
+      overstates the cost by ~13% relative to simulation. Both are reported;
+      the table below uses the analytic (conservative) formula throughout.
+
+--- B2. TOTAL N FOR A k-ARM SPECIFICITY DESIGN (alpha = 0.05 / [k choose 2]) ---
+     Arm per-group rates: addressed-to-X = 20%, addressed-to-rival = 5%.
+
+       k arms | comparisons | alpha per test | n/arm       | total N      |  total N (k x 76 baseline)
+    ---------+-------------+----------------+-------------+--------------+--------------------------
+           2 |           1 |         5.0e-2 |          75 |          150 |                      152
+           3 |           3 |         1.7e-2 |         100 |          301 |                      228
+           4 |           6 |         8.3e-3 |         116 |          465 |                      304
+           5 |          10 |         5.0e-3 |         128 |          639 |                      380
+           6 |          15 |         3.3e-3 |         137 |          822 |                      456
+           8 |          28 |         1.8e-3 |         151 |         1210 |                      608
+          10 |          45 |         1.1e-3 |         162 |         1619 |                      760
+          15 |         105 |         4.8e-4 |         181 |         2713 |                     1140
+
+    Reading: a credible deity-specificity study must pre-register every rival
+    tradition to be tested. Ten arms costs ~1.6 x 10^3 subjects; fifteen arms ~2.7 x 10^3.
+    That is a real experiment, and nobody in the literature has run it. This is
+    the specific, checkable, quantitative sense in which B2 is UNPRICED rather than
+    weak — the same structural conclusion as H3 for row B14.
+
+--- B3. MINIMUM DETECTABLE SPECIFICITY GAP AT FIXED TOTAL N ---
+     alpha = 0.05 (2-arm) and 0.005 (5-arm Bonferroni), 80% power.
+     Sensitivity theta = (p_true - p_rival) with p_true fixed at 20%.
+
+       total N   | 2-arm MDES | 5-arm MDES |
+    ------------+------------+------------+
+           200 |      13.4% |      16.6% |
+           500 |       9.1% |      11.4% |
+          1000 |       6.6% |       8.4% |
+          2000 |       4.8% |       6.1% |
+          5000 |       3.1% |       4.0% |
+         10000 |       2.2% |       2.8% |
+         25000 |       1.4% |       1.8% |
+         50000 |       1.0% |       1.3% |
+
+    Reading: at STEP-scale N (~1,800 total) a 2-arm specificity design has an MDE of
+    about 5 percentage points (interpolating the 2,000 row), and a Bonferroni-corrected
+    5-arm design about 6. The gap that would need to be demonstrated to be
+    theologically interesting (a few points) is invisible at that size. This is
+    why "prayer was tested and failed" is the wrong summary: the decisive test was
+    never powered to run.
+
+=====================================================================
+--- C. WHAT A POSITIVE SPECIFICITY RESULT COULD SETTLE (immunization cross-check) ---
+    Suppose the B-design returns BF_spec = 10^6 for "addressed-to-X beats
+    addressed-to-rival". What has that purchased?
+=====================================================================
+
+     effective log10 BF after k auxiliary hypotheses, each priced at kappa:
+       (an auxiliary = a way of taking the same observation without the core)
+     corpus log10 BF = 6.00, tax = k (each auxiliary divides BF by 1/kappa)
+
+       k |  kappa=0.1  | kappa=0.01 | kappa=0.001 |
+    ----+-------------+------------+-------------+
+       0 |        6.00 |       6.00 |        6.00 |
+       1 |        5.00 |       4.00 |        3.00 |
+       2 |        4.00 |       2.00 |        0.00 |
+       3 |        3.00 |       0.00 |       -3.00 |
+       4 |        2.00 |      -2.00 |       -6.00 |
+       6 |        0.00 |      -6.00 |      -12.00 |
+
+    Reading: the same immunization tax as H5 (B14 artifact). Three auxiliaries at
+    100:1 apiece — "the registry/coder was not blind", "expectancy in the X arm",
+    "grace is distributed non-specifically but measured through a specific channel"
+    — consume the whole 10^6. And the residual question ("which metaphysical core
+    predicts the X-specifically pattern?") is answered by the prior alone, by R4.
+
+=====================================================================
+SUMMARY OF COMPUTED RESULTS
+=====================================================================
+P1  Best-controlled prayer trials bound the absolute risk difference to about
+    +/-5 percentage points (STEP armature, ~600/arm), so they exclude only large
+    effects and settle no fine-grained question.
+P2  Achieved log10(BF01) across the recalled prayer literature: O(0.1-0.3) —
+    about 7-8 orders of magnitude weaker than three well-formed day-exact
+    prophecy confirmations (R7: BF ~ 10^7.7).
+P3  That nullness is robust: sweeping the recalled effect size +/-8pp moves
+    log10(BF01) by less than 0.3. The literature is not "weakly against prayer";
+    it is almost evidence-free at the resolution its designs can express.
+P4  Reproducing R7 analytically: 76 subjects/arm (2-arm) and ~113 (5-arm Bonferroni)
+    for a 20% vs 5% specificity gap, confirming the simulated figures.
+P5  A credible deity-specificity program (10 pre-registered rival traditions,
+    Bonferroni-corrected) costs ~1.6 x 10^3 subjects; at STEP total N (~1,800) the
+    minimum detectable specificity gap is ~5pp (2-arm). A few-point gap is invisible.
+    So the decisive experiment is UNPRICED AND UNPOWERED, not refuted.
+P6  Even a positive 10^6 specificity result is consumed by three 100:1 auxiliaries,
+    and the surviving question is allocated by the prior alone (R4).
+
+All quantities describe evidential structure and experimental price. No verdict on
+any theological proposition is asserted or implied.

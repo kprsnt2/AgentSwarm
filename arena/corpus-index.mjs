@@ -44,6 +44,10 @@ export function domainOf(relPath) {
   if (p.startsWith('tools/')) return { id: 'shared-tools', label: 'Shared tools' };
   const p2 = p.match(/^phase2\/([^/]+)\//);
   if (p2) return { id: p2[1], label: PHASE2_LABELS[p2[1]] || p2[1] };
+  // Parallel Step run 3 (two isolated arenas, one question each). Namespaced so
+  // repeated runs cannot collide in the flat world/ tree.
+  if (p.startsWith('step-r3-god/')) return { id: 'god-religions-step', label: 'God & religions (Step 5)' };
+  if (p.startsWith('step-r3-conspiracy/')) return { id: 'conspiracy-theories-step', label: 'Conspiracy theories (Step 5)' };
   const base = p.split('/').pop();
   for (const r of DOMAIN_RULES) if (r.re.test(base)) return { id: r.id, label: r.label };
   return { id: 'other', label: 'Other' };

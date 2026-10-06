@@ -1,0 +1,267 @@
+
+==========================================================================
+A. Lunar laser ranging: complete link budget from first principles
+==========================================================================
+VERIFIED INPUTS
+  photons emitted per pulse          N_out  = 3.000e+17
+  beam width at the Moon             b      = 6.5 km
+  spot area at the Moon              A_spot = 3.3183e+07 m^2
+  mean Earth-Moon distance           D      = 385,000.6 km
+  round-trip light time              2D/c   = 2568.448 ms
+  photons observed back              1-5
+  fitted range residual              1 cm weighted rms
+  Lick collecting area (D=3.1 m)     A_tel  = 7.5477 m^2
+  outbound photon density at Moon    rho    = 9.0408e+09 photons/m^2
+
+ASSUMED PARAMETERS (each scanned in the sensitivity block below)
+  laser wavelength                   lambda = 694.3 nm (ruby)
+  corner-cube aperture               d      = 3.8 cm
+  cubes in the array                 N      = 100
+  array projected aperture           A_arr  = 0.1134 m^2  (vs a 46x46 cm panel = 0.2116 m^2, i.e. 53.6% fill)
+  detector quantum efficiency        QE     = 0.05-0.10
+
+THE BUDGET, STEP BY STEP
+  1. photons hitting the Moon        3.000e+17 (all of them; the
+     beam is entirely on the lunar disc)
+  2. intercepted by the array        1.0253e+09  = rho x A_arr, a fill factor of 3.42e-09
+  3. return footprint radius at Earth 7.03 km (diffraction, lam/d = 3.769 arcsec)
+  4. of those, fraction into the 3.1 m telescope 4.8553e-08
+  5. photons arriving at the telescope 49.78
+  6. photons DETECTED (QE=0.05)       2.49
+     photons DETECTED (QE=0.10)       4.98
+
+  OBSERVED: 1-5 photons back.
+  PREDICTED: 2.5-5.0 photons detected.
+  => No parameter of this budget was fitted to the observed return, yet
+     the prediction lands inside the observed range.  That is the test:
+     the 'the hardware is physically there' hypothesis makes a
+     quantitative prediction, to within the detector QE, of a number
+     that was measured independently in 1969 and is still measured now.
+
+INVERSION: what effective retroreflecting aperture does the observation
+require?  (n_det is linear in the array's projected aperture, so the
+required aperture is exact.)
+
+      QE                   1 photon                  2 photons                  5 photons
+    0.03      759 cm2 =    67 cubes     1519 cm2 =   134 cubes     3797 cm2 =   335 cubes
+    0.05      456 cm2 =    40 cubes      911 cm2 =    80 cubes     2278 cm2 =   201 cubes
+    0.10      228 cm2 =    20 cubes      456 cm2 =    40 cubes     1139 cm2 =   100 cubes
+    0.15      152 cm2 =    13 cubes      304 cm2 =    27 cubes      759 cm2 =    67 cubes
+
+  Reference: the physical Apollo 11 array is 100 cubes of 3.8 cm aperture = 1,134 cm^2 of projected
+  aperture, filling 54% of the 46x46 cm panel.
+  The observed 1-5 photons require an effective retroreflecting aperture
+  of order 10^2-10^3 cm^2 -- i.e. a square panel of order 10-30 cm across,
+  exactly the scale of a corner-cube array, and something a diffuse
+  surface cannot supply at all.
+
+SENSITIVITY: does the prediction survive the assumed parameters?
+  Two parameters matter most: the beam width at the Moon and the
+  retroreturn divergence (a real cube's figure error and the Earth-Moon
+  velocity aberration both broaden the return beyond the diffraction
+  limit).  Predicted DETECTED photons, geometric (div=1) to 4x broadened:
+
+  beam at Moon        div=1        div=2        div=4        div=8
+        2.0 km         52.58        13.15         3.29         0.82
+        4.0 km         13.15         3.29         0.82         0.21
+        6.5 km          4.98         1.24         0.31         0.08
+       10.0 km          2.10         0.53         0.13         0.03
+       13.0 km          1.24         0.31         0.08         0.02
+  (upper edge of the QE band, 0.10).  Across the whole scanned space the
+  prediction spans 0.02-53 photons, which brackets the
+  observed 1-5; the central estimate is 2.5-5.0.
+  The honest statement is therefore 'the right order of magnitude to
+  within a factor of a few', NOT an exact match.  What is exact is the
+  exclusion of the diffuse-surface alternative below.
+
+THE ALTERNATIVE: a return from the BARE lunar surface (EME)
+  Lambertian reflection of albedo rho from a full-phase sphere:
+    N_det = rho * N_out * (A_tel / (pi D^2)) * QE
+    albedo 0.050 -> 0.0122 photons detected per pulse   (   205x weaker than the array)
+    albedo 0.072 -> 0.0175 photons detected per pulse   (   142x weaker than the array)
+    albedo 0.120 -> 0.0292 photons detected per pulse   (    85x weaker than the array)
+    albedo 0.200 -> 0.0486 photons detected per pulse   (    51x weaker than the array)
+
+  TIMING.  CAVEAT: a pulse width does not by itself bound timing
+  precision -- a clean symmetric pulse can be centroided well below its
+  own width given enough photons -- so the WIDTH below is a SUPPORTING
+  argument.  What makes the exclusion HARD is the photon deficit above.
+  1 cm weighted-rms residual the round-trip must be
+  timed to dt = 2*dr/c = 66.7 ps.
+  The diffuse return is spread over the depth of the illuminated
+  footprint: geometric sagitta of a 6.5 km spot on a
+  sphere of R = 1,737.4 km is 3.04 m, i.e. a
+  spread of 2*3.04/c = 20.3 ns, and any real
+  surface roughness makes this larger.  So the diffuse return is at
+  least 304x broader than the timing resolution required for the
+  measured precision -- and the array return, from a target <1 m in
+  extent, is not.
+  => the detection that is actually made is >=50x brighter than the best
+     possible bare-surface return, which is what makes the exclusion HARD,
+     and ~300x broader in time than the required resolution, which is a
+     supporting point (a clean pulse can be centroided below its width).
+     A compact retroreflecting array at those coordinates supplies both.
+
+CROSS-CHECK: whose hardware is actually up there?
+  Verified from Wikipedia, 'List of retroreflectors on the Moon' and
+  'Lunar Laser Ranging experiments' -- all currently OPERATIONAL:
+    Apollo 11 LRRR   21 Jul 1969  0.6734 N 23.4731 E   46x46 cm  (USA)
+    Lunokhod 1       17 Nov 1970  38.3152 N 35.0080 W  44x19 cm  (USSR)
+    Apollo 14 LRRR   31 Jan 1971  3.6442 S 17.4786 W            (USA)
+    Apollo 15 LRRR   31 Jul 1971  26.1334 N 3.6285 E            (USA)
+    Lunokhod 2       15 Jan 1973  25.8323 N 30.9221 E           (USSR)
+    Chandrayaan-3    23 Aug 2023  69.3676 S 32.3481 E  5.11 cm  (India)
+  Three nations, six arrays, six decades, one shared measurement.
+  A faked Apollo programme would have to explain why the *Soviet* and
+  *Indian* arrays at independent coordinates return pulses at the same
+  stations, and why the Apollo array at 0.67 N / 23.47 E returns one too.
+
+==========================================================================
+B. Sleep paralysis: the supply of the requisite phenomenology
+==========================================================================
+VERIFIED BASE RATES (Wikipedia, 'Sleep paralysis')
+  lifetime prevalence   8%-50%
+  recurrent             ~5%
+  episode duration      1-6 minutes
+  canonical triad       intruder / incubus (chest pressure) /
+                       vestibular-motor ('floating', out-of-body)
+VERIFIED CLAIMANT POPULATIONS (Wikipedia, 'Alien abduction')
+  'One of the earliest studies of abductions found 1,700 claimants'
+  'contested surveys argued that 5-6 percent of the general population
+   allege to have been abducted'
+
+  world (population taken as ~8.1e+09, approximate):
+    will ever experience sleep paralysis  ~4.05e+09 people
+    experience it recurrently             ~4.05e+08 people
+      at 1 episode/month -> 4.86e+09 episodes/yr
+      at 1 episode/week  -> 2.11e+10 episodes/yr
+      at 1 episode/year  -> 4.05e+08 episodes/yr
+
+  United States (population taken as ~3.4e+08, approximate):
+    will ever experience sleep paralysis  ~1.70e+08 people
+    experience it recurrently             ~1.70e+07 people
+      at 1 episode/month -> 2.04e+08 episodes/yr
+      at 1 episode/week  -> 8.84e+08 episodes/yr
+      at 1 episode/year  -> 1.70e+07 episodes/yr
+
+  Supply/demand ratio:
+    recurrent sleep-paralysis episodes per year (>= 1/yr) 4.05e+08
+    documented abduction claimants                 1,700
+    ratio                                         238,235x
+  The known mundane mechanism over-supplies the phenomenology by ~5
+  orders of magnitude.  Nothing external is needed to produce it.
+  (Units caution: this divides episodes per YEAR by a CUMULATIVE claimant
+   count.  The like-for-like population figure -- 4.05e8 recurrent
+   sufferers vs 1,700 claimants, the same 238,235x -- is the honest
+   headline; the quoted ratio is conservative either way.)
+
+  A numerical coincidence worth flagging honestly:
+    survey-implied abduction claims    5-6% of population
+    recurrent sleep-paralysis base rate ~5% of population
+    These are the same order of magnitude.  This is SUGGESTIVE, not
+    decisive: two ~5% figures can coincide, and neither survey is a
+    controlled measurement of the other.  It is reported as a pointer to
+    a test (polysomnography during reported events), not as a result.
+
+==========================================================================
+C. Expected detection rate: how surprising is the silence?
+==========================================================================
+MODEL.  Under the hypothesis H_A that n abductions were physical events,
+and that each such event independently leaves a verifiable independent
+record with probability p (photograph, video, radar track, medical
+record, third-party witness, physical trace), then
+    P(zero records in the entire history | H_A) = (1 - p)^n
+We solve for the p at which the observed silence has probability >= 5%,
+i.e. the largest p for which 'we found nothing' would still be the
+expected outcome.  Call it p*.
+
+  assumed number of events n                   p* (records/event)         1/p*
+  documented claimants, one early study                 1.761e-03          568
+  Bullard's comparative case set                        9.936e-03          101
+  1% of the US population                               8.811e-07    1,134,948
+  5% of the US population (low survey)                  1.762e-07    5,674,740
+  6% of the US population (high survey)                 1.468e-07    6,809,688
+  5% of world population                                7.397e-09  135,192,322
+
+  Reading: for the silence to be unsurprising at the 5% level, every
+  physical abduction must have had LESS than a 1-in-568 chance of leaving
+  any record at all, if n is only the 1,700 documented claimants; and less
+  than a 1-in-135-million chance if the 5%-of-world survey figure is
+  right.  Those are the numbers the hypothesis has to survive.
+
+  The same table, expressed as P(no record) for a fixed assumed p:
+  assumed number of events n                      p=1e-01      p=1e-02      p=1e-03      p=1e-04      p=1e-06
+  documented claimants, one early study          1.63e-78     3.80e-08     1.83e-01     8.44e-01     9.98e-01
+  Bullard's comparative case set                 1.87e-14     4.90e-02     7.41e-01     9.70e-01     1.00e+00
+  1% of the US population                          <1e-300       <1e-300       <1e-300    2.15e-148     3.34e-02
+  5% of the US population (low survey)             <1e-300       <1e-300       <1e-300       <1e-300     4.14e-08
+  6% of the US population (high survey)            <1e-300       <1e-300       <1e-300       <1e-300     1.38e-09
+  5% of world population                           <1e-300       <1e-300       <1e-300       <1e-300    1.29e-176
+
+  HONEST READING -- the concession is CONDITIONAL ON p, not categorical.
+  (An earlier draft said the argument 'carries only via the survey
+   figures'; the n=1,700 row of this very table refutes that.)
+   * n = 1,700 documented claimants, p = 1e-3: P(no record) = 18% -- the
+     silence is NOT surprising.  That is the weak case and it is conceded.
+   * n = 1,700, p = 1e-2: P(no record) = 4e-8 -- the silence IS surprising
+     on the documented count ALONE.
+   * Any survey-implied n (>= ~3e6) at any tabulated p >= 1e-6: P < 1e-7.
+  So the argument needs only the premise that a physical abduction has at
+  least a ~1-in-100 chance of leaving a verifiable record.  The contested
+  5-6% surveys strengthen it; they are not load-bearing for it.  The
+  genuinely uncertain quantity is p itself -- a judgement about how
+  recordable a physical event is, not a measurement.
+
+  THE DIRECTIONAL ARGUMENT, which does not depend on n at all:
+   Under H_A, P(no record) = (1-p)^n with p rising monotonically as
+   instrumentation per capita rises.  p in 1961 (Betty and Barney Hill):
+   no camera phones, no home video, no dashcams, no CCTV, no phones with
+   cameras, no always-on microphones.  p in 2026: a large fraction of
+   people sleep with a camera-equipped, always-networked computer in the
+   room.  Therefore under H_A the expected number of detections per
+   decade should have RISEN, by orders of magnitude.
+   Observed: the alleged incidence is reported to have declined from its
+   mid-1970s peak.  A physical phenomenon does not become less
+   recordable as recording devices improve.  The direction of the
+   trend is the test, and it runs opposite to the physical prediction.
+
+==========================================================================
+D. Dated content: a prediction H_A makes and fails
+==========================================================================
+H_A (stable real phenomenon with stable content) predicts that the
+elements of the abduction narrative should appear at a roughly constant
+rate across all decades in which reports were collected, and should not
+track the publication history of a handful of authors.
+
+Verified from Wikipedia, 'Alien abduction':
+  * The 'grey' beings and the explicitly extraterrestrial framing entered
+    with the Betty and Barney Hill case (1961); 'purported abductions
+    were cited contemporaneously at least as early as 1954', and cases
+    before 1961 do not carry the later template.
+  * The 'child presentation' phase: 'Bullard says the child presentation
+    phase seems to be an innovation in the story [with] no clear
+    antecedents to descriptions of the child presentation phase exist
+    before its popularization by Hopkins and Jacobs' -- and Bullard,
+    studying ~300 reports, 'could not identify a child presentation
+    phase in the abduction narrative'.
+  * Hopkins began 'using hypnosis to extract more details' in the 1970s;
+    'Many alien abductees recall much of their alleged abduction(s)
+    through hypnosis'.
+
+  => A specific, dated element of the narrative has a birth date in the
+     literature that post-dates the earliest reports by 10-20 years and
+     coincides with the work of two named authors.  Under H_A this is a
+     failed prediction: the phase should be present throughout.
+
+  * Controlled emulation (2021, Int. J. Dream Research): volunteers were
+    instructed to emulate alien encounters by lucid dreaming.  114
+    volunteers (75% of the sample) succeeded; of those, ~20% produced
+    accounts rated close to reality in their absence of dreamlike
+    events, and only among that ~20% were sleep paralysis and fear
+    observed -- 'which are common in "real" stories'.
+    The phenomenology is therefore reproducible on demand, endogenously,
+    by ordinary people who were asked to.
+
+==========================================================================
+END OF derivation3.py
+==========================================================================

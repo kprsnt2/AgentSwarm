@@ -1,0 +1,148 @@
+=== B14 DISCRIMINATOR RULE: computed sections A-G ===
+
+--- A1. log10(per-case LR): sigma x blind-fraction b   (S=10, K=100, phi=1) ---
+   b  |        sig=1e-1        sig=1e-2        sig=1e-3
+   1.0 |            8.00           18.00           28.00
+   0.5 |            3.00            8.00           13.00
+   0.2 |           -0.00            2.00            4.00
+
+--- A2. log10(per-case LR): blind-fraction b x flexibility inflation phi   (S=10, sigma=1e-3, K=100) ---
+   b  |       phi=1       phi=3      phi=10      phi=30     phi=100
+   1.0 |       28.00       27.52       27.00       26.52       26.00
+   0.5 |       13.00       12.52       12.00       11.52       11.00
+   0.2 |        4.00        3.52        3.00        2.52        2.00
+
+--- A3. Break-even phi*: flexibility inflation at which per-case LR = 1 ---
+    (a non-blind protocol must inflate false matches by MORE than this before the
+     evidence content of a case vanishes; phi > phi* => corpus can never discriminate)
+    S=10, K=100:
+   sigma  |  b=1.0        b=0.5        b=0.2
+     1e-1 |     1.00e-8          0.00          1.00
+     1e-2 |    1.00e-18       1.00e-8          0.01
+     1e-3 |    1.00e-28      1.00e-13       1.00e-4
+
+--- B. Corpus size needed for a target corpus Bayes factor ---
+    (independent cases multiply: log10 BF_corpus = n * log10 LR_case)
+    log10 LR/case |  n for BF=1e3  |  n for BF=1e6  |  BF at n=2500 (current-corpus scale)
+              0.5 |             6 |            12 |                      Infinity
+                1 |             3 |             6 |                      Infinity
+                2 |             2 |             3 |                      Infinity
+                3 |             1 |             2 |                      Infinity
+                6 |             1 |             1 |                      Infinity
+               12 |             1 |             1 |                      Infinity
+               24 |             1 |             1 |                      Infinity
+               30 |             1 |             1 |                      Infinity
+    Reading: at ANY nonzero per-case LR the corpus arithmetic is trivially satisfiable —
+    so the numerology is never the binding constraint. The binding constraint is whether
+    per-case LR exceeds 1 at all (section A3), which is the phi/b question.
+
+--- C. Pilot sizing: blinded match attempts needed to measure the confounder channel ---
+    n ~= z^2 (1-p)/(r^2 p), z=1.96; p = P(random candidate matches one statement | naturalistic)
+      p     |           r=0.5          r=0.25           r=0.1
+        1e-1 |             139             554            3458
+        1e-2 |            1522            6086           38032
+        1e-3 |           15352           61405          383776
+        1e-4 |          153649          614595         3841216
+        1e-5 |         1536625         6146499        38415616
+
+    In case units (S=10 checkable statements per case):
+      p     |  r=0.25 attempts |  cases
+        1e-1 |             615 |      62
+        1e-2 |            6147 |     615
+        1e-3 |           61466 |    6147
+        1e-4 |          614656 |   61466
+        1e-5 |         6146560 |  614656
+    Reading: estimating the false-match rate at p=1e-3 to +/-25% needs ~6.1e4 blinded
+    match attempts (~6.1e3 blinded case-verifications) — an experiment nobody has run.
+    Until it is run, per-case LR (and hence the whole B14 program) is UNSCORABLE, not weak.
+
+--- D. Cultural clustering: log10 BF for "constructed" over "rebirth-real" ---
+    observed rho = case-incidence ratio (believing : secular cultures); Poisson approx.
+    R=10:   rho |   log10 BF (vs belief-independent rebirth)
+              1 |             2.909
+              2 |             1.909
+              5 |            -1.091
+             10 |            -6.091
+             20 |           -16.091
+             50 |           -46.091
+    R=100:  rho |   log10 BF (vs belief-independent rebirth)
+              1 |            40.995
+              2 |            38.995
+              5 |            32.995
+             10 |            22.995
+             20 |             2.995
+             50 |           -57.005
+    Ambiguous band: |log10 BF| < 1 => neither hypothesis preferred 10:1.
+    Band check: log10 BF crosses +/-1 at rho = (R-1)/ln R +/- 2.303/ln R.
+      R=10 : rho in (2.9, 4.9)      | R=100: rho in (20.8, 22.0)  — knife-edges.
+    So IF rebirth-real meant belief-independent incidence, the clustering datum would
+    be strongly discriminating (any rho <= 20 favors "constructed" by >10:1 when R=100).
+    But the near-home rebinding defence predicts rho ~ R under rebirth-real as well,
+    collapsing H1 onto H2. The datum is therefore a CONTESTED candidate, not a
+    discriminator: its force depends on which rebirth prediction is stipulated.
+
+--- E. Immunization tax: corpus BF after k auxiliaries, each costing kappa ---
+    corpus BF=1e6 (a strong B14): effective log10 BF
+    k |      kappa=1e-1      kappa=1e-2      kappa=1e-3
+    0 |            6.00            6.00            6.00
+    1 |            5.00            4.00            3.00
+    2 |            4.00            2.00            0.00
+    3 |            3.00            0.00           -3.00
+    4 |            2.00           -2.00           -6.00
+    6 |            0.00           -6.00          -12.00
+    Reading: three auxiliaries at kappa=1e-2 (each a 100:1 parsimony price — modest for
+    "memories are constructed by an unknown mechanism" style deflections) fully consume
+    a 1e6 corpus BF. The tax is symmetric: the same arithmetic applies to any core.
+
+--- F. Attribution invariance INSIDE the rebirth-accepting family ---
+    population-weighted priors (BF=1e+6):
+         hindu-theism prior=0.5830  posterior=0.5830
+              advaita prior=0.1455  posterior=0.1455
+             buddhism prior=0.2541  posterior=0.2541
+              sikhism prior=0.0149  posterior=0.0149
+              jainism prior=0.0025  posterior=0.0025
+       max drift vs prior: 0.000000 bits
+    uniform priors (BF=1e+6):
+         hindu-theism prior=0.2000  posterior=0.2000
+              advaita prior=0.2000  posterior=0.2000
+             buddhism prior=0.2000  posterior=0.2000
+              sikhism prior=0.2000  posterior=0.2000
+              jainism prior=0.2000  posterior=0.2000
+       max drift vs prior: 0.000000 bits
+    Reading: a confirmed corpus would lift the whole family against no-rebirth cores,
+    but allocate WITHIN the family by prior alone — R4 reruns one level down. "Which
+    rebirth metaphysics?" would be exactly as evidence-invariant as "which god?".
+
+--- G. Prior-lock: prior odds needed to survive a corpus ---
+    (posterior P(H) >= 0.5 requires prior odds >= BF_effective against the corpus)
+    corpus BF |  kappa=1 (raw)  |  kappa=1e-2 (one auxiliary)  |  kappa=1e-4 (two)
+          1e+3 |           1e+3 |                        1e+1 |                  1e-1
+          1e+6 |           1e+6 |                        1e+4 |                  1e+2
+         1e+12 |          1e+12 |                       1e+10 |                  1e+8
+    Reading: a core can absorb even a 1e12 corpus by already holding ~1e8:1 prior
+    odds plus two modest auxiliaries. Evidence reallocates only among the movable.
+
+=== H. SUMMARY OF COMPUTED RESULTS ===
+H1  Per-case LR for a Stevenson-style case at S=10, K=100 ranges from 1e28 (fully
+    blind, sigma=1e-3) down to 1e-2 (b=0.2, guided elicitation, sigma=1e-1): a
+    30-order-of-magnitude swing carried entirely by two unmeasured protocol
+    parameters. No existing corpus measures either one.
+H2  Corpus arithmetic is never binding: at any per-case LR >= 10^0.5, n=2500 cases
+    gives a corpus BF beyond 10^1000. The numerology is not the weak point.
+H3  The weak point is measurement, not strength: estimating the naturalistic
+    false-match rate p=1e-3 to +/-25% needs ~6.1e4 blinded match attempts
+    (~6.1e3 blinded case-verifications). No such measurement exists; the corpus is
+    therefore UNSCORABLE rather than weak.
+H4  Cultural clustering is knife-edge ambiguous under belief-independent rebirth
+    (R=100: ambiguous only for rho in (20.8,22.0)) and is predicted by BOTH readings
+    under near-home rebinding. Its force depends on which rebirth prediction is
+    stipulated, so it is a contested candidate, not a discriminator.
+H5  A 1e6 corpus BF is fully consumed by three kappa=1e-2 auxiliaries; the tax is
+    symmetric across all cores.
+H6  Even a confirmed corpus re-runs attribution invariance inside the rebirth-accepting
+    family: max drift from priors = 0.000000 bits at BF=1e6.
+H7  Prior-lock: a core can absorb a 1e12 corpus with ~1e8:1 prior odds plus two
+    auxiliaries.
+
+All quantities describe evidential structure. No probability of any theological
+proposition is asserted, and no verdict is expressed.

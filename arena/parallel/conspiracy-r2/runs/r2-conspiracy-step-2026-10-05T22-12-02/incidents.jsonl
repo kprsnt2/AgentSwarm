@@ -1,0 +1,3 @@
+{"ts":"2026-10-05T22:21:31.303Z","phase":null,"turn":null,"kind":"population_cap_reached","severity":"warn","agentId":null,"detail":{"attempted":"skeptic","cap":1},"prev":"GENESIS","hash":"9325c71236860503136b"}
+{"ts":"2026-10-05T22:45:53.164Z","phase":null,"turn":null,"kind":"population_cap_reached","severity":"warn","agentId":null,"detail":{"attempted":"citation-auditor","cap":1},"prev":"9325c71236860503136b","hash":"0075d04fb0722926821a"}
+{"ts":"2026-10-05T23:09:43.133Z","phase":null,"turn":null,"kind":"population_cap_reached","severity":"warn","agentId":null,"detail":{"attempted":"redteam","cap":1},"prev":"0075d04fb0722926821a","hash":"8df11587456474b451c8"}

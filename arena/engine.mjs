@@ -90,7 +90,9 @@ export class Arena {
     this.swarm = new Swarm({ root, ledger: this.ledger, memory: this.memory, config: this.config });
     this.oracle = new Oracle({ worldDir: this.worldDir, ledger: this.ledger, domains: this.config.domains });
 
-    this.stopPath = join(root, 'STOP');
+    // Allow several concurrent runs to share one kill switch when they are
+    // deliberately isolated in separate world/roots (parallel step runs).
+    this.stopPath = this.config.stopPath || join(root, 'STOP');
     this.turn = 0;
     this.startedAt = Date.now();
     this.totalCost = 0;

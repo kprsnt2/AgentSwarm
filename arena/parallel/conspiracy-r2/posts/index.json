@@ -1,0 +1,53 @@
+{
+  "generatedAt": "2026-10-05T23:30:33.137Z",
+  "posts": [
+    {
+      "runId": "r2-conspiracy-step-2026-10-05T22-12-02",
+      "file": "r2-conspiracy-step-2026-10-05t22-12-02.md",
+      "title": "step-parallel-conspiracy-r2 — r2-conspiracy-step-2026-10-05T22-12-02",
+      "phase": "step-parallel-conspiracy-r2",
+      "generatedAt": "2026-10-05T23:29:54.302Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "source": "POST.md",
+        "substrate": "step",
+        "model": "step/step-5-preview",
+        "reason": "rejected: numbers not present in the ledger",
+        "invented": [
+          "77.9",
+          "2.5",
+          "1.8",
+          "12.4206",
+          "2.69",
+          "9.7",
+          "60.3",
+          "46.3",
+          "46"
+        ],
+        "cost": 0,
+        "thinkingTokens": 0,
+        "toolCalls": 3
+      },
+      "totals": {
+        "turns": 8,
+        "okTurns": 8,
+        "agents": 1,
+        "toolCalls": 681,
+        "thinkingTokens": 0,
+        "cost": 0,
+        "violations": 0,
+        "filesWritten": 9,
+        "incidents": 3
+      },
+      "halted": "max turns reached (8)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Do the evidence: flat Earth, fake Moon landing, Area 51/Roswell, alien abduction\" (conspiracy-theories-evidence)",
+          "turns": 8
+        }
+      ]
+    }
+  ]
+}

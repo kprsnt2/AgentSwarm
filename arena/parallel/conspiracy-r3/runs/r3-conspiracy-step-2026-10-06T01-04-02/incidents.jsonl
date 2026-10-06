@@ -1,0 +1,5 @@
+{"ts":"2026-10-06T01:17:19.135Z","phase":null,"turn":null,"kind":"population_cap_reached","severity":"warn","agentId":null,"detail":{"attempted":"Verifier","cap":1},"prev":"GENESIS","hash":"8e0d1513e94426521b56"}
+{"ts":"2026-10-06T01:17:19.144Z","phase":null,"turn":null,"kind":"connect_unknown_agent","severity":"info","agentId":null,"detail":{"from":"Kepler","to":"Verifier"},"prev":"8e0d1513e94426521b56","hash":"cc61df7e6fc4f0cc0f93"}
+{"ts":"2026-10-06T01:41:13.477Z","phase":null,"turn":null,"kind":"population_cap_reached","severity":"warn","agentId":null,"detail":{"attempted":"Verifier","cap":1},"prev":"cc61df7e6fc4f0cc0f93","hash":"af51a1cfbd4003a1fb19"}
+{"ts":"2026-10-06T02:17:01.560Z","phase":null,"turn":null,"kind":"population_cap_reached","severity":"warn","agentId":null,"detail":{"attempted":"auditor","cap":1},"prev":"af51a1cfbd4003a1fb19","hash":"0c54490818d978756cbe"}
+{"ts":"2026-10-06T02:17:01.600Z","phase":null,"turn":null,"kind":"population_cap_reached","severity":"warn","agentId":null,"detail":{"attempted":"scavenger","cap":1},"prev":"0c54490818d978756cbe","hash":"08c8a3bc5336b07029e9"}

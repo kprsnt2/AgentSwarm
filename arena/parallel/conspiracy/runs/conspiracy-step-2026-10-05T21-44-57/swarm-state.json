@@ -1,0 +1,25 @@
+{
+  "runId": "conspiracy-step-2026-10-05T21-44-57",
+  "ts": "2026-10-06T00:18:57.948Z",
+  "populationCap": 1,
+  "population": [
+    {
+      "id": "A001",
+      "name": "Kepler",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"Do the evidence: flat Earth, fake Moon landing, Area 51/Roswell, alien abduction\" (conspiracy-theories-evidence)",
+      "substrate": "step",
+      "model": null,
+      "born": "2026-10-05T21:44:57.773Z",
+      "turnsLived": 5,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    }
+  ],
+  "living": 1,
+  "total": 1
+}

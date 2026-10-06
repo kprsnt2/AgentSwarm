@@ -1,0 +1,154 @@
+==============================================================================
+A. STELLAR PARALLAX AGAINST A NEARBY DOME (claim a, new decisive test)
+==============================================================================
+VERIFIED INPUTS (V)
+  parallax 768.0665 +/- 0.0499 mas  (Gaia DR3, 2020) = 0.768066 arcsec
+  distance 4.2465 ly = 1.3020 pc      d = 4.0176e+13 km
+  cross-check 1/d[pc] = 0.768049 arcsec vs quoted 0.768066 -> -0.002% (consistent)
+  NOTE: this pass's first draft inverted the article's rounded LEAD (1.3 pc) to get
+        0.7692 arcsec and then built a 'the two expressions differ by 0.23%' note.
+        That 0.23% was an artefact of the rounding. The parallax is stated directly
+        in the body and is used below. 1 AU / 6371 km = 2.35e4.
+
+  The flat-Earth model puts the stars on a nearby inner surface of a 'dome'.
+  Scanning every altitude quoted in that literature 1,000-10,000 miles:
+
+  dome altitude      dome R (km)   predicted annual parallax (ALL stars)   excess over measured
+     1000 mi            1609        1.917e+10 arcsec        2.50e+10 x
+     3000 mi            4828        6.391e+09 arcsec        8.32e+09 x
+     5000 mi            8047        3.835e+09 arcsec        4.99e+09 x
+     7000 mi           11265        2.739e+09 arcsec        3.57e+09 x
+    10000 mi           16093        1.917e+09 arcsec        2.50e+09 x
+
+  Distance the dome would have to sit at to match the measured parallax:
+    d = AU/p = 4.0175e+13 km = 1.30 pc = 4.25 ly
+    = 8.321e+09 x the 3,000-mile figure  (or 2.496e+09 x the 10,000-mile figure)
+
+  ORDERS OF MAGNITUDE, stated from the table, not asserted:
+    smallest excess (10,000 mi dome) = 2.496e+09 = 10^9.4
+    largest  excess ( 1,000 mi dome) = 2.496e+10 = 10^10.4
+    => the exclusion is ~9 to 10.4 orders of magnitude in angle (NOT 8-10).
+
+  WHY THIS IS DECISIVE, AND WHAT IT DOES NOT DEPEND ON
+  * On a single dome every star sits at essentially ONE distance, so ALL of them
+    would show the SAME ~1e9-1e10 arcsec annual swing. Measured: 0.768 arcsec for
+    the nearest star, a few tenths of an arcsecond for its nearest companions, and
+    vastly below 0.01 arcsec for the overwhelming majority of catalogued stars.
+    EVERY real parallax is 6 to 10 orders of magnitude below the dome prediction.
+    (An earlier draft said '<0.01 arcsec for every other star in the sky', which is
+     false: Alpha Centauri ~0.75", Barnard's Star ~0.55", Sirius ~0.38". Softened.)
+  * The exclusion is 9-10.4 orders of magnitude in angle (see the computed block
+    below): no choice of dome altitude fixes it; 1,000 mi and 10,000 mi both fail
+    by the same margin. That robustness is what distinguishes this test from the
+  * The only free parameter is the parallax BASELINE. Getting 0.768 arcsec instead
+    of ~1e10 arcsec is a direct geometric measurement that Earth moves 1 AU.
+    A stationary plane has baseline = 0, hence ZERO annual parallax for every star.
+    Measured parallax is therefore positive proof of orbital motion, not merely
+    a value inconsistent with the dome. Precisely: the CONVENTIONAL parallax uses
+    the 1-AU baseline (a = 1 AU, the parsec definition), while the two six-month-
+    apart viewpoints are separated by the orbit's DIAMETER, 2a = 2 AU. An earlier
+    draft wrote 'the Earth moves a distance 2a = 1 AU over six months', which is a
+    factor-of-2 error and contradicted this section's own a = 1 AU definition.
+==============================================================================
+B. STELLAR ABERRATION -- an independent measurement of the same orbit
+==============================================================================
+VERIFIED INPUTS (V): annual aberration maximum '~20 arcseconds', of order v/c,
+  caused by Earth's revolution about the Sun  [Wikipedia, 'Aberration (astronomy)']
+
+  mean orbital speed (quoted)    v =  29.780 km/s -> kappa = v/c = 9.9335e-05 rad = 20.489 arcsec
+  2*pi*AU/yr (computed here)     v =  29.785 km/s -> kappa = v/c = 9.9353e-05 rad = 20.493 arcsec
+
+  predicted 20.49 arcsec vs observed '~20 arcseconds'  -> agreement to better
+  than the 3% implied by that rounding; the classical constant is ~20.5 arcsec.
+  NOTE ON THE COMPARISON: the source states the observation in round numbers,
+  so this is a 'predicted 20.49 against an observation quoted as about 20'
+  agreement, not a 0.1% test. It is nevertheless a two-significant-figure
+  prediction of a quantity that a stationary Earth must predict to be EXACTLY zero.
+
+  Aberration is INDEPENDENT of parallax and the two separate cleanly:
+    - aberration depends only on observer VELOCITY, not on the star's distance;
+    - parallax depends only on baseline and distance.
+  Aberration is in phase with the orbit (period 1 year, 90 deg out of phase with
+  parallax), so it cannot be an artefact of the same geometry. Either alone
+  refutes a stationary plane; together they measure the orbit two ways.
+
+  Third, independent signature of the same velocity -- annual Doppler shift:
+    dlambda/lambda = v/c = 9.9335e-05 -> +/- 0.0497 nm at 500 nm (= +/- 0.50 angstrom)
+    observed to that precision in stellar spectra (standard astronomical practice).
+==============================================================================
+B2. STELLAR ANGULAR SIZE AT DOME DISTANCE  (SUPPORTING point, not load-bearing)
+==============================================================================
+VERIFIED INPUTS (V), Wikipedia, 'Betelgeuse':
+  angular diameter 0.047 arcsec (Michelson, uniform disk; 0.055 arcsec corrected
+    for limb darkening); radius ~640 R_sun; distance 125 pc (the article's body converts this to 410 ly)
+
+  If that disc were at dome distance:
+   at  3000 mi: physical radius = 0.55 m  (diameter 1.10 m)
+   at  7000 mi: physical radius = 1.28 m  (diameter 2.57 m)
+
+  CROSS-CHECK that the two verified numbers are mutually consistent:
+    implied distance from theta=0.047" and R=640 R_sun:  3.908e+15 km = 413 ly = 127 pc
+    implied distance from theta=0.055" and R=640 R_sun:  3.340e+15 km = 353 ly = 108 pc
+    article's own distance: 408 ly = 125 pc  -> the 0.047" uniform-disk value
+    reproduces it to 1.2%. So the angular diameter and the radius are both real
+    measurements of a star hundreds of parsecs away, not a metre-scale lamp.
+  PROVENANCE FLAG: the article's own infobox carries parallax 5.95 mas (= 168 pc)
+    alongside dist 125 pc -- an internal inconsistency in the source: 168 pc vs
+    125 pc is 34.4% on the 125 pc base (the body also carries 410 ly for the 125 pc
+    track). It does not bear on this argument, since both values are hundreds of
+    parsecs, and 125 pc = 3.86e+15 km vs a 10,000-mile dome (1.61e4 km) is a factor of
+    2.4e+11 -- i.e. 10^11.4 to 10^12.4 times further, NOT 10^13.
+    An earlier draft wrote '~10^13 times further', which is high by ~1-2 orders.
+  LABEL: supporting. Assumes the interferometric angular diameters are real, which
+  a dome modeller can deny at some cost in other physics, so it is not the
+  load-bearing exclusion. Sections A and B carry that.
+==============================================================================
+C. THE TWO FIGURES PASS 4 FLAGGED 'NOT VERIFIED IN THIS SESSION'
+==============================================================================
+C1. Intact-rock thermal conductivity, used only as a scale for derived regolith k.
+    Derived in pass 4: k_regolith = 8.5-11.3 mW/(m.K), central 9.7 mW/(m.K)
+    (V) Wikipedia, 'List of thermal conductivities', values read this session:
+    (Indiana Limestone was in the first draft at 0.62-1.33; the source table's
+     wikitext is ambiguous there and two different ranges sit in adjacent cells,
+     so the row is DROPPED rather than guessed at. It is sedimentary, a poor lunar
+     analogue anyway, and its removal does not change the igneous conclusion.)
+    rock                                          W/(m.K) ratio vs regolith
+    Stephens Basalt (NTS samples)               1.36- 1.92    140x -    198x
+    Barre Granite, dry, 50 bar                  2.10- 2.80    216x -    289x
+    Barre Granite, all pressures to 5000 bar    2.10- 4.50    216x -    464x
+    Marble                                      2.07- 2.94    213x -    303x
+    pass-4 asserted 'intact igneous 2-4'        2.00- 4.00    206x -    412x
+
+    FINDING: pass 4's '2-4 W/(m.K), ~300x less conductive' is FAIR inside that
+    band (206-412x) and the band is defensible for granite, but basalt - the
+    closest lunar analogue - measures 1.36-1.92, so the honest range across all
+    listed igneous/sedimentary rock is roughly 140x-460x less conductive.
+    Restated: 2-3 ORDERS OF MAGNITUDE, not 'about 300x'. Conclusion unchanged;
+    the '~300x' figure is now a range and the mechanism caveat from pass 4 stands.
+
+C2. Earth's specific heat output, used in pass 4 only as a scale check.
+    (V) Wikipedia, 'Earth's internal heat budget': 'estimated at 47 +/- 2 terawatts';
+        'Estimates ... span a range of 43 to 49 terawatts'.
+    Earth total 47 +/- 2 TW  ->  range 43-49 TW
+    Earth mean flux = 47e12 / 5.1007e+14 m2 = 92.1 mW/m2
+      (article states 'an average heat flux of 91.6 mW/m2' -> matches)
+    Earth specific output = 7.870e-12 W/kg   (range 7.20e-12 - 8.20e-12)
+    Moon total 6.4e11 W  (pass-4 DERIVED: 17 mW/m2 over 4piR^2 = 3.79e13 m2)
+    Moon specific output = 8.712e-12 W/kg
+      pass 4 wrote '8.8e-12' -> correct; and Earth '~8e-12' -> correct (now 7.9e-12)
+    Earth/Moon ratio = 0.90 -> same order of magnitude. Scale check only.
+    FINDING: pass 4's Earth figure is confirmed (7.9e-12 W/kg, and 47 +/- 2 TW is
+    the right central value with a stated +/- 2 TW that pass 4 omitted). The Moon
+    figure is confirmed. Non-load-bearing, as pass 4 said.
+==============================================================================
+D. CROSS-CHECK: do A and B disturb the earlier passes?
+==============================================================================
+  A and B are new tests for claim (a) only. They add a positive measurement of
+  Earth's orbital motion (parallax 0.77 arcsec, aberration ~20 arcsec) to a claim
+  section that previously refuted the flat plane only by *inconsistency*
+  (star fields, shadows, flights, pendulums). That matters: 'stationary plane' is
+  now excluded by a direct geometric measurement, not just by arithmetic
+  contradiction. Verdict for (a) is unchanged; the evidence class is stronger.
+
+  One thing this pass does NOT do: it does not touch claims (b), (c) or (d),
+  whose arithmetic was already computed and audited in passes 3 and 4.

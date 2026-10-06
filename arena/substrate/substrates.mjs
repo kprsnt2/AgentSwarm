@@ -18,13 +18,22 @@
  */
 
 import { spawn } from 'node:child_process';
-import { existsSync, openSync, closeSync, readFileSync, mkdirSync } from 'node:fs';
+import { existsSync, openSync, closeSync, readFileSync, readSync, mkdirSync, statSync, unlinkSync } from 'node:fs';
 import { join } from 'node:path';
+import { StringDecoder } from 'node:string_decoder';
 
 export const GIT_BASH = 'C:\\Program Files\\Git\\bin\\bash.exe';
 
 const PI_CLI_JS = 'C:\\Users\\hplap\\.npm-global\\node_modules\\@earendil-works\\pi-coding-agent\\dist\\bundle\\cli.js';
 const NODE_EXE = 'C:\\Program Files\\nodejs\\node.exe';
+/**
+ * The compiled step.exe is blocked on this host by Smart App Control (policy
+ * {0283ac0f-...}, event 3077/3113). Its embedded bundle was extracted verbatim
+ * and runs under Node, so we prefer that when present. This preserves the real
+ * StepCode harness and the Step 5 Preview model without touching the machine's
+ * security policy. See arena/docs/HOW_TO_RUN.md ("step is blocked").
+ */
+const STEP_CLI_JS = 'C:\\Users\\hplap\\.stepcode\\agent\\step-js\\dist\\bundle\\step.js';
 
 /**
  * Resolve a substrate to (executable, prefixArgs) so we NEVER rely on shell:true.
@@ -36,6 +45,9 @@ const NODE_EXE = 'C:\\Program Files\\nodejs\\node.exe';
 function resolveBin(substrate) {
   if (substrate === 'pi' && existsSync(PI_CLI_JS)) {
     return { exe: existsSync(NODE_EXE) ? NODE_EXE : 'node', prefixArgs: [PI_CLI_JS] };
+  }
+  if (substrate === 'step' && existsSync(STEP_CLI_JS)) {
+    return { exe: existsSync(NODE_EXE) ? NODE_EXE : 'node', prefixArgs: [STEP_CLI_JS] };
   }
   if (substrate === 'agy') return { exe: 'C:\\Users\\hplap\\AppData\\Local\\agy\\bin\\agy.exe', prefixArgs: [] };
   if (substrate === 'omp') return { exe: 'C:\\Users\\hplap\\.bun\\bin\\omp.exe', prefixArgs: [] };
@@ -380,6 +392,81 @@ function extractReasoning(events) {
 }
 
 /**
+ * Streaming reasoning accumulator.
+ *
+ * The original implementation called readFileSync() on the entire stdout file and
+ * materialised one event object per token BEFORE pruning. Step can emit multi-GB
+ * streams (9.8 GB observed on a single turn); that both exceeds V8's maximum string
+ * length — so the read silently threw and the turn was recorded as ok=false with
+ * zero tool calls — and would OOM even if the string fit. We now fold the per-token
+ * `thinking_delta` events into one reasoning string as they stream past, and retain
+ * only the small set of non-pruned events.
+ */
+function createReasoningStream() {
+  const blocks = [];
+  let current = null;
+  let text = '';
+  return {
+    push(ev) {
+      const ame = ev.assistantMessageEvent;
+      if (!ame) return;
+      const type = ame.type || '';
+      if (type === 'thinking_start') {
+        current = { index: ame.contentIndex ?? blocks.length, text: '' };
+        blocks.push(current);
+      } else if (type === 'thinking_delta') {
+        if (!current) { current = { index: ame.contentIndex ?? blocks.length, text: '' }; blocks.push(current); }
+        current.text += ame.delta || '';
+      } else if (type === 'thinking_end') {
+        if (current && ame.content != null) current.text = ame.content;
+        if (current) { text += (text ? '\n\n' : '') + current.text; current = null; }
+      }
+    },
+    result() { return { text: text.trim(), blocks: blocks.length }; },
+  };
+}
+
+/**
+ * Parse a (potentially multi-GB) newline-delimited JSON file without ever holding
+ * the whole file in memory. Calls onEvent(line) for every non-empty line. Returns
+ * the number of lines offered. A missing/unreadable file yields zero lines: the
+ * caller records that as an empty turn rather than crashing.
+ */
+function streamJsonl(path, onEvent) {
+  let fd = null;
+  let lines = 0;
+  try {
+    fd = openSync(path, 'r');
+    const decoder = new StringDecoder('utf8');
+    const CHUNK = 4 * 1024 * 1024;
+    const buf = Buffer.allocUnsafe(CHUNK);
+    let remainder = '';
+    for (;;) {
+      const bytes = readSync(fd, buf, 0, CHUNK, null);
+      if (bytes <= 0) break;
+      const chunk = remainder + decoder.write(buf.subarray(0, bytes));
+      let start = 0;
+      let idx;
+      while ((idx = chunk.indexOf('\n', start)) !== -1) {
+        const line = chunk.slice(start, idx);
+        start = idx + 1;
+        if (line.trim()) { lines++; onEvent(line); }
+      }
+      remainder = chunk.slice(start);
+    }
+    remainder += decoder.end();
+    if (remainder.trim()) { lines++; onEvent(remainder); }
+  } catch {
+    // fall through: an unreadable stream is data, not a crash
+  } finally {
+    if (fd !== null) { try { closeSync(fd); } catch {} }
+  }
+  return lines;
+}
+
+function safeSize(path) { try { return statSync(path).size; } catch { return 0; } }
+
+/**
  * Spawn a substrate for exactly one turn and return the fully parsed forensic record.
  * Never throws for a non-zero exit: a failed turn is itself data.
  */
@@ -458,16 +545,9 @@ export function runTurn({
       try { if (outFd !== null) closeSync(outFd); } catch {}
       try { if (errFd !== null) closeSync(errFd); } catch {}
 
-      let stdout = '';
       let stderr = '';
-      try { stdout = readFileSync(outPath, 'utf8'); } catch {}
       try { stderr = readFileSync(errPath, 'utf8'); } catch {}
-
-      const events = [];
-      for (const line of stdout.split(/\r?\n/)) {
-        const parsed = spec.parseLine(line);
-        if (parsed) events.push(parsed);
-      }
+      const rawBytes = safeSize(outPath);
 
       // ---------------------------------------------------------------------
       // EVENT PRUNING — but KEEP THE REASONING.
@@ -482,10 +562,20 @@ export function runTurn({
       // So we EXTRACT the reasoning text into one readable field, then drop the
       // raw per-token events. Full cognition preserved, volume stays small.
       // ---------------------------------------------------------------------
-      const reasoning = extractReasoning(events);
       const PRUNED = new Set(['message_update', 'step_update']);
-      const prunedEvents = events.filter((e) => !PRUNED.has(e.type));
-      const prunedCount = events.length - prunedEvents.length;
+      const prunedEvents = [];
+      const reasoningStream = createReasoningStream();
+      const eventCount = streamJsonl(outPath, (line) => {
+        const parsed = spec.parseLine(line);
+        if (!parsed) return;
+        reasoningStream.push(parsed);
+        if (!PRUNED.has(parsed.type)) prunedEvents.push(parsed);
+      });
+      // Reuse the whole-message fallback only when no streaming thinking blocks
+      // were seen (agy does not stream its monologue; omp/pi/step do).
+      let reasoning = reasoningStream.result();
+      if (!reasoning.blocks) reasoning = extractReasoning(prunedEvents);
+      const prunedCount = eventCount - prunedEvents.length;
 
       const extracted = spec.extractTurnEvents(prunedEvents);
       extracted.reasoning = reasoning.text;
@@ -514,11 +604,19 @@ export function runTurn({
         stderr: truncate(stderr, 2000),
         stdoutPath: outPath,
         stderrPath: errPath,
-        rawEventCount: prunedEvents.length,
-        prunedEventCount: prunedCount,
         events: prunedEvents,
         ...extracted,
+        rawEventCount: eventCount,
+        prunedEventCount: prunedCount,
+        rawBytes,
       });
+      // Optional disk bound. A single Step turn can emit >10 GB of raw token
+      // events. With ARENA_DISCARD_RAW=1 the raw stream is deleted after a clean
+      // extraction; the reduced forensic record (turns.jsonl) is unaffected and
+      // rawBytes is kept for provenance. Failed turns are always retained.
+      if (process.env.ARENA_DISCARD_RAW === '1' && clean && rawBytes > 50_000_000) {
+        try { unlinkSync(outPath); } catch {}
+      }
     };
 
     child.on('error', (err) => {
