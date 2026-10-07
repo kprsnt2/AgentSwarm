@@ -131,6 +131,34 @@ export const DOMAINS = [
     ],
     deliverable: 'A falsifiable prediction for each of the three questions plus the observation that would settle it.',
   },
+  {
+    id: 'dark-matter',
+    title: 'Proof and nature of dark matter',
+    epistemicClass: 'empirical',
+    brief: 'Evaluate the empirical proof for dark matter across multiple independent observational scales: galactic rotation curves, cluster dynamics and gravitational lensing (especially the Bullet Cluster 1E 0657-558 offset between weak lensing mass peaks and dissipative X-ray gas), and cosmological scale (Planck 2018 CMB acoustic peak ratios and BBN baryon bounds). Contrast Cold Dark Matter (CDM: WIMPs, axions, primordial black holes) with Modified Gravity (MOND / AQUAL / relativistic extensions). Determine what is decisively proved (unseen collisionless mass) versus unproven (particle identity), and quantify current direct-detection bounds.',
+    groundedFacts: [
+      'Galactic rotation curves show asymptotic flatness v(r) ~ const (Rubin & Ford 1970)',
+      'Bullet Cluster (1E 0657-558) exhibits an 8-sigma spatial offset between weak lensing mass peaks and collisional X-ray gas peaks',
+      'Planck 2018 cosmological parameters: Omega_b h^2 = 0.02237 +/- 0.00015, Omega_c h^2 = 0.1200 +/- 0.0012 (~84% of total matter is dark)',
+      'Direct detection bounds: LZ and XENONnT constrain spin-independent WIMP cross-section sigma_SI < 9.2e-48 cm^2 at 30-40 GeV',
+      'MOND phenomenology (a0 ~ 1.2e-10 m/s^2) matches galactic rotation curves without free parameters, but fails cluster dynamics and CMB 3rd acoustic peak without unseen mass',
+    ],
+    deliverable: 'A quantitative empirical assessment proving the necessity of collisionless non-baryonic mass, calculating falsification boundaries, and evaluating the quantum macroscopic wave candidate (ultra-light axions).',
+  },
+  {
+    id: 'quantum-macro-cosmos',
+    title: 'Quantum theory validity in macroscopic reality and cosmology',
+    epistemicClass: 'empirical',
+    brief: 'Investigate how quantum mechanics operates in real-life macroscopic systems and on cosmological scales. Synthesize directly with findings from the dark matter inquiry: analyse ultra-light axion dark matter as a macroscopic Bose-Einstein Condensate governed by the Schrodinger-Poisson equations. Derive the quantum origin of cosmic structure from primordial inflationary quantum perturbations (Mukhanov-Sasaki equations). Quantify environmental decoherence timescales that enforce classicality in macroscopic systems, and test the limits of macroscopic quantum superpositions (interferometry, superconducting SQUIDs, Diosi-Penrose gravitational collapse bounds).',
+    groundedFacts: [
+      'Cosmic large-scale structure originated from quantum vacuum fluctuations during inflation; scalar tilt n_s = 0.9649 +/- 0.0042',
+      'Environmental decoherence timescale tau_D ~ tau_R * (lambda_dB / Delta x)^2 quantitatively resolves macroscopic classical emergence',
+      'Macroscopic quantum superposition demonstrated for macromolecules (>2.5e4 Da) and persistent currents in superconducting SQUIDs (>10^9 Cooper pairs)',
+      'Ultra-light bosonic dark matter (m ~ 1e-22 eV) has de Broglie wavelength lambda_dB ~ 1 kpc, behaving as a cosmic macroscopic quantum wavefunction',
+      'Diosi-Penrose objective collapse predicts gravitational decoherence timescale tau ~ hbar / Delta E_G',
+    ],
+    deliverable: 'A unified mathematical model and empirical analysis showing quantum mechanics governing cosmic perturbations and macroscopic scale limits, with testable predictions linking dark matter wave mechanics to quantum cosmology.',
+  },
 ];
 
 export function domainById(id) {

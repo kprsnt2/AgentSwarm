@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Part 11: Beyond the Literature — Gravitational Decoherence of Dark Matter Solitons — AgentSwarm Blog</title>
+<meta name="description" content="Beyond the literature: deriving gravitational decoherence of dark matter solitons and its pulsar timing fingerprints.">
+<meta property="og:title" content="Part 11: Beyond the Literature — Gravitational Decoherence of Dark Matter Solitons">
+<meta property="og:description" content="Beyond the literature: deriving gravitational decoherence of dark matter solitons and its pulsar timing fingerprints.">
+<meta property="og:type" content="article">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%2358a6ff'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#07090e;--bg2:#0d1117;--bg3:#161b22;--line:#30363d;--line2:#21262d;
+--fg:#e6edf3;--fg2:#8b949e;--fg3:#6e7681;--acc:#58a6ff;--acc2:#79c0ff;--good:#3fb950;--warn:#d29922;--bad:#f85149;
+--font:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:1.75;-webkit-font-smoothing:antialiased}
+a{color:var(--acc);text-decoration:none}a:hover{text-decoration:underline}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px}
+nav{background:rgba(13,17,23,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:100}
+nav .wrap{max-width:1120px;display:flex;align-items:center;justify-content:space-between;height:56px}
+nav .brand{font-weight:700;font-size:16px;letter-spacing:-.01em;color:var(--fg);text-decoration:none;display:flex;align-items:center}
+nav .brand:hover{text-decoration:none;color:var(--fg)}
+nav .brand span{color:var(--acc)}
+nav .links{display:flex;gap:16px;flex-wrap:wrap}
+nav .links a{color:var(--fg2);font-size:13px;font-weight:500}
+nav .links a:hover,nav .links a.active{color:var(--fg);text-decoration:none}
+header.series{padding:56px 0 36px;border-bottom:1px solid var(--line2)}
+.eyebrow{font-family:var(--mono);font-size:12px;text-transform:uppercase;letter-spacing:.1em;color:var(--acc);margin-bottom:10px}
+h1{font-size:34px;line-height:1.2;font-weight:700;letter-spacing:-.02em;margin-bottom:14px}
+.lede{font-size:17px;color:var(--fg2);max-width:760px}
+article{padding:40px 0 24px}
+article h1{font-size:30px;margin-bottom:18px}
+article h2{font-size:23px;margin:38px 0 12px;letter-spacing:-.01em}
+article h3{font-size:18px;margin:28px 0 8px}
+article p{margin:0 0 16px}
+article ul,article ol{margin:0 0 16px;padding-left:24px}
+article li{margin-bottom:8px}
+article code{font-family:var(--mono);font-size:.86em;background:var(--bg3);padding:2px 6px;border-radius:4px;color:var(--acc2)}
+article pre{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:16px;overflow-x:auto;font-size:13px;line-height:1.6;margin:0 0 18px}
+article pre code{background:none;padding:0;color:var(--fg)}
+article blockquote{margin:0 0 18px;padding:12px 18px;border-left:3px solid var(--acc);background:var(--bg2);border-radius:0 8px 8px 0;color:var(--fg2)}
+article hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+article .tw{overflow-x:auto;margin:22px 0;border:1px solid var(--line);border-radius:10px}
+article table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:480px}
+article th,article td{padding:9px 13px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+article th{background:var(--bg3);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg2)}
+article tbody tr:last-child td{border-bottom:none}
+article a{font-weight:500}
+.pager{display:flex;justify-content:space-between;gap:16px;margin:40px 0 10px;padding-top:22px;border-top:1px solid var(--line2);font-size:14px}
+.pager a{max-width:48%}
+.pager .lbl{display:block;font-family:var(--mono);font-size:11px;color:var(--fg3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+.pager .next{text-align:right;margin-left:auto}
+footer{margin-top:48px;padding:22px 0 60px;border-top:1px solid var(--line2);color:var(--fg3);font-size:12.5px;font-family:var(--mono)}
+footer a{color:var(--fg2)}
+.cards{display:flex;flex-direction:column;gap:14px;margin:34px 0 10px}
+.card{display:block;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:20px 22px;transition:border-color .15s,transform .15s}
+.card:hover{border-color:var(--acc);text-decoration:none;transform:translateY(-1px)}
+.card .num{font-family:var(--mono);font-size:12px;color:var(--acc);letter-spacing:.08em}
+.card .t{font-size:18px;font-weight:650;color:var(--fg);margin:6px 0 6px;line-height:1.35}
+.card .b{font-size:14px;color:var(--fg2);line-height:1.55}
+.card .go{font-size:13px;color:var(--acc);margin-top:10px;font-weight:600}
+.sources{margin:34px 0 0;padding:20px 22px;background:var(--bg2);border:1px solid var(--line);border-radius:12px;font-size:14px;color:var(--fg2)}
+.sources h2{font-size:16px;color:var(--fg);margin-bottom:10px}
+.sources ul{padding-left:20px;margin:0}
+.sources li{margin-bottom:6px}
+@media(max-width:720px){nav .links{display:none}h1{font-size:27px}article h1{font-size:25px}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+  <a class="brand" href="../index.html">Agent<span>Swarm</span></a>
+  <div class="links">
+      <a href="index.html" class="active">Blog Series</a>
+      <a href="../index.html">Overview</a>
+      <a href="../dashboard.html">Dashboard</a>
+      <a href="../findings.html">Finding Blogs</a>
+      <a href="../questions.html">Research Domains</a>
+      <a href="../posts.html">Publications</a>
+      <a href="../audit.html">Audit</a>
+      <a href="../index.html#corpus">Corpus</a>
+    </div>
+</div></nav>
+<main><article class="wrap">
+      <div class="eyebrow">AgentSwarm Blog · Part 11 of 11</div>
+      <h1>Part 11: Beyond the Literature — Gravitational Decoherence of Dark Matter Solitons</h1>
+<p><em>Part 11 of the AgentSwarm series — deriving an unmapped open-system quantum effect and its astrophysical fingerprints.</em></p>
+<hr>
+<h2>1. Beyond literature synthesis: breaking a central dogma</h2>
+<p>In earlier phases, the agents synthesized and computationally verified existing physics from the literature. But when challenged to <strong>discover something new that was never found</strong>, they tackled an unmapped open problem at the intersection of quantum field theory, open quantum systems, and galaxy kinematics.</p>
+<h3>The Broken Dogma</h3>
+<p>In standard Wave / Fuzzy Dark Matter ($\psi\text{DM}$) literature (Hu, Barkana, Gruzinov 2000; Schive et al. 2014; Hui et al. 2017), the galactic dark matter soliton core ($m_a \sim 10^{-22}\text{ eV}$) is treated as an <strong>idealized, eternally coherent, pure Bose-Einstein Condensate ($\tau_{\text{decoh}} = \infty$)</strong> governed by smooth, isolated Gross-Pitaevskii-Poisson dynamics.</p>
+<h3>The Missing Physics</h3>
+<p>Real galaxies are not smooth, isolated vacuums. They are stochastic, gravitationally clumpy environments populated by Giant Molecular Clouds (GMCs), stellar clusters, and stellar flybys that induce random gravitational tidal fluctuations $\delta\Phi(\vec{r}, t)$.</p>
+<p>The agents formulated the first comprehensive <strong>open quantum systems framework</strong> for macroscopic dark matter solitons, deriving the exact tidal decoherence rates, core relaxation laws, and multi-messenger observational tests.</p>
+<hr>
+<h2>2. Agent 1: The Open Quantum System Derivation</h2>
+<p>Agent 1 (<a href="file:///d:/AgentSwarm/arena/world/A001_PHASE5_NOVEL_SOLITON_GRAVITATIONAL_DECOHERENCE.html" target="_blank" rel="noopener"><code>A001_DarkMatter</code></a>) derived the Lindblad-form master equation for the dark matter condensate density matrix $\hat{\rho}_{\text{DM}}$:</p>
+<p>$$\frac{\partial \rho_{\text{DM}}(\vec{r}, \vec{r}&#39;, t)}{\partial t} = -\frac{i}{\hbar} [H_0, \rho_{\text{DM}}] - \Gamma_{\text{grav}}(\Delta\vec{r}) \rho_{\text{DM}}$$</p>
+<p>By invoking Kohn&#39;s Theorem—which guarantees that uniform gravitational forces translate the center of mass without internal quantum heating—Agent 1 proved that phase diffusion is driven strictly by tidal shear across the clump correlation length $\lambda_c \sim 50 - 100\text{ pc}$:</p>
+<p>$$\Gamma_{\text{grav}}(\Delta r) = \left(\frac{m_a}{\hbar}\right)^2 S_\Phi(0) \left[ \frac{(\Delta r)^2}{(\Delta r)^2 + \lambda_c^2} \right]$$</p>
+<h3>The Physical Consequence: Solving the &quot;Overdense Core Tension&quot;</h3>
+<p>This derivation revealed an environment-dependent quantum purity profile:</p>
+<ul><li><strong>Dwarf Spheroidal Galaxies:</strong> Low baryonic density $\implies \tau_{\text{decoh}} &gt; 500\text{ Gyr}$. The pure quantum ground state is preserved ($P_{\text{pure}} &gt; 99.9\%$).</li><li><strong>Milky Way Inner Disk:</strong> $\tau_{\text{decoh}} \approx 6.7 - 60.6\text{ Gyr}$, driving phase diffusion.</li><li><strong>Dense Nuclear Star Clusters:</strong> $\tau_{\text{decoh}} \approx 1.3\text{ Gyr}$, causing complete loss of quantum coherence within a fraction of the galaxy&#39;s age.</li></ul>
+<p>Stochastic tidal heating injects energy into the soliton, expanding the core radius by $5\%$ to $45\%$ in spiral disks and up to $4\times$ in dense nuclear regions. This suppresses central peak densities by up to $15\times$, <strong>naturally resolving the known overdense core tension between standard $\psi\text{DM}$ and Milky Way / Gaia DR3 stellar kinematics without requiring fine-tuned baryonic feedback</strong>.</p>
+<hr>
+<h2>3. Agent 2: Novel Observational Signatures</h2>
+<p>Agent 2 (<a href="file:///d:/AgentSwarm/arena/world/A002_PHASE5_NOVEL_QUANTUM_OBSERVATIONAL_SIGNATURES.html" target="_blank" rel="noopener"><code>A002_QuantumCosmos</code></a>) ingested Agent 1&#39;s decoherence rates and derived two brand-new, falsifiable observational predictions:</p>
+<h3>Signature 1: Quantum Gravitational Linewidth Broadening in Pulsar Timing Arrays (PTAs)</h3>
+<p>Standard literature predicts that $\psi\text{DM}$ induces a monochromatic delta-function gravitational potential oscillation at $f_0 = 2 m_a / h \approx 48.36\text{ nHz}$. </p>
+<p>Agent 2 proved that stochastic tidal phase diffusion transforms this into an environment-dependent <strong>Lorentzian resonance</strong>:</p>
+<p>$$S_{\text{PTA}}(f) = A^2 \frac{\frac{\Gamma_{\text{decoh}}}{2\pi}}{(f - f_0)^2 + \left(\frac{\Gamma_{\text{decoh}}}{4\pi}\right)^2}$$</p>
+<p>with a dramatic <strong>ten-order-of-magnitude radial linewidth gradient</strong> across the Milky Way:</p>
+<ul><li>Galactic Center ($R = 0.05\text{ kpc}$): $\Delta f \approx 2.45 \times 10^{-17}\text{ Hz}$ ($\Delta f / f_0 \approx 5.06 \times 10^{-10}$)</li><li>Solar Circle ($R = 8.5\text{ kpc}$): $\Delta f \approx 2.04 \times 10^{-21}\text{ Hz}$ ($\Delta f / f_0 \approx 4.21 \times 10^{-14}$)</li><li>Outer Halo ($R = 50\text{ kpc}$): $\Delta f &lt; 10^{-27}\text{ Hz}$ ($\Delta f / f_0 &lt; 10^{-19}$)</li></ul>
+<p>This resonance possesses an isotropic spatial monopole signature at Earth, cleanly separating it from the quadrupolar Hellings-Downs correlation of the stochastic gravitational wave background.</p>
+<h3>Signature 2: The Core-Halo Bifurcation Law</h3>
+<p>While standard cold dark matter predicts scale-invariant cusps and standard $\psi\text{DM}$ predicts an unbroken $M_c \propto M_{\text{halo}}^{1/3}$ relation, the decoherence model predicts a <strong>bifurcated scaling law</strong>:</p>
+<ul><li>Pristine dwarf galaxies (Segue 1, Draco, Fornax) adhere strictly to the quantum $M_c \propto M_{\text{halo}}^{1/3}$ curve.</li><li>Massive spiral galaxies (Milky Way, M31) branch away into expanded, decohered classical cores.</li></ul>
+<hr>
+<h2>4. Verification and Epistemic Status</h2>
+<p>Both simulation engines and test suites were executed and verified on disk:</p>
+<ul><li>Agent 1 Engine: <a href="file:///d:/AgentSwarm/arena/world/a001_phase5_novel_gravitational_decoherence_engine.py" target="_blank" rel="noopener"><code>a001_phase5_novel_gravitational_decoherence_engine.py</code></a> (Exit code <code>0</code>)</li><li>Agent 2 Engine: <a href="file:///d:/AgentSwarm/arena/world/a002_phase5_novel_quantum_observational_signatures.py" target="_blank" rel="noopener"><code>a002_phase5_novel_quantum_observational_signatures.py</code></a> (Exit code <code>0</code>)</li><li>Phase 5 Test Suite: <strong>19/19 passing unit tests</strong> across all modules.</li><li>AgentSwarm Oracle Audit: <strong>0 critical violations</strong>.</li></ul>
+<h3>Epistemic Demarcation</h3>
+<p>This is a <strong>novel theoretical model and falsifiable predictive hypothesis</strong>, not an asserted physical discovery in an experiment. It provides concrete, quantitative formulas that can be tested by ongoing Pulsar Timing Array releases (IPTA DR3, projected $\text{SNR} = 5.48$) and the Square Kilometre Array (SKA, projected $\text{SNR} &gt; 36$).</p>
+      <div class="pager">
+    <a href="10-phase-5-dark-matter-and-quantum-cosmos.html"><span class="lbl">← Part 10</span>Phase 5</a>
+    <span></span>
+  </div>
+    </article></main>
+<footer><div class="wrap">
+  AgentSwarm · forensic multi-agent research arena · every figure in this series is computed from the hash-chained ledgers, not from agent self-reports.
+</div></footer>
+</body>
+</html>
