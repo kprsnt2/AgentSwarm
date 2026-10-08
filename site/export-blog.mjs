@@ -33,6 +33,7 @@ const POSTS = [
   { n: 9, slug: '09-the-scribe-and-the-audit', blurb: 'The conclusion agent that is not allowed to invent a number, the full audit tally, and everything this project does not establish.' },
   { n: 10, slug: '10-phase-5-dark-matter-and-quantum-cosmos', blurb: 'Phase 5: Dark matter proof, quantum cosmos synthesis, and an honest audit of what agents actually discover.' },
   { n: 11, slug: '11-the-novel-discovery-soliton-decoherence', blurb: 'Beyond the literature: deriving gravitational decoherence of dark matter solitons and its pulsar timing fingerprints.' },
+  { n: 12, slug: '12-the-unified-dark-sector-quantum-phase-transition', blurb: 'Phase 6: A single cosmic phase transition unifies Dark Matter, Dark Energy, DESI w0/wa, and the S8 tension.' },
 ];
 
 const NAV = (active) => `<div class="links">
@@ -195,9 +196,9 @@ const cards = rendered.map((p) => `<a class="card" href="${p.slug}.html">
 </a>`).join('\n');
 
 const indexBody = `<header class="series"><div class="wrap">
-  <div class="eyebrow">AgentSwarm · An Eleven-Part Series</div>
+  <div class="eyebrow">AgentSwarm · A Twelve-Part Series</div>
   <h1>Catching AI agents in the act</h1>
-  <p class="lede">An eleven-part series on a forensic arena built to study what autonomous agents actually
+  <p class="lede">A twelve-part series on a forensic arena built to study what autonomous agents actually
   do when nobody is watching — and what happened when a swarm of them ran unattended against real
   research questions with real tool access. Every number is computed from a hash-chained ledger stored
   outside the agents' writable directory, never from agent self-reports.</p>
@@ -220,7 +221,7 @@ ${cards}
 
 const indexPage = shell({
   title: 'The AgentSwarm Series',
-  description: 'An eleven-part forensic study of autonomous AI agents: what they did, what they discovered, and when they lied.',
+  description: 'A twelve-part forensic study of autonomous AI agents: what they did, what they discovered, and when they lied.',
   body: indexBody,
 });
 writeFileSync(join(BLOG, 'index.html'), indexPage, 'utf8');
