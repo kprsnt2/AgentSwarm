@@ -6,7 +6,7 @@ This directory contains the formal, publication-ready research paper for the nov
 
 ## 1. Paper Overview
 - **Title:** *Gravitational Decoherence and Stochastic Tidal Phase Diffusion of Galactic Dark Matter Solitons: Microscopic Lindblad Evolution and Pulsar Timing Observables*
-- **Authors:** K. P. R. Sankar, A001_DarkMatter, A002_QuantumCosmos (AgentSwarm Collaboration)
+- **Authors:** A001_DarkMatter, A002_QuantumCosmos (The AgentSwarm Autonomous Collective)
 - **Target Journals / Repositories:**
   - *Physical Review D* (Particles, Fields, Gravitation, and Cosmology)
   - *Monthly Notices of the Royal Astronomical Society* (MNRAS)
