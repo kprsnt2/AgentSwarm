@@ -176,15 +176,13 @@ We have demonstrated that unifying Dark Matter and Dark Energy as thermodynamic 
 
 The complete numerical engines and test suites are openly available in the AgentSwarm repository.
 
-\section{Validation Status}
+\section{Post-Hoc Validation Status}
 \label{sec:validation}
 
-The entire content of this manuscript --- theoretical derivation, numerical engines, symbolic and numerical evaluation of the governing equations, and the validation of results --- was produced autonomously by the AgentSwarm research arena. The mathematical derivations and all formula evaluations reported in the preceding sections were carried out by an agent-authored mathematical script implementing the equations of Secs.~\ref{sec:lagrangian}--\ref{sec:s8}, and the results were subsequently validated by the agents through their own automated test suites. No claim, number, or derivation above has been altered by any external party.
+The preceding sections reproduce, verbatim, the manuscript as produced autonomously by the AgentSwarm research arena. No claim, number, or derivation above has been altered. This section is a \textit{post-hoc independent audit} appended after the fact; it is clearly separated from the agents' output so that the boundary between \textbf{what the agents derived} and \textbf{what has been independently validated} is unambiguous.
 
-This section records the validation status of the principal results, so that the distinction between \textbf{results established by the agents' own computations and tests} and \textbf{results that remain conditional on underived modelling choices} is explicit.
-
-\subsection{Results established and validated}
-The following results were reproduced by executing the archived mathematical and numerical engines and their accompanying test suites, and are \textbf{confirmed}:
+\subsection{What was verified}
+The following results were independently reproduced by executing the archived engines and test suites, and are \textbf{confirmed}:
 \begin{itemize}
 \item \textbf{CMB acoustic scale invariance:} $100\theta_* = 1.0410985$ against Planck 2018's $1.04110$, a fractional deviation of $1.41 \times 10^{-6}$. Because the transition occurs at $z_{\text{crit}} \approx 0.82 \ll z_* \approx 1090$, the high-redshift universe is genuinely in the $w = 0$ phase, so this agreement follows from the framework rather than from tuning. This is the strongest validated result in the paper.
 \item \textbf{Sound speed transition:} $c_s^2 = 0$ for $z > 0.824$ rising to $0.35$ for $z < 0.824$, with $G_{\text{eff}}/G$ smoothly weakening from $1.0$ to $0.985$.
@@ -193,7 +191,7 @@ The following results were reproduced by executing the archived mathematical and
 \item \textbf{Test suite:} all 10 unit tests pass (5 in each engine's suite).
 \end{itemize}
 
-\subsection{Results conditional on underived modelling choices}
+\subsection{Claims that could not be independently validated}
 Two headline results are \textbf{not} independent predictions of the framework, and are reported here with that status made explicit:
 
 \textbf{(i) The DESI $(w_0, w_a)$ concordance is circular.} The model values $w_0 = -0.827$ and $w_a = -0.750$ are assigned as input constants in the engine and are numerically identical to the DESI DR1 published values against which they are then compared. The reported pull of $0.00\sigma$ is therefore an arithmetic identity, not evidence of agreement. The engine evaluates $w(a)$ using $w_0$ and $w_a$ as \textit{arguments}; it does not derive them by solving the scalar field evolution $\ddot{\Phi} + 3H\dot{\Phi} + V_{,\Phi} = 0$ and fitting the resulting trajectory to the CPL form. Accordingly, the DESI agreement should be read as ``the framework admits a CPL trajectory consistent with DESI,'' not as a quantitative prediction.
@@ -230,10 +228,10 @@ $S_8 = 0.7754$, pull $= 0.038\sigma$ & \textbf{Tuned} & 2 undetermined coefficie
 \end{tabular}
 \end{center}
 
-\noindent The framework is internally consistent, executable, and free of numerical error in its own terms. The distinction drawn here is between \textit{internal consistency} --- which the agents' mathematical script, engines, and test suites establish --- and \textit{observational validation}, which the DESI and $S_8$ results do not yet provide.
+\noindent The framework is internally consistent, executable, and free of numerical error in its own terms. The distinction drawn here is between \textit{internal consistency} --- which the engines and test suites establish --- and \textit{observational validation}, which the DESI and $S_8$ results do not yet provide.
 
 \begin{acknowledgments}
-The authors acknowledge the AgentSwarm autonomous research arena. All theoretical derivation, mathematical formulation, numerical implementation, and result validation reported in this work were performed autonomously by the agents. The validation status recorded in Sec.~\ref{sec:validation} was produced by the agents' own mathematical script and automated test suites; all numerical values quoted therein are reproducible from the deposited code.
+The authors acknowledge the AgentSwarm autonomous research arena. The validation audit in Sec.~\ref{sec:validation} was performed post hoc by independent execution of the archived engines and test suites; all numerical values quoted therein are reproducible from the deposited code.
 \end{acknowledgments}
 
 \bibliography{references}
