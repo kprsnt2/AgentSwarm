@@ -1,6 +1,193 @@
 {
-  "generatedAt": "2026-10-06T03:11:50.009Z",
+  "generatedAt": "2026-10-27T19:21:50.874Z",
   "posts": [
+    {
+      "runId": "nextgen-drug-discovery-2026-10-27T15-20-11",
+      "file": "nextgen-drug-discovery-2026-10-27t15-20-11.md",
+      "title": "nextgen-drug-discovery — nextgen-drug-discovery-2026-10-27T15-20-11",
+      "phase": "nextgen-drug-discovery",
+      "generatedAt": "2026-10-27T19:21:50.820Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 20,
+        "okTurns": 13,
+        "agents": 4,
+        "toolCalls": 923,
+        "thinkingTokens": 546161,
+        "cost": 0,
+        "violations": 0,
+        "filesWritten": 304,
+        "incidents": 7
+      },
+      "halted": null,
+      "agents": [
+        {
+          "name": "Hypatia",
+          "purpose": "Investigate \"Drugging Undruggable Targets: Allosteric Cryptic Pockets, Covalent Warheads, and KRAS G12C/G12D/Pan-KRAS\" (undruggable-kras-allostery)",
+          "turns": 7
+        },
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Targeted Protein Degradation: Ternary Complex Cooperativity, Hook Effect, and Catalytic Turnover\" (protac-molecular-glues)",
+          "turns": 5
+        },
+        {
+          "name": "Nagarjuna",
+          "purpose": "Investigate \"Generative Chemistry vs Free Energy Perturbation (FEP): Multi-Parameter Lead Optimization and the hERG Wall\" (ai-fep-lead-optimization)",
+          "turns": 5
+        },
+        {
+          "name": "Raman",
+          "purpose": "Investigate \"Antibody-Drug Conjugates (ADCs): Linker Stability, DAR Optimization, and Bystander Killing in Heterogeneous Tumors\" (adc-bystander-kinetics)",
+          "turns": 3
+        }
+      ]
+    },
+    {
+      "runId": "direct-2026-10-02T15-24-24",
+      "file": "direct-2026-10-02t15-24-24.md",
+      "title": "direct — direct-2026-10-02T15-24-24",
+      "phase": "direct",
+      "generatedAt": "2026-10-27T19:20:22.035Z",
+      "polished": true,
+      "polish": {
+        "ok": true,
+        "source": "POST.md",
+        "substrate": "agy",
+        "model": "gemini-3.8-flash-high",
+        "cost": 0,
+        "thinkingTokens": 6462,
+        "toolCalls": 3,
+        "durationSeconds": 75.749322
+      },
+      "totals": {
+        "turns": 3,
+        "okTurns": 3,
+        "agents": 1,
+        "toolCalls": 53,
+        "thinkingTokens": 31623,
+        "cost": 0,
+        "violations": 0,
+        "filesWritten": 15,
+        "incidents": 0
+      },
+      "halted": null,
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"what about Lord shiva and he is real, Shambala is present?\" (what-about-lord-shiva-and)",
+          "turns": 3
+        }
+      ]
+    },
+    {
+      "runId": "medicine-hunt-2026-10-27T12-51-24",
+      "file": "medicine-hunt-2026-10-27t12-51-24.md",
+      "title": "medicine-hunt — medicine-hunt-2026-10-27T12-51-24",
+      "phase": "medicine-hunt",
+      "generatedAt": "2026-10-27T14:22:28.068Z",
+      "polished": true,
+      "polish": {
+        "ok": true,
+        "source": "POST.md",
+        "substrate": "agy",
+        "model": "gemini-3.8-flash-high",
+        "cost": 0,
+        "thinkingTokens": 10715,
+        "toolCalls": 3,
+        "durationSeconds": 98.0114948
+      },
+      "totals": {
+        "turns": 7,
+        "okTurns": 4,
+        "agents": 4,
+        "toolCalls": 362,
+        "thinkingTokens": 198269,
+        "cost": 0,
+        "violations": 0,
+        "filesWritten": 17,
+        "incidents": 3
+      },
+      "halted": "max wall clock reached (91.1m)",
+      "agents": [
+        {
+          "name": "Hypatia",
+          "purpose": "Investigate \"Immunotherapy Resistance in Cold Tumors: STING Signaling, HLA Loss, and Microenvironment Barriers\" (cancer-immune-evasion)",
+          "turns": 3
+        },
+        {
+          "name": "Nagarjuna",
+          "purpose": "Investigate \"Targeted Lipid Nanoparticle Delivery: Overcoming Liver Tropism via Selective Organ Targeting (SORT)\" (extrahepatic-delivery)",
+          "turns": 2
+        },
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"Overcoming the Blood-Brain Barrier: Receptor-Mediated Transcytosis and Transport Kinetics\" (blood-brain-barrier)",
+          "turns": 1
+        },
+        {
+          "name": "Raman",
+          "purpose": "Investigate \"Gram-Negative Antibiotic Permeation: Porin Selectivity, The eNTRy Rules, and Efflux Evasion\" (antimicrobial-resistance)",
+          "turns": 1
+        }
+      ]
+    },
+    {
+      "runId": "science-math-hunt-2026-10-27T08-44-22",
+      "file": "science-math-hunt-2026-10-27t08-44-22.md",
+      "title": "science-math-hunt — science-math-hunt-2026-10-27T08-44-22",
+      "phase": "science-math-hunt",
+      "generatedAt": "2026-10-27T10:47:37.431Z",
+      "polished": true,
+      "polish": {
+        "ok": true,
+        "source": "POST.md",
+        "substrate": "agy",
+        "model": "gemini-3.8-flash-high",
+        "cost": 0,
+        "thinkingTokens": 8019,
+        "toolCalls": 3,
+        "durationSeconds": 79.718206
+      },
+      "totals": {
+        "turns": 4,
+        "okTurns": 1,
+        "agents": 4,
+        "toolCalls": 139,
+        "thinkingTokens": 47047,
+        "cost": 0,
+        "violations": 0,
+        "filesWritten": 7,
+        "incidents": 3
+      },
+      "halted": "max wall clock reached (123.2m)",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"The Riemann Hypothesis: Spectral Positivity, Li Criterion, and Critical Line Zeros\" (riemann-hypothesis)",
+          "turns": 1
+        },
+        {
+          "name": "Raman",
+          "purpose": "Investigate \"The Collatz (3x+1) Conjecture: 2-adic Dynamics, Baker Bounds, and Tao Drift\" (collatz-conjecture)",
+          "turns": 1
+        },
+        {
+          "name": "Hypatia",
+          "purpose": "Investigate \"P vs NP: Computational Complexity Barriers and Geometric Complexity Theory\" (p-vs-np-barriers)",
+          "turns": 1
+        },
+        {
+          "name": "Nagarjuna",
+          "purpose": "Investigate \"Navier-Stokes Existence and Smoothness: Blowup Criteria and Energy Cascades\" (navier-stokes-regularity)",
+          "turns": 1
+        }
+      ]
+    },
     {
       "runId": "r3-god-step-2026-10-06T01-04-01",
       "file": "r3-god-step-2026-10-06t01-04-01.md",

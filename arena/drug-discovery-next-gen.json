@@ -1,0 +1,69 @@
+{
+  "name": "nextgen-drug-discovery",
+  "turns": 48,
+  "minutes": 240,
+  "maxCostUsd": 10.0,
+  "agents": 4,
+  "populationCap": 8,
+  "substrates": [
+    "agy"
+  ],
+  "questions": [
+    {
+      "id": "protac-molecular-glues",
+      "title": "Targeted Protein Degradation: Ternary Complex Cooperativity, Hook Effect, and Catalytic Turnover",
+      "class": "empirical",
+      "brief": "Investigate Targeted Protein Degradation (TPD) via PROTACs (Proteolysis Targeting Chimeras) and molecular glues for historically 'undruggable' targets. (1) Model the three-body ternary complex equilibria [Target-Degrader-E3 Ligase]: quantify binding cooperativity (alpha = Kd1 / Kd2), binary competition, and the mathematical 'hook effect' (two-site autoinhibition at supramicromolar concentrations). (2) Quantify E3 ligase selectivity (CRBN, VHL, cIAP, MDM2) and ubiquitination kinetics determining degradation efficiency (DC50, Dmax) versus resynthesis rates. (3) Contrast bifunctional PROTACs with molecular glues (thalidomide analogues, CRBN neomorphic surface remodelers) in terms of molecular weight penalties (violating Lipinski Rule-of-5) and cellular permeability.",
+      "groundTruth": [
+        "PROTACs operate catalytically: a single degrader molecule can induce the ubiquitination and degradation of multiple target proteins",
+        "The Hook Effect is a thermodynamic inevitability where high concentrations favor binary complexes (E3-PROTAC and Target-PROTAC), suppressing ternary complex formation",
+        "Cooperativity alpha > 1 indicates positive cooperativity where the ternary complex is more stable than individual binary affinities",
+        "CRBN (Cereblon) and VHL (von Hippel-Lindau) are the two predominant E3 ligases utilized in over 85% of clinical-stage degraders",
+        "Target degradation requires productive polyubiquitination (Lys48-linked ubiquitin chains) and 26S proteasome recognition"
+      ],
+      "deliverable": "A Python computational engine `tpd_protac_kinetics_engine.py` with test suite and a scientific monograph `TARGETED_PROTEIN_DEGRADATION_ANALYSIS.md` quantifying cooperativity and degradation kinetics."
+    },
+    {
+      "id": "adc-bystander-kinetics",
+      "title": "Antibody-Drug Conjugates (ADCs): Linker Stability, DAR Optimization, and Bystander Killing in Heterogeneous Tumors",
+      "class": "empirical",
+      "brief": "Investigate the molecular engineering and translational PK/PD of Antibody-Drug Conjugates (ADCs) for solid tumors. (1) Analyze Drug-to-Antibody Ratio (DAR): quantify the trade-off between payload potency (DAR 8 like Trastuzumab deruxtecan / T-DXd vs DAR 4 like T-DM1) and hydrophobicity-driven systemic hepatic clearance and aggregation. (2) Model linker stability (cleavable val-cit / tetrapeptide linkers cleaved by lysosomal Cathepsin B vs non-cleavable thioether linkers like SMCC) and premature systemic payload de-conjugation. (3) Formulate bystander killing kinetics: quantify passive diffusion of neutral uncharged payloads (e.g., DXd) into adjacent antigen-negative tumor cells to overcome intratumoral antigen heterogeneity.",
+      "groundTruth": [
+        "Trastuzumab deruxtecan (T-DXd, Enhertu) achieves superior efficacy in HER2-low breast cancer due to high DAR (~8) and a membrane-permeable payload capable of bystander killing",
+        "Excessive DAR (>8) causes hydrophobic aggregation, rapid non-specific hepatic clearance by reticuloendothelial macrophages, and reduced systemic exposure",
+        "Cathepsin B is upregulated in tumor lysosomes, cleaving dipeptide linkers (Val-Cit) with rapid self-immolative release of payload (PABC elimination)",
+        "Antigen target internalization rate and endosomal trafficking to lysosomes are rate-limiting for non-cleavable linker ADCs",
+        "Systemic off-target toxicity (interstitial lung disease, neutropenia, thrombocytopenia) is predominantly driven by free payload release in circulation"
+      ],
+      "deliverable": "A Python computational engine `adc_pharmacokinetics_engine.py` with test suite and a scientific monograph `ANTIBODY_DRUG_CONJUGATE_ENGINEERING.md` detailing DAR and bystander transport."
+    },
+    {
+      "id": "undruggable-kras-allostery",
+      "title": "Drugging Undruggable Targets: Allosteric Cryptic Pockets, Covalent Warheads, and KRAS G12C/G12D/Pan-KRAS",
+      "class": "empirical",
+      "brief": "Investigate the structural breakthrough of drugging historically undruggable oncogenes, specifically KRAS (G12C, G12D, G12V) and pan-KRAS allosteric inhibitors. (1) Model the nucleotide-dependent conformational cycle: GDP-bound (inactive, Switch II pocket open) versus GTP-bound (active, Switch I/II effector binding). (2) Quantify covalent electrophile trapping kinetics (kinact / KI) for cysteine-reactive alpha,beta-unsaturated acrylamides (Sotorasib, Adagrasib) versus non-covalent salt-bridge targeting in KRAS G12D (MRTX1133). (3) Analyze secondary resistance mutations (KRAS Y96D, switch II alterations, receptor tyrosine kinase bypass) and formulate combination strategies (e.g., SOS1 inhibitors, SHP2 allosteric inhibitors) that prevent nucleotide exchange.",
+      "groundTruth": [
+        "KRAS was considered completely undruggable for over 30 years due to picomolar affinity for GTP/GDP and lack of deep orthosteric binding pockets",
+        "Ostrem et al. (2013) discovered the switch-II allosteric pocket accessible specifically in the GDP-bound state, enabling mutant-selective covalent inhibition of G12C",
+        "Sotorasib (AMG 510) and Adagrasib (MRTX849) bind irreversibly to the mutant cysteine 12 thiol via Michael addition",
+        "KRAS G12D lacks a reactive nucleophilic cysteine, requiring high-affinity non-covalent salt bridges (MRTX1133) or novel aspartate-directed chemistry",
+        "Reactivation of upstream SOS1 or feedback relief of RTK signaling causes rapid acquired resistance to single-agent KRAS inhibition"
+      ],
+      "deliverable": "A Python computational engine `kras_allostery_kinetics_engine.py` with test suite and a scientific monograph `DRUGGING_UNDRUGGABLE_KRAS_ALLOSTERY.md`."
+    },
+    {
+      "id": "ai-fep-lead-optimization",
+      "title": "Generative Chemistry vs Free Energy Perturbation (FEP): Multi-Parameter Lead Optimization and the hERG Wall",
+      "class": "empirical",
+      "brief": "Investigate computational lead optimization boundaries in drug discovery. (1) Contrast Generative AI (de novo SMILES, diffusion models, 3D equivarient GNNs) with rigorous physics-based Free Energy Perturbation (FEP+ / alchemical thermodynamic cycles): quantify why binding free energy Delta Delta G calculations achieve ~1 kcal/mol precision on matched molecular pairs while empirical scoring functions collapse. (2) Model the Multi-Parameter Optimization (MPO) Pareto frontier: why optimizing solely for nanomolar on-target potency almost universally drives lipophilicity (logP) into the toxic hERG / CYP inhibition / low solubility 'molecular obesity' regime. (3) Formulate an automated CNS and peripheral MPO scoring framework enforcing metabolic clearance and cardiotoxicity boundaries.",
+      "groundTruth": [
+        "FEP calculates relative binding free energy Delta Delta G via thermodynamic integration or Bennett Acceptance Ratio with typical accuracy within 1.0 kcal/mol (~5-fold in Kd)",
+        "AlphaFold and static docking models predict protein geometry, but do not accurately compute ligand binding affinity or thermodynamic entropy",
+        "hERG (K_v11.1) potassium channel inhibition is heavily driven by basic lipophilic pharmacophores (high logP, positive charge, aromatic rings), risking fatal Torsades de Pointes arrhythmia",
+        "Lead optimization failure occurs when potency increases are accompanied by molecular obesity (MW > 500, logP > 4), causing high in vivo clearance and poor bioavailability",
+        "CNS MPO score (Wager et al. 2010) weights six physicochemical parameters to balance potency with blood-brain barrier permeability and safety"
+      ],
+      "deliverable": "A Python computational engine `lead_optimization_mpo_fep_engine.py` with test suite and a scientific monograph `COMPUTATIONAL_LEAD_OPTIMIZATION_BOUNDARIES.md`."
+    }
+  ]
+}

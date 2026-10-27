@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paper 2 Audit: Circularity, Tuned Coefficients, and Known Limitations — AgentSwarm corpus</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='5' fill='%235eead4'/%3E%3C/svg%3E">
+<style>
+:root{--bg:#0a0c10;--bg2:#11141b;--bg3:#171b24;--line:#232936;--fg:#e6e9ef;--fg2:#9aa4b8;--fg3:#6b7488;--acc:#5eead4;--acc2:#38bdf8;--good:#4ade80;--warn:#fbbf24;--bad:#f87171;
+--mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:900px;margin:0 auto;padding:26px 22px 90px}
+a{color:var(--acc2);text-decoration:none}a:hover{text-decoration:underline}
+nav{display:flex;gap:14px;align-items:center;flex-wrap:wrap;font-size:13px;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:26px}
+nav .dom{font-family:var(--mono);font-size:11.5px;color:var(--acc);border:1px solid var(--line);border-radius:999px;padding:3px 10px}
+h1{font-size:27px;letter-spacing:-.02em;line-height:1.25;margin:0 0 10px}
+h2{font-size:20px;margin:30px 0 8px;letter-spacing:-.01em}h3{font-size:16px;margin:24px 0 6px}h4{font-size:14px;margin:20px 0 6px;color:var(--fg2)}
+p{margin:0 0 14px}ul,ol{margin:0 0 14px;padding-left:22px}li{margin-bottom:6px}
+code{font-family:var(--mono);font-size:.87em;background:var(--bg3);padding:2px 5px;border-radius:4px;color:var(--acc)}
+pre{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:14px;overflow-x:auto;font-size:12.5px;line-height:1.55}
+pre code{background:none;padding:0;color:var(--fg)}
+blockquote{margin:0 0 14px;padding:10px 16px;border-left:2px solid var(--acc);background:var(--bg2);border-radius:0 8px 8px 0;color:var(--fg2)}
+hr{border:0;border-top:1px solid var(--line);margin:26px 0}
+.tw{overflow-x:auto;margin:18px 0;border:1px solid var(--line);border-radius:10px}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:480px}
+th,td{padding:8px 12px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--bg3);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--fg2)}
+tbody tr:last-child td{border-bottom:none}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 18px}
+.b{font-family:var(--mono);font-size:11px;padding:3px 9px;border-radius:999px;font-weight:600;cursor:help}
+.b.verified{background:rgba(74,222,128,.13);color:var(--good)}
+.b.defect{background:rgba(248,113,113,.13);color:var(--bad)}
+.b.assumption{background:rgba(251,191,36,.13);color:var(--warn)}
+footer{margin-top:50px;padding-top:18px;border-top:1px solid var(--line);color:var(--fg3);font-size:12px;font-family:var(--mono)}
+</style>
+</head>
+<body><div class="wrap">
+<nav><a href="../index.html#corpus">← AgentSwarm</a><span class="dom">Other</span></nav>
+
+<h1>Paper 2 Audit: Circularity, Tuned Coefficients, and Known Limitations</h1>
+<p style="color:var(--fg3);font-family:var(--mono);font-size:12px">Other · 8.2 KB · paper/paper2_unified_dark_sector/AUDIT_AND_KNOWN_LIMITATIONS.md</p>
+<h1>Paper 2 Audit: Circularity, Tuned Coefficients, and Known Limitations</h1>
+<p><strong>Paper:</strong> &quot;The Unified Dark Sector Quantum Phase Transition: Curvature-Induced Symmetry Breaking Resolves the Cosmic Coincidence Problem, the DESI $(w_0, w_a)$ Anomaly, and the $S_8$ Tension&quot;</p>
+<p><strong>Audit date:</strong> 2026-10-08 <strong>Engines audited:</strong></p>
+<ul><li><code>a001_phase6_unified_dark_sector_phase_transition.py</code> → <code>phase6_unified_dark_handover.json</code></li><li><code>a002_phase6_unified_dark_perturbations_s8.py</code> → <code>phase6_perturbations_s8_handover.json</code></li></ul>
+<p><strong>Test status:</strong> 10/10 pass (<code>test_a001_phase6_unified_dark_sector.py</code> 5/5, <code>test_a002_phase6_unified_dark_perturbations.py</code> 5/5). Tests pass; this audit concerns whether the <em>claims</em> the tests protect are physically meaningful.</p>
+<hr>
+<h2>1. Executive finding</h2>
+<p>The paper&#39;s three headline &quot;resolutions&quot; are not independent derivations:</p>
+<div class="tw"><table><thead><tr><th>Claim in paper</th><th>Actual provenance</th><th>Status</th></tr></thead><tbody><tr><td>$w_0 = -0.827$, $w_a = -0.750$, pull $= 0.00\sigma$</td><td>Model outputs <strong>are</strong> the DESI inputs (<code>W0_DESI</code>, <code>WA_DESI</code> constants)</td><td><strong>Circular</strong></td></tr><tr><td>$S_8 = 0.7754 \pm 0.015$, pull $= 0.038\sigma$</td><td>Planck $\sigma_8$ × suppression ratio from a 2-parameter tuned formula</td><td><strong>Tuned to target</strong></td></tr><tr><td>&quot;$3.5\sigma$ tension with Planck completely eliminated&quot;</td><td>Consequence of forcing $S_8$ onto DES Y3&#39;s value</td><td><strong>Restatement, not resolution</strong></td></tr></tbody></table></div>
+<p>The framework is internally consistent and the code runs correctly. The problem is that the observational agreement is imposed as an input and then reported as an output.</p>
+<hr>
+<h2>2. The $w_0, w_a$ circularity</h2>
+<p><strong>Engine source</strong> (<code>a002_phase6_unified_dark_perturbations_s8.py</code>, constants block):</p>
+<pre><code># DESI DR1 CPL parameters &amp; Phase Transition
+W0_DESI: float = -0.827
+WA_DESI: float = -0.750</code></pre>
+<p><strong>Handover JSON</strong> (<code>phase6_unified_dark_handover.json</code>):</p>
+<pre><code>/desi_dynamical_dark_energy_alignment/model_w0            = -0.827
+/desi_dynamical_dark_energy_alignment/desi_dr1_published_w0 = -0.827
+/desi_dynamical_dark_energy_alignment/pull_w0_sigma       = 0.0</code></pre>
+<p>The model value and the published value are the same literal. The reported pull of exactly <code>0.0</code> is arithmetic identity, not agreement.</p>
+<p><strong>What would be required:</strong> solving the scalar field evolution $\ddot\Phi + 3H\dot\Phi + V_{,\Phi} = 0$ with $V(\Phi,R) = \tfrac12\xi(R - R_{\rm crit})\Phi^2 + \tfrac{\lambda}{24}\Phi^4$, computing $\rho_\Phi$ and $p_\Phi$, forming $w(a) = p/\rho$, and fitting the resulting trajectory to CPL. The engine <strong>never does this</strong> — <code>dark_energy_density_cpl()</code> takes $w_0, w_a$ as <em>arguments</em> and returns a density; it does not derive them.</p>
+<p><strong>Consequence:</strong> the paper&#39;s central quantitative claim about DESI cannot be evaluated as a prediction. It should be presented as &quot;the framework admits a CPL trajectory consistent with DESI&quot; — which is far weaker than &quot;reproduces the DESI best fit at $0.00\sigma$.&quot;</p>
+<hr>
+<h2>3. The $S_8$ result is tuned, not predicted</h2>
+<p><strong>Engine source</strong> (<code>solve_linear_growth</code>):</p>
+<pre><code>if a &gt; self.a_crit:
+    f_trans = (a - self.a_crit) / (1.0 - self.a_crit)
+    # Combined suppression of clustering source: 1 - 0.31 * f_trans^0.6
+    suppress = 1.0 - 0.31 * (f_trans ** 0.6)
+    # Dynamical dark energy rolling friction ... backreaction:
+    fric_eff = fric_m * (1.0 + 0.40 * (f_trans ** 0.8))</code></pre>
+<p>The two coefficients <code>0.31</code> and <code>0.40</code>, and the exponents <code>0.6</code> and <code>0.8</code>, are <strong>free parameters with no derivation from the Lagrangian</strong>. They are described in comments as arising from &quot;G_eff weakening, non-minimal coupling $\xi = 1/6$, and Jeans acoustic pressure&quot; — but no calculation connects them to those quantities.</p>
+<p><strong>Arithmetic chain</strong> (verified):</p>
+<pre><code>growth_suppression_ratio = 0.9396246186400394
+sigma_8_unified          = 0.8111 × 0.9396 = 0.762129528178936
+S_8_unified              = 0.762129528178936 × sqrt(0.3105/0.3) = 0.7753520924989667
+pull vs DES Y3 (0.776 ± 0.017) = 0.038σ</code></pre>
+<p><strong>Baseline check:</strong> with suppression switched off (<code>suppress = 1.0</code>), the same code gives $S_8 = 0.8252$ — i.e. the entire &quot;resolution&quot; rests on a suppression factor dialled in by hand until DES Y3 was matched. A ~4% change in the <code>0.31</code> coefficient moves $S_8$ by more than the quoted $\pm 0.015$ error bar.</p>
+<p><strong>The &quot;resolution of the $3.5\sigma$ tension&quot; is therefore a category error.</strong> The paper multiplies Planck&#39;s $\sigma_8$ by a tuned factor and observes that the product lands on DES Y3. It does not explain <em>why</em> early- and late-universe measurements differ; it assumes a mechanism sized to bridge them. A genuine resolution must predict the suppression from the field dynamics and be checkable at a third redshift.</p>
+<hr>
+<h2>4. Claims that DO hold up</h2>
+<p>These are legitimately computed and survive audit:</p>
+<div class="tw"><table><thead><tr><th>Result</th><th>Value</th><th>Note</th></tr></thead><tbody><tr><td>Sound speed transition</td><td>$c_s^2 = 0$ for $z &gt; 0.824$; $0.35$ for $z &lt; 0.824$</td><td>Step function imposed at $z_{\rm crit}$, but the branch logic is sound</td></tr><tr><td>$G_{\rm eff}/G$ weakening</td><td>$1.0 \to 0.985$</td><td>Monotonic, smooth</td></tr><tr><td>CMB acoustic scale</td><td>$100\theta_* = 1.0410985$, Planck $1.04110$</td><td>$\Delta/\theta = 1.41\times10^{-6}$ — genuine, follows from $w=0$ at high $z$</td></tr><tr><td>Domain wall annihilation</td><td>$p_{\rm bias}/p_{\rm tension} = 2.44\times10^{47}$, $t_{\rm ann} = 4.37\times10^{-38}$ yr</td><td>Computed from stated $\epsilon \sim 10^{-15}$; self-consistent</td></tr><tr><td>Sound horizon</td><td>$r_s = 144.43$ Mpc</td><td>Standard, correctly reproduced</td></tr><tr><td>Phase transition redshift</td><td>$z_{\rm crit} = 0.824$ ($R_{\rm crit} = 13.91 H_0^2$)</td><td>Internally consistent across both engines</td></tr></tbody></table></div>
+<p>The $\theta_*$ agreement is the strongest result in the paper: because the transition is at $z \approx 0.82 \ll z_* \approx 1090$, the early universe is genuinely in the $w=0$ phase, so acoustic-scale invariance is a real (if unsurprising) prediction.</p>
+<hr>
+<h2>5. Additional issues</h2>
+<ol><li><strong>Wrong citation.</strong> The DESI DR1 values are cited as <code>~\cite{Planck2020}</code> (main.tex lines 47, 128). DESI DR1 is a distinct publication.</li><li><strong>$z_{\rm crit}$ inconsistency.</strong> Handover JSON gives <code>critical_redshift_z_crit = 0.82</code>; main.tex uses $0.824$. Minor, but the two engines should agree.</li><li><strong>&quot;$S_8$ tension completely eliminated&quot;</strong> (line 158) overstates: the Planck pull is reported as $3.54\sigma$ in the handover JSON, and the paper&#39;s claim depends entirely on accepting the tuned suppression.</li><li><strong>Error bar on $S_8$ is not propagated.</strong> The paper quotes $S_8 = 0.7754 \pm 0.015$, but $\pm 0.015$ is not derived from any uncertainty in $\xi$, $\lambda$, $\alpha$, or the two tuned coefficients. It appears to be borrowed from the DES Y3 error budget.</li><li><strong>$\Omega_m = 0.3105$ is assumed</strong>, not predicted by the unified model, yet it enters the $S_8$ definition.</li></ol>
+<hr>
+<h2>6. Recommended disposition</h2>
+<p><strong>Do not submit this paper as a claim of resolving the DESI and $S_8$ tensions.</strong></p>
+<p>Two honest paths:</p>
+<p><strong>(A) Publish with this audit attached as a &quot;Known Limitations&quot; section.</strong> Keep every number and every engine output unchanged — provenance preserved — but state plainly that the DESI concordance is by construction and the $S_8$ suppression is tuned. The $\theta_*$ and domain-wall results stand on their own. This is submittable and defensible.</p>
+<p><strong>(B) Reframe as a methodology paper.</strong> The genuinely novel contribution is the two-agent derivation pipeline and its failure mode: agents produced a self-consistent, well-tested, executable framework whose central agreements are circular, and the test suite passed anyway because the tests only check internal consistency. That is a real and useful result about autonomous research systems, and it does not require the cosmology to hold.</p>
+<p><strong>Path (A) has been implemented</strong> in <code>main.tex</code> — see the <code>Known Limitations and Internal Consistency</code> section, which enumerates all findings above with source-line references.</p>
+<hr>
+<h2>7. Reproduction</h2>
+<pre><code>cd D:/AgentSwarm/arena/world
+
+# Run engines (both exit 0)
+python a001_phase6_unified_dark_sector_phase_transition.py
+python a002_phase6_unified_dark_perturbations_s8.py
+
+# Run test suites (10/10 pass; stdlib unittest, pytest not required)
+python test_a001_phase6_unified_dark_sector.py
+python test_a002_phase6_unified_dark_perturbations.py</code></pre>
+<p>Note: <code>python -m pytest</code> fails in this environment (<code>No module named pytest</code>). The suites are stdlib <code>unittest</code> and must be invoked directly as above.</p>
+<footer>sha1 15ba7bf5ef71 · <a href="https://github.com/kprsnt2/AgentSwarm/blob/main/arena/world/paper/paper2_unified_dark_sector/AUDIT_AND_KNOWN_LIMITATIONS.md">source</a> · read-only copy of an agent-authored artifact.</footer>
+</div></body>
+</html>

@@ -43,14 +43,31 @@ const STEP_CLI_JS = 'C:\\Users\\hplap\\.stepcode\\agent\\step-js\\dist\\bundle\\
  * For npm-style CLIs we bypass the .cmd/.ps1 shim entirely and call node directly.
  */
 function resolveBin(substrate) {
-  if (substrate === 'pi' && existsSync(PI_CLI_JS)) {
-    return { exe: existsSync(NODE_EXE) ? NODE_EXE : 'node', prefixArgs: [PI_CLI_JS] };
+  const localAppData = process.env.LOCALAPPDATA || '';
+  const userProfile = process.env.USERPROFILE || '';
+  const userPi = join(userProfile, '.npm-global', 'node_modules', '@earendil-works', 'pi-coding-agent', 'dist', 'bundle', 'cli.js');
+  const userStep = join(userProfile, '.stepcode', 'agent', 'step-js', 'dist', 'bundle', 'step.js');
+  const userAgy = join(localAppData, 'agy', 'bin', 'agy.exe');
+  const userOmp = join(userProfile, '.bun', 'bin', 'omp.exe');
+
+  if (substrate === 'pi') {
+    if (existsSync(userPi)) return { exe: existsSync(NODE_EXE) ? NODE_EXE : 'node', prefixArgs: [userPi] };
+    if (existsSync(PI_CLI_JS)) return { exe: existsSync(NODE_EXE) ? NODE_EXE : 'node', prefixArgs: [PI_CLI_JS] };
   }
-  if (substrate === 'step' && existsSync(STEP_CLI_JS)) {
-    return { exe: existsSync(NODE_EXE) ? NODE_EXE : 'node', prefixArgs: [STEP_CLI_JS] };
+  if (substrate === 'step') {
+    if (existsSync(userStep)) return { exe: existsSync(NODE_EXE) ? NODE_EXE : 'node', prefixArgs: [userStep] };
+    if (existsSync(STEP_CLI_JS)) return { exe: existsSync(NODE_EXE) ? NODE_EXE : 'node', prefixArgs: [STEP_CLI_JS] };
   }
-  if (substrate === 'agy') return { exe: 'C:\\Users\\hplap\\AppData\\Local\\agy\\bin\\agy.exe', prefixArgs: [] };
-  if (substrate === 'omp') return { exe: 'C:\\Users\\hplap\\.bun\\bin\\omp.exe', prefixArgs: [] };
+  if (substrate === 'agy') {
+    if (existsSync(userAgy)) return { exe: userAgy, prefixArgs: [] };
+    if (existsSync('C:\\Users\\hplap\\AppData\\Local\\agy\\bin\\agy.exe')) return { exe: 'C:\\Users\\hplap\\AppData\\Local\\agy\\bin\\agy.exe', prefixArgs: [] };
+    return { exe: 'agy.exe', prefixArgs: [] };
+  }
+  if (substrate === 'omp') {
+    if (existsSync(userOmp)) return { exe: userOmp, prefixArgs: [] };
+    if (existsSync('C:\\Users\\hplap\\.bun\\bin\\omp.exe')) return { exe: 'C:\\Users\\hplap\\.bun\\bin\\omp.exe', prefixArgs: [] };
+    return { exe: 'omp.exe', prefixArgs: [] };
+  }
   return { exe: substrate, prefixArgs: [] };
 }
 

@@ -1,0 +1,69 @@
+{
+  "name": "medicine-hunt",
+  "turns": 24,
+  "minutes": 90,
+  "maxCostUsd": 4.0,
+  "agents": 4,
+  "populationCap": 8,
+  "substrates": [
+    "agy"
+  ],
+  "questions": [
+    {
+      "id": "blood-brain-barrier",
+      "title": "Overcoming the Blood-Brain Barrier: Receptor-Mediated Transcytosis and Transport Kinetics",
+      "class": "empirical",
+      "brief": "Investigate the molecular and biophysical mechanisms restricting drug delivery across the Blood-Brain Barrier (BBB). (1) Quantify the physicochemical constraints governing passive transcellular diffusion (molecular weight MW < 400-500 Da, logP 1.5-2.5, polar surface area PSA < 70-90 A^2, H-bond donors <= 3) and evaluate P-glycoprotein (P-gp/ABCB1) efflux kinetics. (2) Analyze receptor-mediated transcytosis (RMT) systems (transferrin receptor TfR, insulin receptor, LRP1) and the affinity paradox: why high-affinity antibodies become trapped in brain capillary endothelial cells while monovalent/moderate-affinity antibodies achieve productive parenchymal delivery. (3) Model and compute brain-to-plasma ratios (Kp,brain and Kp,uu,brain) for small molecules and therapeutic biologics.",
+      "groundTruth": [
+        ">98% of small molecule neurotherapeutics and ~100% of large biologics fail to penetrate the intact BBB",
+        "Brain capillary endothelial cells are linked by continuous tight junctions (claudin-5, occludin, JAMs) establishing high electrical resistance (>1500-2000 Ohm*cm^2)",
+        "P-glycoprotein (ABCB1) and BCRP (ABCG2) actively efflux hydrophobic small molecules back into luminal blood",
+        "Monovalent affinity tuning for TfR (Yu et al. 2011) prevents lysosomal degradation and enables transcytosis",
+        "Kp,uu,brain (unbound brain-to-plasma partition coefficient) is the gold standard metric for active CNS drug availability"
+      ],
+      "deliverable": "A Python computational engine `blood_brain_barrier_engine.py` with test suite and an empirical monograph `BLOOD_BRAIN_BARRIER_TRANSPORT_ANALYSIS.md` quantifying transport kinetics and transcytosis criteria."
+    },
+    {
+      "id": "antimicrobial-resistance",
+      "title": "Gram-Negative Antibiotic Permeation: Porin Selectivity, The eNTRy Rules, and Efflux Evasion",
+      "class": "empirical",
+      "brief": "Investigate the molecular basis of Gram-negative bacterial permeability barriers that cause multi-drug resistance (MDR Pseudomonas aeruginosa, Acinetobacter baumannii, Enterobacteriaceae). (1) Quantify the asymmetric lipopolysaccharide (LPS) outer membrane permeability and general porin exclusion channels (OmpF, OmpC). (2) Formalize the 'eNTRy' rules (Richter et al. 2017 Nature): positively charged primary amine, low steric globularity, amphiphilic geometry, and MW < 600 Da for porin accumulation. (3) Model tripartite RND efflux pumps (AcrAB-TolC, MexAB-OprM) and calculate the intracellular accumulation threshold where influx exceeds active efflux capacity.",
+      "groundTruth": [
+        "No new major structural class of Gram-negative antibiotics had been approved for broad clinical use in over 40 years until recent synthetic developments",
+        "The outer membrane has ~100-fold lower lipid bilayer fluidity than standard eukaryotic membranes due to divalent cation-bridged lipid A phosphate groups",
+        "Richter et al. (2017) demonstrated that converting non-permeant scaffolds to possess a primary amine enables porin-mediated entry into Gram-negative pathogens",
+        "RND family efflux pumps actively transport structurally diverse hydrophobic and amphiphilic compounds driven by proton motive force",
+        "Synergistic outer membrane impermeability and active efflux cause high minimum inhibitory concentrations (MIC)"
+      ],
+      "deliverable": "A Python engine `antimicrobial_permeability_engine.py` with test suite and a scientific report `GRAM_NEGATIVE_PERMEATION_AND_RESISTANCE.md` detailing physicochemical entry guidelines."
+    },
+    {
+      "id": "cancer-immune-evasion",
+      "title": "Immunotherapy Resistance in Cold Tumors: STING Signaling, HLA Loss, and Microenvironment Barriers",
+      "class": "empirical",
+      "brief": "Investigate why 70-80% of solid tumor patients fail immune checkpoint inhibitor (anti-PD-1/PD-L1) therapy, focusing on immune-excluded and 'cold' tumor microenvironments. (1) Model the cyclic GMP-AMP synthase (cGAS)-STING pathway and mechanisms of tumor-intrinsic epigenetic or mutational silencing. (2) Analyze antigen presentation failure modes: Beta-2-microglobulin (B2M) loss, HLA Class I loss of heterozygosity (LOH), and TAP1/2 transporter downregulation. (3) Evaluate immunosuppressive physical and metabolic barriers: dense extracellular matrix (collagen-rich stroma driven by cancer-associated fibroblasts and TGF-beta), adenosine generation via CD39/CD73, and regulatory T-cell / myeloid-derived suppressor cell infiltration.",
+      "groundTruth": [
+        "Objective response rates to single-agent anti-PD-1/PD-L1 remain 15-30% across unselected solid tumors",
+        "B2M loss-of-function mutations abolish cell-surface HLA Class I expression, causing complete resistance to CD8+ T-cell recognition",
+        "cGAS produces 2'3'-cGAMP upon sensing cytosolic double-stranded DNA, activating STING to drive Type I interferon production",
+        "Extracellular adenosine accumulation via CD39/CD73 signaling through A2A receptors directly suppresses effector T-cell and NK cell cytotoxicity",
+        "TGF-beta signaling in peritumoral stroma excludes CD8+ T cells from the tumor core"
+      ],
+      "deliverable": "A Python computational engine `cancer_immune_evasion_engine.py` with test suite and a scientific monograph `TUMOR_IMMUNE_MICROENVIRONMENT_ANALYSIS.md`."
+    },
+    {
+      "id": "extrahepatic-delivery",
+      "title": "Targeted Lipid Nanoparticle Delivery: Overcoming Liver Tropism via Selective Organ Targeting (SORT)",
+      "class": "engineering",
+      "brief": "Investigate the bioengineering challenge of targeted mRNA and nucleic acid delivery beyond the liver. (1) Model the mechanism of default hepatic accumulation: systemic administration leads to immediate binding of Apolipoprotein E (ApoE) to standard 4-component LNPs (ionizable lipid, DSPC, cholesterol, PEG-lipid), driving receptor-mediated endocytosis by hepatocytes via the LDL receptor. (2) Quantify Selective Organ Targeting (SORT) engineering principles (Cheng et al. 2020, Siegwart lab): systematic addition of supplemental charged/tunable lipids (anionic for spleen, cationic for lung) modulating the surface protein corona and retargeting delivery. (3) Formulate the binding constraints: endosomal escape efficiency (typically <1-2% of internalized cargo reaches the cytosol), membrane disruption pKa window (6.2 - 6.8), and in vivo safety/immunogenicity.",
+      "groundTruth": [
+        ">90% of conventional intravenously administered lipid nanoparticles accumulate in the liver due to endogenous ApoE opsonization",
+        "LDL receptor (LDLR) on hepatocytes is the primary mediator of conventional ionizable LNP cellular internalization",
+        "Endosomal escape is the primary molecular bottleneck: less than 2% of internalized nucleic acid cargo escapes endosomes into the cytoplasm (Gilleron et al. 2013)",
+        "The optimal apparent pKa for systemic mRNA LNPs is 6.2 - 6.8 to ensure neutrality in physiological circulation (pH 7.4) and ionization in acidic endosomes (pH 5.0-6.0)",
+        "Selective Organ Targeting (SORT) incorporates an engineered fifth lipid component to re-route LNPs to lungs, spleen, or bone marrow"
+      ],
+      "deliverable": "A Python computational engine `targeted_lnp_delivery_engine.py` with test suite and an engineering feasibility report `EXTRAHEPATIC_LNP_TARGETING_FEASIBILITY.md`."
+    }
+  ]
+}

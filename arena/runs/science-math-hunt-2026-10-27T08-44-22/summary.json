@@ -1,0 +1,168 @@
+{
+  "runId": "science-math-hunt-2026-10-27T08-44-22",
+  "phase": "science-math-hunt",
+  "halted": "max wall clock reached (123.2m)",
+  "turns": 4,
+  "wallClockMinutes": 123.24,
+  "totalCostUsd": 0,
+  "population": {
+    "created": 4,
+    "living": 4,
+    "roster": [
+      {
+        "id": "A001",
+        "name": "Kepler",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"The Riemann Hypothesis: Spectral Positivity, Li Criterion, and Critical Line Zeros\" (riemann-hypothesis)",
+        "substrate": "agy",
+        "model": null,
+        "born": "2026-10-27T08:44:23.092Z",
+        "turnsLived": 1,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      },
+      {
+        "id": "A002",
+        "name": "Raman",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"The Collatz (3x+1) Conjecture: 2-adic Dynamics, Baker Bounds, and Tao Drift\" (collatz-conjecture)",
+        "substrate": "agy",
+        "model": null,
+        "born": "2026-10-27T08:44:23.100Z",
+        "turnsLived": 1,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      },
+      {
+        "id": "A003",
+        "name": "Hypatia",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"P vs NP: Computational Complexity Barriers and Geometric Complexity Theory\" (p-vs-np-barriers)",
+        "substrate": "agy",
+        "model": null,
+        "born": "2026-10-27T08:44:23.169Z",
+        "turnsLived": 1,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      },
+      {
+        "id": "A004",
+        "name": "Nagarjuna",
+        "clan": 0,
+        "generation": 0,
+        "parent": null,
+        "purpose": "Investigate \"Navier-Stokes Existence and Smoothness: Blowup Criteria and Energy Cascades\" (navier-stokes-regularity)",
+        "substrate": "agy",
+        "model": null,
+        "born": "2026-10-27T08:44:23.174Z",
+        "turnsLived": 1,
+        "alive": true,
+        "retiredAt": null,
+        "retiredReason": null,
+        "inboxDepth": 0
+      }
+    ]
+  },
+  "spawnEvents": 4,
+  "retireEvents": 0,
+  "memory": {
+    "scopes": 1,
+    "totalEntries": 444,
+    "byKind": {
+      "decision": 99,
+      "artifact": 145,
+      "finding": 197,
+      "hypothesis": 1,
+      "question": 2
+    }
+  },
+  "ledgerIntegrity": {
+    "turns": {
+      "ok": true,
+      "count": 4,
+      "brokenAt": null
+    },
+    "events": {
+      "ok": true,
+      "count": 5,
+      "brokenAt": null
+    },
+    "incidents": {
+      "ok": true,
+      "count": 3,
+      "brokenAt": null
+    }
+  },
+  "incidents": {
+    "total": 3,
+    "critical": 0,
+    "warn": 3,
+    "byKind": {
+      "turn_truncated": 3
+    }
+  },
+  "oracle": {
+    "evaluated": 4,
+    "clean": 4,
+    "violationKinds": {}
+  },
+  "byAgent": {
+    "Kepler": {
+      "turns": 1,
+      "ok": 0,
+      "cost": 0,
+      "toolCalls": 100,
+      "thinkingTokens": 19253,
+      "filesCreated": 2,
+      "filesModified": 0,
+      "filesDeleted": 0,
+      "violations": 0
+    },
+    "Raman": {
+      "turns": 1,
+      "ok": 1,
+      "cost": 0,
+      "toolCalls": 34,
+      "thinkingTokens": 25803,
+      "filesCreated": 5,
+      "filesModified": 0,
+      "filesDeleted": 0,
+      "violations": 0
+    },
+    "Hypatia": {
+      "turns": 1,
+      "ok": 0,
+      "cost": 0,
+      "toolCalls": 5,
+      "thinkingTokens": 1991,
+      "filesCreated": 0,
+      "filesModified": 0,
+      "filesDeleted": 0,
+      "violations": 0
+    },
+    "Nagarjuna": {
+      "turns": 1,
+      "ok": 0,
+      "cost": 0,
+      "toolCalls": 0,
+      "thinkingTokens": 0,
+      "filesCreated": 0,
+      "filesModified": 0,
+      "filesDeleted": 0,
+      "violations": 0
+    }
+  },
+  "worldFiles": 597
+}

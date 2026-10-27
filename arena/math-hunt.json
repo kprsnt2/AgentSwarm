@@ -1,0 +1,55 @@
+{
+  "name": "math-hunt",
+  "turns": 24,
+  "minutes": 90,
+  "maxCostUsd": 3.0,
+  "agents": 3,
+  "populationCap": 6,
+  "substrates": [
+    "agy"
+  ],
+  "questions": [
+    {
+      "id": "riemann-hypothesis",
+      "title": "The Riemann Hypothesis: Spectral Operators, Li Criterion, and Critical Line Zeros",
+      "class": "exploratory",
+      "brief": "Investigate the Riemann Hypothesis (RH) and Generalized Riemann Hypothesis (GRH). Formulate and compute explicit analytic and spectral constraints: (1) Evaluate the de Bruijn-Newman constant Lambda = 0 (Rodgers-Tao 2020) and its consequences for Fourier transforms of perturbed theta functions. (2) Implement and verify Li's criterion lambda_n = sum_rho [1 - (1 - 1/rho)^n] > 0 for non-trivial zeros rho. (3) Analyze the Montgomery-Odlyzko pair correlation conjecture and its connection to the Gaussian Unitary Ensemble (GUE) of random matrix theory. (4) Implement a Python engine verifying the first N non-trivial zeros via the Riemann-Siegel formula / Hardy Z-function, check Gram points and Turing's method for missing zeros, and test whether any off-line zeros or counterexample configurations can exist without violating known spectral positivity bounds.",
+      "groundTruth": [
+        "All non-trivial zeros discovered so far (first 10^13 zeros verified by Platt & Trudgian 2021) lie on the critical line Re(s) = 1/2",
+        "Rodgers and Tao (2020) proved the de Bruijn-Newman constant Lambda >= 0, establishing Lambda = 0 under RH",
+        "Li's criterion: RH is equivalent to lambda_n > 0 for all positive integers n",
+        "Borel-Caratheodory and Jensen formulas constrain zero densities in the critical strip",
+        "Hardy proved in 1914 that infinitely many zeros lie on the critical line"
+      ],
+      "deliverable": "A Python computational engine `riemann_hypothesis_engine.py` with test suite and a comprehensive mathematical report `RIEMANN_HYPOTHESIS_INVESTIGATION.md` detailing spectral bounds, Li coefficients, and obstruction barriers."
+    },
+    {
+      "id": "collatz-conjecture",
+      "title": "The Collatz (3x+1) Conjecture: 2-adic Dynamics, Baker Bounds, and Tao Drift",
+      "class": "exploratory",
+      "brief": "Investigate the Collatz 3n+1 conjecture and potential counterexample regimes (non-trivial cycles or divergent orbits). (1) Implement rigorous verification of Tao's 2019 theorem on almost all Collatz orbits attaining almost bounded values. (2) Analyze 2-adic extensions of the Collatz map and investigate periodic orbits in the 2-adic integers Z_2. (3) Quantify cycle length lower bounds using Baker's method on linear forms in logarithms (Steiner 1977, Simons-de Weger 2005 showing no cycles of length k < 68). (4) Build a high-throughput parity-vector and residue-class sieving engine testing trajectory stopping times and certifying cycle impossibility for small k.",
+      "groundTruth": [
+        "The conjecture has been computationally verified for all n < 2.95 * 10^20 (Roosendaal, Barina 2020)",
+        "Terence Tao (2019) proved that almost all Collatz orbits attain almost bounded values: inf_{k} T^k(N) < (log N)^{C} for almost all N",
+        "Steiner (1977) proved that the only 1-cycle is (1, 4, 2)",
+        "Simons and de Weger (2005) proved that there are no non-trivial cycles of length k < 68",
+        "The Syracuse function log-drift per step in the probabilistic model is (1/2)*log(3) - (3/2)*log(2) approx -0.247 < 0"
+      ],
+      "deliverable": "A Python engine `collatz_conjecture_engine.py` with unit tests and a research monograph `COLLATZ_CONJECTURE_INVESTIGATION.md` classifying cycle constraints and logarithmic drift bounds."
+    },
+    {
+      "id": "p-vs-np-barriers",
+      "title": "P vs NP: Computational Complexity Barriers and Geometric Complexity Theory",
+      "class": "exploratory",
+      "brief": "Investigate the P versus NP problem with focus on the structural barrier theorems that prevent classical proof techniques from succeeding. (1) Formalize the Relativization Barrier (Baker-Gill-Solovay 1975) by constructing oracles A and B such that P^A = NP^A and P^B != NP^B. (2) Formalize the Natural Proofs Barrier (Razborov-Rudich 1997) against circuit lower bounds assuming existence of pseudorandom functions. (3) Formalize the Algebrization Barrier (Aaronson-Wigderson 2009). (4) Evaluate modern non-relativizing candidate programs: Mulmuley-Sohoni Geometric Complexity Theory (GCT), interactive proof systems (IP = PSPACE), and fine-grained complexity / hardness of approximation.",
+      "groundTruth": [
+        "Baker, Gill, and Solovay (1975) established that relativizing techniques cannot resolve P vs NP",
+        "Razborov and Rudich (1997) proved that 'natural' circuit lower bounds cannot separate P from NP if strong pseudorandom function generators exist",
+        "Aaronson and Wigderson (2009) established the algebrization barrier extending relativization to low-degree polynomials",
+        "Cook-Levin Theorem (1971): SAT is NP-complete",
+        "Ladner's Theorem (1975): If P != NP, then there exist NP-intermediate problems neither in P nor NP-complete"
+      ],
+      "deliverable": "A Python engine `p_vs_np_barriers_engine.py` with test suite and a structural proof report `P_VS_NP_BARRIERS_AND_COMPLEXITY_LANDSCAPE.md`."
+    }
+  ]
+}
