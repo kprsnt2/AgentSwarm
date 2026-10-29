@@ -1,6 +1,52 @@
 {
-  "generatedAt": "2026-10-29T20:09:06.908Z",
+  "generatedAt": "2026-10-29T20:27:38.536Z",
   "posts": [
+    {
+      "runId": "hetero-flash-inference-2026-10-30T04-00-00",
+      "file": "hetero-flash-inference-2026-10-30t04-00-00.md",
+      "title": "hetero-flash-inference — hetero-flash-inference-2026-10-30T04-00-00",
+      "phase": "hetero-flash-inference",
+      "generatedAt": "2026-10-29T20:27:38.502Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 5,
+        "okTurns": 5,
+        "agents": 4,
+        "toolCalls": 5,
+        "thinkingTokens": 8360,
+        "cost": 0.023100000000000002,
+        "violations": 0,
+        "filesWritten": 0,
+        "incidents": 0
+      },
+      "halted": "completed",
+      "agents": [
+        {
+          "name": "Shannon",
+          "purpose": "Model \"PCIe Double-Buffered Pinned Ring-Buffer Paging & Overlap Efficiency\" (pcie-async-paging)",
+          "turns": 2
+        },
+        {
+          "name": "Turing",
+          "purpose": "Model \"Multi-Head Latent Attention (MLA) Low-Rank KV-Cache Compression\" (mla-latent-compression)",
+          "turns": 1
+        },
+        {
+          "name": "VonNeumann",
+          "purpose": "Model \"SpecDec-Split VRAM-Resident Draft Model Acceleration\" (specdec-split-acceleration)",
+          "turns": 1
+        },
+        {
+          "name": "Amdahl",
+          "purpose": "Solve \"Distributed Heterogeneous Clustered Work-Stealing and End-to-End Benchmarks\" (cluster-workload-benchmarking)",
+          "turns": 1
+        }
+      ]
+    },
     {
       "runId": "cardiac-master-twin-2026-10-30T03-00-00",
       "file": "cardiac-master-twin-2026-10-30t03-00-00.md",

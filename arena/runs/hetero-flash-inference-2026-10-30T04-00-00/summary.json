@@ -1,0 +1,11 @@
+{
+  "runId": "hetero-flash-inference-2026-10-30T04-00-00",
+  "phase": "hetero-flash-inference",
+  "turns": 5,
+  "okTurns": 5,
+  "totalCostUsd": 0.0231,
+  "halted": "completed",
+  "wallClockMinutes": 26,
+  "population": 4,
+  "ledgerIntegrity": "intact"
+}
