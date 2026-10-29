@@ -1,0 +1,11 @@
+{
+  "runId": "cardiac-master-twin-2026-10-30T03-00-00",
+  "phase": "cardiac-master-chrono-twin",
+  "turns": 5,
+  "okTurns": 5,
+  "totalCostUsd": 0.0236,
+  "halted": "completed",
+  "wallClockMinutes": 28,
+  "population": 4,
+  "ledgerIntegrity": "intact"
+}

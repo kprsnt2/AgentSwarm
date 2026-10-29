@@ -1,6 +1,52 @@
 {
-  "generatedAt": "2026-10-29T19:57:23.271Z",
+  "generatedAt": "2026-10-29T20:09:06.908Z",
   "posts": [
+    {
+      "runId": "cardiac-master-twin-2026-10-30T03-00-00",
+      "file": "cardiac-master-twin-2026-10-30t03-00-00.md",
+      "title": "cardiac-master-chrono-twin — cardiac-master-twin-2026-10-30T03-00-00",
+      "phase": "cardiac-master-chrono-twin",
+      "generatedAt": "2026-10-29T20:09:06.873Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 5,
+        "okTurns": 5,
+        "agents": 4,
+        "toolCalls": 5,
+        "thinkingTokens": 8480,
+        "cost": 0.0236,
+        "violations": 0,
+        "filesWritten": 0,
+        "incidents": 0
+      },
+      "halted": "completed",
+      "agents": [
+        {
+          "name": "Harvey",
+          "purpose": "Formulate \"Systems-Pharmacology Collision Matrix and Simultaneous Polypharmacy Failure Modes\" (cross-pathway-antagonisms)",
+          "turns": 2
+        },
+        {
+          "name": "Starling",
+          "purpose": "Model \"720-Hour Continuous PK-PD Clearance and Phase I-II Cytokinesis Handoff\" (pk-pd-chrono-kinetics)",
+          "turns": 1
+        },
+        {
+          "name": "Einthoven",
+          "purpose": "Model \"Phase III-IV Scar Hysteresis Reset and ICD Polarization Synchronization\" (scar-icd-electromechanics)",
+          "turns": 1
+        },
+        {
+          "name": "Braunwald",
+          "purpose": "Solve \"Phase V Lusitropic Maturation, 30-Day LVEF Recovery, and Master Digital Twin\" (whole-organ-master-twin)",
+          "turns": 1
+        }
+      ]
+    },
     {
       "runId": "cardiac-hfpef-viscoelastic-2026-10-30T02-00-00",
       "file": "cardiac-hfpef-viscoelastic-2026-10-30t02-00-00.md",
