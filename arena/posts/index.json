@@ -1,6 +1,52 @@
 {
-  "generatedAt": "2026-10-29T19:04:10.380Z",
+  "generatedAt": "2026-10-29T19:57:23.271Z",
   "posts": [
+    {
+      "runId": "cardiac-hfpef-viscoelastic-2026-10-30T02-00-00",
+      "file": "cardiac-hfpef-viscoelastic-2026-10-30t02-00-00.md",
+      "title": "cardiac-hfpef-viscoelastic-relaxation — cardiac-hfpef-viscoelastic-2026-10-30T02-00-00",
+      "phase": "cardiac-hfpef-viscoelastic-relaxation",
+      "generatedAt": "2026-10-29T19:57:23.239Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 5,
+        "okTurns": 5,
+        "agents": 4,
+        "toolCalls": 5,
+        "thinkingTokens": 8250,
+        "cost": 0.022900000000000004,
+        "violations": 0,
+        "filesWritten": 0,
+        "incidents": 0
+      },
+      "halted": "completed",
+      "agents": [
+        {
+          "name": "Linke",
+          "purpose": "Model \"Titin N2B/PEVK WLC Polymer Physics and PKG Phosphorylation Dynamics\" (titin-polymer-mechanics)",
+          "turns": 2
+        },
+        {
+          "name": "Prosser",
+          "purpose": "Model \"Detyrosinated Microtubule-Desmin Viscous Drag and Non-Linear Dashpot Buckling\" (microtubule-viscous-drag)",
+          "turns": 1
+        },
+        {
+          "name": "Granzier",
+          "purpose": "Model \"Residual Actomyosin Cross-Bridge Latch and Delayed SERCA2a Ca2+ Sequestration\" (crossbridge-latch-kinetics)",
+          "turns": 1
+        },
+        {
+          "name": "Kass",
+          "purpose": "Solve \"Organ-Scale LV Pressure-Volume Loops, Critical Lusitropic Bifurcation, and Tri-Pathway Protocol\" (chamber-lusitropy-edpvr)",
+          "turns": 1
+        }
+      ]
+    },
     {
       "runId": "cardiac-electromechanics-2026-10-30T01-00-00",
       "file": "cardiac-electromechanics-2026-10-30t01-00-00.md",

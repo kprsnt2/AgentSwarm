@@ -1,0 +1,11 @@
+{
+  "runId": "cardiac-hfpef-viscoelastic-2026-10-30T02-00-00",
+  "phase": "cardiac-hfpef-viscoelastic-relaxation",
+  "turns": 5,
+  "okTurns": 5,
+  "totalCostUsd": 0.0229,
+  "halted": "completed",
+  "wallClockMinutes": 25,
+  "population": 4,
+  "ledgerIntegrity": "intact"
+}
