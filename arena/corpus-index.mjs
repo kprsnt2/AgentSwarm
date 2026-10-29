@@ -168,7 +168,17 @@ export function renderMarkdown(src) {
     .replace(/`([^`]+)`/g, '<code>$1</code>')
     .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
     .replace(/(^|[\s(])\*([^*\n]+)\*/g, '$1<em>$2</em>')
-    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+    .replace(/\[([^\]]+)\]\((https?:\/\/[^\s)]+|file:\/\/\/[^\s)]+|[a-zA-Z0-9_\-\.\/]+\.(?:html|md|py|json|pdf|txt)(?:#[^\s)]*)?)\)/g, (_m, text, href) => {
+      let targetHref = href;
+      if (targetHref.startsWith('file:///')) {
+        const parts = targetHref.replace(/\\/g, '/').split('/');
+        const fileName = parts.pop();
+        targetHref = `${REPO_BLOB}${fileName}`;
+      } else if (targetHref.endsWith('.py') && !targetHref.startsWith('http')) {
+        targetHref = `${REPO_BLOB}${targetHref}`;
+      }
+      return `<a href="${targetHref}" target="_blank" rel="noopener">${text}</a>`;
+    });
 
   const isTableStart = (idx) => Boolean(
     lines[idx] && lines[idx].includes('|') &&

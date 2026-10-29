@@ -12,10 +12,10 @@
  *   cd ../site && node build.mjs
  */
 
-import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import {
-  SITE, WORLD, listWorldFiles, loadAnnotations,
+  ARENA, SITE, WORLD, listWorldFiles, loadAnnotations,
   renderMarkdown, pageHtml, escapeHtml, REPO_BLOB, REPO_URL,
 } from './corpus-index.mjs';
 
@@ -134,6 +134,62 @@ for (const run of findings.runs || []) {
   runPages += 1;
 }
 
+
+// ---- scribe conclusion post pages ----
+const POSTS_DIR = join(ARENA, 'posts');
+const POSTS_OUT = join(SITE, 'posts');
+rmSync(POSTS_OUT, { recursive: true, force: true });
+mkdirSync(POSTS_OUT, { recursive: true });
+
+let postPages = 0;
+if (existsSync(POSTS_DIR)) {
+  const postFiles = readdirSync(POSTS_DIR).filter((f) => f.endsWith('.md')).sort();
+
+  for (const pf of postFiles) {
+    const postPath = join(POSTS_DIR, pf);
+    let text = readFileSync(postPath, 'utf8');
+    const slug = pf.replace(/\.md$/, '');
+    const title = firstHeading(text, slug);
+
+    const matchedRun = (findings.runs || []).find((r) =>
+      r.id.toLowerCase() === slug.toLowerCase() ||
+      slug.toLowerCase().includes(r.id.toLowerCase()) ||
+      r.id.toLowerCase().includes(slug.toLowerCase())
+    );
+
+    const banner = matchedRun
+      ? `<div style="background:var(--bg2);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin-bottom:20px;font-size:13px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+          <span><strong>Forensic Trace:</strong> <a href="../corpus/run-${encodeURIComponent(matchedRun.id)}.html">View immutable ledger (${matchedRun.turns} turns, ${matchedRun.okTurns} ok) &rarr;</a></span>
+          <span style="font-family:var(--mono);color:var(--fg3)">Run: ${escapeHtml(matchedRun.id)}</span>
+        </div>`
+      : '';
+
+    const body = [
+      `<h1>${escapeHtml(title)}</h1>`,
+      `<p style="color:var(--fg3);font-family:var(--mono);font-size:12px">Scribe Conclusion Monograph · ${escapeHtml(pf)}</p>`,
+      banner,
+      renderMarkdown(text),
+    ].join('\n');
+
+    const html = pageHtml({
+      title,
+      subtitle: 'Scribe Conclusion Monograph',
+      body,
+      backHref: '../posts.html',
+      repoHref: `${REPO_URL}/blob/main/arena/posts/${encodeURI(pf)}`,
+    });
+
+    writeFileSync(join(POSTS_OUT, `${slug}.html`), html, 'utf8');
+    postPages += 1;
+
+    if (matchedRun && matchedRun.id !== slug) {
+      writeFileSync(join(POSTS_OUT, `${matchedRun.id}.html`), html, 'utf8');
+    }
+  }
+}
+
 console.log(`wrote ${reportPages} report pages + ${runPages} run pages to site/corpus/`);
+console.log(`wrote ${postPages} scribe conclusion pages to site/posts/`);
+
 console.log(`${files.length - reportPages} non-markdown artifacts (engines, data) link to the repository instead`);
 if (skipped !== files.length - reportPages) console.log(`(${skipped} skipped)`);

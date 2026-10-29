@@ -184,6 +184,20 @@ if (existsSync(blogSrc)) {
   console.warn('site/blog/ not found — run  node site/export-blog.mjs  to generate blog pages');
 }
 
+// Copy the generated scribe post pages
+const postsSrc = join(SITE, 'posts');
+if (existsSync(postsSrc)) {
+  const pages = readdirSync(postsSrc).filter((f) => f.endsWith('.html'));
+  for (const target of [join(SITE, 'dist', 'posts'), join(docsDir, 'posts')]) {
+    rmSync(target, { recursive: true, force: true });
+    mkdirSync(target, { recursive: true });
+    for (const f of pages) copyFileSync(join(postsSrc, f), join(target, f));
+  }
+  console.log(`copied posts/ (${pages.length} pages) to dist/ and docs/`);
+} else {
+  console.warn('site/posts/ not found — run  node arena/export-corpus.mjs  to generate scribe post pages');
+}
+
 console.log(`\nAll standalone pages built into dist/ and docs/ for GitHub Pages.`);
 console.log(`Commit and push to publish:`);
 console.log(`  git add -A && git commit -m "Rebuild site" && git push`);

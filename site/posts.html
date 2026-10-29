@@ -126,6 +126,10 @@ footer{padding:40px 0;color:var(--fg3);font-size:12.5px;text-align:center}
     <input type="text" class="search-input" id="posts-search" placeholder="Search monographs, runs, agents...">
     <div class="filter-bar" id="posts-filters">
       <button class="filter-btn active" data-filter="all">All Posts</button>
+      <button class="filter-btn" data-filter="cardiac">&#129658; Cardiovascular</button>
+      <button class="filter-btn" data-filter="chronic">&#129658; Chronic Diseases</button>
+      <button class="filter-btn" data-filter="drug">&#129516; Next-Gen Therapeutics</button>
+      <button class="filter-btn" data-filter="math">&#128208; Science &amp; Math</button>
       <button class="filter-btn" data-filter="polished">Polished</button>
       <button class="filter-btn" data-filter="draft">Ledger Drafts</button>
       <button class="filter-btn" data-filter="phase1">Phase 1</button>
@@ -245,6 +249,10 @@ fetch('data/findings.json').then(r => r.json()).then(D => {
   const render = () => {
     const q = query.toLowerCase();
     const rows = posts.filter(p => {
+      if (activeFilter === 'cardiac' && !(p.runId + ' ' + (p.phase || '') + ' ' + (p.body || '')).toLowerCase().includes('cardiac')) return false;
+      if (activeFilter === 'chronic' && !(p.runId + ' ' + (p.phase || '') + ' ' + (p.body || '')).toLowerCase().includes('chronic') && !(p.runId || '').includes('tablet-free')) return false;
+      if (activeFilter === 'drug' && !(p.runId + ' ' + (p.phase || '') + ' ' + (p.body || '')).toLowerCase().includes('drug') && !(p.runId || '').includes('nextgen') && !(p.runId || '').includes('medicine-hunt')) return false;
+      if (activeFilter === 'math' && !(p.runId + ' ' + (p.phase || '') + ' ' + (p.body || '')).toLowerCase().includes('math') && !(p.runId || '').includes('science-math')) return false;
       if (activeFilter === 'polished' && !p.polished) return false;
       if (activeFilter === 'draft' && p.polished) return false;
       if (activeFilter === 'phase1' && !(p.phase || '').toLowerCase().includes('phase1')) return false;
@@ -281,12 +289,13 @@ fetch('data/findings.json').then(r => r.json()).then(D => {
         p.polished ? 'polished' : 'draft',
       ].filter(Boolean).join(' · ');
 
+      const postSlug = (p.file || p.runId || '').replace(/\.md$/, '');
       return `
-        <details class="post"${i === 0 ? ' open' : ''}>
+        <details class="post" id="${esc(p.runId)}"${i === 0 ? ' open' : ''}>
           <summary>
             <span class="tag ${p.polished ? 'ok' : 'info'}">${p.polished ? 'polished' : 'ledger'}</span>
             <span class="pt">${esc(p.phase || 'run')} &mdash; ${esc(p.runId)}</span>
-            <span class="pm">${esc(bits)} &middot; <a href="corpus/run-${encodeURIComponent(p.runId)}.html">forensic trace &rarr;</a></span>
+            <span class="pm">${esc(bits)} &middot; <a href="corpus/run-${encodeURIComponent(p.runId)}.html">forensic trace &rarr;</a> &middot; <a href="posts/${encodeURIComponent(postSlug)}.html" target="_blank" style="color:var(--acc)">standalone page &nearr;</a></span>
           </summary>
           <div class="body">${md(p.body)}</div>
         </details>
@@ -313,6 +322,22 @@ fetch('data/findings.json').then(r => r.json()).then(D => {
   }
 
   render();
+
+  // Deep-linking: auto-expand and scroll to targeted run
+  const urlParams = new URLSearchParams(window.location.search);
+  const targetId = urlParams.get('run') || window.location.hash.replace(/^#/, '');
+  if (targetId) {
+    setTimeout(() => {
+      const allPosts = [...document.querySelectorAll('details.post')];
+      const match = allPosts.find(el => el.id.toLowerCase() === targetId.toLowerCase() || el.id.toLowerCase().includes(targetId.toLowerCase()));
+      if (match) {
+        match.open = true;
+        match.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        match.style.borderColor = 'var(--acc)';
+        match.style.boxShadow = '0 0 16px rgba(88,166,255,.35)';
+      }
+    }, 120);
+  }
 
   const footEl = document.getElementById('posts-foot-meta');
   if (footEl) footEl.textContent = `${posts.length} publications · data as of ${new Date(D.generatedAt).toLocaleString()}`;
