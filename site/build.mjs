@@ -108,6 +108,7 @@ function transformPage(content, fileName, isIndex = false) {
 
 const PAGES = [
   { file: 'index.html', isIndex: true },
+  { file: 'discoveries.html', isIndex: false },
   { file: 'dashboard.html', isIndex: false },
   { file: 'findings.html', isIndex: false },
   { file: 'questions.html', isIndex: false },
