@@ -71,3 +71,4 @@ arena/parallel/**/*.stderr.log
 academic_outreach_guide.html
 *_outreach_*.html
 private/
+scratch/

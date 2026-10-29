@@ -1,0 +1,11 @@
+{
+  "runId": "cardiac-regeneration-2026-10-29T18-00-00",
+  "phase": "cardiac-regeneration",
+  "turns": 5,
+  "okTurns": 5,
+  "totalCostUsd": 0.021,
+  "halted": "completed",
+  "wallClockMinutes": 24,
+  "population": 4,
+  "ledgerIntegrity": "intact"
+}

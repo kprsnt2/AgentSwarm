@@ -1,6 +1,52 @@
 {
-  "generatedAt": "2026-10-29T17:30:45.028Z",
+  "generatedAt": "2026-10-29T17:56:12.192Z",
   "posts": [
+    {
+      "runId": "cardiac-regeneration-2026-10-29T18-00-00",
+      "file": "cardiac-regeneration-2026-10-29t18-00-00.md",
+      "title": "cardiac-regeneration — cardiac-regeneration-2026-10-29T18-00-00",
+      "phase": "cardiac-regeneration",
+      "generatedAt": "2026-10-29T17:56:12.154Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 5,
+        "okTurns": 5,
+        "agents": 4,
+        "toolCalls": 5,
+        "thinkingTokens": 7450,
+        "cost": 0.021,
+        "violations": 0,
+        "filesWritten": 0,
+        "incidents": 0
+      },
+      "halted": "completed",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Formulate \"Cleavage Furrow Mechanical Cleavage-Tension Threshold Theorem and Actomyosin Mechanics\" (cardiac-biomechanics-cytokinesis)",
+          "turns": 2
+        },
+        {
+          "name": "Raman",
+          "purpose": "Model \"Hippo-YAP Pathway Kinetics, Ser127 Phosphorylation, and TEAD Mitotic Induction\" (hippo-yap-kinetic-network)",
+          "turns": 1
+        },
+        {
+          "name": "Hypatia",
+          "purpose": "Design \"In-Vivo Lineage Tracing (alphaMHC-MerCreMer), Dual-Pulse Thymidine, and STED Midbody Nanoscopy\" (in-vivo-cytokinesis-validation)",
+          "turns": 1
+        },
+        {
+          "name": "Nagarjuna",
+          "purpose": "Implement \"Cardiac Regeneration Engine, 28-Day Infarct Remodeling, and Arrhythmogenic/Oncogenic Safety\" (cardiac-regeneration-cytokinesis-engine)",
+          "turns": 1
+        }
+      ]
+    },
     {
       "runId": "cardiac-injury-diagnostics-2026-10-29T17-30-00",
       "file": "cardiac-injury-diagnostics-2026-10-29t17-30-00.md",
