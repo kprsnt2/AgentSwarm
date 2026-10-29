@@ -1,0 +1,73 @@
+{
+  "runId": "tablet-free-chronic-disease-2026-10-29T10-11-06",
+  "ts": "2026-10-29T13:56:20.781Z",
+  "populationCap": 8,
+  "population": [
+    {
+      "id": "A001",
+      "name": "Kepler",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"Tablet-Free Diabetes: Pancreatic Steatosis Reversal (T2D) and Stem-Cell Islet Encapsulation (T1D)\" (diabetes-remission-and-islets)",
+      "substrate": "agy",
+      "model": null,
+      "born": "2026-10-29T10:11:07.524Z",
+      "turnsLived": 4,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    },
+    {
+      "id": "A002",
+      "name": "Raman",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"Next-Gen Hypertension Control: Semiannual Angiotensinogen siRNA and Renal Denervation\" (hypertension-rnai-and-rdn)",
+      "substrate": "agy",
+      "model": null,
+      "born": "2026-10-29T10:11:07.529Z",
+      "turnsLived": 4,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    },
+    {
+      "id": "A003",
+      "name": "Hypatia",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"Regenerative Thyroid Therapeutics: Stem-Cell Folliculogenesis and Antigen-Specific Tolerance\" (thyroid-follicle-regeneration)",
+      "substrate": "agy",
+      "model": null,
+      "born": "2026-10-29T10:11:07.531Z",
+      "turnsLived": 4,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    },
+    {
+      "id": "A004",
+      "name": "Nagarjuna",
+      "clan": 0,
+      "generation": 0,
+      "parent": null,
+      "purpose": "Investigate \"Bioelectronic Medicine and Autonomous Implantable Drug Delivery\" (implantable-bioelectronic-systems)",
+      "substrate": "agy",
+      "model": null,
+      "born": "2026-10-29T10:11:07.533Z",
+      "turnsLived": 3,
+      "alive": true,
+      "retiredAt": null,
+      "retiredReason": null,
+      "inboxDepth": 0
+    }
+  ],
+  "living": 4,
+  "total": 4
+}

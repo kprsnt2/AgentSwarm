@@ -1,0 +1,69 @@
+{
+  "name": "tablet-free-chronic-disease",
+  "turns": 48,
+  "minutes": 240,
+  "maxCostUsd": 10.0,
+  "agents": 4,
+  "populationCap": 8,
+  "substrates": [
+    "agy"
+  ],
+  "questions": [
+    {
+      "id": "diabetes-remission-and-islets",
+      "title": "Tablet-Free Diabetes: Pancreatic Steatosis Reversal (T2D) and Stem-Cell Islet Encapsulation (T1D)",
+      "class": "empirical",
+      "brief": "Investigate non-tablet curative and long-term remission therapies for diabetes mellitus. (1) Model Type 2 Diabetes remission biophysics based on the Twin Cycle Hypothesis (Taylor et al., DIRECT trial, Lancet 2018): quantify the visceral fat threshold, hepatic triacylglycerol clearance, and recovery of first-phase insulin secretion following rapid negative energy balance. (2) Evaluate Type 1 Diabetes curative frontiers: stem cell-derived islet transplantation (e.g. Vertex VX-880 / VX-264). Model the biophysical constraints of microencapsulation devices (alginate, immune-isolation membranes): oxygen diffusion limits (pO2 >= 20 mmHg at core), nutrient exchange, and foreign body fibrotic response avoidance. (3) Model autoimmune interception via anti-CD3 monoclonal antibodies (Teplizumab) preserving residual C-peptide secretion.",
+      "groundTruth": [
+        "The DIRECT clinical trial (Taylor et al. 2018) proved that intensive dietary restriction achieving >10-15 kg weight loss induces complete T2D remission in up to 86% of patients diagnosed within 6 years by restoring beta-cell capacity",
+        "Type 1 Diabetes involves autoimmune destruction of >80-90% of pancreatic beta cells by autoreactive CD8+ T cells",
+        "Stem cell-derived islets (SC-islets) transplanted in clinical trials (e.g., Vertex VX-880) have achieved insulin independence, but unencapsulated cells require life-long systemic immunosuppression",
+        "Oxygen diffusion through encapsulation devices is severely rate-limiting: beta-cell viability collapses when local pO2 drops below 10-15 mmHg",
+        "Teplizumab (anti-CD3) is FDA-approved to delay the onset of clinical Stage 3 Type 1 Diabetes by a median of ~2-3 years in high-risk individuals"
+      ],
+      "deliverable": "A Python computational engine `diabetes_remission_islet_engine.py` with test suite and a scientific monograph `TABLET_FREE_DIABETES_REMISSION_AND_ISLET_BIOPHYSICS.md`."
+    },
+    {
+      "id": "hypertension-rnai-and-rdn",
+      "title": "Next-Gen Hypertension Control: Semiannual Angiotensinogen siRNA and Renal Denervation",
+      "class": "empirical",
+      "brief": "Investigate therapeutic approaches that eliminate daily oral antihypertensive pill burdens. (1) Model RNA interference (RNAi) therapeutics targeting hepatic angiotensinogen (AGT) production (e.g. Zilebesiran / ALN-AGT). Quantify GalNAc-mediated hepatocyte ASGPR uptake, RISC catalytic mRNA cleavage, and the pharmacokinetic duration enabling a single subcutaneous injection to suppress systemic angiotensin II and blood pressure for 6 months (semiannual dosing). (2) Model Catheter-based Renal Denervation (RDN, e.g. radiofrequency Symplicity Spyral or ultrasound Paradise). Quantify thermal ablation depth (2-6 mm) targeting renal sympathetic efferent/afferent nerve bundles in the adventitia, assessing 24-hour ambulatory blood pressure reduction without medication adherence requirements. (3) Model the physiological pressure-natriuresis curve (Guyton model) under renal sympathectomy.",
+      "groundTruth": [
+        "Poor patient adherence to daily oral antihypertensive tablets is the single leading cause of uncontrolled hypertension worldwide (~50% non-adherence at 1 year)",
+        "Zilebesiran (KARDIA clinical trials) achieves sustained >90% serum angiotensinogen (AGT) suppression and 15-20 mmHg systolic BP reduction for over 24 weeks after a single subcutaneous dose",
+        "Renal sympathetic nerves reside primarily in the renal artery adventitia at a depth of 2 to 6 mm from the endothelial lumen",
+        "Catheter-based renal denervation (RDN) was FDA-approved in 2023 following sham-controlled trials (SPYRAL HTN-ON/OFF MED and RADIANCE) demonstrating continuous, adherence-independent BP lowering",
+        "GalNAc-siRNA conjugates are specifically cleared by asialoglycoprotein receptors (ASGPR) on hepatocytes, avoiding systemic extrahepatic off-target delivery"
+      ],
+      "deliverable": "A Python computational engine `hypertension_rnai_rdn_engine.py` with test suite and a scientific monograph `NON_ORAL_HYPERTENSION_MANAGEMENT_BIOPHYSICS.md`."
+    },
+    {
+      "id": "thyroid-follicle-regeneration",
+      "title": "Regenerative Thyroid Therapeutics: Stem-Cell Folliculogenesis and Antigen-Specific Tolerance",
+      "class": "empirical",
+      "brief": "Investigate regenerative and tablet-free alternatives for chronic hypothyroidism and Hashimoto's thyroiditis. (1) Model the differentiation of induced pluripotent stem cells (iPSCs) into functional thyroid follicular organoids: signaling cascades (NKX2-1, PAX8, FOXE1 activation via BMP4 and FGF2) and hollow 3D epithelial lumen organization capable of thyroglobulin iodination and T4/T3 secretion in response to physiological TSH. (2) Evaluate autoimmune interception for Hashimoto's thyroiditis: model antigen-specific tolerogenic nanoparticles (tNPs) presenting thyroid peroxidase (TPO) and thyroglobulin (Tg) peptides to liver sinusoidal endothelial cells (LSECs) to induce antigen-specific regulatory T cells (Tregs) and halt follicular apoptosis before gland destruction. (3) Contrast bioresorbable long-acting subcutaneous implants (continuous T4 micro-osmotic release) with daily oral levothyroxine.",
+      "groundTruth": [
+        "Hashimoto's thyroiditis is the predominant cause of hypothyroidism, characterized by autoimmune infiltration and destructive apoptosis of thyroid follicular cells",
+        "Antonica et al. (Nature 2012) and Kurmann et al. (Cell Stem Cell 2015) proved that murine and human iPSCs can be differentiated into thyroid follicular organoids that restore normal serum T4 levels in hypothyroid mouse models",
+        "Thyroid follicles require closed 3D polarity with apical sodium-iodide symporter (NIS) and thyroid peroxidase (TPO) facing the colloid lumen for functional iodination",
+        "Oral levothyroxine tablets suffer from narrow therapeutic windows and erratic absorption (affected by coffee, calcium, iron, and meal timing), causing up to 40% of treated patients to remain out of euthyroid range",
+        "Liver-targeted tolerogenic nanoparticles can induce systemic antigen-specific immune tolerance without general immunosuppression"
+      ],
+      "deliverable": "A Python computational engine `thyroid_regeneration_tolerance_engine.py` with test suite and a scientific monograph `REGENERATIVE_THYROID_AND_IMMUNE_TOLERANCE.md`."
+    },
+    {
+      "id": "implantable-bioelectronic-systems",
+      "title": "Bioelectronic Medicine and Autonomous Implantable Drug Delivery",
+      "class": "engineering",
+      "brief": "Investigate engineering systems that automate chronic disease therapy without patient-managed daily tablets. (1) Model closed-loop automated insulin delivery (Artificial Pancreas): continuous glucose monitoring (CGM) sensor dynamics, interstitial-to-blood lag time (5-15 min), and Model Predictive Control (MPC) algorithms commanding subcutaneous micro-infusion pumps. (2) Model Bioelectronic Medicine: vagus nerve stimulation (VNS) for the inflammatory reflex, modeling electrical pulse frequencies that stimulate choline acetyltransferase (ChAT)+ T cells in the spleen to suppress systemic TNF-alpha and metabolic inflammation. (3) Evaluate zero-order long-acting nanofluidic implants (e.g. titanium drug reservoirs with silicon nanochannels) providing continuous zero-order release for 6 to 12 months.",
+      "groundTruth": [
+        "Closed-loop automated insulin delivery systems (AID / artificial pancreas) reduce time in hypoglycemia while keeping patients in target glycemic range (70-180 mg/dL) >70% of the day",
+        "Interstitial fluid glucose measured by electrochemical enzymatic CGM sensors lags intravascular blood glucose by approximately 5 to 15 minutes due to physiological diffusion",
+        "The inflammatory reflex (Tracey et al. Nature 2002) is a neural circuit where vagus nerve efferent signaling suppresses pro-inflammatory cytokine release by splenic macrophages via alpha7 nicotinic acetylcholine receptors (alpha7 nAChR)",
+        "Nanofluidic membranes with sub-10 nm slit nanochannels achieve pure zero-order Fickian diffusion independent of reservoir drug concentration",
+        "Biofouling and fibrous capsule formation around long-term subcutaneous implants reduce diffusion rates and sensor accuracy over 3 to 6 months"
+      ],
+      "deliverable": "A Python computational engine `bioelectronic_closed_loop_engine.py` with test suite and an engineering report `IMPLANTABLE_BIOELECTRONIC_DISEASE_MANAGEMENT.md`."
+    }
+  ]
+}

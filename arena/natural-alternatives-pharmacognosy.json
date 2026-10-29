@@ -1,0 +1,69 @@
+{
+  "name": "natural-pharmacognosy",
+  "turns": 24,
+  "minutes": 90,
+  "maxCostUsd": 4.0,
+  "agents": 4,
+  "populationCap": 8,
+  "substrates": [
+    "agy"
+  ],
+  "questions": [
+    {
+      "id": "natural-analgesics-pain",
+      "title": "Natural Analgesics: COX/LOX Dual Inhibition, TRPV1 Desensitization, and Endocannabinoid Tone",
+      "class": "empirical",
+      "brief": "Investigate the molecular mechanisms and clinical efficacy of natural alternatives to conventional pain killers (NSAIDs, opioids, acetaminophen). (1) Compare White Willow Bark (Salix alba; salicin metabolized to salicylic acid) with synthetic acetylsalicylic acid: evaluate gastric COX-1 sparing effects, platelet inhibition kinetics, and anti-inflammatory potency. (2) Analyze dual COX-2 and 5-LOX inhibitors: Boswellic acids (specifically 3-O-acetyl-11-keto-beta-boswellic acid / AKBA from Boswellia serrata) and Curcuminoids (Curcuma longa), evaluating eicosanoid cascade downregulation (leukotriene B4 and prostaglandin E2 reduction). (3) Model TRPV1 ion channel desensitization by capsaicin (Capsicum annuum) for neuropathic pain and evaluate Palmitoylethanolamide (PEA) / CBD as endogenous/phytocannabinoid modulators of microglial neuroinflammation.",
+      "groundTruth": [
+        "Salicin in willow bark is an unacetylated prodrug converted in vivo to salicylic acid via intestinal and hepatic hydrolysis, lacking the irreversible platelet COX-1 acetylation of synthetic aspirin",
+        "AKBA from Boswellia serrata is an allosteric inhibitor of 5-lipoxygenase (5-LOX), blocking leukotriene synthesis without triggering gastric ulceration common to classical NSAIDs",
+        "Capsaicin acts as a potent agonist of the transient receptor potential vanilloid 1 (TRPV1) channel, inducing initial nociceptor excitation followed by long-lasting desensitization via calcium influx and substance P depletion",
+        "Palmitoylethanolamide (PEA) acts primarily through the nuclear receptor PPAR-alpha to downregulate mast cell degranulation and pro-inflammatory signaling in chronic pain states",
+        "Curcumin demonstrates low oral bioavailability (<1% systemic absorption in humans) due to rapid hepatic and intestinal glucuronidation and sulfation"
+      ],
+      "deliverable": "A Python computational engine `natural_analgesics_engine.py` with test suite and an empirical monograph `NATURAL_ANALGESICS_PHARMACOLOGY.md` detailing receptor affinities, IC50 values, and safety boundaries."
+    },
+    {
+      "id": "natural-metabolic-alternatives",
+      "title": "Natural Metabolic Regulators: Berberine AMPK Activation, PCSK9 Suppression, and Herbal Statins",
+      "class": "empirical",
+      "brief": "Investigate natural alternatives to major maintenance pharmaceuticals for metabolic and cardiovascular conditions (statins, metformin, ACE inhibitors). (1) Model Berberine (an isoquinoline alkaloid from Berberis species) as an alternative to metformin and statins: quantify its dual mechanism of AMPK activation (via mitochondrial complex I inhibition and AMP/ATP ratio elevation) and hepatic LDLR upregulation through post-transcriptional PCSK9 mRNA degradation. (2) Evaluate Red Yeast Rice (Monascus purpureus) containing Monacolin K (chemically identical to lovastatin, an HMG-CoA reductase inhibitor), quantifying natural HMG-CoA inhibition kinetics versus synthetic statins. (3) Evaluate Garlic (Allium sativum; allicin / S-allyl cysteine) on endothelial nitric oxide synthase (eNOS) activation and systolic blood pressure reduction.",
+      "groundTruth": [
+        "Berberine upregulates LDL receptor (LDLR) expression by prolonging LDLR mRNA half-life via extracellular signal-regulated kinase (ERK) signaling, distinct from statins that work via SREBP-2",
+        "Monacolin K in red yeast rice is structurally identical to lovastatin, directly inhibiting HMG-CoA reductase and carrying the same potential for statin-associated myopathy",
+        "Berberine activates AMP-activated protein kinase (AMPK) through mild inhibition of mitochondrial respiratory Complex I, mimicking the primary metabolic mechanism of metformin",
+        "Allicin from freshly crushed garlic decomposes rapidly into diallyl sulfides that release hydrogen sulfide (H2S) in blood, promoting vascular hyperpolarization and vasodilation",
+        "Berberine has low oral bioavailability (~5%) due to active P-glycoprotein (ABCB1) extrusion in intestinal enterocytes"
+      ],
+      "deliverable": "A Python computational engine `natural_metabolic_pharmacology_engine.py` with test suite and an empirical monograph `NATURAL_METABOLIC_AND_CARDIOVASCULAR_ALTERNATIVES.md`."
+    },
+    {
+      "id": "bioavailability-enhancement",
+      "title": "Phytochemical Bioavailability Barriers: Glucuronidation, P-gp Efflux, and Novel Natural Delivery Systems",
+      "class": "empirical",
+      "brief": "Investigate the primary pharmacological bottleneck of natural medicines: rapid first-pass metabolism and poor systemic bioavailability. (1) Model the rapid Phase II metabolism (UGT-mediated glucuronidation and SULT-mediated sulfation) that converts lipophilic phytochemicals (curcumin, resveratrol, quercetin, epigallocatechin gallate / EGCG) into inactive hydrophilic conjugates excreted in bile and urine. (2) Evaluate natural bioenhancers: Piperine (from Piper nigrum) as an inhibitor of hepatic/intestinal glucuronidation (UGT) and P-glycoprotein efflux, quantifying the 20-fold (2000%) systemic bioavailability lift of curcumin. (3) Model advanced natural delivery systems: phospholipid phytosome complexes (e.g. Meriva), lipid self-emulsifying drug delivery systems (SEDDS), and micellar encapsulation.",
+      "groundTruth": [
+        "Curcumin undergoes near-complete first-pass metabolism in the gut wall and liver, with peak plasma concentrations typically <10-50 nM after gram-scale oral doses of unformulated powder",
+        "Piperine inhibits hepatic and intestinal glucuronidation by non-competitive inhibition of UDP-glucuronosyltransferase (UGT1A1), increasing curcumin AUC in humans by up to 2000% (Shoba et al. 1998)",
+        "Phytosome formulations complex plant polyphenols with dietary phosphatidylcholine at a 1:1 or 1:2 molar ratio, dramatically improving passive transcellular transport across enterocytes",
+        "Resveratrol is rapidly sulfated and glucuronidated, yielding a plasma half-life of parent compound under 15 minutes despite high in vitro antioxidant and SIRT1-activating potency",
+        "Quercetin and other flavonols act as substrates and inhibitors of multi-drug resistance proteins (MRP2, BCRP), altering bioavailability of co-administered xenobiotics"
+      ],
+      "deliverable": "A Python computational engine `phytochemical_bioavailability_engine.py` with test suite and a scientific report `PHYTOCHEMICAL_BIOAVAILABILITY_AND_FORMULATION.md`."
+    },
+    {
+      "id": "herbal-toxicology-interactions",
+      "title": "Herb-Drug Interactions and Natural Product Safety: Cytochrome P450 Modulation and Organ Toxicity",
+      "class": "empirical",
+      "brief": "Investigate the critical safety boundaries, narrow therapeutic indices, and dangerous drug-herb interactions that counter the 'natural = safe' fallacy. (1) Model St. John's Wort (Hypericum perforatum; hyperforin): quantify its potent activation of the Pregnane X Receptor (PXR), driving massive transcriptional upregulation of Cytochrome P450 3A4 (CYP3A4) and P-glycoprotein (ABCB1), causing catastrophic plasma clearance of oral contraceptives, cyclosporine, warfarin, and protease inhibitors. (2) Analyze natural hepatotoxins and nephrotoxins: Pyrrolizidine alkaloids (in Symphytum / comfrey causing hepatic veno-occlusive disease), Aristolochic acid (Aristolochia species causing Balkan endemic nephropathy and urothelial carcinoma), and kava kava hepatotoxicity. (3) Formalize the therapeutic window and safe dosage thresholds.",
+      "groundTruth": [
+        "Hyperforin in St. John's Wort is one of the most potent known natural agonists of human PXR (EC50 ~ 27 nM), inducing CYP3A4 and decreasing systemic drug concentrations by 50-80%",
+        "Aristolochic acid forms covalent DNA adducts (dA-AAI) with high mutagenicity (A:T to T:A transversions), causing irreversible interstitial renal fibrosis and urothelial malignancy",
+        "Pyrrolizidine alkaloids undergo metabolic activation by CYP3A4 to reactive pyrrolic intermediates that crosslink cellular macromolecules, causing hepatic sinusoidal obstruction syndrome",
+        "Natural product extracts vary widely in batch-to-batch active constituent concentrations, heavy metal contamination, and adulteration with synthetic compounds",
+        "The co-administration of herbal anticoagulants (Ginkgo biloba, high-dose garlic, ginger) with prescription anticoagulants (warfarin, DOACs) significantly elevates hemorrhagic bleeding risk"
+      ],
+      "deliverable": "A Python computational engine `herbal_toxicology_and_interactions_engine.py` with test suite and a safety monograph `HERB_DRUG_INTERACTIONS_AND_TOXICOLOGY_BOUNDARIES.md`."
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "name": "longevity-rejuvenation",
+  "turns": 24,
+  "minutes": 90,
+  "maxCostUsd": 4.0,
+  "agents": 4,
+  "populationCap": 8,
+  "substrates": [
+    "agy"
+  ],
+  "questions": [
+    {
+      "id": "epigenetic-reprogramming",
+      "title": "Partial Yamanaka Reprogramming: Decoupling Epigenetic Rejuvenation from Oncogenic Teratoma Formation",
+      "class": "empirical",
+      "brief": "Investigate transient cellular reprogramming to reverse biological age without loss of cell identity. (1) Model the kinetics of cyclic or transient Oct4, Sox2, Klf4 (OSK, omitting c-Myc to suppress oncogenesis) delivery via inducible promoters or mRNA-LNPs. (2) Formulate the critical time window: quantify how Horvath DNA methylation clocks and transcriptomic aging signatures revert during early reprogramming (Days 2-6) before cells lose lineage-specific chromatin architecture and enter the dangerous pluripotent/teratoma phase (Day 8+). (3) Model chromatin accessibility dynamics (ATAC-seq/ChIP-seq peaks) and heterochromatin markers (H3K9me3, HP1) restoration.",
+      "groundTruth": [
+        "Sarkar et al. (2020) and Lu et al. (2020 Nature) demonstrated that OSK expression in mammalian retinal ganglion cells restores visual function and reverses Horvath DNA methylation age",
+        "Continuous unconstrained Yamanaka factor expression in vivo causes lethal teratomas and multi-organ dysgenesis within weeks",
+        "Omission of the c-Myc oncogene (using OSK instead of OSKM) substantially reduces neoplastic transformation while retaining epigenetic rejuvenation capacity",
+        "The epigenetic clock (Horvath pan-tissue clock) tracks DNA methylation at specific CpG sites, measuring biological as opposed to chronological age",
+        "Short cyclic bursts (e.g., 2 days on, 5 days off) preserve somatic cellular identity while resetting epigenetic noise"
+      ],
+      "deliverable": "A Python computational engine `epigenetic_reprogramming_engine.py` with test suite and a scientific monograph `EPIGENETIC_REPROGRAMMING_AND_TERATOMA_BOUNDARIES.md` quantifying the safe temporal rejuvenation window."
+    },
+    {
+      "id": "senolytics-sasp",
+      "title": "Targeted Senolysis: BCL-2/BCL-xL Dependencies, SASP Secretome Shutdown, and Toxicity Boundaries",
+      "class": "empirical",
+      "brief": "Investigate the selective elimination of senescent cells and neutralization of the Senescence-Associated Secretory Phenotype (SASP). (1) Model senescent cell anti-apoptotic pathways (SCAPs): dependency on BCL-2, BCL-xL, and BCL-W family proteins, and the p53-p21-p16^INK4a checkpoint axes. (2) Quantify the therapeutic window and toxicity trade-offs: contrast broad BCL-xL inhibitors (Navitoclax/ABT-263), which cause dose-limiting thrombocytopenia due to platelet BCL-xL dependence, with targeted senolytics (Dasatinib + Quercetin, Fisetin) and galactose-conjugated/senolytic prodrugs (SSK1). (3) Model the paracrine spread of senescence driven by SASP factors (IL-6, IL-8, TGF-beta, MMPs) and quantify tissue rejuvenation post-senolytic clearance.",
+      "groundTruth": [
+        "Senescent cells accumulate with age in tissues, permanently arresting the cell cycle via p16^INK4a and p21^CIP1 while resisting apoptosis",
+        "The Senescence-Associated Secretory Phenotype (SASP) secretes pro-inflammatory cytokines (IL-6, IL-1beta) and metalloproteinases that induce paracrine senescence in neighboring healthy cells",
+        "Navitoclax (ABT-263) selectively kills senescent cells by inhibiting BCL-2 and BCL-xL, but is clinically dose-limited by severe on-target platelet thrombocytopenia",
+        "Platelet survival is obligately dependent on BCL-xL to restrain Bak-mediated apoptosis (Mason et al. 2007)",
+        "Intermittent 'hit-and-run' senolytic dosing is effective because senescent cells take weeks to re-accumulate, avoiding the toxicity of continuous daily administration"
+      ],
+      "deliverable": "A Python computational engine `senolytic_pharmacodynamics_engine.py` with test suite and a scientific monograph `SENOLYTIC_TARGETING_AND_SASP_ELIMINATION.md`."
+    },
+    {
+      "id": "telomere-mitochondrial-axis",
+      "title": "The Telomere-p53-Mitochondrial Axis: TERT Regulation, ROS Cascades, and Stem Cell Exhaustion",
+      "class": "empirical",
+      "brief": "Investigate the molecular coupling between telomere attrition, DNA damage responses, and mitochondrial metabolic collapse. (1) Model the core cascade: critical telomere shortening triggers persistent DNA damage response (DDR) at chromosome ends (gamma-H2AX, 53BP1 foci), activating p53. (2) Formulate p53-mediated repression of PGC-1alpha and PGC-1beta, driving mitochondrial dysfunction, electron transport chain (ETC) decoupling, and increased reactive oxygen species (ROS) leakage. (3) Model the feedback loop where mitochondrial ROS induces further oxidative 8-oxoguanine damage preferentially at G-rich telomeric repeats. (4) Quantify gene therapy rescue via adeno-associated virus (AAV)-delivered TERT versus oncogenic immortalization risks.",
+      "groundTruth": [
+        "Sahin et al. (2011 Nature) proved that telomere dysfunction represses PGC-1alpha and PGC-1beta via p53, directly driving mitochondrial failure and metabolic compromise",
+        "Telomeres consist of tandem TTAGGG repeats that are uniquely vulnerable to single-strand oxidative damage due to high guanine triplet content",
+        "Human somatic cells lack sufficient telomerase activity due to transcriptional repression of the TERT catalytic subunit, leading to the Hayflick limit of ~50 population doublings",
+        "AAV-mediated telomerase (TERT) gene therapy in adult mice extends median lifespan by 13-24% without increasing cancer incidence (Bernardes de Jesus et al. 2012)",
+        "Over 85-90% of human cancers reactivate TERT via promoter mutations (C228T, C250T) or gene amplification to achieve replicative immortality"
+      ],
+      "deliverable": "A Python computational engine `telomere_mitochondrial_axis_engine.py` with test suite and a scientific monograph `TELOMERE_P53_MITOCHONDRIAL_AXIS_ANALYSIS.md`."
+    },
+    {
+      "id": "metabolic-longevity-networks",
+      "title": "Nutrient-Sensing Longevity Networks: Intermittent mTORC1 Inhibition, Autophagy, and AMPK Activation",
+      "class": "empirical",
+      "brief": "Investigate the evolutionary conserved nutrient-sensing signaling network governing lifespan extension. (1) Formulate the dual mTOR complexes: rapamycin-sensitive mTORC1 (Raptor-driven protein synthesis, S6K1, 4E-BP1, autophagy inhibition via ULK1 phosphorylation) versus mTORC2 (Rictor-driven, essential for Akt Ser473 phosphorylation, insulin sensitivity, and immune function). (2) Model the kinetics of intermittent vs chronic rapamycin administration: why chronic dosing disrupts mTORC2 assembly, causing glucose intolerance and immunosuppression, whereas intermittent dosing preserves mTORC2 while periodically purging cellular debris via autophagy. (3) Integrate AMPK and Sirtuin (SIRT1/SIRT3) activation: NAD+ depletion kinetics with age (CD38 upregulation and NAMPT decline) and caloric restriction mimetics (metformin, spermidine).",
+      "groundTruth": [
+        "Rapamycin is the only pharmacological agent proven to consistently extend both median and maximum lifespan across multiple mammalian model species in the NIA Interventions Testing Program (ITP)",
+        "mTORC1 directly inhibits autophagy by phosphorylating ULK1 at Ser757, preventing ULK1-AMPK interaction",
+        "Chronic continuous rapamycin treatment sequesters free mTOR from assembling into mTORC2, leading to peripheral insulin resistance and impaired immune response (Lamming et al. 2012 Science)",
+        "NAD+ levels decline by up to 50% in aged tissues, driven in part by increased activity of the NADase CD38 in pro-inflammatory M1 macrophages (Camacho-Pereira et al. 2016)",
+        "Intermittent or low-dose rapamycin regimens maximize the mTORC1-to-mTORC2 selectivity ratio, extending healthspan without metabolic toxicity"
+      ],
+      "deliverable": "A Python computational engine `nutrient_sensing_longevity_engine.py` with test suite and a scientific monograph `NUTRIENT_SENSING_NETWORKS_AND_MTOR_KINETICS.md`."
+    }
+  ]
+}
