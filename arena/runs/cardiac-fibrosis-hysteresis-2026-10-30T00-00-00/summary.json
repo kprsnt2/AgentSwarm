@@ -1,0 +1,11 @@
+{
+  "runId": "cardiac-fibrosis-hysteresis-2026-10-30T00-00-00",
+  "phase": "cardiac-fibrosis-hysteresis",
+  "turns": 5,
+  "okTurns": 5,
+  "totalCostUsd": 0.022,
+  "halted": "completed",
+  "wallClockMinutes": 24,
+  "population": 4,
+  "ledgerIntegrity": "intact"
+}

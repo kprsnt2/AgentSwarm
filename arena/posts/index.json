@@ -1,6 +1,52 @@
 {
-  "generatedAt": "2026-10-29T18:06:42.237Z",
+  "generatedAt": "2026-10-29T18:40:00.742Z",
   "posts": [
+    {
+      "runId": "cardiac-fibrosis-hysteresis-2026-10-30T00-00-00",
+      "file": "cardiac-fibrosis-hysteresis-2026-10-30t00-00-00.md",
+      "title": "cardiac-fibrosis-hysteresis — cardiac-fibrosis-hysteresis-2026-10-30T00-00-00",
+      "phase": "cardiac-fibrosis-hysteresis",
+      "generatedAt": "2026-10-29T18:40:00.693Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 5,
+        "okTurns": 5,
+        "agents": 4,
+        "toolCalls": 5,
+        "thinkingTokens": 8020,
+        "cost": 0.022299999999999997,
+        "violations": 0,
+        "filesWritten": 0,
+        "incidents": 0
+      },
+      "halted": "completed",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Formulate \"Focal Adhesion Talin-Vinculin Motor Clutch and Traction Stress Mechanics\" (focal-adhesion-mechanosensing)",
+          "turns": 2
+        },
+        {
+          "name": "Raman",
+          "purpose": "Model \"LINC-Complex Nuclear Envelope Tension and Nuclear Pore Complex Elastic Dilation\" (linc-nuclear-mechanics)",
+          "turns": 1
+        },
+        {
+          "name": "Hypatia",
+          "purpose": "Model \"MRTFA/YAP Nucleocytoplasmic Transport and Epigenetic Chromatin Remodeling\" (nucleocytoplasmic-transport-epigenetics)",
+          "turns": 1
+        },
+        {
+          "name": "Nagarjuna",
+          "purpose": "Solve \"Bistable Fibrotic Hysteresis Catastrophe, LOXL2 Cleavage Threshold, and Burst Pressure Safety\" (fibrotic-hysteresis-engine)",
+          "turns": 1
+        }
+      ]
+    },
     {
       "runId": "phase3-domain_swap-2026-10-02T17-31-56",
       "file": "phase3-domain-swap-2026-10-02t17-31-56.md",
