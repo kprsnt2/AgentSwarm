@@ -289,3 +289,244 @@ def simulate_agentic_inference_benchmark(
         "vram_oom_risk": vram_oom_risk,
         "agentic_ready": bool(not vram_oom_risk and decoding_speed_tok_s >= 12.0),
     }
+
+
+class PagedMLAMemoryManager:
+    """
+    Virtual memory manager implementing PagedAttention for Multi-Head Latent Attention (MLA).
+    Eliminates internal/external memory fragmentation using 64-token physical blocks,
+    and provides zero-copy Prefix Caching for immutable agent system instructions.
+    """
+    PAGE_BLOCK_SIZE = 64  # Tokens per page block
+
+    @classmethod
+    def allocate_agent_session(
+        cls,
+        total_tokens: int,
+        system_prompt_tokens: int = 1536,
+        prefix_cached: bool = True,
+        latent_kv_dim: int = 512,
+        rope_dim: int = 64,
+        num_layers: int = 32,
+        quant_bits: int = 8,
+    ) -> Dict[str, Any]:
+        """
+        Allocate physical page blocks for an agent conversation.
+        If prefix_cached is True, system prompt blocks are shared zero-copy,
+        saving both VRAM allocation and prefill computation.
+        """
+        bytes_per_token = num_layers * (latent_kv_dim + rope_dim) * (quant_bits / 8.0)
+        bytes_per_page = cls.PAGE_BLOCK_SIZE * bytes_per_token
+
+        total_pages = math.ceil(total_tokens / cls.PAGE_BLOCK_SIZE)
+        prefix_pages = math.floor(system_prompt_tokens / cls.PAGE_BLOCK_SIZE) if prefix_cached else 0
+
+        new_allocated_pages = max(1, total_pages - prefix_pages)
+        reused_prefix_pages = prefix_pages
+
+        # Memory calculations
+        total_unpaged_mb = (total_tokens * bytes_per_token) / (1024.0 * 1024.0)
+        paged_allocated_mb = (new_allocated_pages * bytes_per_page) / (1024.0 * 1024.0)
+        prefix_saved_mb = (reused_prefix_pages * bytes_per_page) / (1024.0 * 1024.0)
+
+        # Prefill time reduction: system prompt is pre-computed in physical blocks
+        prefill_compute_saved_pct = (system_prompt_tokens / max(1, total_tokens)) * 100.0 if prefix_cached else 0.0
+
+        return {
+            "total_tokens": total_tokens,
+            "page_block_size": cls.PAGE_BLOCK_SIZE,
+            "total_pages_needed": total_pages,
+            "new_allocated_pages": new_allocated_pages,
+            "reused_prefix_pages": reused_prefix_pages,
+            "paged_allocated_mb": round(paged_allocated_mb, 2),
+            "prefix_saved_mb": round(prefix_saved_mb, 2),
+            "prefix_cache_hit": prefix_cached,
+            "prefill_compute_saved_pct": round(prefill_compute_saved_pct, 1),
+            "fragmentation_ratio_pct": round(((new_allocated_pages * cls.PAGE_BLOCK_SIZE - (total_tokens - (prefix_pages * cls.PAGE_BLOCK_SIZE))) / (new_allocated_pages * cls.PAGE_BLOCK_SIZE)) * 100.0, 1),
+        }
+
+
+class SpeculativeTreeDAG:
+    """
+    Multi-Branch Tree-Attention Speculative Decoding Engine (Medusa/Eagle-style DAG).
+    Instead of a single linear chain K=5, evaluates a tree of candidate tokens
+    (e.g., Depth 1: 3 candidates, Depth 2: 2 children each = 6 leaves; total 9 speculative tokens).
+    A custom 2D causal verification mask allows the target model to verify all 9 tokens
+    in a SINGLE parallel batched forward pass.
+    """
+    @classmethod
+    def evaluate_tree_speculation(
+        cls,
+        base_acceptance_rate: float = 0.74,
+        branching_factors: List[int] = None,
+        target_serial_speed_tok_s: float = 5.2,
+        draft_speed_tok_s: float = 65.0,
+    ) -> Dict[str, Any]:
+        if branching_factors is None:
+            branching_factors = [3, 2]  # 3 candidates at d=1, 2 at d=2
+
+        alpha = max(0.1, min(0.95, float(base_acceptance_rate)))
+
+        # In a tree DAG, probability of accepting at least one branch of length d:
+        p_d1 = 1.0 - ((1.0 - alpha) ** branching_factors[0])
+        p_d2 = p_d1 * (1.0 - ((1.0 - alpha) ** branching_factors[1]))
+
+        # Expected accepted tokens per target cycle:
+        expected_accepted_tokens = 1.0 + p_d1 + p_d2 + (alpha * p_d2)
+
+        # Time cost: generating draft tree heads has low overhead; target verify is 1 batched pass
+        total_tree_nodes = 1 + branching_factors[0] + (branching_factors[0] * branching_factors[1])
+        t_draft_ms = (total_tree_nodes / draft_speed_tok_s) * 1000.0 * 0.40  # Medusa heads compute in parallel
+        t_target_verify_ms = 1000.0 / target_serial_speed_tok_s
+
+        total_cycle_ms = t_draft_ms + t_target_verify_ms
+        effective_tokens_per_sec = (expected_accepted_tokens / total_cycle_ms) * 1000.0
+        speedup_factor = effective_tokens_per_sec / target_serial_speed_tok_s
+
+        return {
+            "base_acceptance_rate": round(alpha, 3),
+            "tree_nodes_evaluated": total_tree_nodes,
+            "effective_branch_acceptance": round(p_d1, 3),
+            "expected_accepted_tokens": round(expected_accepted_tokens, 2),
+            "effective_tokens_per_sec": round(effective_tokens_per_sec, 2),
+            "speedup_factor": round(speedup_factor, 2),
+            "surpasses_linear_spec": bool(speedup_factor >= 2.0),
+        }
+
+
+class ThermalPowerGovernor:
+    """
+    Dynamic Thermal and TGP Power Governor for Mobile RTX 3050 Laptop GPUs.
+    Models junction temperature Tj, convective heatsink dissipation, and clock throttling.
+    Demonstrates how HeteroFlash's interleaved GPU compute and Host DMA prefetch
+    naturally creates micro-cooling duty cycles that prevent thermal throttling.
+    """
+    THROTTLE_TEMP_CELSIUS = 83.0  # Mobile GPU thermal throttle limit
+    NOMINAL_TEMP_CELSIUS = 45.0   # Idle laptop temperature
+
+    @classmethod
+    def evaluate_thermal_equilibrium(
+        cls,
+        continuous_gpu_duty_cycle: float,  # 1.0 = 100% constant load, 0.45 = interleaved
+        tgp_watts: float = 60.0,
+        ambient_temp_celsius: float = 24.0,
+    ) -> Dict[str, Any]:
+        # Thermal resistance of laptop dual-heatpipe cooler (approx 0.68 °C/W)
+        r_theta = 0.68
+
+        # Effective continuous power dissipation
+        p_eff = tgp_watts * continuous_gpu_duty_cycle
+
+        # Steady-state junction temperature Tj = T_ambient + P_eff * R_theta
+        steady_state_temp = ambient_temp_celsius + (p_eff * r_theta)
+
+        is_throttled = steady_state_temp >= cls.THROTTLE_TEMP_CELSIUS
+
+        # Clock degradation if throttled:
+        effective_clock_mhz = 1740.0 if not is_throttled else max(1050.0, 1740.0 * (1.0 - (steady_state_temp - cls.THROTTLE_TEMP_CELSIUS) * 0.035))
+        clock_efficiency_pct = (effective_clock_mhz / 1740.0) * 100.0
+
+        return {
+            "duty_cycle": round(continuous_gpu_duty_cycle, 2),
+            "steady_state_temp_celsius": round(steady_state_temp, 1),
+            "is_throttled": is_throttled,
+            "effective_clock_mhz": round(effective_clock_mhz, 1),
+            "clock_efficiency_pct": round(clock_efficiency_pct, 1),
+            "temperature_margin_celsius": round(cls.THROTTLE_TEMP_CELSIUS - steady_state_temp, 1),
+        }
+
+
+class AsynchronousClusterRPCQueue:
+    """
+    Pipelined Work-Stealing RPC Queue for Heterogeneous Multi-Laptop Cluster.
+    Hides network jitter (5-30ms) between Primary 16GB Laptop and Secondary 8GB Laptop
+    by prefetching embeddings and tool executions into a local asynchronous ring queue.
+    """
+    @classmethod
+    def evaluate_jitter_pipeline(
+        cls,
+        network_mean_rtt_ms: float = 8.5,
+        network_jitter_ms: float = 12.0,
+        tokens_generated_during_rpc: int = 15,
+        target_decoding_tok_s: float = 20.0,
+    ) -> Dict[str, Any]:
+        # Worst-case network latency with jitter spike (95th percentile)
+        worst_case_rtt_ms = network_mean_rtt_ms + (2.0 * network_jitter_ms)
+
+        # Generation time window available while tokens are decoding on primary GPU
+        token_window_ms = (tokens_generated_during_rpc / target_decoding_tok_s) * 1000.0
+
+        # Overlap latency hiding
+        network_stall_ms = max(0.0, worst_case_rtt_ms - token_window_ms)
+        hiding_ratio_pct = min(100.0, (token_window_ms / worst_case_rtt_ms) * 100.0)
+
+        return {
+            "worst_case_rtt_ms": round(worst_case_rtt_ms, 2),
+            "token_window_ms": round(token_window_ms, 2),
+            "network_stall_ms": round(network_stall_ms, 2),
+            "hiding_ratio_pct": round(hiding_ratio_pct, 1),
+            "zero_stall_pipeline": bool(network_stall_ms == 0.0),
+        }
+
+
+def simulate_perfected_hetero_flash_benchmark(
+    context_tokens: int = 8192,
+    system_prompt_tokens: int = 2048,
+) -> Dict[str, Any]:
+    """
+    Simulates the perfected HeteroFlash engine combining:
+      - Paged-MLA Memory Manager (Prefix Caching & Zero Fragmentation)
+      - Speculative Tree-DAG (Medusa Attention branching)
+      - Thermal Power Governor (Interleaved Cooling Duty Cycle)
+      - Asynchronous Cluster RPC Queue (Jitter-Tolerant Offloading)
+    """
+    # 1. Paged MLA with Prefix Caching
+    paged = PagedMLAMemoryManager.allocate_agent_session(
+        total_tokens=context_tokens,
+        system_prompt_tokens=system_prompt_tokens,
+        prefix_cached=True,
+    )
+
+    # 2. Speculative Tree Decoding (with Ampere Unlock)
+    tree = SpeculativeTreeDAG.evaluate_tree_speculation(
+        base_acceptance_rate=0.75,
+        branching_factors=[3, 2],
+        target_serial_speed_tok_s=6.8 * 1.65,  # Ampere unlocked target speed
+    )
+
+    # 3. Thermal Governor
+    # Interleaved execution duty cycle is ~0.48
+    thermal = ThermalPowerGovernor.evaluate_thermal_equilibrium(
+        continuous_gpu_duty_cycle=0.48,
+        tgp_watts=60.0,
+    )
+
+    # 4. Cluster RPC
+    rpc = AsynchronousClusterRPCQueue.evaluate_jitter_pipeline(
+        target_decoding_tok_s=tree["effective_tokens_per_sec"],
+    )
+
+    # 5. Prefill latency with vs without prefix cache
+    # Baseline prefill speed at 216 tok/s
+    prefill_speed = 216.4
+    prefill_without_cache_s = context_tokens / prefill_speed
+    prefill_with_cache_s = (context_tokens - system_prompt_tokens) / prefill_speed
+
+    return {
+        "context_tokens": context_tokens,
+        "system_prompt_tokens": system_prompt_tokens,
+        "paged_mla_vram_mb": paged["paged_allocated_mb"],
+        "prefix_vram_saved_mb": paged["prefix_saved_mb"],
+        "prefill_latency_with_cache_s": round(prefill_with_cache_s, 2),
+        "prefill_latency_without_cache_s": round(prefill_without_cache_s, 2),
+        "effective_decoding_tok_s": tree["effective_tokens_per_sec"],
+        "speculative_speedup_factor": tree["speedup_factor"],
+        "gpu_junction_temp_celsius": thermal["steady_state_temp_celsius"],
+        "thermal_throttling_prevented": not thermal["is_throttled"],
+        "cluster_rpc_zero_stall": rpc["zero_stall_pipeline"],
+        "perfected_readiness": bool(
+            not thermal["is_throttled"]
+            and tree["effective_tokens_per_sec"] >= 20.0
+            and rpc["zero_stall_pipeline"]
+        ),
+    }
