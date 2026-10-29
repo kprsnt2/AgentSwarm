@@ -65,3 +65,9 @@ commitmsg.tmp
 # turns.jsonl and are large (10+ MB/turn), so they are not tracked. ---
 arena/parallel/**/*.stdout.jsonl
 arena/parallel/**/*.stderr.log
+
+
+# --- private local files (do not push to github) ---
+academic_outreach_guide.html
+*_outreach_*.html
+private/
