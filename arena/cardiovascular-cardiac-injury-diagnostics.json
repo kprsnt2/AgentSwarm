@@ -1,0 +1,55 @@
+{
+  "name": "cardiovascular-cardiac-injury-diagnostics",
+  "turns": 36,
+  "minutes": 180,
+  "maxCostUsd": 8.0,
+  "agents": 4,
+  "populationCap": 8,
+  "substrates": [
+    "agy"
+  ],
+  "questions": [
+    {
+      "id": "ngs-qpcr-cardiac-injury-platform",
+      "title": "NGS-Based and qPCR-Based Diagnostics Platform for Detecting Cardiac Injury",
+      "class": "empirical",
+      "brief": "Investigate and design a next-generation diagnostic liquid biopsy platform for ultra-sensitive, early detection of cardiac injury (acute myocardial infarction, ischemia-reperfusion, subclinical myocarditis, and drug-induced cardiotoxicity). (1) Compare existing gold standard protein biomarkers (hs-cTnI, hs-cTnT) with nucleic acid biomarkers: circulating cardiomyocyte-specific microRNAs (miR-208a-3p, miR-208b-3p, miR-499a-5p, miR-1-3p, miR-133a-3p), long non-coding RNAs (LIPCAR, MHRT), and circulating cell-free DNA (cfDNA) with cardiomyocyte-specific unmethylated or differentially methylated CpG loci (MYH6, TNNT2, MYL2, NKX2-5). (2) Design a multiplex hydrolysis probe (TaqMan) RT-qPCR and digital PCR (dPCR) panel with thermodynamic primer/probe parameters, fluorophore selection (FAM, VIC/HEX, Cy5, Texas Red), amplicon lengths (<85 bp), and pre-analytical quality controls: exogenous spike-in (cel-miR-39-3p), hemolysis index (miR-23a - miR-451a delta Ct), and heparinase I digestion to neutralize clinical tube interference. (3) Design a targeted NGS panel using Unique Molecular Identifiers (UMIs) and bisulfite/enzymatic methyl-seq to quantify absolute cardiomyocyte genome equivalents/mL of plasma, achieving an analytical limit of detection down to 0.01% cardiac fraction.",
+      "groundTruth": [
+        "High-sensitivity cardiac troponin (hs-cTn) assays have an analytical delay of 2 to 4 hours post-ischemia onset and elevate non-specifically in chronic kidney disease and sepsis without active coronary thrombosis",
+        "miR-208a is encoded within the intron of the alpha-MHC (MYH6) gene and is strictly cardiomyocyte-specific, appearing in peripheral circulation within 30-60 minutes of cardiomyocyte membrane rupture",
+        "Circulating cell-free DNA (cfDNA) from dying cardiomyocytes consists predominantly of ~167 bp mononucleosomal fragments with cell-type specific hypomethylation at cardiomyocyte promoter loci (e.g. TNNT2, MYH6)",
+        "Clinical blood collection tubes containing sodium or lithium heparin strongly inhibit DNA polymerase and reverse transcriptase; heparinase I treatment is required before enzymatic amplification",
+        "Rupture of red blood cells (hemolysis) releases abundant erythroid miR-16-5p and miR-451a, masking cardiac microRNAs unless monitored by the delta Ct(miR-23a - miR-451a) quality control ratio (cutoff < 7.0)"
+      ],
+      "deliverable": "A Python computational engine `cardiac_injury_diagnostic_engine.py` with test suite and a scientific monograph `CARDIAC_INJURY_NGS_QPCR_DIAGNOSTICS.md`."
+    },
+    {
+      "id": "scrna-snrna-cardiac-injury-atlas",
+      "title": "Single-Cell and Single-Nucleus RNA-seq Demystification of Cardiac Injury Heterogeneity",
+      "class": "empirical",
+      "brief": "Provide an in-depth transcriptomic guide and computational classifier for biologists without extensive bioinformatics training. (1) Explain the fundamental biophysical necessity of single-nucleus RNA-seq (snRNA-seq) over single-cell RNA-seq (scRNA-seq) in adult mammalian hearts: adult cardiomyocytes are large rod-shaped cells (100-150 um) that cannot pass through standard 30-50 um microfluidic droplets (e.g. 10x Genomics Chromium) without shear rupture, requiring detergent-based isolation of intact 5-10 um nuclei. (2) Define the canonical marker gene signatures for the human cardiac cell atlas: Cardiomyocytes (TNNT2, MYH6, MYH7, ACTC1), Activated Myofibroblasts (POSTN, COL1A1, FAP, ACTA2), Quiescent Fibroblasts (DCN, GSN, PDGFRA), Endothelial Cells (PECAM1, CDH5, VWF), Macrophages/Monocytes (CD68, MRC1, CCR2, LYVE1), Pericytes/SMCs (ABCC9, PDGFRB, MYH11). (3) Model the dynamic temporal transcriptomic shifts following myocardial ischemia/reperfusion: acute metabolic switch from fatty acid oxidation (CPT1B, PPARA) to glycolysis (SLC2A1, LDHA, HIF1A), early response genes (FOS, JUN, EGR1), fetal gene reprogramming (NPPA, NPPB, MYH7 induction), and post-infarct inflammatory vs reparative macrophage transitions.",
+      "groundTruth": [
+        "Adult mammalian cardiomyocytes (100-150 um length) are physically excluded or destroyed by droplet microfluidics, making single-nucleus RNA-seq (snRNA-seq) the international consensus standard for unbiased heart tissue profiling",
+        "Periostin (POSTN) is virtually absent in healthy quiescent cardiac fibroblasts but is massively upregulated upon TGF-beta-mediated activation into contractile, ECM-secreting myofibroblasts after myocardial infarction",
+        "Ischemic cardiomyocytes undergo rapid metabolic reprogramming, suppressing fatty acid beta-oxidation (CPT1B) and activating HIF-1alpha-driven anaerobic glycolysis (LDHA, SLC2A1)",
+        "CCR2+ infiltrating monocyte-derived macrophages drive early destructive inflammation (days 1-3), while resident LYVE1+/MRC1+ macrophages mediate efferocytosis, neovascularization, and scar maturation (days 4-14)",
+        "Re-expression of embryonic/fetal genes (NPPA, NPPB, MYH7) serves as a conserved transcriptional hallmark of hemodynamic wall stress and cardiomyocyte dedifferentiation"
+      ],
+      "deliverable": "A transcriptomic deconvolution module in `cardiac_injury_diagnostic_engine.py` and detailed cell-type atlas section in `CARDIAC_INJURY_NGS_QPCR_DIAGNOSTICS.md`."
+    },
+    {
+      "id": "experimental-validation-and-translation",
+      "title": "Experimental Data Interpretation and Concrete Follow-Up Wet-Lab Validation Protocols",
+      "class": "engineering",
+      "brief": "Synthesize a translational biology protocol empowering laboratory scientists to interpret experimental data and execute follow-up wet-lab experiments. (1) Provide clear heuristics for interpreting differential expression (volcano plots, log2FC >= 1.0, Benjamini-Hochberg FDR < 0.05), UMAP clustering, and RT-qPCR amplification curves (efficiency 90-110%, slope -3.32, delta-delta Ct quantification). (2) Design three specific follow-up experiments: Experiment A: In-vitro human iPSC-derived cardiomyocyte (hiPSC-CM) hypoxia/reoxygenation kinetic assay measuring release rates of miR-208a, miR-499, and fragmented cfDNA into supernatant; Experiment B: Multiplex RT-dPCR validation across longitudinal human plasma samples comparing analytical sensitivity against high-sensitivity cardiac troponin I (hs-cTnI); Experiment C: Targeted enzymatic methyl-seq validation of cardiac-specific CpG loci in clinical serum cohorts.",
+      "groundTruth": [
+        "RT-qPCR reaction efficiency (E) must fall between 90% and 110% (slope between -3.10 and -3.58 on standard curves) for the delta-delta Ct (2^-ddCt) comparative quantification method to be mathematically valid",
+        "Digital PCR (dPCR) provides absolute partition-based quantification (Poisson distribution) without requiring external standard curves, making it superior for low-abundance circulating microRNAs in plasma (<50 copies/uL)",
+        "hiPSC-derived cardiomyocytes retain fetal-like gene expression patterns (higher MYH7/MYH6 ratio, lower Tcap) but faithfully model membrane rupture and non-coding RNA release upon acute hypoxia-reoxygenation",
+        "Unique Molecular Identifiers (UMIs) tagged to individual cfDNA molecules prior to PCR amplification allow computational collapse of PCR duplicates, eliminating false-positive variant calls and amplification bias",
+        "Receptor-mediated clearance of circulating microRNAs and cfDNA occurs via hepatic and renal pathways with typical plasma half-lives ranging from 1 to 4 hours"
+      ],
+      "deliverable": "Validation and experimental design section with actionable laboratory SOPs and statistical pipelines."
+    }
+  ]
+}

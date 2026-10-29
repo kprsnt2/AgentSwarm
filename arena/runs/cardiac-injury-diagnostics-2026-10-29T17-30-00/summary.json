@@ -1,0 +1,11 @@
+{
+  "runId": "cardiac-injury-diagnostics-2026-10-29T17-30-00",
+  "phase": "cardiac-injury-diagnostics",
+  "turns": 5,
+  "okTurns": 5,
+  "totalCostUsd": 0.021,
+  "halted": "completed",
+  "wallClockMinutes": 24,
+  "population": 4,
+  "ledgerIntegrity": "intact"
+}

@@ -18,6 +18,7 @@ export const REPO_URL = 'https://github.com/kprsnt2/AgentSwarm';
 export const REPO_BLOB = `${REPO_URL}/blob/main/arena/world/`;
 
 const DOMAIN_RULES = [
+  { id: 'cardiac-injury-diagnostics', label: 'Cardiovascular Diagnostics', re: /^(cardiac_|test_cardiac_|CARDIAC_INJURY)/i },
   { id: 'chronic-disease-remission', label: 'Tablet-Free Chronic Diseases', re: /^(diabetes|hypertension|thyroid|bioelectronic|REGENERATIVE_THYROID|test_diabetes|test_hypertension|test_thyroid|test_bioelectronic)/i },
   { id: 'nextgen-drug-discovery', label: 'Next-Gen Drug Discovery', re: /^(tpd_|test_tpd_|TARGETED_PROTEIN_DEGRADATION|adc_|test_adc_|ANTIBODY_DRUG_CONJUGATE|kras_|test_kras_|DRUGGING_UNDRUGGABLE|lead_optimization|test_lead_optimization|COMPUTATIONAL_LEAD)/i },
   { id: 'cancer-cellular-delivery', label: 'Oncology & Cellular Delivery', re: /^(cancer_|test_cancer_|TUMOR_IMMUNE|targeted_lnp|test_targeted_lnp|EXTRAHEPATIC_LNP|blood_brain_barrier|BLOOD_BRAIN_BARRIER|antimicrobial_permeability|test_antimicrobial_permeability)/i },

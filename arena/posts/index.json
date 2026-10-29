@@ -1,6 +1,52 @@
 {
-  "generatedAt": "2026-10-29T14:13:18.771Z",
+  "generatedAt": "2026-10-29T17:30:45.028Z",
   "posts": [
+    {
+      "runId": "cardiac-injury-diagnostics-2026-10-29T17-30-00",
+      "file": "cardiac-injury-diagnostics-2026-10-29t17-30-00.md",
+      "title": "cardiac-injury-diagnostics — cardiac-injury-diagnostics-2026-10-29T17-30-00",
+      "phase": "cardiac-injury-diagnostics",
+      "generatedAt": "2026-10-29T17:30:44.995Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 5,
+        "okTurns": 5,
+        "agents": 4,
+        "toolCalls": 5,
+        "thinkingTokens": 7250,
+        "cost": 0.020999999999999998,
+        "violations": 0,
+        "filesWritten": 3,
+        "incidents": 0
+      },
+      "halted": "completed",
+      "agents": [
+        {
+          "name": "Kepler",
+          "purpose": "Investigate \"NGS-Based and qPCR-Based Diagnostics Platform for Detecting Cardiac Injury\" (ngs-qpcr-cardiac-injury-platform)",
+          "turns": 2
+        },
+        {
+          "name": "Raman",
+          "purpose": "Investigate \"Single-Cell and Single-Nucleus RNA-seq Demystification of Cardiac Injury Heterogeneity\" (scrna-snrna-cardiac-injury-atlas)",
+          "turns": 1
+        },
+        {
+          "name": "Hypatia",
+          "purpose": "Investigate \"Experimental Data Interpretation and Concrete Follow-Up Wet-Lab Validation Protocols\" (experimental-validation-and-translation)",
+          "turns": 1
+        },
+        {
+          "name": "Nagarjuna",
+          "purpose": "Engineer \"Computational Engine, cfDNA Methylation Deconvolution, and Multi-Omic ROC Evaluation\" (cardiac-injury-diagnostic-engine)",
+          "turns": 1
+        }
+      ]
+    },
     {
       "runId": "tablet-free-chronic-disease-2026-10-29T10-11-06",
       "file": "tablet-free-chronic-disease-2026-10-29t10-11-06.md",
