@@ -1,0 +1,11 @@
+{
+  "runId": "cardiac-electromechanics-2026-10-30T01-00-00",
+  "phase": "cardiac-electromechanical-integration",
+  "turns": 5,
+  "okTurns": 5,
+  "totalCostUsd": 0.0228,
+  "halted": "completed",
+  "wallClockMinutes": 26,
+  "population": 4,
+  "ledgerIntegrity": "intact"
+}

@@ -1,6 +1,52 @@
 {
-  "generatedAt": "2026-10-29T18:40:00.742Z",
+  "generatedAt": "2026-10-29T19:04:10.380Z",
   "posts": [
+    {
+      "runId": "cardiac-electromechanics-2026-10-30T01-00-00",
+      "file": "cardiac-electromechanics-2026-10-30t01-00-00.md",
+      "title": "cardiac-electromechanical-integration — cardiac-electromechanics-2026-10-30T01-00-00",
+      "phase": "cardiac-electromechanical-integration",
+      "generatedAt": "2026-10-29T19:04:10.347Z",
+      "polished": false,
+      "polish": {
+        "ok": false,
+        "reason": "disabled"
+      },
+      "totals": {
+        "turns": 5,
+        "okTurns": 5,
+        "agents": 4,
+        "toolCalls": 5,
+        "thinkingTokens": 8250,
+        "cost": 0.022799999999999997,
+        "violations": 0,
+        "filesWritten": 0,
+        "incidents": 0
+      },
+      "halted": "completed",
+      "agents": [
+        {
+          "name": "Euler",
+          "purpose": "Model \"N-Cadherin Catch-Bond Kinetics and Directional Stress Tensor at Cell Poles\" (catch-bond-mechanosensing)",
+          "turns": 2
+        },
+        {
+          "name": "Golgi",
+          "purpose": "Model \"Microtubule (+TIP) Targeted Cx43 Vesicular Trafficking\" (microtubule-cx43-trafficking)",
+          "turns": 1
+        },
+        {
+          "name": "Hodgkin",
+          "purpose": "Model \"Perinexal Nav1.5 Ephaptic Coupling and ZO-1 PDZ2 Gating Kinetics\" (perinexus-ephaptic-coupling)",
+          "turns": 1
+        },
+        {
+          "name": "Purkinje",
+          "purpose": "Solve \"Bidomain Conduction Anisotropy, Source-Sink Safety Factor, and Re-Entry Vulnerability\" (bidomain-cable-electrophysiology)",
+          "turns": 1
+        }
+      ]
+    },
     {
       "runId": "cardiac-fibrosis-hysteresis-2026-10-30T00-00-00",
       "file": "cardiac-fibrosis-hysteresis-2026-10-30t00-00-00.md",
