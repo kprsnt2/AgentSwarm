@@ -18,6 +18,7 @@ export const REPO_URL = 'https://github.com/kprsnt2/AgentSwarm';
 export const REPO_BLOB = `${REPO_URL}/blob/main/arena/world/`;
 
 const DOMAIN_RULES = [
+  { id: 'hyper-quant-compression', label: 'Ultra-Low Bit LLM Compression & CPU Inference', re: /^(hyper_quant|test_hyper_quant|UNIVERSAL_HYPER_QUANT)/i },
   { id: 'hetero-flash-inference', label: 'Local LLM Inference & GPU Acceleration', re: /^(hetero_|test_hetero_|HETERO_)/i },
   { id: 'cardiac-injury-diagnostics', label: 'Cardiovascular Biology, Regeneration & Fibrosis', re: /^(cardiac_|test_cardiac_|CARDIAC_)/i },
   { id: 'chronic-disease-remission', label: 'Tablet-Free Chronic Diseases', re: /^(diabetes|hypertension|thyroid|bioelectronic|REGENERATIVE_THYROID|test_diabetes|test_hypertension|test_thyroid|test_bioelectronic)/i },

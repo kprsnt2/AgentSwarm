@@ -1,0 +1,11 @@
+{
+  "runId": "hyper-quant-compression-2026-10-31T05-00-00",
+  "phase": "hyper-quant-compression",
+  "turns": 12,
+  "okTurns": 12,
+  "totalCostUsd": 0.0606,
+  "halted": "completed",
+  "wallClockMinutes": 44,
+  "population": 4,
+  "ledgerIntegrity": "intact"
+}
